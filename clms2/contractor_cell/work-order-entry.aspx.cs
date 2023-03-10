@@ -50,7 +50,8 @@ namespace clms2.contractor_cell
                     }
                 }
             }
-            txtNatureofWork.Items.Insert(0, new ListItem("--Select Nature Of Work--", "0"));
+            ////txtNatureofWork.Items.Insert(0, new ListItem("--Select Nature Of Work--", "0"));
+            txtNatureofWork.Items.Insert(0, new ListItem("Select", "Select"));
         }
 
         public void dept()
@@ -74,7 +75,8 @@ namespace clms2.contractor_cell
                     }
                 }
             }
-            txtDepartment.Items.Insert(0, new ListItem("--Select Department--", "0"));
+            ////txtDepartment.Items.Insert(0, new ListItem("--Select Department--", "0"));
+            txtDepartment.Items.Insert(0, new ListItem("Select", "Select"));
         }
 
         public void contracttype()
@@ -98,7 +100,8 @@ namespace clms2.contractor_cell
                     }
                 }
             }
-            txtTypeofContract.Items.Insert(0, new ListItem("--Select Contract Type--", "0"));
+            ///txtTypeofContract.Items.Insert(0, new ListItem("--Select Contract Type--", "0"));
+            txtTypeofContract.Items.Insert(0, new ListItem("Select", "Select"));
         }
 
         public void joblocation()
@@ -122,7 +125,8 @@ namespace clms2.contractor_cell
                     }
                 }
             }
-            txtJobLocation.Items.Insert(0, new ListItem("--Select Job Location--", "0"));
+            ////txtJobLocation.Items.Insert(0, new ListItem("--Select Job Location--", "0"));
+            txtJobLocation.Items.Insert(0, new ListItem("Select", "Select"));
         }
 
 
@@ -221,7 +225,7 @@ namespace clms2.contractor_cell
                 // ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 string Str1 = "insert into tbl_vendor_info(id,  " + "vendor_reg_code, " + "vendor_name, " + "vendor_owner_name, " + "email, " + "contact_no1,contact_no2, " + "firm_address,firm_city, " + "firm_state,firm_pin,license_no, " + "valid_from,valid_to, " + "workers_authorised, " + "pfno,esicno,pwd,img_file,status,work_worder)";
 
-                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEMail.Text + "', " + "'" + txtPhNo.Text + "', " + "'0', " + "'0', " + "'0', " + "'0', " + "'0', " + "'0', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'0', " + "'0', " + "'123@123', " + "'-', " + "'N','" + txtWONo.Text + "')";
+                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEmail.Text + "', " + "'" + txtPhNo.Text + "', " + "'0', " + "'0', " + "'0', " + "'0', " + "'0', " + "'0', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'0', " + "'0', " + "'123@123', " + "'-', " + "'N','" + txtWONo.Text + "')";
 
                 SqlCommand cm1 = new SqlCommand(Str1, con);
                 cm1.ExecuteNonQuery();
@@ -229,50 +233,113 @@ namespace clms2.contractor_cell
                 AutoID();
                 Auto_ID();
 
-                lblMSG.Text = "UID : " + txtVendorRegNo.Text + " Password : 123@123";
-                lblMSG1.Text = "Record Saved.......";
+                lblMsg.Text = "UID : " + txtVendorRegNo.Text + " Password : 123@123";
+                //lblMSG1.Text = "Record Saved.......";
 
-
-                txtVendorRegNo.Text = "";
-                txtWONo.Text = "";
-                txtValidFrom.Text = "";
-                txtValidTo.Text = "";
-                txtNatureofWork.SelectedIndex = 0;
-                txtTypeofContract.SelectedIndex = 0;
-                txtDepartment.SelectedIndex = 0;
-                txtJobLocation.SelectedIndex = 0;
-                txtVendorRegNo.Text = "";
-                txtVendorName.Text = "";
-                txtOwnerName.Text = "";
-                txtEMail.Text = "";
-                txtPhNo.Text = "";
+                // sending email to vendor with login details
+                send_mail();
 
                 Thread.Sleep(5000);
 
-                lblMSG1.Text = "";
+               // lblMSG1.Text = "";
             }
             catch (Exception ex)
             {
-                lblMSG1.Text = ex.Message;
+                lblMsgError.Text = ex.Message;
             }
         }
 
         protected void BtnMail_Click(object sender, EventArgs e)
         {
-            System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
-            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-            mail.From = new MailAddress("bkbirendramca@gmail.com");
-            mail.To.Add("Email Id to kapildevblog@gmail.com");
-            mail.Subject = "Test mail";
-            mail.Body = "Test mail";
-            // mail.Attachments.Add(New Attachment(OpenFileDialog1.FileName))
-            SmtpServer.Port = 587;
-            SmtpServer.Credentials = new System.Net.NetworkCredential("bkbirendramca@gmail.com", "bkp#1971");
-            SmtpServer.EnableSsl = true;
-            SmtpServer.Send(mail);
-            mail.From = new MailAddress("bkbirendramca@gmail.com");
-            //Interaction.MsgBox("E-mail Has Been Send Successfully !");
+            send_mail();
+ 
         }
+
+        protected void send_mail()
+        {
+            try
+            {
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                DataSet ds = new DataSet();
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_info Where email= '" + txtEmail.Text.Trim() + "' and work_worder='" + txtWONo.Text.Trim() + "'", con);
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(ds);
+                    con.Close();
+
+                }
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    string from, pass = "";
+                    System.Net.Mail.MailMessage Msg = new System.Net.Mail.MailMessage();
+                    // Sender e-mail address.
+                    //Msg.From = new MailAddress(txtEmail.Text);
+                    from = "bkbirendramca@outlook.com";
+                    pass = "bkp@1971";
+                    Msg.From = new MailAddress(from,"GREEN HRM SOLUTION");
+
+                   // Msg.From = new MailAddress(txtEmail.Text); 
+                    // Recipient e-mail address.
+                    Msg.To.Add(txtEmail.Text);
+                    Msg.Subject = "Your Password Details";
+                    //Msg.Body = "Hi, <br/>Please check your Login Detailss<br/><br/>Your Username:" + "cc" + "<br/><br/>Your Password:" + "1" + "<br/><br/>";
+                    Msg.Body = "Hi, <br/>Please check your Login Details<br/><br/>Your Username: " + ds.Tables[0].Rows[0]["vendor_reg_code"] + "<br/><br/>Your Password: " + ds.Tables[0].Rows[0]["pwd"] + "<br/><br/>";
+                    Msg.IsBodyHtml = true;
+                    // your remote SMTP server IP.
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp-mail.outlook.com";
+                    // smtp.Host = "smtp.mail.yahoo.com";  //Require secure site
+                    //smtp.Host = "smtp.gmail.com";   //Require secure site
+                    smtp.Port = 587;
+                    smtp.EnableSsl = true;
+                    smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtp.Credentials = new System.Net.NetworkCredential(from, pass);
+                    smtp.Send(Msg);
+                    //Msg = null;
+                    lblMsgError.Text = "";
+                    lblMsgMail.Text = "";
+ 
+                    lblMsgMail.Text = "Your Password Details Sent to your mail";
+                    // Clear the textbox valuess
+                    // txtEmail.Text = "";
+                }
+                else
+                {
+
+                    lblMsgError.Text = "The Email you entered does not exists.";
+                }
+            }
+            catch (Exception ex)
+            {
+                // Response.Write(ex.Message);
+
+                lblMsgError.Text = "Error : " + ex.Message;
+            }
+
+        }
+
+        protected void cmdCancel_Click(object sender, EventArgs e)
+        {
+            txtVendorRegNo.Text = "";
+            txtWONo.Text = "";
+            txtValidFrom.Text = "";
+            txtValidTo.Text = "";
+            txtNatureofWork.SelectedIndex = 0;
+            txtTypeofContract.SelectedIndex = 0;
+            txtDepartment.SelectedIndex = 0;
+            txtJobLocation.SelectedIndex = 0;
+            txtVendorRegNo.Text = "";
+            txtVendorName.Text = "";
+            txtOwnerName.Text = "";
+            txtEmail.Text = "";
+            txtPhNo.Text = "";
+            txtNoEmp.Text = "";
+            txtDescription.Text = "";
+
+        }
+
 
 
 

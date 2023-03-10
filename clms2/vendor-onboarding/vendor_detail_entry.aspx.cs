@@ -139,8 +139,10 @@ namespace clms2.vendor_onboarding
             if (pfRadio1.Checked == true)
             {
                 txtPFNO.Visible = true;
+                btnDownloadPF.Visible = false;
                 PFileUpload.Visible = false;
-                HyperLinkPF.Visible = false;
+               // HyperLinkPF.Visible = false;
+              
             }
 
         }
@@ -151,7 +153,8 @@ namespace clms2.vendor_onboarding
             {
                 txtPFNO.Visible = false;
                 PFileUpload.Visible = true;
-                HyperLinkPF.Visible = true;
+               // HyperLinkPF.Visible = true;
+                btnDownloadPF.Visible = true;
             }
 
         }
@@ -162,7 +165,8 @@ namespace clms2.vendor_onboarding
             {
                 txtESIC.Visible = true;
                 ESICFileUpload.Visible = false;
-                HyperLinkESIC.Visible = false;
+                //HyperLinkESIC.Visible = false;
+                btnDownloadEsic.Visible = false;
             }
 
         }
@@ -173,7 +177,8 @@ namespace clms2.vendor_onboarding
             {
                 txtESIC.Visible = false;
                 ESICFileUpload.Visible = true;
-                HyperLinkESIC.Visible = true;
+               // HyperLinkESIC.Visible = true;
+                btnDownloadEsic.Visible = false;
             }
 
         }
@@ -637,6 +642,55 @@ namespace clms2.vendor_onboarding
            
 
            }
+
+        protected void btnDownloandPF_Click(object sender, EventArgs e)
+        {
+            var path = Server.MapPath("~/attd_down_doc");
+            var filePath = Path.Combine(path, "Atted_Format.csv");
+            FileInfo file = new FileInfo(filePath);
+            if (file.Exists)
+            {
+                // Clear Rsponse reference  
+                Response.Clear();
+                // Add header by specifying file name  
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                // Add header for content length  
+                Response.AddHeader("Content-Length", file.Length.ToString());
+                // Specify content type  
+                Response.ContentType = "text/plain";
+                // Clearing flush  
+                Response.Flush();
+                // Transimiting file  
+                Response.TransmitFile(file.FullName);
+                Response.End();
+            }
+            Response.Write("Requested file is not available to download");
+        }
+
+        protected void btnDownloandEsic_Click(object sender, EventArgs e)
+        {
+            var path = Server.MapPath("~/attd_down_doc");
+            var filePath = Path.Combine(path, "Atted_Format.csv");
+            FileInfo file = new FileInfo(filePath);
+            if (file.Exists)
+            {
+                // Clear Rsponse reference  
+                Response.Clear();
+                // Add header by specifying file name  
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                // Add header for content length  
+                Response.AddHeader("Content-Length", file.Length.ToString());
+                // Specify content type  
+                Response.ContentType = "text/plain";
+                // Clearing flush  
+                Response.Flush();
+                // Transimiting file  
+                Response.TransmitFile(file.FullName);
+                Response.End();
+            }
+            Response.Write("Requested file is not available to download");
+
+        }
       
 
     }

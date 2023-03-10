@@ -11,14 +11,14 @@
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
-    <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
+    <link href="../public/common/css/bootswatchTheme.css" rel="stylesheet" />
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/public/newfront/datatables/datatables.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/icons.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/app.min.css" />
-    <%--   <link rel="stylesheet" href="~/public/common/css/commoncss.min.css" />--%>
+     <%--  <link rel="stylesheet" href="~/public/common/css/commoncss.min.css" />--%>
     <link rel="apple-touch-icon" sizes="57x57" href="~/public/common/icons/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="~/public/common/icons/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="~/public/common/icons/apple-icon-72x72.png" />
@@ -237,7 +237,7 @@
             </tr>
             <tr>
                 <td>
-                    <%--<div class="page-wrapper">--%>
+                    <div class="page-wrapper">
                     <div class="page-content-tab">
                         <div class="container-fluid">
                             <div class="row mb-2 border-bottom pb-2">
@@ -263,10 +263,8 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
-                                                <label for="txtAddress">Work Order No.</label>
-
+                                                <label for="txtWorkOrderNo">Work Order No.</label>
                                                 <asp:DropDownList ID="txtWorkOrderNo" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="txtWorkOrderNo_SelectedIndexChanged"></asp:DropDownList>
-
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -275,24 +273,19 @@
                                                 <asp:TextBox ID="txtEmpName" runat="server" class="form-control"></asp:TextBox>
                                             </div>
                                         </div>
-
-
                                     </div>
                                     <%--========================================================================================--%>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
                                                 <label for="txtAddress">Vendor code</label>
-
                                                 <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
-
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
                                                 <label>Emp Code</label>
                                                 <asp:TextBox ID="txtEmpCode" runat="server" class="form-control" placeholder="Emp Code"></asp:TextBox>
-
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -654,7 +647,7 @@
                             </div>
                         </div>
                     </div>
-                    <%-- </div>--%>
+                     </div>
                 </td>
             </tr>
             <tr>

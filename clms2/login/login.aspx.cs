@@ -83,6 +83,7 @@ namespace clms2.login
                     SqlDataReader r = cm.ExecuteReader();
                     if (r.Read())
                         Response.Redirect("../contractor_cell/dashboard.aspx");
+                      
                     else
                         lblMsg.Text = "Enter valid Credentials";
                     r.Close();

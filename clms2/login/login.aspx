@@ -5,6 +5,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>CLMS | Login!</title>
+
+<link rel="icon" href="../public/common/icons/favicon.ico" type="icon/png" />
+<link rel="stylesheet" href="../public/common/css/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" href="../public/common/vendors/fontawesome/css/all.min.css" />
+<link rel="stylesheet" href="../public/common/css/commoncss.min.css" />
+  
+<meta name="msapplication-TileColor" content="#ffffff" />
+<meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
+<meta name="theme-color" content="#ffffff" />
+    <style type="text/css">
+        .auto-style1 {
+            width: 312px;
+        }
+        .auto-style2 {
+            height: 10px;
+            width: 312px;
+        }
+    </style>
+</head>
+<head>
+    <title>CLMS | Login!</title>
     <link rel="icon" href="../public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="../public/common/css/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="../public/common/vendors/fontawesome/css/all.min.css" />
@@ -13,6 +34,11 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
+    <style type="text/css">
+        .auto-style2 {
+            height: 10px;
+        }
+        </style>
 </head>
 <body class="login">
     <form id="form1" runat="server">
@@ -34,8 +60,8 @@
                     </div>
                     <div class="form_container">
                         <div class="text-center mb-4">
-                            <h2 class="robotobold">Admin
-					<span class="robotonormal">Login</span></h2>
+                            <h4 class="robotobold">Admin
+					    <span class="robotonormal">Login</span></h4>
                         </div>
                         <div class="d-flex justify-content-center">
                             <table>
@@ -62,7 +88,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="height: 10px;"></td>
+                                    <td class="auto-style2"></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -78,7 +104,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="height: 10px;"></td>
+                                    <td class="auto-style2"></td>
                                 </tr>
                                 <tr>
                                     <td>
@@ -94,16 +120,16 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="height: 10px;"></td>
+                                    <td class="auto-style2"></td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Button ID="txtSubmit" runat="server" Text="Log in" class="btn login_btn" OnClick="txtSubmit_Click" Width="258px"></asp:Button>
+                                        <asp:Button ID="txtSubmit" runat="server" Text="Log in" class="btn login_btn" OnClick="txtSubmit_Click" Width="311px"></asp:Button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="text-center">
-                                        <asp:Label ID="lblMsg" runat="server" forcolor="Red" Font-Bold="True" Font-Size="Medium" ForeColor="Green"></asp:Label>
+                                    <td>
+                                        <asp:Label ID="lblMsg" runat="server" ForeColor="Red" Font-Bold="True" Font-Size="Small"></asp:Label>
                                     </td>
                                 </tr>
                             </table>

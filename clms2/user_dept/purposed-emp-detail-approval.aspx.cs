@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace clms2.user_dept
 {
-    public partial class purposed_emp_detail : System.Web.UI.Page
+    public partial class purposed_emp_detail_approval : System.Web.UI.Page
     {
         public string strSQL;
         private static string Conn = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
@@ -21,8 +21,6 @@ namespace clms2.user_dept
             if (con.State == ConnectionState.Closed)
                 con.Open();
         }
-
-     
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,7 +44,6 @@ namespace clms2.user_dept
             }
 
         }
-    
 
         private void BindGrid()
         {
@@ -55,7 +52,7 @@ namespace clms2.user_dept
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-               /// strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "'";
+                /// strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "'";
                 strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -68,18 +65,38 @@ namespace clms2.user_dept
             }
         }
 
-        protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            GvEmp.PageIndex = e.NewPageIndex;
-             GvEmp.DataBind();
+            GvEmp.EditIndex = -1;
+            BindGrid();
+        }
+
+        protected void GvEmp_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            //if (DataBinder.Eval(e.Row.DataItem, "status") == "N")
+            //    e.Row.BackColor = System.Drawing.Color.LightPink;
+
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+            //    //DataRowView dr = (DataRowView)e.Row.DataItem;
+            //    //string imageUrl = "data:image/png;base64," + Convert.ToBase64String((byte[])dr["venImageData"]);
+            //    //(e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
+
+            //}
+        }
+
+        protected void GvEmp_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GvEmp.EditIndex = e.NewEditIndex;
+            BindGrid();
 
         }
 
         protected void GvEmp_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             Label id = GvEmp.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
-            TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txtDept_remarks") as TextBox;
-            DropDownList approv = GvEmp.Rows[e.RowIndex].FindControl("ddlApproval") as DropDownList;
+            TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_DeptRemarks") as TextBox;
+            DropDownList approv = GvEmp.Rows[e.RowIndex].FindControl("ddlDeptApproval") as DropDownList;
 
             dbConnection();
 
@@ -93,59 +110,13 @@ namespace clms2.user_dept
 
             BindGrid();
 
-            lblMsg.Text = "Record Updated......";
-
+            //lblMsg.Text = "Record Updated......";
         }
 
-        protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GvEmp.EditIndex = -1;
-             BindGrid();
+            GvEmp.PageIndex = e.NewPageIndex;
+            GvEmp.DataBind();
         }
-
-        protected void GvEmp_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            GvEmp.EditIndex = e.NewEditIndex;
-              BindGrid();
-
-        }
-
-        protected void GvEmp_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (DataBinder.Eval(e.Row.DataItem, "status") == "N")
-                e.Row.BackColor = System.Drawing.Color.LightPink;
-
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                //DataRowView dr = (DataRowView)e.Row.DataItem;
-                //string imageUrl = "data:image/png;base64," + Convert.ToBase64String((byte[])dr["venImageData"]);
-                //(e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
-
-            }
-        }
-
-        // Private Sub ToggleCheckState(ByVal checkState As Boolean)
-        // ' Iterate through the Products.Rows property
-        // For Each row As GridViewRow In GvEmp.Rows
-        // ' Access the CheckBox
-        // Dim cb As CheckBox = row.FindControl("chk")
-        // If cb IsNot Nothing Then
-        // cb.Checked = checkState
-        // End If
-        // Next
-        // End Sub
-
-        // Protected Sub CheckAll_Click(sender As Object, e As EventArgs) _
-        // Handles CheckAll.Click
-
-        // ToggleCheckState(True)
-        // End Sub
-        // Protected Sub UncheckAll_Click(sender As Object, e As EventArgs) _
-        // Handles UncheckAll.Click
-
-        // ToggleCheckState(False)
-        // End Sub
-    
-      
     }
 }

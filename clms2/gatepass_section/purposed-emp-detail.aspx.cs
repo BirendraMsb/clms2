@@ -37,7 +37,7 @@ namespace clms2.gatepass_section
             {
                 BindGrid();
                 // 'strSQL = "SELECT * FROM tbl_emp where vendor_code='" & Request.QueryString("Id") & "'"
-                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
+                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -56,7 +56,7 @@ namespace clms2.gatepass_section
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
+                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();

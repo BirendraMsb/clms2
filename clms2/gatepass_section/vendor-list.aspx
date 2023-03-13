@@ -88,24 +88,26 @@
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Gate Pass <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="vendor-list.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Work Order Wise
+                                                    <i class="fa fa-angle-right me-1"></i>Emp Approval
                                                 </a>
                                             </li>
-
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gate Pass <span class="fa fa-angle-down ms-1"></span></a>
+                                        <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="gp-print.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>GP Print
                                                 </a>
                                             </li>
-                                          
-
                                         </ul>
                                     </li>
-                                   
+
 
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
@@ -169,6 +171,7 @@
                                 <%--========================================================================================--%>
  Work Order :
                                 <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" class="form-control" Width="250px" runat="server" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged" ></asp:DropDownList>
+                                
                                 <asp:GridView ID="GvVendor" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                     GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvVendor_PageIndexChanging">
                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

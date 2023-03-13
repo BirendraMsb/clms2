@@ -247,9 +247,9 @@
                                         <div class="table-responsive" style="overflow: auto;">
                                             <%--========================================================================================--%>
                                             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnPageIndexChanging="OnPaging"
+                                                GridLines="Vertical" AllowPaging="True" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnPageIndexChanging="OnPaging"
                                                 OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
-                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true">
+                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
 
                                                 <Columns>

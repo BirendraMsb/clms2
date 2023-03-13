@@ -30,7 +30,8 @@ namespace clms2.gatepass_section
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("select * from tbl_emp  where hr_approval='Approved' and security_approval='Approved'"))
+              //  strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
+                using (SqlCommand cmd = new SqlCommand("select * from tbl_emp  where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved'"))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -50,9 +51,14 @@ namespace clms2.gatepass_section
        
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            string usrnm = Session["User"].ToString();
+            lblUser.Text = usrnm;
+            // lblUser1.Text = usrnm
+            lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
+
             if ((!IsPostBack))
                 Emp_Name_show();
-
             dbConnection();
         }
 

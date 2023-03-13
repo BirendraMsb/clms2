@@ -90,7 +90,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="work-order-entry.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> New Work Order
+                                                    <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
 
@@ -172,51 +172,35 @@
             <tr>
                 <td>
                     <div class="page-wrapper">
-            <div class="page-content-tab">
-                <div class="container-fluid">
-                    <br />
-                    <div class="card shadow border">
-                        <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
-                            <span>Vendor Detail</span>
-                            <%--<span ><a href="work-order-entry.aspx"  class="text-white">Add New</a></span>--%>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive" style="overflow: auto;">
-                                <%--========================================================================================--%>
+                        <div class="page-content-tab">
+                            <div class="container-fluid">
+                                <br />
+                                <div class="card shadow border">
+                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
+                                        <span>Vendor Detail</span>
+                                        <%--<span ><a href="work-order-entry.aspx"  class="text-white">Add New</a></span>--%>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive" style="overflow: auto;">
+                                            <%--========================================================================================--%>
 
-                                <asp:GridView ID="GvVendor" runat="server" AutoGenerateColumns="False"
-                                    BackColor="White" BorderColor="#999999"
-                                    BorderStyle="None" BorderWidth="1px"
-                                    CellPadding="3" GridLines="Vertical"
-                                    AllowPaging="true" PageSize="10"
-                                    DataKeyNames="id" Class="table table-bordered "
-                                    ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvVendor_PageIndexChanging" OnRowCancelingEdit="GvVendor_RowCancelingEdit" OnRowDataBound="GvVendor_RowDataBound" OnRowEditing="GvVendor_RowEditing" OnRowUpdating="GvVendor_RowUpdating">
-                                    <%-- DataKeyNames="id" Class="table table-bordered nowrap"--%>
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <Columns>
-                                        <asp:TemplateField HeaderText="Sl. No">
-                                            <ItemTemplate>
-                                                <%# Container.DataItemIndex + 1 %>
-                                            </ItemTemplate>
-                                            <ItemStyle Width="30px" HorizontalAlign="Center" />
-                                        </asp:TemplateField>
+                                            <asp:GridView ID="GvVendor" runat="server" AutoGenerateColumns="False"
+                                                BackColor="White" BorderColor="#999999"
+                                                BorderStyle="None" BorderWidth="1px"
+                                                CellPadding="3" GridLines="Vertical"
+                                                AllowPaging="True"
+                                                DataKeyNames="id" Class="table table-bordered "
+                                                ShowHeaderWhenEmpty="True" OnPageIndexChanging="GvVendor_PageIndexChanging" OnRowCancelingEdit="GvVendor_RowCancelingEdit" OnRowDataBound="GvVendor_RowDataBound" OnRowEditing="GvVendor_RowEditing" OnRowUpdating="GvVendor_RowUpdating">
+                                                <%-- DataKeyNames="id" Class="table table-bordered nowrap"--%>
+                                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                <AlternatingRowStyle BackColor="#FFFFFF" />
+                                                <Columns>
 
-
-                                        <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor Code" SortExpression="vendor_reg_code" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:HyperLinkField DataTextField="vendor_name" DataNavigateUrlFields="vendor_reg_code" DataNavigateUrlFormatString="vendor-emp-detail.aspx?Id={0}"
-                                            HeaderText="Vendor Name" ItemStyle-Wrap="false" />
-                                        <asp:TemplateField HeaderText="Photo">
-                                            <ItemTemplate>
-                                                <asp:Image ID="image1" runat="server" Width="80px" Height="100px" ImageUrl='<%# Eval("img_file","../vendors_pic/{0}")%>'/>
-                                            </ItemTemplate>
-                                            <ItemStyle Height="50px" Width="50px" />
-                                        </asp:TemplateField>
-
-                                     <%--   <asp:BoundField DataField="vendor_owner_name" HeaderText="Owner Name" SortExpression="vendor_owner_name" ItemStyle-Wrap="false"></asp:BoundField>--%>
-                                    <%--    <asp:BoundField DataField="email" HeaderText="E-Mail" SortExpression="email" ItemStyle-Wrap="false">
+                                                    <%--   <asp:BoundField DataField="vendor_owner_name" HeaderText="Owner Name" SortExpression="vendor_owner_name" ItemStyle-Wrap="false"></asp:BoundField>--%>
+                                                    <%--    <asp:BoundField DataField="email" HeaderText="E-Mail" SortExpression="email" ItemStyle-Wrap="false">
                                             <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                         </asp:BoundField>--%>
-                                        <%--  <asp:BoundField DataField="contact_no1" HeaderText="Contact No. 1" SortExpression="contact_no1" ItemStyle-Wrap="false" />
+                                                    <%--  <asp:BoundField DataField="contact_no1" HeaderText="Contact No. 1" SortExpression="contact_no1" ItemStyle-Wrap="false" />
                          <asp:BoundField DataField="contact_no2" HeaderText="Contact No. 2" SortExpression="contact_no2" ItemStyle-HorizontalAlign="Center" ItemStyle-Wrap="false" >
                             <ItemStyle HorizontalAlign="Center"></ItemStyle></asp:BoundField>
 
@@ -225,76 +209,154 @@
                         <asp:BoundField DataField="firm_state" HeaderText="State" SortExpression="firm_state" ItemStyle-Wrap="false"></asp:BoundField>
                         <asp:BoundField DataField="firm_pin" HeaderText="PIN" SortExpression="firm_pin" ItemStyle-Wrap="false"></asp:BoundField>--%>
 
-                                        <asp:BoundField DataField="license_no" HeaderText="License No." SortExpression="license_no" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from" DataFormatString="{0:d}" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="valid_to" HeaderText="Valid To" SortExpression="valid_to" DataFormatString="{0:d}" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="workers_authorised" HeaderText="Authorised Manpower" SortExpression="workers_authorised" ItemStyle-Wrap="false"></asp:BoundField>
-
-                                        <asp:BoundField DataField="pfno" HeaderText="PF NO" SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="esicno" HeaderText="ESIC NO" SortExpression="esicno" ItemStyle-Wrap="false"></asp:BoundField>
-
-                                        <asp:TemplateField HeaderText="PF Document">
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pfdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pfdoc", "../pf_doc/{0}")%>'></asp:HyperLink>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-
-                                        <asp:TemplateField HeaderText="ESIC Document">
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink2" runat="server" Target="_blank" Text='<%# Bind("esicdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.esicdoc", "../esic_doc/{0}")%>'></asp:HyperLink>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-
-                                         <asp:TemplateField HeaderText="PO Doc">
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink3" runat="server" Target="_blank" Text='<%# Bind("pocopy")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pocopy", "../po_doc/{0}")%>'></asp:HyperLink>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-
-                                        <asp:TemplateField HeaderText="Action">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lbl_Approval" runat="server" Text='<%# Eval("status") %>'></asp:Label>
-                                            </ItemTemplate>
-                                            <EditItemTemplate>
-                                                <asp:DropDownList ID="ddlApproval" runat="server">
-                                                    <asp:ListItem Value="A">Approved</asp:ListItem>
-                                                    <asp:ListItem Value="R">Reject</asp:ListItem>
-                                                </asp:DropDownList>
-                                            </EditItemTemplate>
-                                        </asp:TemplateField>
-
-                                        <asp:TemplateField>
-                                            <ItemTemplate>
-                                                <asp:Button ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" class="btn btn-primary" />
-                                            </ItemTemplate>
-                                            <EditItemTemplate>
-                                                <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("vendor_reg_code") %>' Visible="false"></asp:Label>
-                                                <asp:Button ID="btn_Update" runat="server" Text="Update" CommandName="Update" />
-                                                <asp:Button ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel" />
-                                            </EditItemTemplate>
-                                        </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Sl. No">
+                                                        <ItemTemplate>
+                                                            <%# Container.DataItemIndex + 1 %>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Width="30px" HorizontalAlign="Center" />
+                                                    </asp:TemplateField>
 
 
-                                    </Columns>
-                                    <AlternatingRowStyle BackColor="#FFFFFF" />
-                                    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                    <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
-                                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#000065" />
-                                </asp:GridView>
+                                                    <asp:TemplateField HeaderText="Vendor Code" SortExpression="vendor_reg_code">
+                                                        <%--<EditItemTemplate>
+                                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("vendor_reg_code") %>'></asp:TextBox>
+                                            </EditItemTemplate>--%>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("vendor_reg_code") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Wrap="False" />
+                                                    </asp:TemplateField>
+                                                    <asp:HyperLinkField DataTextField="vendor_name" DataNavigateUrlFields="vendor_reg_code" DataNavigateUrlFormatString="vendor-emp-detail.aspx?Id={0}"
+                                                        HeaderText="Vendor Name" ItemStyle-Wrap="false">
+                                                        <ItemStyle Wrap="False" />
+                                                    </asp:HyperLinkField>
+                                                    <asp:TemplateField HeaderText="Photo">
+                                                        <ItemTemplate>
+                                                            <asp:Image ID="image1" runat="server" Width="80px" Height="100px" ImageUrl='<%# Eval("img_file","../vendors_pic/{0}")%>' />
+                                                        </ItemTemplate>
+                                                        <ItemStyle Height="50px" Width="50px" />
+                                                    </asp:TemplateField>
+                                                    <%--<asp:BoundField DataField="license_no" HeaderText="License No." SortExpression="license_no" ItemStyle-Wrap="false">
+                                                        <ItemStyle Wrap="False"></ItemStyle>
+                                                    </asp:BoundField>--%>
 
-                                <%--========================================================================================--%>
+                                                    <asp:TemplateField HeaderText="License No." SortExpression="license_no">
+                                                       <%-- <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("license_no") %>'></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("license_no") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Wrap="False" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Valid From" SortExpression="valid_from">
+                                                        <%--<EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("valid_from") %>'></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("valid_from", "{0:d}") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Wrap="False" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Valid To" SortExpression="valid_to">
+                                                       <%-- <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("valid_to") %>'></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label4" runat="server" Text='<%# Bind("valid_to", "{0:d}") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Wrap="False" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Authorised Manpower" SortExpression="workers_authorised">
+                                                        <%--<EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("workers_authorised") %>'></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("workers_authorised") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Wrap="False" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="PF NO" SortExpression="pfno">
+                                                       <%-- <EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("pfno") %>'></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label6" runat="server" Text='<%# Bind("pfno") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Wrap="False" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="ESIC NO" SortExpression="esicno">
+                                                        <%--<EditItemTemplate>
+                                                            <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("esicno") %>'></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="Label7" runat="server" Text='<%# Bind("esicno") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Wrap="False" />
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="PF Document">
+                                                        <ItemTemplate>
+                                                            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pfdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pfdoc", "../pf_doc/{0}")%>'></asp:HyperLink>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="ESIC Document">
+                                                        <ItemTemplate>
+                                                            <asp:HyperLink ID="HyperLink2" runat="server" Target="_blank" Text='<%# Bind("esicdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.esicdoc", "../esic_doc/{0}")%>'></asp:HyperLink>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="PO Doc">
+                                                        <ItemTemplate>
+                                                            <asp:HyperLink ID="HyperLink3" runat="server" Target="_blank" Text='<%# Bind("pocopy")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pocopy", "../po_doc/{0}")%>'></asp:HyperLink>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField HeaderText="Action">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_Approval" runat="server" Text='<%# Eval("status") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:DropDownList ID="ddlApproval" runat="server">
+                                                                <asp:ListItem Value="A">Approved</asp:ListItem>
+                                                                <asp:ListItem Value="R">Reject</asp:ListItem>
+                                                            </asp:DropDownList>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+
+                                                    <asp:TemplateField>
+                                                        <ItemTemplate>
+                                                            <asp:Button ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" class="btn btn-primary" />
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("vendor_reg_code") %>' Visible="false"></asp:Label>
+                                                            <asp:Button ID="btn_Update" runat="server" Text="OK" CommandName="Update" />
+                                                            <%-- <asp:Button ID="btn_Update" runat="server" Text="Update" CommandName="Update" />--%>
+                                                            <%-- <asp:Button ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel" />--%>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+
+
+                                                </Columns>
+                                                <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                                <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
+                                                <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
+                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                <SortedAscendingHeaderStyle BackColor="#0000A9" />
+                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                <SortedDescendingHeaderStyle BackColor="#000065" />
+                                            </asp:GridView>
+
+                                            <%--========================================================================================--%>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
                 </td>
             </tr>

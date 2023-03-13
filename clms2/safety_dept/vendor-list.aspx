@@ -87,11 +87,11 @@
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendor Detail <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Employee <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="vendor-list.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Vendor Info
+                                                    <i class="fa fa-angle-right me-1"></i> Emp Approval
                                                 </a>
                                             </li>
                                         </ul>
@@ -170,7 +170,7 @@
 
 
                                                     <%--<asp:BoundField DataField="vendor_name" HeaderText="Vendor Name" SortExpression="vendor_name" ItemStyle-Wrap="false"></asp:BoundField>--%>
-                                                    <asp:HyperLinkField DataTextField="vendor_name" DataNavigateUrlFields="vendor_reg_code" DataNavigateUrlFormatString="purposed-emp-detail.aspx?Id={0}"
+                                                    <asp:HyperLinkField DataTextField="vendor_name" DataNavigateUrlFields="vendor_reg_code" DataNavigateUrlFormatString="purposed-emp-detail-approval.aspx?Id={0}"
                                                         HeaderText="Vendor Name" ItemStyle-Wrap="false" />
 
                                                     <asp:BoundField DataField="vendor_owner_name" HeaderText="Owner Name" SortExpression="vendor_owner_name" ItemStyle-Wrap="false"></asp:BoundField>

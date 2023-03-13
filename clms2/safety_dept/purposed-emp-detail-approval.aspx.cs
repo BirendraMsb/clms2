@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace clms2.safety_dept
 {
-    public partial class purposed_emp_detail : System.Web.UI.Page
+    public partial class purposed_emp_detail_approval : System.Web.UI.Page
     {
         public string strSQL;
         private static string Conn = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
@@ -21,12 +21,11 @@ namespace clms2.safety_dept
             if (con.State == ConnectionState.Closed)
                 con.Open();
         }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             string usrnm = Session["User"].ToString();
             lblUser.Text = usrnm;
-            lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
+            // lblUser1.Text = usrnm
 
             dbConnection();
 
@@ -34,7 +33,7 @@ namespace clms2.safety_dept
             {
                 BindGrid();
                 ////strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "'";
-                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
+                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved'  and vendor_code='" + Request.QueryString["Id"] + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -42,8 +41,9 @@ namespace clms2.safety_dept
                 GvEmp.DataBind();
                 GvEmp.HeaderRow.TableSection = TableRowSection.TableHeader;
             }
+
         }
-       
+
         private void BindGrid()
         {
             try
@@ -51,8 +51,8 @@ namespace clms2.safety_dept
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                ////strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "'";
-                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
+                /// strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "'";
+                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -63,11 +63,9 @@ namespace clms2.safety_dept
             {
             }
         }
-
         protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GvEmp.PageIndex = e.NewPageIndex;
-              GvEmp.DataBind();
+
         }
 
         protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -76,11 +74,32 @@ namespace clms2.safety_dept
             BindGrid();
         }
 
+        protected void GvEmp_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            //if (DataBinder.Eval(e.Row.DataItem, "status") == "N")
+            //    e.Row.BackColor = System.Drawing.Color.LightPink;
+
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+            //    //DataRowView dr = (DataRowView)e.Row.DataItem;
+            //    //string imageUrl = "data:image/png;base64," + Convert.ToBase64String((byte[])dr["venImageData"]);
+            //    //(e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
+
+            //}
+
+        }
+
+        protected void GvEmp_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GvEmp.EditIndex = e.NewEditIndex;
+            BindGrid();
+        }
+
         protected void GvEmp_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             Label id = GvEmp.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
-            TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_remarks") as TextBox;
-            DropDownList approv = GvEmp.Rows[e.RowIndex].FindControl("ddlApproval") as DropDownList;
+            TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_SafetyRemarks") as TextBox;
+            DropDownList approv = GvEmp.Rows[e.RowIndex].FindControl("ddlSafetyApproval") as DropDownList;
 
             dbConnection();
 
@@ -94,13 +113,8 @@ namespace clms2.safety_dept
 
             BindGrid();
 
-        }
+            //lblMsg.Text = "Record Updated......";
 
-        protected void GvEmp_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            GvEmp.EditIndex = e.NewEditIndex;
-              BindGrid();
         }
-         
     }
 }

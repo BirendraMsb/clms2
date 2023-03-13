@@ -432,8 +432,8 @@
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:Label ID="lbl_id" runat="server" Text='<%#Eval("id") %>' Visible="false"></asp:Label>
-                                                            <asp:Button ID="btn_Update" runat="server" Text="Update" CommandName="Update" />
-                                                            <asp:Button ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel" />
+                                                            <asp:Button ID="btn_Update" runat="server" Text="OK" CommandName="Update" />
+                                                            <%--<asp:Button ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel" />--%>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
 

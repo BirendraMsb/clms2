@@ -86,21 +86,23 @@
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Gate Pass <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="vendor-list.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Work Order Wise
+                                                    <i class="fa fa-angle-right me-1"></i>Emp Approval
                                                 </a>
                                             </li>
-
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gate Pass <span class="fa fa-angle-down ms-1"></span></a>
+                                        <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="gp-print.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>GP Print
                                                 </a>
                                             </li>
-
-
                                         </ul>
                                     </li>
 
@@ -149,24 +151,29 @@
                         </div>
                     </nav>
                 </td>
-  
+
             </tr>
             <tr>
-                 <td > <p style="text-align:left;padding-left:200px"><asp:Label ID="lblSearch" runat="server" Text="Emp Name"></asp:Label>
-                <asp:DropDownList ID="txtSearch" runat="server" AutoPostBack="True" OnSelectedIndexChanged="txtSearch_SelectedIndexChanged"></asp:DropDownList>  </p>
+                <td>
+                    <p style="text-align: left; padding-left: 200px">
+                        <asp:Label ID="lblSearch" runat="server" Text="Emp Name"></asp:Label>
+                        <asp:DropDownList ID="txtSearch" runat="server" AutoPostBack="True" OnSelectedIndexChanged="txtSearch_SelectedIndexChanged"></asp:DropDownList>
+                    </p>
                 </td>
             </tr>
             <tr>
-              
-                <td >
-                    <table border="0" cellpadding="5" cellspacing="0" style="font-family:Urbanist,sans-serif; width:50%; font-size:12px; border-bottom:1px solid; border-top:1px solid; border-left:1px solid; border-right:1px solid;">
+
+                <td>
+                    <table border="0" cellpadding="5" cellspacing="0" style="font-family: Urbanist,sans-serif; width: 50%; font-size: 12px; border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                         <tr>
-                            <td style="border-bottom:1px solid;"><img src="../images/logo.png" title="" alt="" /></td>
-                            <td style="border-bottom:1px solid;" colspan="6" align="center"><font size="4"><strong>GreenHRM Solutions</strong></font></td>
-                            <td style="border-bottom:1px solid;" align="right"><img src="../images/logo.png" title="" alt="" /></td>
+                            <td style="border-bottom: 1px solid;">
+                                <img src="../images/logo.png" title="" alt="" /></td>
+                            <td style="border-bottom: 1px solid;" colspan="6" align="center"><font size="4"><strong>GreenHRM Solutions</strong></font></td>
+                            <td style="border-bottom: 1px solid;" align="right">
+                                <img src="../images/logo.png" title="" alt="" /></td>
                         </tr>
 
-                        <tr style="border-bottom:1px solid; border-top:1px solid; border-left:1px solid; border-right:1px solid;">
+                        <tr style="border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                             <td><strong>GP No.</strong></td>
                             <td width="1%">:</td>
                             <td colspan="2">
@@ -180,28 +187,28 @@
                         </tr>
 
                         <tr>
-                            <td style="border-bottom:1px solid;"><strong>Order No.</strong></td>
-                            <td style="border-bottom:1px solid;">:</td>
-                            <td style="border-bottom:1px solid;" colspan="2">
+                            <td style="border-bottom: 1px solid;"><strong>Order No.</strong></td>
+                            <td style="border-bottom: 1px solid;">:</td>
+                            <td style="border-bottom: 1px solid;" colspan="2">
                                 <asp:Label ID="lblOrderNo" runat="server" Text=""></asp:Label>
                             </td>
-                            <td style="border-bottom:1px solid;" align="right"><strong>Valid To</strong></td>
-                            <td style="border-bottom:1px solid;">:</td>
-                            <td style="border-bottom:1px solid;" colspan="2">
+                            <td style="border-bottom: 1px solid;" align="right"><strong>Valid To</strong></td>
+                            <td style="border-bottom: 1px solid;">:</td>
+                            <td style="border-bottom: 1px solid;" colspan="2">
                                 <asp:Label ID="lblValidTo" runat="server" Text=""></asp:Label>
                             </td>
                         </tr>
 
                         <tr>
-                            <td style="border-bottom:1px solid;">&nbsp;</td>
-                            <td style="border-bottom:1px solid;" colspan="6" align="center"><font size="2" face="Urbanist, sans-serif">Gatepass Permitted Hrs. : 06:00 AM to 06:00 AM</font></td>
-                            <td style="border-bottom:1px solid;">&nbsp;</td>
+                            <td style="border-bottom: 1px solid;">&nbsp;</td>
+                            <td style="border-bottom: 1px solid;" colspan="6" align="center"><font size="2" face="Urbanist, sans-serif">Gatepass Permitted Hrs. : 06:00 AM to 06:00 AM</font></td>
+                            <td style="border-bottom: 1px solid;">&nbsp;</td>
                         </tr>
 
-                       <tr>
+                        <tr>
                             <td colspan="8">
-        
-                                <table width"100%" border="0" cellpadding="5" cellspacing="0" style="border-bottom:0px solid;">
+
+                                <table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-bottom: 0px solid;">
                                     <tr>
                                         <td class="style5"><strong style="font-size: medium"></strong>Photo</td>
                                         <td class="style3"><strong>Name</strong></td>
@@ -211,7 +218,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td rowspan="8" valign="top" style="text-align: center"><asp:Image ID="Image1" runat="server" style="width:150px; height:auto;" />
+                                        <td rowspan="8" valign="top" style="text-align: center">
+                                            <asp:Image ID="Image1" runat="server" Style="width: 150px; height: auto;" />
                                         </td>
                                         <td class="style3"><strong>Identity Mark</strong></td>
                                         <td><strong>:</strong></td>
@@ -269,8 +277,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            &nbsp;</td>
+                                        <td>&nbsp;</td>
                                         <td class="style3" valign="top"><strong></strong></td>
                                         <td valign="top"><strong></strong></td>
                                         <td valign="top">
@@ -283,6 +290,9 @@
                     </table>
                 </td>
             </tr>
+
+        </table>
+        <table class="table  footer" >
             <tr>
                 <td>
                     <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
@@ -299,42 +309,41 @@
                 </td>
             </tr>
         </table>
-
-
-        <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
-        <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
-        <script type="text/jscript" defer>
-            $(window).on("load", function () {
-                $('.loading').fadeOut(1000);
-                tool_tip();
-                $('a[href="#"]').on("click", function (e) {
-                    e.preventDefault ? e.preventDefault() :
-                e.returnValue = false
-                });
-                $(".alert").fadeTo(5000, 500).slideUp(500, function () {
-                    $(".alert").slideUp(500);
-                });
-                function tool_tip() {
-                    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
-                }
-                function fademeout() {
-                    $(".loading").fadeOut(1000);
-                }
-                $(document).ajaxSend(function () {
-                    fademeout();
-                });
-                $(document).ajaxComplete(function () {
-                    tool_tip();
-                });
-            });
-        </script>
-
-
     </form>
+
+
+
+    <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
+    <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
+    <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
+    <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js" defer></script>
+    <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+    <script type="text/jscript" defer>
+        $(window).on("load", function () {
+            $('.loading').fadeOut(1000);
+            tool_tip();
+            $('a[href="#"]').on("click", function (e) {
+                e.preventDefault ? e.preventDefault() :
+            e.returnValue = false
+            });
+            $(".alert").fadeTo(5000, 500).slideUp(500, function () {
+                $(".alert").slideUp(500);
+            });
+            function tool_tip() {
+                $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+            }
+            function fademeout() {
+                $(".loading").fadeOut(1000);
+            }
+            $(document).ajaxSend(function () {
+                fademeout();
+            });
+            $(document).ajaxComplete(function () {
+                tool_tip();
+            });
+        });
+    </script>
 </body>
 </html>

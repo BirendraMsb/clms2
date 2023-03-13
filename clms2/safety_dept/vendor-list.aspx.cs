@@ -28,7 +28,8 @@ namespace clms2.safety_dept
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_work_order where status='A'"))
+               
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_emp where status='P' and hr_approval='Approved' and dept_approval='Approved'"))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -37,8 +38,8 @@ namespace clms2.safety_dept
                         DataSet ds = new DataSet();
                         sda.Fill(ds);
                         ddlWorkOrder.DataSource = ds.Tables[0];
-                        ddlWorkOrder.DataTextField = "work_worder";
-                        ddlWorkOrder.DataValueField = "work_worder";
+                        ddlWorkOrder.DataTextField = "workorderno";
+                        ddlWorkOrder.DataValueField = "workorderno";
                         ddlWorkOrder.DataBind();
                     }
                 }
@@ -64,7 +65,9 @@ namespace clms2.safety_dept
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT a.*,b.work_worder FROM tbl_vendor_info a, tbl_vendor_work_order b where a.vendor_reg_code=b.vendor_reg_code and b.work_worder='" + ddlWorkOrder.SelectedValue + "'";
+
+                strSQL = "SELECT a.*,b.work_worder FROM tbl_vendor_info a, tbl_vendor_work_order b where (a.work_worder=b.work_worder)  and a.work_worder='" + ddlWorkOrder.SelectedValue + "'";
+                ////strSQL = "SELECT a.*,b.work_worder FROM tbl_vendor_info a, tbl_vendor_work_order b where a.vendor_reg_code=b.vendor_reg_code and b.work_worder='" + ddlWorkOrder.SelectedValue + "'";
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -88,7 +91,8 @@ namespace clms2.safety_dept
             dbConnection();
             if (ddlWorkOrder.SelectedValue != "")
             {
-                strSQL = "SELECT a.*,b.work_worder FROM tbl_vendor_info a, tbl_vendor_work_order b where a.vendor_reg_code=b.vendor_reg_code and b.work_worder='" + ddlWorkOrder.SelectedValue + "'";
+                strSQL = "SELECT a.*,b.work_worder FROM tbl_vendor_info a, tbl_vendor_work_order b where (a.work_worder=b.work_worder) and a.work_worder='" + ddlWorkOrder.SelectedValue + "'";
+               //// strSQL = "SELECT a.*,b.work_worder FROM tbl_vendor_info a, tbl_vendor_work_order b where a.vendor_reg_code=b.vendor_reg_code and b.work_worder='" + ddlWorkOrder.SelectedValue + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);

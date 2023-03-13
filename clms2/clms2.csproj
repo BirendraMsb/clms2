@@ -2797,11 +2797,13 @@
     <Content Include="public\webfront\website\webteams\31c9954b13924cdeaa85251b377eb9f3.jpg" />
     <Content Include="public\webfront\website\webteams\8c2db67f7c499e61741b1f1a9070cdc4.jpg" />
     <Content Include="public\webfront\website\webteams\c5927222a52cbde28de1b7a0d1998f7a.jpg" />
+    <Content Include="safety_dept\purposed-emp-detail-approval.aspx" />
     <Content Include="safety_dept\purposed-emp-detail.aspx" />
     <Content Include="safety_dept\safety-dashboard.aspx" />
     <Content Include="safety_dept\vendor-list.aspx" />
     <Content Include="style.css" />
     <Content Include="user_dept\dept-home.aspx" />
+    <Content Include="user_dept\purposed-emp-detail-approval.aspx" />
     <Content Include="user_dept\purposed-emp-detail.aspx" />
     <Content Include="user_dept\vendor-list.aspx" />
     <Content Include="vendor-onboarding\AllowancesMaster.aspx" />
@@ -2959,6 +2961,13 @@
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="safety_dept\purposed-emp-detail-approval.aspx.cs">
+      <DependentUpon>purposed-emp-detail-approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="safety_dept\purposed-emp-detail-approval.aspx.designer.cs">
+      <DependentUpon>purposed-emp-detail-approval.aspx</DependentUpon>
+    </Compile>
     <Compile Include="safety_dept\purposed-emp-detail.aspx.cs">
       <DependentUpon>purposed-emp-detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2986,6 +2995,13 @@
     </Compile>
     <Compile Include="user_dept\dept-home.aspx.designer.cs">
       <DependentUpon>dept-home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user_dept\purposed-emp-detail-approval.aspx.cs">
+      <DependentUpon>purposed-emp-detail-approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user_dept\purposed-emp-detail-approval.aspx.designer.cs">
+      <DependentUpon>purposed-emp-detail-approval.aspx</DependentUpon>
     </Compile>
     <Compile Include="user_dept\purposed-emp-detail.aspx.cs">
       <DependentUpon>purposed-emp-detail.aspx</DependentUpon>

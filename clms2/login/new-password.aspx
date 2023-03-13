@@ -20,11 +20,13 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="header" style="background-color: #0b4e47;">
+        <%--green color code = style="background-color:black ;--%>
+        <div class="header" style="background-color:black";>
             <div class="container">
                 <div class="logo">
                     <%--<a href="#">GreenHRM</a>--%>
-                    <img src="../images/greenhrm.png" title="GreenHRM" alt="GreenHRM" />
+                   <%-- <img src="../images/greenhrm.png" title="GreenHRM" alt="GreenHRM" />--%>
+                   <img src="../public/common/images/straight_logo_greenhrm.png" class="logo-lg logo-light" alt="GreenHRM Solutions | Breaking Stereotypes Logo" width="188" height="50" />
                 </div>
                 <div class="header-right">
                     <%--			<a class="account" href="#">Admin Login</a>&nbsp;&nbsp;

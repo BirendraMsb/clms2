@@ -58,6 +58,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\admin_dashboard.aspx" />
+    <Content Include="admin\generate-shift.aspx" />
+    <Content Include="admin\holiday-master.aspx" />
+    <Content Include="admin\leave-master.aspx" />
+    <Content Include="admin\manual-correction.aspx" />
+    <Content Include="admin\manual-punching.aspx" />
+    <Content Include="admin\shift-master.aspx" />
+    <Content Include="admin\test.aspx" />
+    <Content Include="admin\update-leave-register.aspx" />
     <Content Include="admin\user.aspx" />
     <Content Include="contractor_cell\dashboard.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-approval.aspx" />
@@ -74,8 +82,6 @@
     <Content Include="dtm\pikaday.js" />
     <Content Include="dtm\plugins\pikaday.jquery.js" />
     <Content Include="emp_pic\Image111.jpg" />
-    <Content Include="emp_pic\images4.jpg" />
-    <Content Include="emp_pic\user.png" />
     <Content Include="esic_doc\SampleJPGImage_50kbmb.jpg" />
     <Content Include="gatepass_section\gp-dashboard.aspx" />
     <Content Include="gatepass_section\gp-print.aspx" />
@@ -373,6 +379,7 @@
     <Content Include="esic_doc\ESIC Registration.pdf" />
     <Content Include="esic_doc_for_download\ESIC Registration.pdf" />
     <Content Include="attd_down_doc\Atted_Format.csv" />
+    <None Include="Properties\PublishProfiles\DepClms2.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2815,13 +2822,7 @@
     <Content Include="vendor-onboarding\vendor_detailNew.aspx" />
     <Content Include="vendor-onboarding\vendor_detail_entry.aspx" />
     <Content Include="vendor-onboarding\work-order-detail.aspx" />
-    <Content Include="vendors_pic\images.jpg" />
-    <Content Include="vendors_pic\images3.jpg" />
-    <Content Include="vendors_pic\images333.jpg" />
-    <Content Include="vendors_pic\images5.jpg" />
-    <Content Include="vendors_pic\images6.jpg" />
-    <Content Include="vendors_pic\images9.jpg" />
-    <Content Include="vendors_pic\index1.jpg" />
+    <Content Include="vendors_pic\index111.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2833,6 +2834,62 @@
     </Compile>
     <Compile Include="admin\admin_dashboard.aspx.designer.cs">
       <DependentUpon>admin_dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\generate-shift.aspx.cs">
+      <DependentUpon>generate-shift.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\generate-shift.aspx.designer.cs">
+      <DependentUpon>generate-shift.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\holiday-master.aspx.cs">
+      <DependentUpon>holiday-master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\holiday-master.aspx.designer.cs">
+      <DependentUpon>holiday-master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\leave-master.aspx.cs">
+      <DependentUpon>leave-master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\leave-master.aspx.designer.cs">
+      <DependentUpon>leave-master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\manual-correction.aspx.cs">
+      <DependentUpon>manual-correction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\manual-correction.aspx.designer.cs">
+      <DependentUpon>manual-correction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\manual-punching.aspx.cs">
+      <DependentUpon>manual-punching.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\manual-punching.aspx.designer.cs">
+      <DependentUpon>manual-punching.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\shift-master.aspx.cs">
+      <DependentUpon>shift-master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\shift-master.aspx.designer.cs">
+      <DependentUpon>shift-master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\update-leave-register.aspx.cs">
+      <DependentUpon>update-leave-register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\update-leave-register.aspx.designer.cs">
+      <DependentUpon>update-leave-register.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\user.aspx.cs">
       <DependentUpon>user.aspx</DependentUpon>

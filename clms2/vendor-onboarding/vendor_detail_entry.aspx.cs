@@ -329,22 +329,31 @@ namespace clms2.vendor_onboarding
                 }
                 else if (pfRadio2.Checked == true)
                 {
-                    HttpPostedFile pfPostedFile = PFileUpload.PostedFile;
-                    string pfFilename = Path.GetFileName(pfPostedFile.FileName);
-                    string pfFileExtension = Path.GetExtension(pfFilename);
-                    int pfFileSize = pfPostedFile.ContentLength;
-
-                    decimal size = Math.Round((System.Convert.ToDecimal(pfFileSize) / System.Convert.ToDecimal(1024)), 2);   // ' conveted to kb
-
-                    if ((size > 500))
+                    if (PFileUpload1 == "")
                     {
-                        lblMSG.Text = "PF file is too big to upload , Max size is 500 KB";
-                        return;
+                        PFileUpload1 = "img";
                     }
                     else
                     {
-                        PFileUpload.SaveAs(Server.MapPath(PFilePath));
+                        HttpPostedFile pfPostedFile = PFileUpload.PostedFile;
+                        string pfFilename = Path.GetFileName(pfPostedFile.FileName);
+                        string pfFileExtension = Path.GetExtension(pfFilename);
+                        int pfFileSize = pfPostedFile.ContentLength;
+
+                        decimal size = Math.Round((System.Convert.ToDecimal(pfFileSize) / System.Convert.ToDecimal(1024)), 2);   // ' conveted to kb
+
+                        if ((size > 500))
+                        {
+                            lblMSG.Text = "PF file is too big to upload , Max size is 500 KB";
+                            return;
+                        }
+                        else
+                        {
+                            PFileUpload.SaveAs(Server.MapPath(PFilePath));
+                        }
                     }
+
+                    
                 }
 
 
@@ -355,22 +364,31 @@ namespace clms2.vendor_onboarding
                 }
                 else if (ESICRadio2.Checked == true)
                 {
-                    HttpPostedFile esicPostedFile = ESICFileUpload.PostedFile;
-                    string esicFilename = Path.GetFileName(esicPostedFile.FileName);
-                    string esicFileExtension = Path.GetExtension(esicFilename);
-                    int esicFileSize = esicPostedFile.ContentLength;
+                        if (ESICFileUpload1 == "")
+                        {
+                            ESICFileUpload1 = "img";
+                        }
+                        else
+                        {
+                          HttpPostedFile esicPostedFile = ESICFileUpload.PostedFile;
+                        string esicFilename = Path.GetFileName(esicPostedFile.FileName);
+                        string esicFileExtension = Path.GetExtension(esicFilename);
+                        int esicFileSize = esicPostedFile.ContentLength;
 
-                    decimal size = Math.Round((System.Convert.ToDecimal(esicFileSize) / System.Convert.ToDecimal(1024)), 2);   // ' conveted to kb
+                        decimal size = Math.Round((System.Convert.ToDecimal(esicFileSize) / System.Convert.ToDecimal(1024)), 2);   // ' conveted to kb
 
-                    if ((size > 500))
-                    {
-                        lblMSG.Text = "ESIC file is too big to upload , Max size is 500 KB";
-                        return;
-                    }
-                    else
-                    {
-                        ESICFileUpload.SaveAs(Server.MapPath(ESICFilePath));
-                    }
+                        if ((size > 500))
+                        {
+                            lblMSG.Text = "ESIC file is too big to upload , Max size is 500 KB";
+                            return;
+                        }
+                        else
+                        {
+                            ESICFileUpload.SaveAs(Server.MapPath(ESICFilePath));
+                        }
+                        }
+    
+                    
                 }
 
                 if (POcopyUpload1 == "")
@@ -397,17 +415,17 @@ namespace clms2.vendor_onboarding
                     }
                 }
                 /////========================================================================//////////
-                string fdt = Convert.ToDateTime(txtValidFrom.Text).ToString("yyyy-MM-dd");
-                string tdt = Convert.ToDateTime(txtValidTo.Text).ToString("yyyy-MM-dd");
+                string fdt = Convert.ToDateTime(txtValidFrom.Text).ToString("dd-MM-yyyy");
+                string tdt = Convert.ToDateTime(txtValidTo.Text).ToString("dd-MM-yyyy");
 
-                string Str = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + txtState.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to='" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where vendor_reg_code='" + Session["User"] + "' ";
+                string Str = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + txtState.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where vendor_reg_code='" + Session["User"] + "' ";
                 SqlCommand cm = new SqlCommand(Str, con);
                 cm.ExecuteNonQuery();
                 lblMSG.Text = "Data updated successfully";
             }
             catch (Exception ex)
             {
-                lblMSG.Text = ex.Message;
+                lblMSGError.Text = ex.Message;
             }
                 // ===============================================================================
 

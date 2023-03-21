@@ -12,7 +12,7 @@
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
     <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
-     <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
+    <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/bootstrap.min.css" />
@@ -90,49 +90,59 @@
                                         <span class="visually-hidden">(current)</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="user.aspx">User
-                                        <span class="visually-hidden">(current)</span>
-                                        </a>
-                                    </li>
-                                    <%--<li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Work Order <span class="fa fa-angle-down ms-1"></span></a>
-                                        <ul class="dropdown-menu ">
-                                            <li>
-                                                <a class="dropdown-item" href="work-order-entry.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>New Work Order
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="dropdown-item" href="work-order-details-all.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>View work order
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="work-order-detail.aspx?vl=awo">
-                                                    <i class="fa fa-angle-right me-1"></i>Pending Work Order
-                                                </a>
-                                            </li>
-
-                                        </ul>
-                                    </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span>
-                                        </a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="../contractor_cell/purposed-emp-detail-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Emp Approval
+                                                <a class="dropdown-item" href="user.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> User
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="../contractor_cell/purposed-emp-detail-block.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Emp Blocking
+                                                <a class="dropdown-item" href="shift-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Shift Master
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a class="dropdown-item" href="leave-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Leave Master
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="holiday-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Holiday Master
+                                                </a>
+                                            </li>
+
                                         </ul>
-                                    </li>--%>
+                                    </li>
+                                      <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb1" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transaction <span class="fa fa-angle-down ms-1"></span></a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="generate-shift.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Generate Shift
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="update-leave-register.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Update Leave Register
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="manual-punching.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Manual Punching
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="manual-correction.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Manual Corrections
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                
 
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
@@ -181,29 +191,18 @@
             </tr>
             <tr>
                 <td>
-                    <%--<div class="page-wrapper" --%>
+                    <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-                                <%--				<div class="row mb-2 border-bottom pb-2">
-					<div class="col-sm-12">
-						<div class="page-title-box">
-							<div class="float-start">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="admin-dashboard.html">Dashboard</a></li>
-									<li class="breadcrumb-item active"><a href="add-slider.html">Add Slider</a></li>
-								</ol>
-							</div>
-						</div>
-					</div>
-				</div>--%><br />
-                                <div class="card shadow border" >
+                                <br />
+                                <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Create User </div>
                                     <div class="card-body">
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
 
-                                         <div class="row">
-                                           <div class="col-md-4">
+                                        <div class="row">
+                                            <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>User Type</label>
                                                     <asp:DropDownList ID="ddlUserType" class="form-control" runat="server"></asp:DropDownList>
@@ -235,12 +234,12 @@
                                                 <div class="form-group mb-3">
                                                     <label>Enter Password</label>
                                                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" MaxLength="30"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server"  ControlToValidate="txtPassword" ErrorMessage="* Pls Enter Password" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="* Pls Enter Password" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                             <div class="col-md-4">
+                                            <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>Phone</label>
                                                     <asp:TextBox ID="txtPhone" class="form-control" MaxLength="10" runat="server"></asp:TextBox>
@@ -248,7 +247,7 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                          <div class="col-md-4">
+                                            <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>Email</label>
                                                     <asp:TextBox ID="txtEmail" class="form-control" TextMode="Email" runat="server"></asp:TextBox>
@@ -262,39 +261,46 @@
                                                     <label>Active</label>
                                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                         <ContentTemplate>
-                                                        <asp:RadioButton ID="rdoActiveYes" runat="server" Text="Y"  class="form-control" AutoPostBack="true" GroupName="Active"  /><br />
-                                                    </ContentTemplate>
+                                                            <asp:RadioButton ID="rdoActiveYes" runat="server" Text="Y" class="form-control" AutoPostBack="true" GroupName="Active" /><br />
+                                                        </ContentTemplate>
                                                     </asp:UpdatePanel>
-                                             </div>
+                                                </div>
                                             </div>
-                                             <div class="col-md-2">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                         <ContentTemplate>
-                                                        <label></label>
-                                                         <asp:RadioButton ID="rdoActiveNo" runat="server" Text="N" class="form-control" AutoPostBack="true" GroupName="Active"   />
+                                                            <label></label>
+                                                            <asp:RadioButton ID="rdoActiveNo" runat="server" Text="N" class="form-control" AutoPostBack="true" GroupName="Active" />
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
-                                                  </div>
-                                            </div>
-                                        </div>
-
-                                        <hr class="my-3">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                    <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-default"></asp:Button>
-                                                    <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <asp:Label ID="lblError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                        <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label>
+
+                                        <hr class="my-3" />
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group mb-3">
+                                                     <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
+                                                    <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-info"></asp:Button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group mb-3">
+                                                    <asp:Label ID="lblError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
+                                                    <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    <%--</div>--%>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -303,10 +309,6 @@
                         <div class="container-fluid">
                             <div class="text-center small">
                                 <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
-
-                                <%--<div class="text-light d-none d-sm-inline-block float-end">
-				 <a href="https://shitij.in">Kshitij Info Solutions</a>
-			</div>--%>
                             </div>
                         </div>
                     </footer>

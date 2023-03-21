@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="~/public/newfront/datatables/datatables.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/icons.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/app.min.css" />
-     <%--  <link rel="stylesheet" href="~/public/common/css/commoncss.min.css" />--%>
+    <link rel="stylesheet" href="~/public/common/css/commoncss.min.css" />
     <link rel="apple-touch-icon" sizes="57x57" href="~/public/common/icons/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="~/public/common/icons/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="~/public/common/icons/apple-icon-72x72.png" />
@@ -62,7 +62,7 @@
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
 
-        <%--<div class="loading">
+        <%--   <div class="loading">
             <div class="loader"></div>
         </div>--%>
         <table class="table">
@@ -238,408 +238,424 @@
             <tr>
                 <td>
                     <div class="page-wrapper">
-                    <div class="page-content-tab">
-                        <div class="container-fluid">
-                            <div class="row mb-2 border-bottom pb-2">
-                                <div class="col-sm-12">
-                                    <div class="page-title-box">
-                                        <div class="float-start">
-                                            <%-- <ol class="breadcrumb">
+                        <div class="page-content-tab">
+                            <div class="container-fluid">
+                                <div class="row mb-2 border-bottom pb-2">
+                                    <div class="col-sm-12">
+                                        <div class="page-title-box">
+                                            <div class="float-start">
+                                                <%-- <ol class="breadcrumb">
                                         <li class="breadcrumb-item"><a href="#"><font color="red">Download PF Declaration form here...</font></a></li>
                                         <li class="breadcrumb-item active"><a href="#"><font color="red">Download ESIC declaration form here...</font></a></li>
                                     </ol>--%>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card shadow border">
-                                <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Employee Detail Entry</div>
-                                <div class="card-body">
-                                    <%--========================================================================================--%>
-                                    <asp:Label ID="lblMSG" ForeColor="Green" Font-Size="X-Large" runat="server" Text=""></asp:Label><br />
-                                    <asp:Label ID="lblPoliceExpiry" ForeColor="Green" Font-Size="X-Large" runat="server" Text=""></asp:Label>
-                                    <asp:TextBox ID="txtID" runat="server" class="form-control" Visible="false"></asp:TextBox>
-                                    <%--========================================================================================--%>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtWorkOrderNo">Work Order No.</label>
-                                                <asp:DropDownList ID="txtWorkOrderNo" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="txtWorkOrderNo_SelectedIndexChanged"></asp:DropDownList>
+                                <div class="card shadow border">
+                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Employee Detail Entry</div>
+                                    <div class="card-body">
+                                        <%--========================================================================================--%>
+                                        <asp:Label ID="lblMSG" ForeColor="Green" Font-Size="X-Large" runat="server" Text=""></asp:Label><br />
+                                        <asp:Label ID="lblMSGError" ForeColor="Red" Font-Size="X-Large" runat="server" Text=""></asp:Label><br />
+                                        <asp:Label ID="lblPoliceExpiry" ForeColor="Green" Font-Size="X-Large" runat="server" Text=""></asp:Label>
+                                        <asp:TextBox ID="txtID" runat="server" class="form-control" Visible="false"></asp:TextBox>
+                                        <%--========================================================================================--%>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtWorkOrderNo">Work Order No.</label>
+                                                    <asp:DropDownList ID="txtWorkOrderNo" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="txtWorkOrderNo_SelectedIndexChanged"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtEmpName">Emp Name</label>
+                                                    <asp:TextBox ID="txtEmpName" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtEmpName">Emp Name</label>
-                                                <asp:TextBox ID="txtEmpName" runat="server" class="form-control"></asp:TextBox>
+                                        <%--========================================================================================--%>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtAddress">Vendor code</label>
+                                                    <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Emp Code</label>
+                                                    <asp:TextBox ID="txtEmpCode" runat="server" class="form-control" placeholder="Emp Code"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtAddress">Address</label>
+                                                    <asp:TextBox ID="txtAddress" runat="server" class="form-control" MaxLength="100"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <%--========================================================================================--%>
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group mb-3">
-                                                <label for="txtAddress">Vendor code</label>
-                                                <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label>City</label>
+                                                    <asp:TextBox ID="txtCity" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group mb-3">
-                                                <label>Emp Code</label>
-                                                <asp:TextBox ID="txtEmpCode" runat="server" class="form-control" placeholder="Emp Code"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtAddress">Address</label>
-
-                                                <asp:TextBox ID="txtAddress" runat="server" class="form-control" MaxLength="100"></asp:TextBox>
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <%--========================================================================================--%>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtEMail">E-Mail</label>
-
-                                                <asp:TextBox ID="txtEMail" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label for="txtPhNo1">Contact No.1</label>
-
-                                                <asp:TextBox ID="txtPhNo1" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
-
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label>State</label>
+                                                    <asp:TextBox ID="txtState" runat="server" class="form-control" placeholder="State"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <%--========================================================================================--%>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label for="txtPhNo2">Contact No.2</label>
+                                        <%--========================================================================================--%>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtEMail">E-Mail</label>
 
-                                                <asp:TextBox ID="txtPhNo2" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+                                                    <asp:TextBox ID="txtEMail" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtPhNo1">Contact No.1</label>
+
+                                                    <asp:TextBox ID="txtPhNo1" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <%--========================================================================================--%>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtPhNo2">Contact No.2</label>
+
+                                                    <asp:TextBox ID="txtPhNo2" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtDOB">DOB</label>
+
+                                                    <asp:TextBox ID="txtDOB" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:Label ID="lblDobError" runat="server" Text=""></asp:Label>
+                                                </div>
                                             </div>
                                         </div>
+                                        <%--========================================================================================--%>
 
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtDOB">DOB</label>
 
-                                                <asp:TextBox ID="txtDOB" runat="server" class="form-control"></asp:TextBox>
-                                                <asp:Label ID="lblDobError" runat="server" Text=""></asp:Label>
+
+                                        <div class="row">
+
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+
+
+                                                    <label for="ddlGender">Gender</label>
+
+                                                    <asp:DropDownList ID="ddlGender" runat="server" class="form-control">
+                                                        <asp:ListItem Value="Male">Male</asp:ListItem>
+                                                        <asp:ListItem Value="Female">Female</asp:ListItem>
+                                                        <asp:ListItem Value="Trans">Trans</asp:ListItem>
+                                                    </asp:DropDownList>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="ddlCast">Cast</label>
+
+                                                    <asp:DropDownList ID="ddlCast" runat="server" class="form-control">
+                                                        <asp:ListItem Value="SC">SC</asp:ListItem>
+                                                        <asp:ListItem Value="ST">ST</asp:ListItem>
+                                                        <asp:ListItem Value="OBC">OBC</asp:ListItem>
+                                                        <asp:ListItem Value="GEN">GEN</asp:ListItem>
+                                                    </asp:DropDownList>
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <%--========================================================================================--%>
+                                        <%--========================================================================================--%>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="ddlBloodGrp">Blood Grp</label>
 
+                                                    <asp:DropDownList ID="ddlBloodGrp" runat="server" class="form-control">
+                                                        <asp:ListItem Value="A+">A+</asp:ListItem>
+                                                        <asp:ListItem Value="A-">A-</asp:ListItem>
+                                                        <asp:ListItem Value="O+">O+</asp:ListItem>
+                                                        <asp:ListItem Value="O-">O-</asp:ListItem>
+                                                        <asp:ListItem Value="B+">B+</asp:ListItem>
+                                                        <asp:ListItem Value="B-">B-</asp:ListItem>
+                                                        <asp:ListItem Value="AB+">AB+</asp:ListItem>
+                                                        <asp:ListItem Value="AB-">AB-</asp:ListItem>
+                                                    </asp:DropDownList>
 
-
-                                    <div class="row">
-
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-
-
-                                                <label for="ddlGender">Gender</label>
-
-                                                <asp:DropDownList ID="ddlGender" runat="server" class="form-control">
-                                                    <asp:ListItem Value="Male">Male</asp:ListItem>
-                                                    <asp:ListItem Value="Female">Female</asp:ListItem>
-                                                    <asp:ListItem Value="Trans">Trans</asp:ListItem>
-                                                </asp:DropDownList>
-
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="ddlCast">Cast</label>
-
-                                                <asp:DropDownList ID="ddlCast" runat="server" class="form-control">
-                                                    <asp:ListItem Value="SC">SC</asp:ListItem>
-                                                    <asp:ListItem Value="ST">ST</asp:ListItem>
-                                                    <asp:ListItem Value="OBC">OBC</asp:ListItem>
-                                                    <asp:ListItem Value="GEN">GEN</asp:ListItem>
-                                                </asp:DropDownList>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <%--========================================================================================--%>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="ddlBloodGrp">Blood Grp</label>
-
-                                                <asp:DropDownList ID="ddlBloodGrp" runat="server" class="form-control">
-                                                    <asp:ListItem Value="A+">A+</asp:ListItem>
-                                                    <asp:ListItem Value="A-">A-</asp:ListItem>
-                                                    <asp:ListItem Value="O+">O+</asp:ListItem>
-                                                    <asp:ListItem Value="O-">O-</asp:ListItem>
-                                                    <asp:ListItem Value="B+">B+</asp:ListItem>
-                                                    <asp:ListItem Value="B-">B-</asp:ListItem>
-                                                    <asp:ListItem Value="AB+">AB+</asp:ListItem>
-                                                    <asp:ListItem Value="AB-">AB-</asp:ListItem>
-                                                </asp:DropDownList>
-
-                                            </div>
-                                        </div>
 
 
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="aa">Any Critical Disease</label>
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="aa">Any Critical Disease</label>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                         <asp:RadioButton ID="RadioButton1" runat="server" Text="Y" AutoPostBack="true" GroupName="ACD" OnCheckedChanged="RadioButton1_CheckedChanged" />
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                         <asp:RadioButton ID="RadioButton2" runat="server" Text="N" AutoPostBack="true" GroupName="ACD" OnCheckedChanged="RadioButton2_CheckedChanged" />
-                                                <br />
-                                                <asp:TextBox ID="txtDiseaseName" runat="server" placeholder="Disease Name" class="form-control" ReadOnly="True"></asp:TextBox>
+                                                    <br />
+                                                    <asp:TextBox ID="txtDiseaseName" runat="server" placeholder="Disease Name" class="form-control" ReadOnly="True"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <%--========================================================================================--%>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label for="txtNationality">Nationality</label>
+                                        <%--========================================================================================--%>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-2">
+                                                    <label for="txtNationality">Nationality</label>
 
-                                                <asp:TextBox ID="txtNationality" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:TextBox ID="txtNationality" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="col-md-2">
-                                            <div class="form-group mb-3">
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
 
-                                                <label for="txtAadharNo">Aadhar No.</label>
+                                                    <label for="txtAadharNo">Aadhar No.</label>
 
-                                                <asp:TextBox ID="txtAadharNo" runat="server" class="form-control" MaxLength="12"></asp:TextBox>
+                                                    <asp:TextBox ID="txtAadharNo" runat="server" class="form-control" MaxLength="12"></asp:TextBox>
 
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="col-md-2">
-                                            <div class="form-group mb-3">
-                                                <label for="ddlDesignation">Designation</label>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label for="ddlDesignation">Designation</label>
 
-                                                <asp:DropDownList ID="ddlDesignation" runat="server" class="form-control">
-                                                    <asp:ListItem Value="Helper">Helper</asp:ListItem>
-                                                    <asp:ListItem Value="Operator">Operator</asp:ListItem>
-                                                    <asp:ListItem Value="Supervisor">Supervisor</asp:ListItem>
-                                                </asp:DropDownList>
+                                                    <asp:DropDownList ID="ddlDesignation" runat="server" class="form-control">
+                                                        <asp:ListItem Value="Helper">Helper</asp:ListItem>
+                                                        <asp:ListItem Value="Operator">Operator</asp:ListItem>
+                                                        <asp:ListItem Value="Supervisor">Supervisor</asp:ListItem>
+                                                    </asp:DropDownList>
 
+                                                </div>
                                             </div>
+
                                         </div>
+                                        <%--========================================================================================--%>
+                                        <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
+                                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                            <ContentTemplate>
+                                                <div class="row">
 
-                                    </div>
-                                    <%--========================================================================================--%>
-                                    <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
-                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                        <ContentTemplate>
-                                            <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group mb-3">
+                                                            <label for="PFNO">PF No.</label>
 
-                                                <div class="col-md-4">
-                                                    <div class="form-group mb-3">
-                                                        <label for="PFNO">PF No.</label>
-
-                                                        <asp:RadioButton ID="pfRadio1" runat="server" Text="Y" AutoPostBack="true" GroupName="pf" OnCheckedChanged="pfRadio1_CheckedChanged" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                                                            <asp:RadioButton ID="pfRadio1" runat="server" Text="Y" AutoPostBack="true" GroupName="pf" OnCheckedChanged="pfRadio1_CheckedChanged" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                                         <asp:RadioButton ID="pfRadio2" runat="server" Text="N" AutoPostBack="true" GroupName="pf" OnCheckedChanged="pfRadio2_CheckedChanged" />
-                                                        <br />
-                                                        <asp:TextBox ID="txtPFNO" runat="server" class="form-control"></asp:TextBox>
-                                                        <asp:FileUpload ID="PFileUpload" runat="server"></asp:FileUpload><br />
-                                                        <%--<a href="#">Download declaration form here.....</a>--%>
-                                                        <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download PF declaration form here.....</asp:HyperLink>
+                                                            <br />
+                                                            <asp:TextBox ID="txtPFNO" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:FileUpload ID="PFileUpload" runat="server"></asp:FileUpload><br />
+                                                            <%--<a href="#">Download declaration form here.....</a>--%>
+                                                            <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download PF declaration form here.....</asp:HyperLink>
+                                                        </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="col-md-4">
-                                                    <div class="form-group mb-3">
-                                                        <label for="ESIC">ESIC</label>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group mb-3">
+                                                            <label for="ESIC">ESIC</label>
 
-                                                        <asp:RadioButton ID="ESICRadio1" runat="server" Text="Y" AutoPostBack="true" GroupName="ESIC" OnCheckedChanged="ESICRadio1_CheckedChanged" />
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                            <asp:RadioButton ID="ESICRadio1" runat="server" Text="Y" AutoPostBack="true" GroupName="ESIC" OnCheckedChanged="ESICRadio1_CheckedChanged" />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                                         <asp:RadioButton ID="ESICRadio2" runat="server" Text="N" AutoPostBack="true" GroupName="ESIC" OnCheckedChanged="ESICRadio2_CheckedChanged" />
-                                                        <br />
-                                                        <asp:TextBox ID="txtESIC" runat="server" class="form-control"></asp:TextBox>
-                                                        <asp:FileUpload ID="ESICFileUpload" runat="server"></asp:FileUpload><br />
-                                                        <%--<a href="#">Download declaration form here.....</a>--%>
-                                                        <%-- <asp:Button ID="btn1"  runat="server" Text="Download ESIC declaration form here..... " OnClick="btn1_Click"/>--%>
-                                                        <asp:HyperLink ID="HyperLinkESIC" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.patelconsultancy.in/esic-forms-download.html">Download ESIC declaration form here.....</asp:HyperLink>
+                                                            <br />
+                                                            <asp:TextBox ID="txtESIC" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:FileUpload ID="ESICFileUpload" runat="server"></asp:FileUpload><br />
+                                                            <%--<a href="#">Download declaration form here.....</a>--%>
+                                                            <%-- <asp:Button ID="btn1"  runat="server" Text="Download ESIC declaration form here..... " OnClick="btn1_Click"/>--%>
+                                                            <asp:HyperLink ID="HyperLinkESIC" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.patelconsultancy.in/esic-forms-download.html">Download ESIC declaration form here.....</asp:HyperLink>
 
+                                                        </div>
                                                     </div>
                                                 </div>
+                                            </ContentTemplate>
+                                        </asp:UpdatePanel>
+
+                                        <%--========================================================================================--%>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="ddlEducation">Education</label>
+
+                                                    <asp:DropDownList ID="ddlEducation" runat="server" class="form-control">
+                                                        <asp:ListItem Value="Non-Matric">Non-Matric</asp:ListItem>
+                                                        <asp:ListItem Value="Matric">Matric</asp:ListItem>
+                                                        <asp:ListItem Value="Intermediate">Intermediate</asp:ListItem>
+                                                        <asp:ListItem Value="Graduation">Graduation</asp:ListItem>
+                                                        <asp:ListItem Value="Master Degree">Master Degree</asp:ListItem>
+                                                    </asp:DropDownList>
+
+                                                </div>
                                             </div>
-                                        </ContentTemplate>
-                                    </asp:UpdatePanel>
 
-                                    <%--========================================================================================--%>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="ddlSkill">Skill Category</label>
 
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="ddlEducation">Education</label>
+                                                    <asp:DropDownList ID="ddlSkill" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlSkill_SelectedIndexChanged">
+                                                        <asp:ListItem Value="SU">Un-Skilled</asp:ListItem>
+                                                        <asp:ListItem Value="SS">Semi Skilled</asp:ListItem>
+                                                        <asp:ListItem Value="S">Skilled</asp:ListItem>
+                                                        <asp:ListItem Value="HS">High Skilled</asp:ListItem>
+                                                    </asp:DropDownList>
 
-                                                <asp:DropDownList ID="ddlEducation" runat="server" class="form-control">
-                                                    <asp:ListItem Value="Non-Matric">Non-Matric</asp:ListItem>
-                                                    <asp:ListItem Value="Matric">Matric</asp:ListItem>
-                                                    <asp:ListItem Value="Intermediate">Intermediate</asp:ListItem>
-                                                    <asp:ListItem Value="Graduation">Graduation</asp:ListItem>
-                                                    <asp:ListItem Value="Master Degree">Master Degree</asp:ListItem>
-                                                </asp:DropDownList>
-
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="ddlSkill">Skill Category</label>
-
-                                                <asp:DropDownList ID="ddlSkill" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlSkill_SelectedIndexChanged">
-                                                    <asp:ListItem Value="SU">Un-Skilled</asp:ListItem>
-                                                    <asp:ListItem Value="SS">Semi Skilled</asp:ListItem>
-                                                    <asp:ListItem Value="S">Skilled</asp:ListItem>
-                                                    <asp:ListItem Value="HS">High Skilled</asp:ListItem>
-                                                </asp:DropDownList>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="PVFileUpload" class="col-sm-2 control-label">Police Verification</label>
-                                                <asp:FileUpload ID="PVFileUpload" runat="server"></asp:FileUpload>
-                                                <%--<label for="txtPoliceVerification">Police Verification</label>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="PVFileUpload" class="col-sm-2 control-label">Police Verification</label>
+                                                    <asp:FileUpload ID="PVFileUpload" runat="server"></asp:FileUpload>
+                                                    <%--<label for="txtPoliceVerification">Police Verification</label>
                                         <asp:FileUpload ID="txtPoliceVerification" runat="server"></asp:FileUpload>--%>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtPVD">Police Verification Date</label>
+                                                    <asp:TextBox ID="txtPVD" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtPVD">Police Verification Date</label>
-                                                <asp:TextBox ID="txtPVD" runat="server" class="form-control"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="MVFileUpload" class="col-sm-2 control-label">Medical Examination</label>
-                                                <asp:FileUpload ID="MVFileUpload" runat="server"></asp:FileUpload>
-                                                <%--  <label for="txtMedicalExamination">Medical Examination</label>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="MVFileUpload" class="col-sm-2 control-label">Medical Examination</label>
+                                                    <asp:FileUpload ID="MVFileUpload" runat="server"></asp:FileUpload>
+                                                    <%--  <label for="txtMedicalExamination">Medical Examination</label>
                                         <asp:FileUpload ID="txtMedicalExamination" runat="server"></asp:FileUpload>--%>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtMCID">Medical Certificate Issue Date</label>
+                                                    <asp:TextBox ID="txtMCID" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtMCID">Medical Certificate Issue Date</label>
-                                                <asp:TextBox ID="txtMCID" runat="server" class="form-control"></asp:TextBox>
+
+                                        <%--========================================================================================--%>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtBankName">Bank Name</label>
+
+                                                    <asp:TextBox ID="txtBankName" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtAccountNo">Account No.</label>
+
+                                                    <asp:TextBox ID="txtAccountNo" runat="server" class="form-control" MaxLength="20"></asp:TextBox>
+
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                        <%--========================================================================================--%>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtIFSC">IFS Code</label>
 
-
-                                    <%--========================================================================================--%>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtBankName">Bank Name</label>
-
-                                                <asp:TextBox ID="txtBankName" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtIFSC" runat="server" class="form-control" MaxLength="12"></asp:TextBox>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtAccountNo">Account No.</label>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtContactPerson">Contact person name in case of emergency</label>
 
-                                                <asp:TextBox ID="txtAccountNo" runat="server" class="form-control" MaxLength="20"></asp:TextBox>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <%--========================================================================================--%>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtIFSC">IFS Code</label>
-
-                                                <asp:TextBox ID="txtIFSC" runat="server" class="form-control" MaxLength="12"></asp:TextBox>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label for="txtContactPerson">Contact person name in case of emergency</label>
-
-                                                <asp:TextBox ID="txtContactPerson" runat="server" class="form-control" placeholder="Contact person name in case of emergency" MaxLength="50"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <%--========================================================================================--%>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label>Contact No.</label>
-
-                                                <asp:TextBox ID="txtContactNo" runat="server" class="form-control" placeholder="Contact No." MaxLength="10"></asp:TextBox>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group mb-3">
-                                                <label>Shift</label>
-
-                                                <asp:DropDownList ID="txtShift" runat="server" class="form-control" placeholder="shift">
-                                                    <asp:ListItem>A</asp:ListItem>
-                                                    <asp:ListItem>B</asp:ListItem>
-                                                    <asp:ListItem>C</asp:ListItem>
-                                                    <asp:ListItem>General</asp:ListItem>
-                                                </asp:DropDownList>
-
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group mb-3">
-                                                <label>Basic</label>
-                                                <asp:TextBox ID="txtBasic" runat="server" class="form-control" ReadOnly="true" placeholder="Basic"></asp:TextBox>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-2">
-                                            <div class="form-group mb-3">
-                                                <label for="FileUpload1" class="col-sm-2 control-label">Employee Photo</label>
-                                                <asp:FileUpload ID="FileUpload1" runat="server" onchange="document.getElementById('imgEmp').src=window.URL.createObjectURL(this.files[0])"></asp:FileUpload>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2">
-                                            <div class="form-group mb-3">
-                                                <asp:Image ID="imgEmp" runat="server" BackColor="#99CCFF" Width="100" Height="110"></asp:Image>
+                                                    <asp:TextBox ID="txtContactPerson" runat="server" class="form-control" placeholder="Contact person name in case of emergency" MaxLength="50"></asp:TextBox>
+                                                </div>
                                             </div>
                                         </div>
 
-                                    </div>
-                                    <%--========================================================================================--%>
-                                    <hr class="my-3">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group mb-3">
-                                                <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
-                                                <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-danger" OnClick="cmdCancel_Click"></asp:Button>
+                                        <%--========================================================================================--%>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Contact No.</label>
+                                                    <asp:TextBox ID="txtContactNo" runat="server" class="form-control" placeholder="Contact No." MaxLength="10"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Shift</label>
+
+                                                    <asp:DropDownList ID="txtShift" runat="server" class="form-control" placeholder="shift">
+                                                      <%--  <asp:ListItem>A</asp:ListItem>
+                                                        <asp:ListItem>B</asp:ListItem>
+                                                        <asp:ListItem>C</asp:ListItem>
+                                                        <asp:ListItem>General</asp:ListItem>--%>
+                                                    </asp:DropDownList>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Basic</label>
+                                                    <asp:TextBox ID="txtBasic" runat="server" class="form-control" ReadOnly="true" placeholder="Basic"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Experience</label>
+                                                    <asp:TextBox ID="txtExp" runat="server" class="form-control" placehol="Experience"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label for="FileUpload1" class="col-sm-3 control-label">Employee Photo</label>
+                                                    <asp:FileUpload ID="FileUpload1" runat="server" onchange="document.getElementById('imgEmp').src=window.URL.createObjectURL(this.files[0])"></asp:FileUpload>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:Image ID="imgEmp" runat="server" BackColor="#99CCFF" Width="100" Height="110"></asp:Image>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <%--========================================================================================--%>
+                                        <hr class="my-3" />
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group mb-3">
+                                                    <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
+                                                    <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-danger" OnClick="cmdCancel_Click"></asp:Button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -647,7 +663,6 @@
                             </div>
                         </div>
                     </div>
-                     </div>
                 </td>
             </tr>
             <tr>
@@ -667,7 +682,7 @@
         <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
         <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js" defer></script>
         <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <%-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
 
         <script type="text/jscript" defer>
             $(window).on("load", function () {
@@ -773,6 +788,11 @@
                 }
             });
         </script>
+        <%--<script type="text/jscript">
+              $(window).on("load", function () {
+                  $('#GvWod').DataTable({ responsive: true });
+              });
+        </script>--%>
     </form>
 </body>
 </html>

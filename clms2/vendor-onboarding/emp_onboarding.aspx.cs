@@ -47,6 +47,30 @@ namespace clms2.vendor_onboarding
             txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
         }
 
+        public void shift_name()
+        {
+            // Call dbConnection()
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT  * FROM tbl_shift_master"))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        txtShift.DataSource = ds.Tables[0];
+                        txtShift.DataTextField = "ShiftName";
+                        txtShift.DataValueField = "shiftcode";
+                        txtShift.DataBind();
+                    }
+                }
+            }
+            txtShift.Items.Insert(0, new ListItem("--Select Shift--", "0"));
+        }
+
         // ' show  vendor reg code on selecting work order no''
         public void vendor_reg_code()
         {
@@ -103,7 +127,12 @@ namespace clms2.vendor_onboarding
             lblDate.Text = DateTime.Today.ToString("dd-MMM-yyyy");
 
             if ((!IsPostBack))
+            {
                 work_order_no();
+                shift_name();
+                txtEmpCode.Text = Auto_Emp_Code().ToString();
+            }
+                
 
             txtBasic.Text = "400";
             try
@@ -185,6 +214,34 @@ namespace clms2.vendor_onboarding
 
         }
 
+        private int Auto_Emp_Code()
+        {
+            int x = 0;
+
+            string StrSql = "Select max(Emp_Code) from tbl_emp";
+            SqlCommand cmd = new SqlCommand(StrSql, con);
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {
+                if ((dr.Read()))
+                {
+                    if ((dr[0] == DBNull.Value))
+                        x = 1;
+                    else
+                        x = (Convert.ToInt16(dr[0]) + 1);
+                }
+                else
+                        x = 1;
+            }
+            catch (Exception ex)
+            {
+            }
+            dr.Close();
+           // x = Convert.ToInt16(txtID.Text);
+            return x;
+        }
         private int Auto_ID()
         {
             int x=0;
@@ -539,6 +596,7 @@ namespace clms2.vendor_onboarding
              {
                  txtESIC.Visible = true;
                  ESICFileUpload.Visible = false;
+                 HyperLinkESIC.Visible = false;
              }
         }
 
@@ -548,6 +606,7 @@ namespace clms2.vendor_onboarding
             {
                 txtESIC.Visible = false;
                 ESICFileUpload.Visible = true;
+                HyperLinkESIC.Visible = true;
             }
         }
 
@@ -565,6 +624,10 @@ namespace clms2.vendor_onboarding
 
         protected void cmdSave_Click(object sender, EventArgs e)
         {
+            try
+            {
+
+    
             dbConnection();
             Auto_ID();
           
@@ -626,7 +689,7 @@ namespace clms2.vendor_onboarding
                     decimal PFsize = Math.Round((System.Convert.ToDecimal(PFileUpload.PostedFile.ContentLength) / System.Convert.ToDecimal(1024)), 2);
                     if ((PFsize > 100))
                     {
-                        lblMSG.Text = "File is too big to upload , Max Size is 100 KB";
+                        lblMSGError.Text = "File is too big to upload , Max Size is 100 KB";
                         return;
                     }
                     else
@@ -645,7 +708,7 @@ namespace clms2.vendor_onboarding
                     decimal ESICsize = Math.Round((System.Convert.ToDecimal(ESICFileUpload.PostedFile.ContentLength) / System.Convert.ToDecimal(1024)), 2);
 
                     if ((ESICsize > 100))
-                        lblMSG.Text = "File is too big to upload, Max Size is 100 KB";
+                        lblMSGError.Text = "File is too big to upload, Max Size is 100 KB";
                     else
                         ESICFileUpload.SaveAs(Server.MapPath(EsicimgPath));
                 }
@@ -665,7 +728,7 @@ namespace clms2.vendor_onboarding
 
                 if ((Policesize > 100))
                 {
-                    lblMSG.Text = "File is too big to upload , Max Size is 100 KB";
+                    lblMSGError.Text = "File is too big to upload , Max Size is 100 KB";
                     return;
                 }
                 else
@@ -703,7 +766,7 @@ namespace clms2.vendor_onboarding
 
                 if ((Medicalsize > 100))
                 {
-                    lblMSG.Text = "File is too big to upload";
+                    lblMSGError.Text = "File is too big to upload";
                     return;
                 }
                 else
@@ -742,7 +805,7 @@ namespace clms2.vendor_onboarding
                      
                      if (empsize > 100) 
                     {
-                          lblMSG.Text = "File is too big to upload";
+                        lblMSGError.Text = "File is too big to upload";
                     }
                      else
                     {
@@ -752,7 +815,7 @@ namespace clms2.vendor_onboarding
                 }
                 else
                 {
-                    lblMSG.Text = "Select Employee Image";
+                    lblMSGError.Text = "Select Employee Image";
                     return;
                 }
                 // 0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0
@@ -777,15 +840,15 @@ namespace clms2.vendor_onboarding
                     //decimal empsize = Math.Round((System.Convert.ToDecimal(fileSize) / (double)System.Convert.ToDecimal(1024)), 2);
                     if ((empsize > 20))
                     {
-                        lblMSG.Text = "File is too big to upload, Max Size is 20 KB";
+                        lblMSGError.Text = "File is too big to upload, Max Size is 20 KB";
                         return;
                     }
                     else
                     {
                     }
                     ///////// ===============================================================================
-                    string Str = "insert into tbl_emp(id, " + "vendor_code, " + "emp_name, emp_add, " + "emp_ph_no1,emp_ph_no2, " + "email, " + "gender,dob, " + "emp_cast,blood_grp, " + "nationality, aadhar_no, " + "pfno,pf_declaration, " + "escic,esic_declaration, " + "education, " + "police_verification, " + "medical_examination, " + "bank_name, acc_no, ifs_code, " + "emergency_contact_person_name, ecpn_ph_no, img_file, " + "status,remarks, " + "dept_approval,dept_remarks, " + "hr_approval,hr_remarks, " + "safety_approval,safety_remarks, " + "security_approval,security_remarks, " + "workorderno,any_disease, " + "designation,skill_category, " + "police_veryfication_dt,medical_certificate_dt,shift,basic,emp_code" + ")";
-                    Str = Str + " values(" + txtID.Text + "," + "'" + Session["User"] + "', " + "'" + txtEmpName.Text + "', '" + txtAddress.Text + "', " + "'" + txtPhNo1.Text + "', '" + txtPhNo2.Text + "', '" + txtEMail.Text + "', " + "'" + ddlGender.Text + "','" + txtDOB.Text + "', '" + ddlCast.Text + "', " + "'" + ddlBloodGrp.Text + "', '" + txtNationality.Text + "', " + "'" + txtAadharNo.Text + "', " + "'" + txtPFNO.Text + "','" + pffile + "', " + "'" + txtESIC.Text + "', '" + escicfile + "', " + "'" + ddlEducation.SelectedValue + "', " + "'" + policeverification + "', '" + medicalexamination + "', " + "'" + txtBankName.Text + "', '" + txtAccountNo.Text + "', '" + txtIFSC.Text + "', " + "'" + txtContactPerson.Text + "', '" + txtContactNo.Text + "', '" + imgName + "', " + "'P','-','N','-','N','-','N','-','N','-','" + txtWorkOrderNo.Text + "', " + "'" + txtDiseaseName.Text + "', " + "'" + ddlDesignation.SelectedValue + "','" + ddlSkill.SelectedValue + "', " + "'" + txtPVD.Text + "','" + txtMCID.Text + "','" + txtShift.Text + "','" + txtBasic.Text + "','" + txtEmpCode.Text + "')";  //, @ImageData
+                    string Str = "insert into tbl_emp(id, " + "vendor_code, " + "emp_name, emp_add, " + "emp_ph_no1,emp_ph_no2, " + "email, " + "gender,dob, " + "emp_cast,blood_grp, " + "nationality, aadhar_no, " + "pfno,pf_declaration, " + "escic,esic_declaration, " + "education, " + "police_verification, " + "medical_examination, " + "bank_name, acc_no, ifs_code, " + "emergency_contact_person_name, ecpn_ph_no, img_file, " + "status,remarks, " + "dept_approval,dept_remarks, " + "hr_approval,hr_remarks, " + "safety_approval,safety_remarks, " + "security_approval,security_remarks, " + "workorderno,any_disease, " + "designation,skill_category, " + "police_veryfication_dt,medical_certificate_dt,shift,basic,emp_code,city,state,experience" + ")";
+                    Str = Str + " values(" + txtID.Text + "," + "'" + Session["User"] + "', " + "'" + txtEmpName.Text + "', '" + txtAddress.Text + "', " + "'" + txtPhNo1.Text + "', '" + txtPhNo2.Text + "', '" + txtEMail.Text + "', " + "'" + ddlGender.Text + "','" + txtDOB.Text + "', '" + ddlCast.Text + "', " + "'" + ddlBloodGrp.Text + "', '" + txtNationality.Text + "', " + "'" + txtAadharNo.Text + "', " + "'" + txtPFNO.Text + "','" + pffile + "', " + "'" + txtESIC.Text + "', '" + escicfile + "', " + "'" + ddlEducation.SelectedValue + "', " + "'" + policeverification + "', '" + medicalexamination + "', " + "'" + txtBankName.Text + "', '" + txtAccountNo.Text + "', '" + txtIFSC.Text + "', " + "'" + txtContactPerson.Text + "', '" + txtContactNo.Text + "', '" + imgName + "', " + "'P','-','N','-','N','-','N','-','N','-','" + txtWorkOrderNo.Text + "', " + "'" + txtDiseaseName.Text + "', " + "'" + ddlDesignation.SelectedValue + "','" + ddlSkill.SelectedValue + "', " + "'" + txtPVD.Text + "','" + txtMCID.Text + "','" + txtShift.Text + "','" + txtBasic.Text + "','" + txtEmpCode.Text + "','" + txtCity.Text + "','" + txtState.Text + "','" + txtExp.Text + "')";  //, @ImageData
 
                     SqlCommand cm = new SqlCommand(Str, con);
                     //// ' cm.Parameters.Add("@ImageData", SqlDbType.Image).Value = Imagebytes
@@ -813,10 +876,10 @@ namespace clms2.vendor_onboarding
                     lblMSG.Text = "Data Saved successfully";
                 }
                 else
-                    lblMSG.Text = "Only images (.jpg, .png, .gif and .bmp) can be uploaded";
+                    lblMSGError.Text = "Only images (.jpg, .png, .gif and .bmp) can be uploaded";
             }
             else
-                lblMSG.Text = "Upload both Police Verication and Medical Examination Document.......";
+                lblMSGError.Text = "Upload both Police Verication and Medical Examination Document.......";
 
             // ===============================================================================  
 
@@ -828,7 +891,16 @@ namespace clms2.vendor_onboarding
                 string PolVarExpDate2 = string.Format("{0:dd/MM/yyyy}", PolVarExpDate1);
                 lblPoliceExpiry.Text = "Police Verification expiry Date is : " + PolVarExpDate2;
             }
+
+            }
+            catch (Exception ex)
+            {
+
+                Response.Write(ex.Message);
+            }
         }
+
+
 
         protected void cmdCancel_Click(object sender, EventArgs e)
         {

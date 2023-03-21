@@ -355,12 +355,12 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.Label lblMSG;
         
         /// <summary>
-        /// lblMSG1 control.
+        /// lblMSGError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMSG1;
+        protected global::System.Web.UI.WebControls.Label lblMSGError;
     }
 }

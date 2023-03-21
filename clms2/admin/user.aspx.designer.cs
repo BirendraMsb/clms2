@@ -175,15 +175,6 @@ namespace clms2.admin {
         protected global::System.Web.UI.WebControls.RadioButton rdoActiveNo;
         
         /// <summary>
-        /// cmdCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button cmdCancel;
-        
-        /// <summary>
         /// cmdSave control.
         /// </summary>
         /// <remarks>
@@ -191,6 +182,15 @@ namespace clms2.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button cmdSave;
+        
+        /// <summary>
+        /// cmdCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cmdCancel;
         
         /// <summary>
         /// lblError control.

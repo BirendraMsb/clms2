@@ -11,7 +11,9 @@ namespace clms2.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            string usrnm = Session["User"].ToString();
+            lblUser.Text = usrnm;
+            lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
         }
     }
 }

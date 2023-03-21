@@ -11,7 +11,7 @@
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
-    <link href="../public/common/css/bootswatchTheme.css" rel="stylesheet" />
+    <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
     <link rel="icon" href="../public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="../public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="../public/newfront/assets/css/bootstrap.min.css" />
@@ -86,7 +86,7 @@
                                 <ul class="navbar-nav me-auto">
                                     <li class="nav-item">
                                         <a class="nav-link" href="dashboard.aspx">Dashboard
-                                <span class="visually-hidden">(current)</span>
+                              <%--  <span class="visually-hidden">(current)</span>--%>
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -106,8 +106,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span>
-                                        </a>
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="emp_onboarding.aspx">
@@ -117,7 +116,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -159,7 +158,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -186,7 +185,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -227,8 +226,7 @@
                                     &nbsp;&nbsp;
                          <img src="../images/k2.png" alt="Department" width="50" height="50" />&nbsp;&nbsp;  
                        <asp:Label ID="lblUser" runat="server" Text="" Style="color: #FFFFCC; font-size: 15px"></asp:Label>&nbsp;&nbsp;
-                     <%-- <input class="form-control me-sm-2" type="search" placeholder="Search">--%>
-                                    <%--  <button class="btn btn-secondary my-2 my-sm-0" type="submit" fdprocessedid="i5uef7">Search</button>--%>
+                   
                                 </form>
                             </div>
                         </div>
@@ -434,21 +432,21 @@
                                       <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group mb-3">
-                                                <asp:LinkButton ID="btnDownloadPF" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandPF_Click">download PF</asp:LinkButton>
-                                                <asp:LinkButton ID="btnDownloadEsic" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandEsic_Click">download ESIC</asp:LinkButton>
-                                                <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                                <asp:Label ID="lblMSG1" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group mb-3">
                                                   
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                      <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-3">
+                                                <asp:LinkButton ID="btnDownloadPF" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandPF_Click">download PF</asp:LinkButton>
+                                                <asp:LinkButton ID="btnDownloadEsic" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandEsic_Click">download ESIC</asp:LinkButton><br />
+                                                <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label><br />
+                                                <asp:Label ID="lblMSGError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
+                                              </div>
+                                        </div>
+                                    </div>
+                                 </div>
                              </div>
                          </div>
                     </div>

@@ -49,6 +49,15 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.Label lblMSG;
         
         /// <summary>
+        /// lblMSGError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMSGError;
+        
+        /// <summary>
         /// lblPoliceExpiry control.
         /// </summary>
         /// <remarks>
@@ -110,6 +119,24 @@ namespace clms2.vendor_onboarding {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        
+        /// <summary>
+        /// txtCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCity;
+        
+        /// <summary>
+        /// txtState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtState;
         
         /// <summary>
         /// txtEMail control.
@@ -461,6 +488,15 @@ namespace clms2.vendor_onboarding {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBasic;
+        
+        /// <summary>
+        /// txtExp control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtExp;
         
         /// <summary>
         /// FileUpload1 control.

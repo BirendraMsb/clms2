@@ -95,6 +95,11 @@
                                                 </a>
                                             </li>
                                             <li>
+                                                <a class="dropdown-item" href="department.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Department Master
+                                                </a>
+                                            </li>
+                                            <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Shift Master
                                                 </a>
@@ -116,7 +121,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb1" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transaction <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="generate-shift.aspx">
+                                                <a class="dropdown-item" href="show-gen-shift.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
@@ -197,7 +202,7 @@
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <div class="table-responsive" style="overflow: auto;">
-                                               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical" AllowPaging="True" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnPageIndexChanging="OnPaging"
                                                 OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
                                                 Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
@@ -214,7 +219,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblLeaveCode" runat="server" Text='<%# Eval("Leave_code")%>'></asp:Label>
                                                         </ItemTemplate>
-                                                          <EditItemTemplate>
+                                                        <EditItemTemplate>
                                                             <asp:TextBox ID="txtLeaveCode" runat="server" Text='<%# Eval("Leave_code")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
@@ -223,7 +228,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblLeaveType" runat="server" Text='<%# Eval("leave_type")%>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <EditItemTemplate>
+                                                        <EditItemTemplate>
                                                             <asp:TextBox ID="txtLeaveType" runat="server" Text='<%# Eval("leave_type")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
@@ -232,12 +237,12 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblPaid" runat="server" Text='<%# Eval("IsPaid")%>'></asp:Label>
                                                         </ItemTemplate>
-                                                          <EditItemTemplate>
+                                                        <EditItemTemplate>
                                                             <asp:TextBox ID="txtPaid" runat="server" Text='<%# Eval("IsPaid")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
-                                                  
+
                                                     <asp:CommandField ButtonType="Link" ShowEditButton="true"
                                                         ItemStyle-Width="150" HeaderText="Action">
                                                         <ItemStyle Width="150px" />
@@ -254,9 +259,9 @@
                                                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                                                 <SortedDescendingHeaderStyle BackColor="#000065" />
                                             </asp:GridView>
-                                               <%--========================================================================================--%>
+                                            <%--========================================================================================--%>
                                         </div>
-                                         <div class="row" >
+                                        <div class="row">
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Leave Code</label>
@@ -282,17 +287,17 @@
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
-                                               
+
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label></label>
                                                     <asp:Button ID="cmdSave" runat="server" Text="Save" class="btn btn-info form-control" OnClick="cmdSave_Click"></asp:Button>
-                                                  <%--  <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-info"></asp:Button>--%>
+                                                    <%--  <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-info"></asp:Button>--%>
                                                 </div>
                                             </div>
 
                                         </div>
-                                     <hr class="my-5" visible="false" />
+                                        <hr class="my-5" visible="false" />
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">

@@ -20,6 +20,11 @@ namespace clms2.vendor_onboarding
         string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string usrnm = Session["User"].ToString();
+            lblUser.Text = usrnm;
+            // lblUser1.Text = usrnm
+            lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
+
             con = new SqlConnection(constr);
             cmd = new SqlCommand();
             cmd.Connection = con;  
@@ -37,7 +42,7 @@ namespace clms2.vendor_onboarding
 
                 //Create a DataTable.
                 DataTable dt = new DataTable();
-                dt.Columns.AddRange(new DataColumn[37] {
+                dt.Columns.AddRange(new DataColumn[40] {
                 new DataColumn("emp_code", typeof(string)),
                 new DataColumn("vendor_code", typeof(string)),
                 new DataColumn("workorder", typeof(string)),
@@ -74,7 +79,13 @@ namespace clms2.vendor_onboarding
                                          new DataColumn("d28",typeof(string)),
                                          new DataColumn("d29",typeof(string)),
                                          new DataColumn("d30",typeof(string)),
-                                         new DataColumn("d31",typeof(string)), });
+                                         new DataColumn("d31",typeof(string)),
+                                         new DataColumn("daily_working_hrs",typeof(Int32)),
+                                         new DataColumn("monthly_work_hrs",typeof(Int32)),
+                                         new DataColumn("monthly_ot_hrs",typeof(Int32)),
+
+                
+                });
     
                 //Read the contents of CSV file.
                 string csvData = File.ReadAllText(csvPath);
@@ -123,45 +134,813 @@ namespace clms2.vendor_onboarding
             {
                 foreach (GridViewRow g1 in Gvrecords.Rows)
                 {
+                    int present = 0;
+                    int absent =0;
+                    int tot_holidays = 0;
+                    int tot_leave = 0;
+                    int tot_week_off = 0;
+                    int tot_working_day = 0;
+
                     string emp_code = (g1.FindControl("lblemp_code") as Label).Text;
                     string vendor_code = (g1.FindControl("lblvendor_code") as Label).Text;
                     string workorder = (g1.FindControl("lblworkorder") as Label).Text;
                     string emp_name = (g1.FindControl("lblemp_name") as Label).Text;
                     string year1 = (g1.FindControl("lblyear1") as Label).Text;
                     string month1 = (g1.FindControl("lblmonth1") as Label).Text;
+                   
                     string d1 = (g1.FindControl("lbld1") as Label).Text;
+                    if (d1 != "")
+                    {
+                        if (d1.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d1.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d1.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d1.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d1.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                     
+                    }
+                  
                     string d2 = (g1.FindControl("lbld2") as Label).Text;
+                    if (d2.ToUpper() != "")
+                    {
+                        if (d2.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d2.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d2.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d2.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d2.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                  
                     string d3 = (g1.FindControl("lbld3") as Label).Text;
+                    if (d3 != "")
+                    {
+                        if (d3.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d3.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d3.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d3.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d3.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                
                     string d4 = (g1.FindControl("lbld4") as Label).Text;
+                    if (d4 != "")
+                    {
+                        if (d4.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d4.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d4.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d4.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d4.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                 
                     string d5 = (g1.FindControl("lbld5") as Label).Text;
+                    if (d5 != "")
+                    {
+                        if (d5.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d5.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d5.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d5.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d5.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                  
                     string d6 = (g1.FindControl("lbld6") as Label).Text;
+                    if (d6 != "")
+                    {
+                        if (d6.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d6.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d6.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d6.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d6.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                  
                     string d7 = (g1.FindControl("lbld7") as Label).Text;
+                    if (d7 != "")
+                    {
+                        if (d7.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d7.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d7.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d7.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d7.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                 
                     string d8 = (g1.FindControl("lbld8") as Label).Text;
+                    if (d8 != "")
+                    {
+                        if (d8.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d8.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d8.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d8.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d8.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                 
                     string d9 = (g1.FindControl("lbld9") as Label).Text;
+                    if (d9 != "")
+                    {
+                        if (d9.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d9.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d9.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d9.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d9.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                  
                     string d10 = (g1.FindControl("lbld10") as Label).Text;
+                    if (d10 != "")
+                    {
+                        if (d10.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d10.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d10.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d10.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d10.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                 
                     string d11 = (g1.FindControl("lbld11") as Label).Text;
+                    if (d11 != "")
+                    {
+                        if (d11.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d11.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d11.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d11.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d11.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                 
                     string d12 = (g1.FindControl("lbld12") as Label).Text;
+                    if (d12 != "")
+                    {
+                        if (d12.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d12.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d12.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d12.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d12.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                   
                     string d13 = (g1.FindControl("lbld13") as Label).Text;
+                    if (d13 != "")
+                    {
+                        if (d13.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d13.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d13.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d13.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d13.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                  
                     string d14 = (g1.FindControl("lbld14") as Label).Text;
-                    string d15 = (g1.FindControl("lbld15") as Label).Text;
-                    string d16 = (g1.FindControl("lbld16") as Label).Text;
-                    string d17 = (g1.FindControl("lbld17") as Label).Text;
-                    string d18 = (g1.FindControl("lbld18") as Label).Text;
-                    string d19 = (g1.FindControl("lbld19") as Label).Text;
-                    string d20 = (g1.FindControl("lbld20") as Label).Text;
-                    string d21 = (g1.FindControl("lbld21") as Label).Text;
-                    string d22 = (g1.FindControl("lbld22") as Label).Text;
-                    string d23= (g1.FindControl("lbld23") as Label).Text;
-                    string d24 = (g1.FindControl("lbld24") as Label).Text;
-                    string d25 = (g1.FindControl("lbld25") as Label).Text;
-                    string d26 = (g1.FindControl("lbld26") as Label).Text;
-                    string d27 = (g1.FindControl("lbld27") as Label).Text;
-                    string d28 = (g1.FindControl("lbld28") as Label).Text;
-                    string d29= (g1.FindControl("lbld29") as Label).Text;
-                    string d30 = (g1.FindControl("lbld30") as Label).Text;
-                    string d31 = (g1.FindControl("lbld31") as Label).Text;
+                    if (d14 != "")
+                    {
+                        if (d14.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d14.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d14.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d14.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d14.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
 
-                    string query = "insert into tbl_attendance(emp_code,vendor_code,workorder,emp_name,year1,month1,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31) values('" + emp_code + "','" + vendor_code + "','" + workorder + "','" + emp_name + "'," + year1 + " ," + month1 + " , '" + d1 + "' ,'" + d2 + "' ,'" + d3 + "' ,'" + d4 + "'   ,'" + d5 + "' ,'" + d6 + "'   ,'" + d7 + "'    ,'" + d8 + "'      ,'" + d9 + "' ,'" + d10 + "','" + d11 + "' ,'" + d12 + "' ,'" + d13 + "' ,'" + d14 + "'   ,'" + d15 + "' ,'" + d16 + "'   ,'" + d17 + "'    ,'" + d18 + "','" + d19 + "' ,'" + d20 + "','" + d21 + "' ,'" + d22 + "' ,'" + d23 + "' ,'" + d24 + "'   ,'" + d25 + "' ,'" + d26 + "' ,'" + d27 + "' ,'" + d28 + "' ,'" + d29 + "' ,'" + d30 + "','" + d31 + "' )";
+                    }
+                   
+                    string d15 = (g1.FindControl("lbld15") as Label).Text;
+                    if (d15 != "")
+                    {
+                        if (d15.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d15.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d15.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d15.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d15.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                 
+                    string d16 = (g1.FindControl("lbld16") as Label).Text;
+                    if (d16 != "")
+                    {
+                        if (d16.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d16.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d16.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d16.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d16.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+
+                    }
+                 
+                    string d17 = (g1.FindControl("lbld17") as Label).Text;
+                    if (d17 != "")
+                    {
+                        if (d17.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d17.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d17.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d17.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d17.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+               
+                    string d18 = (g1.FindControl("lbld18") as Label).Text;
+                    if (d18 != "")
+                    {
+                        if (d18.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d18.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d18.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d18.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d18.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                 
+                    string d19 = (g1.FindControl("lbld19") as Label).Text;
+                    if (d19 != "")
+                    {
+                        if (d19.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d19.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d19.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d19.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d19.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+
+                    }
+                 
+                    string d20 = (g1.FindControl("lbld20") as Label).Text;
+                    if (d20 != "")
+                    {
+                        if (d20.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d20.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d20.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d20.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d20.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+
+                    }
+                  
+                    string d21 = (g1.FindControl("lbld21") as Label).Text;
+                    if (d21 != "")
+                    {
+                        if (d21.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d21.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d21.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d21.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d21.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                 
+                    string d22 = (g1.FindControl("lbld22") as Label).Text;
+                    if (d22 != "")
+                    {
+                        if (d22.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d22.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d22.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d22.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d22.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                  
+                    string d23= (g1.FindControl("lbld23") as Label).Text;
+                    if (d23 != "")
+                    {
+                        if (d23.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d23.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d23.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d23.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d23.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+
+                    }
+                  
+                    string d24 = (g1.FindControl("lbld24") as Label).Text;
+                    if (d24 != "")
+                    {
+                        if (d24.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d24.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d24.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d24.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d24.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                  
+                    string d25 = (g1.FindControl("lbld25") as Label).Text;
+                    if (d25 != "")
+                    {
+                        if (d25.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d25.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d25.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d25.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d25.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                 
+                    string d26 = (g1.FindControl("lbld26") as Label).Text;
+                    if (d26 != "")
+                    {
+                        if (d26.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d26.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d26.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d26.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d26.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+
+                    }
+                 
+                    string d27 = (g1.FindControl("lbld27") as Label).Text;
+                    if (d27 != "")
+                    {
+                        if (d27.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d27.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d27.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d27.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d27.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                   
+                    string d28 = (g1.FindControl("lbld28") as Label).Text;
+                    if (d28 != "")
+                    {
+                        if (d28.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d28.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d28.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d28.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d28.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                   
+                    string d29= (g1.FindControl("lbld29") as Label).Text;
+                    if (d29 != "")
+                    {
+                        if (d29.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d29.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d29.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d29.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d29.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+                    }
+                  
+                    string d30 = (g1.FindControl("lbld30") as Label).Text;
+                    if (d30 != "")
+                    {
+                        if (d30.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d30.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d30.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d30.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d30.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+
+                    }
+                
+                    string d31 = (g1.FindControl("lbld31") as Label).Text;
+                    if (d31 != "")
+                    {
+                        if (d31.ToUpper() == "P")
+                        {
+                            present += 1;
+                        }
+                        else if (d31.ToUpper() == "A")
+                        {
+                            absent += 1;
+                        }
+                        else if (d31.ToUpper() == "L")
+                        {
+                            tot_leave += 1;
+                        }
+                        else if (d31.ToUpper() == "HL")
+                        {
+                            tot_holidays += 1;
+                        }
+                        else if (d31.ToUpper() == "WO")
+                        {
+                            tot_week_off += 1;
+                        }
+
+                    }
+ 
+                    string daily_working_hrs = (g1.FindControl("lbldaily_working_hrs") as Label).Text;
+                    string monthly_work_hrs = (g1.FindControl("lblmonthly_work_hrs") as Label).Text;
+                    string monthly_ot_hrs = (g1.FindControl("lblmonthly_ot_hrs") as Label).Text;
+
+                    tot_working_day = present + absent;
+
+
+
+                    string query = "insert into tbl_attendance(emp_code,vendor_code,workorder,emp_name,year1,month1,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,daily_working_hrs,monthly_work_hrs,monthly_ot_hrs,Absent,Present,tot_holidays,tot_leave,tot_week_off,tot_working_day) values('" + emp_code + "','" + vendor_code + "','" + workorder + "','" + emp_name + "'," + year1 + " ," + month1 + " , '" + d1 + "' ,'" + d2 + "' ,'" + d3 + "' ,'" + d4 + "'   ,'" + d5 + "' ,'" + d6 + "'   ,'" + d7 + "'    ,'" + d8 + "'      ,'" + d9 + "' ,'" + d10 + "','" + d11 + "' ,'" + d12 + "' ,'" + d13 + "' ,'" + d14 + "'   ,'" + d15 + "' ,'" + d16 + "'   ,'" + d17 + "'    ,'" + d18 + "','" + d19 + "' ,'" + d20 + "','" + d21 + "' ,'" + d22 + "' ,'" + d23 + "' ,'" + d24 + "'   ,'" + d25 + "' ,'" + d26 + "' ,'" + d27 + "' ,'" + d28 + "' ,'" + d29 + "' ,'" + d30 + "','" + d31 + "','" + daily_working_hrs + "','" + monthly_work_hrs + "','" + monthly_ot_hrs + "','" + absent + "','" + present + "','" + tot_holidays + "' ,'" + tot_leave + "','" + tot_week_off + "','" + tot_working_day + "')";
                     //cmd.CommandText = "insert into Members values ('" + g1.Cells[0].Text + "','" + g1.Cells[1].Text + "','" + g1.Cells[2].Text + "','" + g1.Cells[3].Text + "')";  
                     slno = vendor_code;
                     cmd.CommandText = query;

@@ -16,7 +16,7 @@ namespace clms2.vendor_onboarding
         public string strSQL;
         private static string Conn = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
         private SqlConnection con = new SqlConnection(Conn);
-
+        int count_emp = 0;
         public void dbConnection()
         {
             if (con.State == ConnectionState.Closed)
@@ -130,7 +130,7 @@ namespace clms2.vendor_onboarding
             {
                 work_order_no();
                 shift_name();
-                txtEmpCode.Text = Auto_Emp_Code().ToString();
+               
             }
                 
 
@@ -214,33 +214,55 @@ namespace clms2.vendor_onboarding
 
         }
 
-        private int Auto_Emp_Code()
+        private void Auto_Emp_Code()
         {
-            int x = 0;
+          
 
-            string StrSql = "Select max(Emp_Code) from tbl_emp";
-            SqlCommand cmd = new SqlCommand(StrSql, con);
-            if (con.State == ConnectionState.Closed)
-                con.Open();
-            SqlDataReader dr = cmd.ExecuteReader();
-            try
+            // ------------cont vendor and workorderwise ---------//
+
+            using (SqlConnection con1 = new SqlConnection(Conn))
             {
-                if ((dr.Read()))
+                using (SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) As Count FROM tbl_emp where vendor_code ='" + Session["User"] + "' and workorderno ='" + txtWorkOrderNo.SelectedItem.Text + "'", con1))
                 {
-                    if ((dr[0] == DBNull.Value))
-                        x = 1;
-                    else
-                        x = (Convert.ToInt16(dr[0]) + 1);
+                    cmd1.CommandType = CommandType.Text;
+                    con1.Open();
+                    object o = cmd1.ExecuteScalar();
+                    if (o != null)
+                    {
+                        count_emp = (int)o;
+                    }
+                    con1.Close();
                 }
-                else
-                        x = 1;
+
+                txtEmpCode.Text = Session["User"].ToString() + "-" + txtWorkOrderNo.SelectedItem.Text + "-" + count_emp;
+
             }
-            catch (Exception ex)
-            {
-            }
-            dr.Close();
-           // x = Convert.ToInt16(txtID.Text);
-            return x;
+
+            //-------------------------------------------------------
+           // int x = 0;
+           // string StrSql = "Select max(Emp_Code) from tbl_emp";
+           // SqlCommand cmd = new SqlCommand(StrSql, con);
+           // if (con.State == ConnectionState.Closed)
+           //     con.Open();
+           // SqlDataReader dr = cmd.ExecuteReader();
+           // try
+           // {
+           //     if ((dr.Read()))
+           //     {
+           //         if ((dr[0] == DBNull.Value))
+           //             x = 1;
+           //         else
+           //             x = (Convert.ToInt16(dr[0]) + 1);
+           //     }
+           //     else
+           //             x = 1;
+           // }
+           // catch (Exception ex)
+           // {
+           // }
+           // dr.Close();
+           //// x = Convert.ToInt16(txtID.Text);
+           // return x;
         }
         private int Auto_ID()
         {
@@ -556,6 +578,7 @@ namespace clms2.vendor_onboarding
         protected void txtWorkOrderNo_SelectedIndexChanged(object sender, EventArgs e)
         {
             vendor_reg_code();
+            Auto_Emp_Code();
         }
 
         protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
@@ -904,8 +927,38 @@ namespace clms2.vendor_onboarding
 
         protected void cmdCancel_Click(object sender, EventArgs e)
         {
+            txtID.Text = "";
+            txtEmpName.Text = "";
+            txtAddress.Text = "";
+            txtPhNo1.Text = "";
+            txtPhNo2.Text = "";
+            txtEMail.Text = "";
+            ddlGender.Text = "";
+            txtDOB.Text = "";
+            ddlCast.Text = "";
+            txtNationality.Text = "";
+            txtAadharNo.Text = "";
+            txtPFNO.Text = "";
+            txtESIC.Text = "";
 
+            ddlEducation.SelectedIndex = -1;
+            txtBankName.Text = "";
+            txtAccountNo.Text = "";
+            txtIFSC.Text = "";
+            txtContactPerson.Text = "";
+            txtContactNo.Text = "";
+            txtWorkOrderNo.SelectedIndex = -1;
+            txtDiseaseName.Text = "";
+            ddlDesignation.SelectedIndex = -1;
+            ddlSkill.SelectedIndex = -1;
+            txtPVD.Text = "";
+            txtMCID.Text = "";
+            txtShift.Text = "";
+            txtBasic.Text = "";
+            txtEmpCode.Text = "";
+            txtCity.Text = "";
+            txtState.Text = "";
+            txtExp.Text = "";
         }
-
     }
 }

@@ -28,10 +28,10 @@ namespace clms2.user_dept
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                
-                ///using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_work_order where status='A'"))
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_emp where status='P' and hr_approval='Approved'"))
-                {
+
+                // using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_emp where status='P' and hr_approval='Approved' and "))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_work_order where status='A' and department='" + lblUser.Text + "' "))
+                   {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
@@ -39,8 +39,8 @@ namespace clms2.user_dept
                         DataSet ds = new DataSet();
                         sda.Fill(ds);
                         ddlWorkOrder.DataSource = ds.Tables[0];
-                        ddlWorkOrder.DataTextField = "workorderno";
-                        ddlWorkOrder.DataValueField = "workorderno";
+                        ddlWorkOrder.DataTextField = "work_worder";
+                        ddlWorkOrder.DataValueField = "work_worder";
                         ddlWorkOrder.DataBind();
                     }
                 }

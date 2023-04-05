@@ -41,6 +41,7 @@
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -58,18 +59,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\admin_dashboard.aspx" />
+    <Content Include="admin\department.aspx" />
     <Content Include="admin\generate-shift.aspx" />
     <Content Include="admin\holiday-master.aspx" />
     <Content Include="admin\leave-master.aspx" />
+    <Content Include="admin\man-correction-test.aspx" />
     <Content Include="admin\manual-correction.aspx" />
     <Content Include="admin\manual-punching.aspx" />
     <Content Include="admin\shift-master.aspx" />
+    <Content Include="admin\show-gen-shift.aspx" />
     <Content Include="admin\test.aspx" />
+    <Content Include="admin\testChart.aspx" />
     <Content Include="admin\update-leave-register.aspx" />
     <Content Include="admin\user.aspx" />
     <Content Include="contractor_cell\dashboard.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-approval.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-block.aspx" />
+    <Content Include="contractor_cell\purposed-wages-doc-approval.aspx" />
     <Content Include="contractor_cell\vendor-detail.aspx" />
     <Content Include="contractor_cell\work-order-detail.aspx" />
     <Content Include="contractor_cell\work-order-details-all.aspx" />
@@ -153,6 +159,17 @@
     <Content Include="images\viewctrlrpt.png" />
     <Content Include="images\ViewList.png" />
     <Content Include="images\zz.jpg" />
+    <Content Include="js\jquery-1.6.1.min.js" />
+    <Content Include="js\jquery-1.7.2.min.js" />
+    <Content Include="js\jquery-1.8.2.js" />
+    <Content Include="js\jquery-1.9.1.js" />
+    <Content Include="js\Jquery-3.3.1.js" />
+    <Content Include="js\jquery-latest.min.js" />
+    <Content Include="js\jquery-ui-1.8.19.custom.min.js" />
+    <Content Include="js\jquery-ui.css" />
+    <Content Include="js\jquery-ui.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\tinybox.js" />
     <Content Include="login\bootstrap\css\bootstrap-responsive.min.css" />
     <Content Include="login\bootstrap\css\bootstrap.min.css" />
     <Content Include="login\bootstrap\img\glyphicons-halflings-white.png" />
@@ -2816,11 +2833,23 @@
     <Content Include="vendor-onboarding\AllowancesMaster.aspx" />
     <Content Include="vendor-onboarding\attendance-view.aspx" />
     <Content Include="vendor-onboarding\dashboard.aspx" />
+    <Content Include="vendor-onboarding\department.aspx" />
     <Content Include="vendor-onboarding\emp_detail.aspx" />
     <Content Include="vendor-onboarding\emp_onboarding.aspx" />
+    <Content Include="vendor-onboarding\form16.aspx" />
+    <Content Include="vendor-onboarding\form17.aspx" />
+    <Content Include="vendor-onboarding\generate-shift.aspx" />
+    <Content Include="vendor-onboarding\holiday-master.aspx" />
+    <Content Include="vendor-onboarding\leave-master.aspx" />
+    <Content Include="vendor-onboarding\manual-correction.aspx" />
+    <Content Include="vendor-onboarding\manual-punching.aspx" />
+    <Content Include="vendor-onboarding\shift-master.aspx" />
+    <Content Include="vendor-onboarding\show-gen-shift.aspx" />
     <Content Include="vendor-onboarding\upload_attendance.aspx" />
+    <Content Include="vendor-onboarding\user.aspx" />
     <Content Include="vendor-onboarding\vendor_detailNew.aspx" />
     <Content Include="vendor-onboarding\vendor_detail_entry.aspx" />
+    <Content Include="vendor-onboarding\wages_document.aspx" />
     <Content Include="vendor-onboarding\work-order-detail.aspx" />
     <Content Include="vendors_pic\index111.jpg" />
     <Content Include="Web.config">
@@ -2834,6 +2863,13 @@
     </Compile>
     <Compile Include="admin\admin_dashboard.aspx.designer.cs">
       <DependentUpon>admin_dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\department.aspx.cs">
+      <DependentUpon>department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\department.aspx.designer.cs">
+      <DependentUpon>department.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\generate-shift.aspx.cs">
       <DependentUpon>generate-shift.aspx</DependentUpon>
@@ -2856,6 +2892,13 @@
     <Compile Include="admin\leave-master.aspx.designer.cs">
       <DependentUpon>leave-master.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\man-correction-test.aspx.cs">
+      <DependentUpon>man-correction-test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\man-correction-test.aspx.designer.cs">
+      <DependentUpon>man-correction-test.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\manual-correction.aspx.cs">
       <DependentUpon>manual-correction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2877,12 +2920,26 @@
     <Compile Include="admin\shift-master.aspx.designer.cs">
       <DependentUpon>shift-master.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\show-gen-shift.aspx.cs">
+      <DependentUpon>show-gen-shift.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\show-gen-shift.aspx.designer.cs">
+      <DependentUpon>show-gen-shift.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="admin\test.aspx.designer.cs">
       <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\testChart.aspx.cs">
+      <DependentUpon>testChart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\testChart.aspx.designer.cs">
+      <DependentUpon>testChart.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\update-leave-register.aspx.cs">
       <DependentUpon>update-leave-register.aspx</DependentUpon>
@@ -2918,6 +2975,13 @@
     </Compile>
     <Compile Include="contractor_cell\purposed-emp-detail-block.aspx.designer.cs">
       <DependentUpon>purposed-emp-detail-block.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\purposed-wages-doc-approval.aspx.cs">
+      <DependentUpon>purposed-wages-doc-approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\purposed-wages-doc-approval.aspx.designer.cs">
+      <DependentUpon>purposed-wages-doc-approval.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\vendor-detail.aspx.cs">
       <DependentUpon>vendor-detail.aspx</DependentUpon>
@@ -3095,6 +3159,13 @@
     <Compile Include="vendor-onboarding\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vendor-onboarding\department.aspx.cs">
+      <DependentUpon>department.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\department.aspx.designer.cs">
+      <DependentUpon>department.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vendor-onboarding\emp_detail.aspx.cs">
       <DependentUpon>emp_detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3109,12 +3180,82 @@
     <Compile Include="vendor-onboarding\emp_onboarding.aspx.designer.cs">
       <DependentUpon>emp_onboarding.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vendor-onboarding\form16.aspx.cs">
+      <DependentUpon>form16.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\form16.aspx.designer.cs">
+      <DependentUpon>form16.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\form17.aspx.cs">
+      <DependentUpon>form17.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\form17.aspx.designer.cs">
+      <DependentUpon>form17.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\generate-shift.aspx.cs">
+      <DependentUpon>generate-shift.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\generate-shift.aspx.designer.cs">
+      <DependentUpon>generate-shift.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\holiday-master.aspx.cs">
+      <DependentUpon>holiday-master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\holiday-master.aspx.designer.cs">
+      <DependentUpon>holiday-master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\leave-master.aspx.cs">
+      <DependentUpon>leave-master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\leave-master.aspx.designer.cs">
+      <DependentUpon>leave-master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\manual-correction.aspx.cs">
+      <DependentUpon>manual-correction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\manual-correction.aspx.designer.cs">
+      <DependentUpon>manual-correction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\manual-punching.aspx.cs">
+      <DependentUpon>manual-punching.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\manual-punching.aspx.designer.cs">
+      <DependentUpon>manual-punching.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\shift-master.aspx.cs">
+      <DependentUpon>shift-master.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\shift-master.aspx.designer.cs">
+      <DependentUpon>shift-master.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\show-gen-shift.aspx.cs">
+      <DependentUpon>show-gen-shift.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\show-gen-shift.aspx.designer.cs">
+      <DependentUpon>show-gen-shift.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vendor-onboarding\upload_attendance.aspx.cs">
       <DependentUpon>upload_attendance.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="vendor-onboarding\upload_attendance.aspx.designer.cs">
       <DependentUpon>upload_attendance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\user.aspx.cs">
+      <DependentUpon>user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\user.aspx.designer.cs">
+      <DependentUpon>user.aspx</DependentUpon>
     </Compile>
     <Compile Include="vendor-onboarding\vendor_detailNew.aspx.cs">
       <DependentUpon>vendor_detailNew.aspx</DependentUpon>
@@ -3129,6 +3270,13 @@
     </Compile>
     <Compile Include="vendor-onboarding\vendor_detail_entry.aspx.designer.cs">
       <DependentUpon>vendor_detail_entry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\wages_document.aspx.cs">
+      <DependentUpon>wages_document.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\wages_document.aspx.designer.cs">
+      <DependentUpon>wages_document.aspx</DependentUpon>
     </Compile>
     <Compile Include="vendor-onboarding\work-order-detail.aspx.cs">
       <DependentUpon>work-order-detail.aspx</DependentUpon>

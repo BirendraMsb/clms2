@@ -87,8 +87,30 @@
                                 <ul class="navbar-nav me-auto">
                                     <li class="nav-item">
                                         <a class="nav-link" href="dashboard.aspx">Dashboard
-                                <span class="visually-hidden">(current)</span>
+                                        <span class="visually-hidden">(current)</span>
                                         </a>
+                                    </li>
+                                      <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
+                                        <ul class="dropdown-menu ">
+                                         
+                                            <li>
+                                                <a class="dropdown-item" href="shift-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Shift Master
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="leave-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Leave Master
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="holiday-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Holiday Master
+                                                </a>
+                                            </li>
+
+                                        </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendor Registration <span class="fa fa-angle-down ms-1"></span></a>
@@ -118,16 +140,20 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
-                                        </a>
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                <a class="dropdown-item" href="show-gen-shift.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
                                             <li>
+                                                <a class="dropdown-item" href="shift-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Update Leave Register
+                                                </a>
+                                            </li>
+                                             <li>
                                                 <a class="dropdown-item" href="upload_attendance.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Upload Attendance
                                                 </a>
@@ -138,6 +164,30 @@
                                                 </a>
                                             </li>
                                             <li>
+                                                <a class="dropdown-item" href="manual-punching.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Manual Punching
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="manual-correction.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Manual Corrections
+                                                </a>
+                                            </li>
+                                          
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="AllowancesMaster.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
                                                 <a class="dropdown-item" href="#">
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
@@ -147,15 +197,28 @@
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
+                                       
+                                        </ul>
+                                    </li>
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 16
                                                 </a>
                                             </li>
 
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="form17.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 17
+                                                </a>
+                                            </li>
+                                              <li>
+                                                <a class="dropdown-item" href="wages_document.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages document
                                                 </a>
                                             </li>
                                         </ul>

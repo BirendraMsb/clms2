@@ -95,12 +95,17 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="user.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> User
+                                                    <i class="fa fa-angle-right me-1"></i>User
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="department.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Department Master
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Shift Master
+                                                    <i class="fa fa-angle-right me-1"></i>Shift Master
                                                 </a>
                                             </li>
                                             <li>
@@ -108,7 +113,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Leave Master
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="holiday-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Holiday Master
                                                 </a>
@@ -116,33 +121,33 @@
 
                                         </ul>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb1" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transaction <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="generate-shift.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Generate Shift
+                                                <a class="dropdown-item" href="show-gen-shift.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="update-leave-register.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Update Leave Register
+                                                    <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="manual-punching.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Manual Punching
+                                                    <i class="fa fa-angle-right me-1"></i>Manual Punching
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="manual-correction.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Manual Corrections
+                                                    <i class="fa fa-angle-right me-1"></i>Manual Corrections
                                                 </a>
                                             </li>
 
                                         </ul>
                                     </li>
-                                
+
 
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
@@ -200,37 +205,115 @@
                                     <div class="card-body">
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>User Type</label>
-                                                    <asp:DropDownList ID="ddlUserType" class="form-control" runat="server"></asp:DropDownList>
-                                                </div>
-                                            </div>
+                                        <div class="table-responsive" style="overflow: auto;">
+                                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                                                GridLines="Vertical" AllowPaging="True" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnPageIndexChanging="OnPaging"
+                                                OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
+                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
+                                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="Sl. No">
+                                                        <ItemTemplate>
+                                                            <%# Container.DataItemIndex + 1 %>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Width="30px" HorizontalAlign="Center" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="User Type" ItemStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="usertype" runat="server" Text='<%# Eval("usertype")%>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:DropDownList ID="usertype" runat="server" Text='<%# Eval("usertype")%>' Width="140"></asp:DropDownList>
+                                                        </EditItemTemplate>
+                                                        <ItemStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="User Name" ItemStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="username" runat="server" Text='<%# Eval("username")%>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="username" runat="server" Text='<%# Eval("username")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="User ID" ItemStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="uid" runat="server" Text='<%# Eval("uid")%>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="uid" runat="server" Text='<%# Eval("uid")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                     <asp:TemplateField HeaderText="Phone" ItemStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="phone" runat="server" Text='<%# Eval("phone")%>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="phone" runat="server" Text='<%# Eval("phone")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                     <asp:TemplateField HeaderText="Email" ItemStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="email" runat="server" Text='<%# Eval("email")%>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="email" runat="server" Text='<%# Eval("email")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                     <asp:TemplateField HeaderText="Active" ItemStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="active" runat="server" Text='<%# Eval("active")%>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:DropDownList ID="active" runat="server" Text='<%# Eval("active")%>' Width="140"></asp:DropDownList>
+                                                        </EditItemTemplate>
+                                                        <ItemStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true"
+                                                        ItemStyle-Width="150" HeaderText="Action">
+                                                        <ItemStyle Width="150px" />
+                                                    </asp:CommandField>
+                                                </Columns>
+                                                <AlternatingRowStyle BackColor="#FFFFFF" />
+                                                <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                                <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
+                                                <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
+                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                <SortedAscendingHeaderStyle BackColor="#0000A9" />
+                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                <SortedDescendingHeaderStyle BackColor="#000065" />
+                                            </asp:GridView>
+                                            <%--========================================================================================--%>
                                         </div>
                                         <div class="row">
-
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>User Type</label>
+                                                    <asp:DropDownList ID="ddlUserType" class="form-control" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlUserType_SelectedIndexChanged"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>User Name</label>
                                                     <asp:TextBox ID="txtUserName" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>User ID</label>
-                                                    <asp:TextBox ID="txtUid" runat="server" class="form-control" MaxLength="30"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUid" ErrorMessage="* Pls User ID." ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:TextBox ID="txtUid" runat="server" class="form-control"></asp:TextBox>
+                                                   <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtUid" ErrorMessage="* Pls User ID." ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
                                                 </div>
                                             </div>
-
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Enter Password</label>
                                                     <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" class="form-control" MaxLength="30"></asp:TextBox>
@@ -239,22 +322,19 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Phone</label>
                                                     <asp:TextBox ID="txtPhone" class="form-control" MaxLength="10" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Email</label>
                                                     <asp:TextBox ID="txtEmail" class="form-control" TextMode="Email" runat="server"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
@@ -282,7 +362,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
-                                                     <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
+                                                    <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
                                                     <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-info"></asp:Button>
                                                 </div>
                                             </div>

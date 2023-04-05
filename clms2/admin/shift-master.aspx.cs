@@ -149,7 +149,7 @@ namespace clms2.admin
         }
 
         protected void txtOutTime_TextChanged(object sender, EventArgs e)
-            {
+        {
             TimeSpan intime = TimeSpan.Parse(txtInTime.Text);
             TimeSpan outtime = TimeSpan.Parse(txtOutTime.Text);
             TimeSpan hrs = outtime - intime;

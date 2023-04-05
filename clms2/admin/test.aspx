@@ -12,7 +12,7 @@
             <div>
                 <asp:DropDownList ID="ddlYear" runat="server" class="form-control" MaxLength="50"></asp:DropDownList>&nbsp&nbsp
 
-                <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True"
+                <asp:DropDownList ID="ddlMonth" runat="server" AutoPostBack="True"
                     OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Font-Bold="True" Font-Size="Large" Width="100px">
                     <asp:ListItem Value="1">Jan</asp:ListItem>
                     <asp:ListItem Value="2">Feb</asp:ListItem>
@@ -42,8 +42,16 @@
                 </asp:GridView>
                 <br />
                 <br />
-                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False">
-                     <Columns>
+            <%--    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False">
+                     
+                </asp:GridView>--%>
+                <div class="table-responsive" style="overflow: auto;">
+                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                        GridLines="Vertical" AllowPaging="True" DataKeyNames="emp_code" 
+                        EmptyDataText="No records has been added."
+                        Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
+                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="Black" />
+                        <Columns>
                             <asp:TemplateField HeaderText="Sl. No">
                                 <ItemTemplate>
                                     <%# Container.DataItemIndex + 1 %>
@@ -62,7 +70,7 @@
                                 </ItemTemplate>
                                 <ItemStyle Width="150px" />
                             </asp:TemplateField>
-                           <asp:TemplateField HeaderText="Shift" Visible="false" ItemStyle-Width="100">
+                           <asp:TemplateField HeaderText="Shift"  ItemStyle-Width="100">
                                 <ItemTemplate>
                                     <asp:Label ID="shift" runat="server" Text= '<%# Eval("shift") %>'></asp:Label>
                                 </ItemTemplate>
@@ -214,7 +222,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="25" ItemStyle-Width="100px">
                                 <ItemTemplate>
-                                    <asp:TextBox ID="D25" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="D25" runat="server" Text = '<%# Eval("shift") %>'></asp:TextBox>
                                 </ItemTemplate>
                                 <ItemStyle Width="100px" />
                             </asp:TemplateField>
@@ -255,219 +263,6 @@
                                 <ItemStyle Width="100px" />
                             </asp:TemplateField>
                          </Columns>
-                </asp:GridView>
-                <%--<div class="table-responsive" style="overflow: auto;">
-                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                        GridLines="Vertical" AllowPaging="True" DataKeyNames="emp_code" 
-                        EmptyDataText="No records has been added."
-                        Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
-                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="Black" />
-                        <Columns>
-                            <asp:TemplateField HeaderText="Sl. No">
-                                <ItemTemplate>
-                                    <%# Container.DataItemIndex + 1 %>
-                                </ItemTemplate>
-                                <ItemStyle Width="30px" HorizontalAlign="Center" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Emp Code" ItemStyle-Width="150">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="emp_code" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="150px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="150">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="emp_name" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="150px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="1" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D1" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="2" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D2" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="3" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D3" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="4" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D4" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="5" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D5" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="6" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D6" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="7" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D7" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="8" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D8" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="9" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D9" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="10" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D10" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="11" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D11" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="12" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D12" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="13" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D13" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="14" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D14" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="15" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D15" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="16" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D16" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="17" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D17" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="18" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D18" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="19" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D19" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="20" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D20" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="21" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D21" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="22" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D22" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="23" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D23" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="24" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D24" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="25" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D25" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="26" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D26" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="27" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D27" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="28" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D28" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="29" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D29" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="30" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D30" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                            <asp:TemplateField HeaderText="31" ItemStyle-Width="100">
-                                <ItemTemplate>
-                                    <asp:TextBox ID="D31" runat="server"></asp:TextBox>
-                                </ItemTemplate>
-                                <ItemStyle Width="100px" />
-                            </asp:TemplateField>
-                         </Columns>
                         
                         <AlternatingRowStyle BackColor="#FFFFFF" />
                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -480,13 +275,14 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#000065" />
                     </asp:GridView>
-                  </div>--%>
+                  </div>
                 <div>
                     <br />
                     <br />
                     <asp:Button ID="btnBulkInsert" runat="server" Text="Submit" OnClick="btnBulkInsert_Click" />
                     <br />
-                    <asp:Label ID="lblMsg" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblMsg" runat="server" ForeColor="#00CC66"></asp:Label>
+                    <asp:Label ID="lblMsgError"  runat="server" ForeColor="#CC0000"></asp:Label>
                 </div>
             </div>
         </div>

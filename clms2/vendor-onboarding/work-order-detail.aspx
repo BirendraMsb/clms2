@@ -4,14 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-      <title>CLMS | Work Order | Details</title>
-   
+    <title>CLMS | Work Order | Details</title>
+
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
     <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
-     <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
+    <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/bootstrap.min.css" />
@@ -62,7 +62,7 @@
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
-       <%-- <div class="loading">
+        <%-- <div class="loading">
             <div class="loader"></div>
         </div>--%>
         <table class="table">
@@ -89,6 +89,28 @@
                                 <span class="visually-hidden">(current)</span>
                                         </a>
                                     </li>
+                                      <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
+                                        <ul class="dropdown-menu ">
+                                         
+                                            <li>
+                                                <a class="dropdown-item" href="shift-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Shift Master
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="leave-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Leave Master
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="holiday-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Holiday Master
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendor Registration <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
@@ -98,12 +120,11 @@
                                                 </a>
                                             </li>
 
-                                           <%-- <li>
+                                            <%-- <li>
                                                 <a class="dropdown-item" href="site-incharge.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Site Incharge
                                                 </a>
                                             </li>--%>
-
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -117,16 +138,20 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
-                                        </a>
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                <a class="dropdown-item" href="show-gen-shift.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
                                             <li>
+                                                <a class="dropdown-item" href="shift-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Update Leave Register
+                                                </a>
+                                            </li>
+                                             <li>
                                                 <a class="dropdown-item" href="upload_attendance.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Upload Attendance
                                                 </a>
@@ -137,6 +162,30 @@
                                                 </a>
                                             </li>
                                             <li>
+                                                <a class="dropdown-item" href="manual-punching.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Manual Punching
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="manual-correction.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Manual Corrections
+                                                </a>
+                                            </li>
+                                          
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="AllowancesMaster.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                </a>
+                                            </li>
+                                   
+                                            <li>
                                                 <a class="dropdown-item" href="#">
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
@@ -146,15 +195,28 @@
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 16
                                                 </a>
                                             </li>
 
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="form17.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 17
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="wages_document.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages document
                                                 </a>
                                             </li>
                                         </ul>
@@ -237,73 +299,73 @@
                 </td>
             </tr>
             <tr>
-           <td>
-            <div class="page-wrapper">
-            <div class="page-content-tab">
-                <div class="container-fluid">
+                <td>
+                    <div class="page-wrapper">
+                        <div class="page-content-tab">
+                            <div class="container-fluid">
 
-                    <br />
-                    <div class="card shadow border">
-                        <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
-                            <span>Work Order Detail</span>
+                                <br />
+                                <div class="card shadow border">
+                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
+                                        <span>Work Order Detail</span>
 
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive" style="overflow: auto;">
-                                <%--========================================================================================--%>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive" style="overflow: auto;">
+                                            <%--========================================================================================--%>
 
-                                <asp:GridView ID="GvWod" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                    GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true">
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <Columns>
-                                        <asp:TemplateField HeaderText="Sl. No">
-                                            <ItemTemplate>
-                                                <%# Container.DataItemIndex + 1 %>
-                                            </ItemTemplate>
-                                            <ItemStyle Width="30px" HorizontalAlign="Center" />
-                                        </asp:TemplateField>
-
-
-                                        <asp:BoundField DataField="work_worder" HeaderText="Work order No" SortExpression="work_worder">
-                                            <ItemStyle Width="100" />
-                                        </asp:BoundField>
-                                         <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor No" SortExpression="vendor_reg_code">
-                                            <ItemStyle Width="100" />
-                                        </asp:BoundField>
-                                        <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from">
-                                            <%--<ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />--%>
-                                        </asp:BoundField>
-
-                                        <asp:BoundField DataField="valid_to" HeaderText="Valid To" SortExpression="valid_from" />
-
-                                        <asp:BoundField DataField="nature_of_work" HeaderText="Nature Of Work" SortExpression="nature_of_work" >
-                                          <%--  <ItemStyle HorizontalAlign="Center"></ItemStyle>--%>
-                                        </asp:BoundField>
-                                        <asp:BoundField DataField="type_of_contract" HeaderText="Type Of Contract" SortExpression="type_of_contract"></asp:BoundField>
-                                        <asp:BoundField DataField="department" HeaderText="Department" SortExpression="department"></asp:BoundField>
-                                        <asp:BoundField DataField="job_location" HeaderText="Job Location" SortExpression="job_location"></asp:BoundField>
+                                            <asp:GridView ID="GvWod" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                                                GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true">
+                                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="Sl. No">
+                                                        <ItemTemplate>
+                                                            <%# Container.DataItemIndex + 1 %>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Width="30px" HorizontalAlign="Center" />
+                                                    </asp:TemplateField>
 
 
-                                    </Columns>
-                                    <AlternatingRowStyle BackColor="#FFFFFF" />
-                                    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                    <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
-                                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#000065" />
-                                </asp:GridView>
+                                                    <asp:BoundField DataField="work_worder" HeaderText="Work order No" SortExpression="work_worder">
+                                                        <ItemStyle Width="100" />
+                                                    </asp:BoundField>
+                                                    <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor No" SortExpression="vendor_reg_code">
+                                                        <ItemStyle Width="100" />
+                                                    </asp:BoundField>
+                                                    <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from">
+                                                        <%--<ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />--%>
+                                                    </asp:BoundField>
 
-                                <%--========================================================================================--%>
+                                                    <asp:BoundField DataField="valid_to" HeaderText="Valid To" SortExpression="valid_from" />
+
+                                                    <asp:BoundField DataField="nature_of_work" HeaderText="Nature Of Work" SortExpression="nature_of_work">
+                                                        <%--  <ItemStyle HorizontalAlign="Center"></ItemStyle>--%>
+                                                    </asp:BoundField>
+                                                    <asp:BoundField DataField="type_of_contract" HeaderText="Type Of Contract" SortExpression="type_of_contract"></asp:BoundField>
+                                                    <asp:BoundField DataField="department" HeaderText="Department" SortExpression="department"></asp:BoundField>
+                                                    <asp:BoundField DataField="job_location" HeaderText="Job Location" SortExpression="job_location"></asp:BoundField>
+
+
+                                                </Columns>
+                                                <AlternatingRowStyle BackColor="#FFFFFF" />
+                                                <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                                <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
+                                                <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
+                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                <SortedAscendingHeaderStyle BackColor="#0000A9" />
+                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                <SortedDescendingHeaderStyle BackColor="#000065" />
+                                            </asp:GridView>
+
+                                            <%--========================================================================================--%>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
                 </td>
             </tr>
             <tr>
@@ -312,7 +374,7 @@
                         <div class="container-fluid">
                             <div class="text-center small">
                                 <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
-                          
+
                             </div>
                         </div>
                     </footer>
@@ -352,10 +414,10 @@
                 });
             });
         </script>
-          <script type="text/jscript">
-              $(window).on("load", function () {
-                  $('#GvWod').DataTable({ responsive: true });
-              });
+        <script type="text/jscript">
+            $(window).on("load", function () {
+                $('#GvWod').DataTable({ responsive: true });
+            });
         </script>
 
     </form>

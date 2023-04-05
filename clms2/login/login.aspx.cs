@@ -37,7 +37,7 @@ namespace clms2.login
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_User"))
+                using (SqlCommand cmd = new SqlCommand("SELECT distinct(usertype) FROM tbl_User"))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;

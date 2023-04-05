@@ -177,7 +177,7 @@ namespace clms2.admin
         {
             DateTime dt = DateTime.Now;
             int year = Convert.ToInt32(ddlYear.SelectedItem.Text);   //Convert.ToInt32(DateTime.Now.Year);
-              int month = Convert.ToInt32(DropDownList1.SelectedValue);
+              int month = Convert.ToInt32(ddlMonth.SelectedValue);
               int days = GetDaysInMonth(month, year);
             
            // int days = GetDaysInMonth(Convert.ToInt32(DropDownList1.SelectedValue), Convert.ToInt32(DateTime.Now.Year));
@@ -223,8 +223,6 @@ namespace clms2.admin
                 myDT.Rows.Add(dr);
             }
 
-
-
             GridView1.DataSource = myDT;
             GridView1.DataBind();
 
@@ -233,9 +231,11 @@ namespace clms2.admin
         protected void btnBulkInsert_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[34] { new DataColumn("emp_code", typeof(string)),
+            dt.Columns.AddRange(new DataColumn[36] { new DataColumn("emp_code", typeof(string)),
             new DataColumn("emp_name",typeof(string)),
             new DataColumn("shift",typeof(string)),
+            new DataColumn("year",typeof(Int32)),
+            new DataColumn("month",typeof(string)),
             new DataColumn("D1",typeof(string)),
             new DataColumn("D2",typeof(string)),
             new DataColumn("D3",typeof(string)),
@@ -268,44 +268,77 @@ namespace clms2.admin
             new DataColumn("D30",typeof(string)),
             new DataColumn("D31",typeof(string)),
             });
+            DataRow dr = dt.NewRow();
+
+            // define varible for compare
+            string empcode1, month1 , year1= "";
 
             foreach (GridViewRow row in GridView2.Rows)
             {
-                DataRow dr = dt.NewRow();
+                  
+                   ////------ check duplicate record in tbl_shift_scheduke ------////
+                   empcode1 = ((Label)row.Cells[0].FindControl("emp_code")).Text;
+                   month1 = ddlMonth.SelectedItem.Text;
+                   year1 = ddlYear.SelectedItem.Text;
+
+                   string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                   string query = "SELECT *  FROM tbl_shfit_schedule where emp_code='" + empcode1 +"' and year= '" + year1 + "' and month = '" + month1 + "'";
+                   using (SqlConnection con = new SqlConnection(constr))
+                   {
+                       using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                       {
+                           using (DataTable dt1 = new DataTable())
+                           {
+                               sda.Fill(dt1);
+
+                               if (dt1.Rows.Count > 0)
+                               {
+                                   lblMsg.Text = "Record Already Exist";
+                                   continue;
+                               }
+   
+                           }
+                       }
+                   }
+                   ////---------------------------------------- ---------////
+
+
                 dr[0] = ((Label)row.Cells[0].FindControl("emp_code")).Text;
                 dr[1] = ((Label)row.Cells[0].FindControl("emp_name")).Text;
                 dr[2] = ((Label)row.Cells[0].FindControl("shift")).Text;
-                dr[3] = ((DropDownList)row.Cells[0].FindControl("D1")).SelectedItem.Text;
-                dr[4] = ((TextBox)row.Cells[0].FindControl("D2")).Text;
-                dr[5] = ((TextBox)row.Cells[0].FindControl("D3")).Text;
-                dr[6] = ((TextBox)row.Cells[0].FindControl("D4")).Text;
-                dr[7] = ((TextBox)row.Cells[0].FindControl("D5")).Text;
-                dr[8] = ((TextBox)row.Cells[0].FindControl("D6")).Text;
-                dr[9] = ((TextBox)row.Cells[0].FindControl("D7")).Text;
-                dr[10] = ((TextBox)row.Cells[0].FindControl("D8")).Text;
-                dr[11] = ((TextBox)row.Cells[0].FindControl("D9")).Text;
-                dr[12] = ((TextBox)row.Cells[0].FindControl("D10")).Text;
-                dr[13] = ((TextBox)row.Cells[0].FindControl("D11")).Text;
-                dr[14] = ((TextBox)row.Cells[0].FindControl("D12")).Text;
-                dr[15] = ((TextBox)row.Cells[0].FindControl("D13")).Text;
-                dr[16] = ((TextBox)row.Cells[0].FindControl("D14")).Text;
-                dr[17] = ((TextBox)row.Cells[0].FindControl("D15")).Text;
-                dr[18] = ((TextBox)row.Cells[0].FindControl("D16")).Text;
-                dr[19] = ((TextBox)row.Cells[0].FindControl("D17")).Text;
-                dr[20] = ((TextBox)row.Cells[0].FindControl("D18")).Text;
-                dr[21] = ((TextBox)row.Cells[0].FindControl("D19")).Text;
-                dr[22] = ((TextBox)row.Cells[0].FindControl("D20")).Text;
-                dr[23] = ((TextBox)row.Cells[0].FindControl("D21")).Text;
-                dr[24] = ((TextBox)row.Cells[0].FindControl("D22")).Text;
-                dr[25] = ((TextBox)row.Cells[0].FindControl("D23")).Text;
-                dr[26] = ((TextBox)row.Cells[0].FindControl("D24")).Text;
-                dr[27] = ((TextBox)row.Cells[0].FindControl("D25")).Text;
-                dr[28] = ((TextBox)row.Cells[0].FindControl("D26")).Text;
-                dr[29] = ((TextBox)row.Cells[0].FindControl("D27")).Text;
-                dr[30] = ((TextBox)row.Cells[0].FindControl("D28")).Text;
-                dr[31] = ((TextBox)row.Cells[0].FindControl("D29")).Text;
-                dr[32] = ((TextBox)row.Cells[0].FindControl("D30")).Text;
-                dr[33] = ((TextBox)row.Cells[0].FindControl("D31")).Text;
+                dr[3] = ddlYear.SelectedItem.Text;
+                dr[4] = ddlMonth.SelectedItem.Text;
+                dr[5] = ((TextBox)row.Cells[0].FindControl("D1")).Text;
+                dr[6] = ((TextBox)row.Cells[0].FindControl("D2")).Text;
+                dr[7] = ((TextBox)row.Cells[0].FindControl("D3")).Text;
+                dr[8] = ((TextBox)row.Cells[0].FindControl("D4")).Text;
+                dr[9] = ((TextBox)row.Cells[0].FindControl("D5")).Text;
+                dr[10] = ((TextBox)row.Cells[0].FindControl("D6")).Text;
+                dr[11] = ((TextBox)row.Cells[0].FindControl("D7")).Text;
+                dr[12] = ((TextBox)row.Cells[0].FindControl("D8")).Text;
+                dr[13] = ((TextBox)row.Cells[0].FindControl("D9")).Text;
+                dr[14] = ((TextBox)row.Cells[0].FindControl("D10")).Text;
+                dr[15] = ((TextBox)row.Cells[0].FindControl("D11")).Text;
+                dr[16] = ((TextBox)row.Cells[0].FindControl("D12")).Text;
+                dr[17] = ((TextBox)row.Cells[0].FindControl("D13")).Text;
+                dr[18] = ((TextBox)row.Cells[0].FindControl("D14")).Text;
+                dr[19] = ((TextBox)row.Cells[0].FindControl("D15")).Text;
+                dr[20] = ((TextBox)row.Cells[0].FindControl("D16")).Text;
+                dr[21] = ((TextBox)row.Cells[0].FindControl("D17")).Text;
+                dr[22] = ((TextBox)row.Cells[0].FindControl("D18")).Text;
+                dr[23] = ((TextBox)row.Cells[0].FindControl("D19")).Text;
+                dr[24] = ((TextBox)row.Cells[0].FindControl("D20")).Text;
+                dr[25] = ((TextBox)row.Cells[0].FindControl("D21")).Text;
+                dr[26] = ((TextBox)row.Cells[0].FindControl("D22")).Text;
+                dr[27] = ((TextBox)row.Cells[0].FindControl("D23")).Text;
+                dr[28] = ((TextBox)row.Cells[0].FindControl("D24")).Text;
+                dr[29] = ((TextBox)row.Cells[0].FindControl("D25")).Text;
+                dr[30] = ((TextBox)row.Cells[0].FindControl("D26")).Text;
+                dr[31] = ((TextBox)row.Cells[0].FindControl("D27")).Text;
+                dr[32] = ((TextBox)row.Cells[0].FindControl("D28")).Text;
+                dr[33] = ((TextBox)row.Cells[0].FindControl("D29")).Text;
+                dr[34] = ((TextBox)row.Cells[0].FindControl("D30")).Text;
+                dr[35] = ((TextBox)row.Cells[0].FindControl("D31")).Text;
 
                 dt.Rows.Add(dr);
             }
@@ -317,11 +350,15 @@ namespace clms2.admin
                 {
                     using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
                     {
-                        sqlBulkCopy.DestinationTableName = "dbo.tbl_shfit_schedule";
+                        try
+                        {
 
+                        sqlBulkCopy.DestinationTableName = "dbo.tbl_shfit_schedule";
                         sqlBulkCopy.ColumnMappings.Add("emp_code", "emp_code");
                         sqlBulkCopy.ColumnMappings.Add("emp_name", "emp_name");
-                        //sqlBulkCopy.ColumnMappings.Add("shift", "shift");
+                        ////sqlBulkCopy.ColumnMappings.Add("shift", "shift");
+                        sqlBulkCopy.ColumnMappings.Add("year", "year");
+                        sqlBulkCopy.ColumnMappings.Add("month", "month");
                         sqlBulkCopy.ColumnMappings.Add("D1", "D1");
                         sqlBulkCopy.ColumnMappings.Add("D2", "D2");
                         sqlBulkCopy.ColumnMappings.Add("D3", "D3");
@@ -353,15 +390,28 @@ namespace clms2.admin
                         sqlBulkCopy.ColumnMappings.Add("D29", "D29");
                         sqlBulkCopy.ColumnMappings.Add("D30", "D30");
                         sqlBulkCopy.ColumnMappings.Add("D31", "D31");
-                        con.Open();
+                     
+                            con.Open();
 
-                        sqlBulkCopy.BatchSize = 3;
-                        sqlBulkCopy.NotifyAfter = 1;
+                            sqlBulkCopy.BatchSize = 3;
+                            sqlBulkCopy.NotifyAfter = 1;
+                            sqlBulkCopy.SqlRowsCopied += new SqlRowsCopiedEventHandler(bulkCopy_RowsCopied);
 
-                        sqlBulkCopy.SqlRowsCopied += new SqlRowsCopiedEventHandler(bulkCopy_RowsCopied);
+                            sqlBulkCopy.WriteToServer(dt);
+                            
+                        }
+                        catch (Exception ex)
+                        {
 
-                        sqlBulkCopy.WriteToServer(dt);
-                        con.Close();
+                            lblMsgError.Text = ex.Message  +"  " + "Do not enter dublicate Record" ;
+                        }
+                        finally
+                        {
+                            con.Close();
+                        }
+
+                       
+                       
                       
                     }
                 }

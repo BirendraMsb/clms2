@@ -56,6 +56,11 @@
             svg:not(:root) {
                 overflow: hidden;
             }
+
+        .gridview-container {
+            overflow: auto;
+            width: 1000px; /* set your desired width here */
+          }       
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -63,7 +68,7 @@
         <%--<div class="loading">
             <div class="loader"></div>
         </div>--%>
-        <table class="table">
+        <table class="table" >
             <tr>
                 <td>
                     <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
@@ -84,8 +89,30 @@
                                 <ul class="navbar-nav me-auto">
                                     <li class="nav-item">
                                         <a class="nav-link" href="dashboard.aspx">Dashboard
-                                <span class="visually-hidden">(current)</span>
+                                        <span class="visually-hidden">(current)</span>
                                         </a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
+                                        <ul class="dropdown-menu ">
+
+                                            <li>
+                                                <a class="dropdown-item" href="shift-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Shift Master
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="leave-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Leave Master
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="holiday-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Holiday Master
+                                                </a>
+                                            </li>
+
+                                        </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendor Registration <span class="fa fa-angle-down ms-1"></span></a>
@@ -96,12 +123,11 @@
                                                 </a>
                                             </li>
 
-                                           <%-- <li>
+                                            <%-- <li>
                                                 <a class="dropdown-item" href="site-incharge.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Site Incharge
                                                 </a>
                                             </li>--%>
-
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -116,12 +142,16 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
-                                        </a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                <a class="dropdown-item" href="show-gen-shift.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Generate Shift
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="shift-master.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
                                             </li>
                                             <li>
@@ -135,6 +165,30 @@
                                                 </a>
                                             </li>
                                             <li>
+                                                <a class="dropdown-item" href="manual-punching.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Manual Punching
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="manual-correction.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Manual Corrections
+                                                </a>
+                                            </li>
+
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="AllowancesMaster.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                </a>
+                                            </li>
+
+                                            <li>
                                                 <a class="dropdown-item" href="#">
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
@@ -144,15 +198,28 @@
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 16
                                                 </a>
                                             </li>
 
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="form17.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 17
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="wages_document.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages document
                                                 </a>
                                             </li>
                                         </ul>
@@ -236,95 +303,110 @@
             </tr>
             <tr>
                 <td>
-                    <div class="page-wrapper">
-            <div class="page-content-tab">
-                <div class="container-fluid">
+                    <div class="page-wrapper" >
+                        <div class="page-content-tab">
+                            <div class="container-fluid">
 
-                    <br />
-                    <div class="card shadow border">
-                        <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
-                            <span>Work Order Detail</span>
+                                <br />
+                                <div class="card shadow border">
+                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
+                                        <span>Attendance Details</span>
 
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive" style="overflow: auto;">
-                                <%--========================================================================================--%>
-                                <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
-                                <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="15" ForeColor="Red"></asp:Label>
-                                <asp:Label ID="lblVendorName" runat="server" Text="" Font-Size="15" ForeColor="Blue"></asp:Label>
+                                    </div>
+                                    <div class="card-body" >
+                                        <div class="table-responsive" style="overflow:auto;">
+                                            <%--========================================================================================--%>
+                                            <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server"  OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="15" ForeColor="Red"></asp:Label>
+                                            <asp:Label ID="lblVendorName" runat="server" Text="" Font-Size="15" ForeColor="Blue"></asp:Label>
 
-                                <asp:GridView ID="GvAttn" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                    GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvAttn_PageIndexChanging">
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <Columns>
-                                        <asp:TemplateField HeaderText="Sl. No">
-                                            <ItemTemplate>
-                                                <%# Container.DataItemIndex + 1 %>
-                                            </ItemTemplate>
-                                            <ItemStyle Width="30px" HorizontalAlign="Center" />
-                                        </asp:TemplateField>
-
-
-                                        <%--<asp:BoundField DataField="vendor_name" HeaderText="Vendor Name" SortExpression="vendor_name" ItemStyle-Wrap="false"></asp:BoundField>--%>
-                                        <asp:HyperLinkField DataTextField="emp_code" DataNavigateUrlFields="Id" HeaderText="Emp Code" ItemStyle-Wrap="false" />
-
-                                        <asp:BoundField DataField="year1" HeaderText="Year" SortExpression="year1" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="month1" HeaderText="Month" SortExpression="month1" ItemStyle-Wrap="false"></asp:BoundField>
+                                            <asp:GridView ID="GvAttn" runat="server"  CssClass="gridview-container" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                                                GridLines="Vertical" AllowPaging="false" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvAttn_PageIndexChanging">
+                                                <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                <Columns>
+                                                    <asp:TemplateField HeaderText="Sl. No">
+                                                        <ItemTemplate>
+                                                            <%# Container.DataItemIndex + 1 %>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Width="30px" HorizontalAlign="Center" />
+                                                    </asp:TemplateField>
 
 
-                                        <asp:BoundField DataField="d1" HeaderText="D1" SortExpression="d1" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d2" HeaderText="D2" SortExpression="d2" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d3" HeaderText="D3" SortExpression="d3" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d4" HeaderText="D4" SortExpression="d4" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d5" HeaderText="D5" SortExpression="d5" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d6" HeaderText="D6" SortExpression="d6" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d7" HeaderText="D7" SortExpression="d7" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d8" HeaderText="D8" SortExpression="d8" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d9" HeaderText="D9" SortExpression="d9" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d10" HeaderText="D10" SortExpression="d10" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d11" HeaderText="D11" SortExpression="d11" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d12" HeaderText="D12" SortExpression="d12" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d13" HeaderText="D13" SortExpression="d13" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d14" HeaderText="D14" SortExpression="d14" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d15" HeaderText="D15" SortExpression="d15" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d16" HeaderText="D16" SortExpression="d16" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d17" HeaderText="D17" SortExpression="d17" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d18" HeaderText="D18" SortExpression="d18" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d19" HeaderText="D19" SortExpression="d19" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d20" HeaderText="D20" SortExpression="d20" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d21" HeaderText="D21" SortExpression="d21" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d22" HeaderText="D22" SortExpression="d22" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d23" HeaderText="D23" SortExpression="d23" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d24" HeaderText="D24" SortExpression="d24" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d25" HeaderText="D25" SortExpression="d25" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d26" HeaderText="D26" SortExpression="d26" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d27" HeaderText="D27" SortExpression="d27" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d28" HeaderText="D28" SortExpression="d28" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d29" HeaderText="D29" SortExpression="d29" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d30" HeaderText="D30" SortExpression="d30" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="d31" HeaderText="D31" SortExpression="d31" ItemStyle-Wrap="false" />
-                                    </Columns>
-                                    <AlternatingRowStyle BackColor="#FFFFFF" />
-                                    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                    <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
-                                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#000065" />
-                                </asp:GridView>
+                                                    <%--<asp:BoundField DataField="vendor_name" HeaderText="Vendor Name" SortExpression="vendor_name" ItemStyle-Wrap="false"></asp:BoundField>--%>
+                                                 
 
-                                <%--========================================================================================--%>
+                                                    <asp:BoundField DataField="vendor_code" HeaderText="Vendor Code" SortExpression="vendor_code" ItemStyle-Wrap="false"></asp:BoundField>
+                                                    <asp:BoundField DataField="workorder" HeaderText="Work Order" SortExpression="workorder" ItemStyle-Wrap="false"></asp:BoundField>
+                                                    <asp:HyperLinkField DataTextField="emp_code" DataNavigateUrlFields="Id" HeaderText="Emp Code" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="emp_name" HeaderText="Emp Name" SortExpression="workorder" ItemStyle-Wrap="false"></asp:BoundField>
+ 
+                                                    <asp:BoundField DataField="year1" HeaderText="Year" SortExpression="year1" ItemStyle-Wrap="false"></asp:BoundField>
+                                                    <asp:BoundField DataField="month1" HeaderText="Month" SortExpression="month1" ItemStyle-Wrap="false"></asp:BoundField>
+                                                    <asp:BoundField DataField="d1" HeaderText="D1" SortExpression="d1" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d2" HeaderText="D2" SortExpression="d2" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d3" HeaderText="D3" SortExpression="d3" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d4" HeaderText="D4" SortExpression="d4" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d5" HeaderText="D5" SortExpression="d5" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d6" HeaderText="D6" SortExpression="d6" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d7" HeaderText="D7" SortExpression="d7" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d8" HeaderText="D8" SortExpression="d8" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d9" HeaderText="D9" SortExpression="d9" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d10" HeaderText="D10" SortExpression="d10" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d11" HeaderText="D11" SortExpression="d11" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d12" HeaderText="D12" SortExpression="d12" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d13" HeaderText="D13" SortExpression="d13" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d14" HeaderText="D14" SortExpression="d14" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d15" HeaderText="D15" SortExpression="d15" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d16" HeaderText="D16" SortExpression="d16" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d17" HeaderText="D17" SortExpression="d17" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d18" HeaderText="D18" SortExpression="d18" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d19" HeaderText="D19" SortExpression="d19" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d20" HeaderText="D20" SortExpression="d20" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d21" HeaderText="D21" SortExpression="d21" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d22" HeaderText="D22" SortExpression="d22" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d23" HeaderText="D23" SortExpression="d23" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d24" HeaderText="D24" SortExpression="d24" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d25" HeaderText="D25" SortExpression="d25" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d26" HeaderText="D26" SortExpression="d26" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d27" HeaderText="D27" SortExpression="d27" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d28" HeaderText="D28" SortExpression="d28" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d29" HeaderText="D29" SortExpression="d29" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d30" HeaderText="D30" SortExpression="d30" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="d31" HeaderText="D31" SortExpression="d31" ItemStyle-Wrap="false" />
+
+                                                     <asp:BoundField DataField="Present" HeaderText="Present" SortExpression="Present" ItemStyle-Wrap="false" />
+                                                     <asp:BoundField DataField="Absent" HeaderText="Absent" SortExpression="Absent" ItemStyle-Wrap="false" />
+                                                     <asp:BoundField DataField="tot_working_day" HeaderText="Tot. Working Day" SortExpression="tot_working_day" ItemStyle-Wrap="false" />
+                                                     <asp:BoundField DataField="tot_leave" HeaderText="Tot. Leave" SortExpression="tot_leave" ItemStyle-Wrap="false" />
+                                                     <asp:BoundField DataField="tot_holidays" HeaderText="Tot. HL" SortExpression="tot_holidays" ItemStyle-Wrap="false" />
+                                                    <asp:BoundField DataField="tot_week_off" HeaderText="Tot. Week off" SortExpression="tot_week_off" ItemStyle-Wrap="false" />
+                                                     <asp:BoundField DataField="daily_working_hrs" HeaderText="Working Hrs" SortExpression="daily_working_hrs" ItemStyle-Wrap="false" />
+                                                     <asp:BoundField DataField="monthly_work_hrs" HeaderText="Monthly Working Hrs" SortExpression="monthly_work_hrs" ItemStyle-Wrap="false" />
+                                                     <asp:BoundField DataField="monthly_ot_hrs" HeaderText="Monthly OT Hrs" SortExpression="monthly_ot_hrs" ItemStyle-Wrap="false" />
+                                  
+
+                                                </Columns>
+                                                <AlternatingRowStyle BackColor="#FFFFFF" />
+                                                <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                                <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
+                                                <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
+                                                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                <SortedAscendingHeaderStyle BackColor="#0000A9" />
+                                                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                <SortedDescendingHeaderStyle BackColor="#000065" />
+                                            </asp:GridView>
+
+                                            <%--========================================================================================--%>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <%--<h6 style="text-align: right; color: green">Present=18 | Absent=8  | WO=4</h6>--%>
+
                         </div>
                     </div>
-                </div>
-                <h6 style="text-align:right;color:green"> Present=18 | Absent=8  | WO=4</h6>
-              
-            </div>
-        </div>
                 </td>
             </tr>
             <tr>
@@ -338,7 +420,7 @@
                         <div class="container-fluid">
                             <div class="text-center small">
                                 <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
-                          
+
                             </div>
                         </div>
                     </footer>
@@ -348,12 +430,12 @@
         <%--<div class="alert alert-success animated fadeInUp">
             Logged out Successfully
         </div>--%>
-        <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
-        <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script type="text/jscript" src="../public/newfront/js/jquery.min.js"></script>
+        <script type="text/jscript" src="../public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
+        <script type="text/jscript" src="../public/newfront/assets/js/app.js" defer></script>
+        <script type="text/jscript" src="../public/newfront/datatables/datatables.min.js" defer></script>
+        <script type="text/jscript" src="../public/newfront/js/jquery.validate.min.js"></script>
+       <%-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
 
         <script type="text/jscript" defer>
             $(window).on("load", function () {
@@ -380,7 +462,11 @@
                 });
             });
         </script>
-
+          <script type="text/jscript">
+              $(window).on("load", function () {
+                  $('#GvAttn').DataTable({ responsive: true });
+              });
+        </script>
 
     </form>
 </body>

@@ -92,6 +92,11 @@
                                                     <i class="fa fa-angle-right me-1"></i> User
                                                 </a>
                                             </li>
+                                             <li>
+                                                <a class="dropdown-item" href="department.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Department Master
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i> Shift Master
@@ -114,7 +119,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Transaction <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="generate-shift.aspx">
+                                                <a class="dropdown-item" href="show-gen-shift.aspx">
                                                     <i class="fa fa-angle-right me-1"></i> Generate Shift
                                                 </a>
                                             </li>
@@ -138,6 +143,12 @@
                                                     <i class="fa fa-angle-right me-1"></i> Test
                                                 </a>
                                             </li>
+                                              <li>
+                                                <a class="dropdown-item" href="man-correction-test.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Man Correction test
+                                                </a>
+                                            </li>
+                                           
 
                                         </ul>
                                     </li>

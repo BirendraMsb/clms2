@@ -21,8 +21,28 @@ namespace clms2.admin
             if (!IsPostBack)
             {
                 UserTypeList();
+                this.BindGrid();
+              //  UserID();
             }
            
+        }
+
+        private void BindGrid()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            string query = "SELECT * FROM tbl_user";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridView1.DataSource = dt;
+                        GridView1.DataBind();
+                    }
+                }
+            }
         }
 
         public void UserTypeList()
@@ -47,6 +67,30 @@ namespace clms2.admin
                 }
             }
           //  txtUserType.Items.Insert(0, new ListItem("--Select User Type--", "UserType"));
+        }
+
+        public void UserID()
+        {
+            //// Call dbConnection()
+            //string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            //using (SqlConnection con = new SqlConnection(constr))
+            //{
+            //    using (SqlCommand cmd = new SqlCommand("SELECT uid FROM tbl_user where usertype ='" + ddlUserType.SelectedItem + "'"))
+            //    {
+            //        cmd.CommandType = CommandType.Text;
+            //        cmd.Connection = con;
+            //        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+            //        {
+            //            DataSet ds = new DataSet();
+            //            sda.Fill(ds);
+            //            txtUid.DataSource = ds.Tables[0];
+            //            txtUid.DataTextField = ds.Tables[0].Columns["uid"].ToString();
+            //            txtUid.DataValueField = ds.Tables[0].Columns["uid"].ToString();
+            //            txtUid.DataBind();
+            //        }
+            //    }
+            //}
+            ////  txtUserType.Items.Insert(0, new ListItem("--Select User Type--", "UserType"));
         }
 
         protected void cmdSave_Click(object sender, EventArgs e)
@@ -112,6 +156,67 @@ namespace clms2.admin
            ////// }
 
         }
+
+        protected void OnPaging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            this.BindGrid();
+        }
+
+        protected void OnRowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            this.BindGrid();
+        }
+
+        protected void OnRowEditing(object sender, GridViewEditEventArgs e)
+        {
+            //GridView1.EditIndex = e.NewEditIndex;
+            //this.BindGrid();
+        }
+
+        protected void OnRowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            GridViewRow row = GridView1.Rows[e.RowIndex];
+            int Id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+            string usertype = (row.FindControl("usertype") as DropDownList).Text;
+            string username = (row.FindControl("username") as TextBox).Text;
+            string uid = (row.FindControl("uid") as TextBox).Text;
+            string phone = (row.FindControl("phone") as TextBox).Text;
+            string email = (row.FindControl("email") as TextBox).Text;
+            string active = (row.FindControl("active") as TextBox).Text;
+
+            string query = "UPDATE tbl_user SET username=@username,uid=@uid,phone=@phone,email=@email,active=@active WHERE id=@id";
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query))
+                {
+                    cmd.Parameters.AddWithValue("@id", Id);
+                    cmd.Parameters.AddWithValue("@usertype", usertype);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@uid", uid);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@active", active);
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            GridView1.EditIndex = -1;
+            this.BindGrid();
+        }
+
+        protected void ddlUserType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+           // UserID();
+        }
+
+     
 
     }
 }

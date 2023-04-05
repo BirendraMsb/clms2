@@ -126,7 +126,18 @@
                                             </li>
                                         </ul>
                                     </li>
-
+                                       <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                </a>
+                                            </li>
+                                           
+                                        </ul>
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
@@ -177,14 +188,12 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-
                                 <br />
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
                                         <span>Work Order Detail</span>
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
-
                                     <div class="card-body">
                                         <div class="table-responsive" style="overflow: auto;">
                                             <%-- <p style="text-align: center">
@@ -194,7 +203,7 @@
                                             </p>--%>
                                             <asp:GridView ID="GvWod" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999"
                                                 BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                GridLines="Vertical" AllowPaging="true" PageSize="5" DataKeyNames="id"
+                                                GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id"
                                                 Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvWod_PageIndexChanging" OnRowDataBound="GvWod_RowDataBound">
 
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />

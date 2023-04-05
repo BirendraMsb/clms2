@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>CLMS | Emp | Approval</title>
- <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
@@ -124,7 +124,18 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                </a>
+                                            </li>
 
+                                        </ul>
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
@@ -226,7 +237,7 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                   <asp:TemplateField HeaderText="Photo">
+                                                    <asp:TemplateField HeaderText="Photo">
                                                         <ItemTemplate>
                                                             <asp:Image ID="image1" runat="server" Width="80px" Height="100px" ImageUrl='<%# Eval("img_file","../emp_pic/{0}") %>' />
                                                         </ItemTemplate>
@@ -238,7 +249,7 @@
                                                 <asp:Label ID="lbl_emp_add" runat="server" Text='<%#Eval("emp_add") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>--%>
-                                                  <%--  <asp:TemplateField HeaderText="Contact No. 1" ItemStyle-Wrap="false">
+                                                    <%--  <asp:TemplateField HeaderText="Contact No. 1" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_emp_ph_no1" runat="server" Text='<%#Eval("emp_ph_no1") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -370,16 +381,16 @@
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
 
-                                                      <asp:TemplateField HeaderText="Action By Dept">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lbl_DeptApproval" runat="server" Text='<%#Eval("dept_approval") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="Dept. Remarks">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lbl_DeptRemarks" runat="server" Text='<%#Eval("dept_remarks") %>'></asp:Label>
-                                            </ItemTemplate>
-                                        </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Action By Dept">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_DeptApproval" runat="server" Text='<%#Eval("dept_approval") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Dept. Remarks">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_DeptRemarks" runat="server" Text='<%#Eval("dept_remarks") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
 
                                                     <asp:TemplateField HeaderText="Action By HR">
                                                         <ItemTemplate>
@@ -509,10 +520,10 @@
                 });
             });
         </script>
-         <script type="text/jscript">
-              $(window).on("load", function () {
-                  $('#GvWod').DataTable({ responsive: true });
-              });
+        <script type="text/jscript">
+            $(window).on("load", function () {
+                $('#GvWod').DataTable({ responsive: true });
+            });
         </script>
 
     </form>

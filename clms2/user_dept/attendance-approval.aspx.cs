@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.IO;
 using System.Linq;
-using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace clms2.vendor_onboarding
+namespace clms2.user_dept
 {
-    public partial class attendance_view : System.Web.UI.Page
+    public partial class attendance_approval : System.Web.UI.Page
     {
+
         public string strSQL;
         private static string Conn = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
         private SqlConnection con = new SqlConnection(Conn);
-
+        private DropDownList approv;
+        
         public void dbConnection()
         {
             if (con.State == ConnectionState.Closed)
@@ -29,11 +29,11 @@ namespace clms2.vendor_onboarding
             try
             {
                 // Call dbConnection()
-                string vencode = Session["User"].ToString();
+              
                 string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT distinct work_worder from tbl_vendor_work_order Where vendor_reg_code ='" + vencode + "'"))  // tbl_attendance
+                    using (SqlCommand cmd = new SqlCommand("SELECT distinct work_worder from tbl_vendor_work_order where  department='" + Session["User"].ToString() + "'"))  // tbl_attendance
                     {
                         cmd.CommandType = CommandType.Text;
                         cmd.Connection = con;
@@ -53,12 +53,33 @@ namespace clms2.vendor_onboarding
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-           
+
         }
 
+        private void BindGrid()
+        {
+            try
+            {
+                dbConnection();
+
+                // '''''''''''''''''''''''''''''''''''''''''''
+                strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.Text + "' and department='" + Session["User"].ToString() + "' ";
+               // strSQL = "SELECT * FROM tbl_attendance";
+
+                SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                GvAttn.DataSource = dt;
+                GvAttn.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblMSG.Text = ex.Message;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -73,39 +94,10 @@ namespace clms2.vendor_onboarding
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
-          
 
-        }
-
-        protected void GvAttn_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GvAttn.PageIndex = e.NewPageIndex;
-            GvAttn.DataBind();
-        }
-
-     
-        private void BindGrid()
-        {
-            try
-            {
-                dbConnection();
-
-                // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_attendance where vendor_code='" + Session["User"].ToString() + "' ";
-
-                SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                GvAttn.DataSource = dt;
-                GvAttn.DataBind();
-            }
-            catch (Exception ex)
-            {
-                lblMSG.Text = ex.Message;
-            }
         }
 
         protected void ddlWorkOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -113,7 +105,7 @@ namespace clms2.vendor_onboarding
             dbConnection();
             if (ddlWorkOrder.SelectedValue != "")
             {
-                strSQL = "SELECT * FROM tbl_attendance where vendor_code='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.Text + "' ";
+                strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.SelectedItem.Text + "' and department='" + Session["User"].ToString() +"' ";
                 ///dont delete///strSQL = "SELECT a.*,b.* FROM tbl_vendor_info a, tbl_attendance b where a.vendor_reg_code=b.vendor_code and workorder = '" + ddlWorkOrder.Text + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -125,35 +117,46 @@ namespace clms2.vendor_onboarding
             con.Close();
         }
 
-       
-
-        protected void btnDownload_Click(object sender, EventArgs e)
+        protected void GvAttn_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            //var path = Server.MapPath("~/pf_doc");
-            //var filePath = Path.Combine(path, "Attendance.csv");
-            //// string filePath = @"D:\Visual_Studio_2013_Projects\clms2\clms2\pf_doc\Attendance.csv";
-            //FileInfo file = new FileInfo(filePath);
-            //if (file.Exists)
-            //{
-            //    // Clear Rsponse reference  
-            //    Response.Clear();
-            //    // Add header by specifying file name  
-            //    Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
-            //    // Add header for content length  
-            //    Response.AddHeader("Content-Length", file.Length.ToString());
-            //    // Specify content type  
-            //    Response.ContentType = "text/plain";
-            //    // Clearing flush  
-            //    Response.Flush();
-            //    // Transimiting file  
-            //    Response.TransmitFile(file.FullName);
-            //    Response.End();
-            //}
-            //Response.Write("Requested file is not available to download");
+            GvAttn.PageIndex = e.NewPageIndex;
+            GvAttn.DataBind();
         }
 
-      
+        protected void GvAttn_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GvAttn.EditIndex = -1;
+            BindGrid();
+        }
 
-       
+        protected void GvAttn_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GvAttn.EditIndex = e.NewEditIndex;
+            BindGrid();
+        }
+
+        protected void GvAttn_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            Label id = GvAttn.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
+            TextBox rmrks = GvAttn.Rows[e.RowIndex].FindControl("txt_DeptRemarks") as TextBox;
+            approv = GvAttn.Rows[e.RowIndex].FindControl("ddlDeptApproval") as DropDownList;
+            ////DropDownList Shift = GvAttn.Rows[e.RowIndex].FindControl("ddlShift") as DropDownList;
+            ////DropDownList med_report = GvAttn.Rows[e.RowIndex].FindControl("ddlMedReport") as DropDownList;
+
+            //// 'If approv.SelectedItem.Text = "Reject" Then
+            //// '    GvEmp.Columns(1).Visible = False
+            //// 'End If
+
+            dbConnection();
+            string Str = "Update tbl_attendance set dept_remarks='" + rmrks.Text + "', dept_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
+            SqlCommand cm = new SqlCommand(Str, con);
+            cm.ExecuteNonQuery();
+
+            con.Close();
+            GvAttn.EditIndex = -1;
+
+            BindGrid();
+
+        }
     }
 }

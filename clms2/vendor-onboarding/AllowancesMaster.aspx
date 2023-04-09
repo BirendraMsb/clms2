@@ -87,10 +87,10 @@
                                 <span class="visually-hidden">(current)</span>
                                         </a>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
-                                           
+
                                             <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Shift Master
@@ -136,7 +136,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -149,7 +149,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="upload_attendance.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Upload Attendance
                                                 </a>
@@ -169,7 +169,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Manual Corrections
                                                 </a>
                                             </li>
-                                          
+
 
                                         </ul>
                                     </li>
@@ -182,7 +182,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Allowences
                                                 </a>
                                             </li>
-                                         
+
                                             <li>
                                                 <a class="dropdown-item" href="#">
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
@@ -212,12 +212,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form 17
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
                                                 </a>
                                             </li>
-                                        
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -307,7 +307,20 @@
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
                                         <span>Allowance Master</span>
                                     </div>
+                                     
                                     <div class="card-body">
+                                       <div class="row" >
+                                           <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label>Work Order</label>
+                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50" AutoPostBack="True" OnSelectedIndexChanged="ddlWorkdOrder_SelectedIndexChanged" >
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                         </div>
+                                     <hr class="my-5" />
+                                       <br />
+                                        <br />
                                         <div class="table-responsive" style="overflow: auto;">
                                             <%--========================================================================================--%>
                                             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
@@ -331,6 +344,24 @@
                                                             <asp:TextBox ID="txtVendorCode" runat="server" Text='<%# Eval("vendor_code")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Work Order" ItemStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblWorkorderno" runat="server" Text='<%# Eval("workorderno")%>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <%--  <EditItemTemplate>
+                                                            <asp:TextBox ID="txtWorkorderno" runat="server" Text='<%# Eval("workorderno")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                    <ItemStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Emp Code" ItemStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblEmp_code" runat="server" Text='<%# Eval("emp_code")%>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <%--  <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEmp_code" runat="server" Text='<%# Eval("emp_code")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                    <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="150">
                                                         <ItemTemplate>
@@ -368,7 +399,16 @@
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
-                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true"
+                                                    <asp:TemplateField HeaderText="Other Deductions" ItemStyle-Width="150">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lblOtherDeduction" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txtOtherDeduction" runat="server" Text='<%# Eval("other_deduction")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                        <ItemStyle Width="150px" />
+                                                    </asp:TemplateField>
+                                                    <asp:CommandField ButtonType="Link" HeaderText="Action" ShowEditButton="true"
                                                         ItemStyle-Width="150">
                                                         <ItemStyle Width="150px" />
                                                     </asp:CommandField>
@@ -386,8 +426,8 @@
                                             </asp:GridView>
                                             <%--========================================================================================--%>
                                         </div>
-                                    </div>
-                                </div>
+                    </div>
+                    </div>
                             </div>
                         </div>
                     </div>

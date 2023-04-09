@@ -352,7 +352,13 @@
                                                     <asp:TextBox ID="txtEmpCode" runat="server" class="form-control" placeholder="Emp Code"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label for="txtAddress">Department</label>
+                                                    <asp:TextBox ID="txtDepart" runat="server" class="form-control" MaxLength="100"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label for="txtAddress">Address</label>
                                                     <asp:TextBox ID="txtAddress" runat="server" class="form-control" MaxLength="100"></asp:TextBox>
@@ -698,6 +704,20 @@
                                             </div>
                                         </div>
                                         <div class="row">
+                                             <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label>Domicile</label>
+                                                    <asp:TextBox ID="txtDomDate" runat="server" class="form-control"  MaxLength="10"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label>Domicile Description</label>
+                                                    <asp:TextBox ID="txtDomDesc" runat="server" class="form-control" placeholder="Descriotion" TextMode="MultiLine" ></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="FileUpload1" class="col-sm-3 control-label">Employee Photo</label>
@@ -831,7 +851,7 @@
                     }
                 }
             });
-
+            
             new Pikaday(
             {
                 field: document.getElementById('txtMCID'),
@@ -850,6 +870,25 @@
                     }
                 }
             });
+
+            new Pikaday(
+           {
+               field: document.getElementById('txtDomDate'),
+               toString: function (date, format) {
+                   return dateFns.format(date, format);
+               },
+               parse: function (dateString, format) {
+                   return dateFns.parse(dateString);
+               },
+               onSelect: function (selectedDate) {
+                   // not necessary, just showing off
+                   if (dateFns.isValid(selectedDate)) {
+                       var p = document.createElement('p');
+                       p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
+                       document.getElementById('selected').appendChild(p);
+                   }
+               }
+           });
         </script>
         <%--<script type="text/jscript">
               $(window).on("load", function () {

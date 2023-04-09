@@ -23,9 +23,10 @@ namespace clms2.vendor_onboarding
             if (!this.IsPostBack)
             {
                 CreateEmptyTable();
-                //   this.BindGrid();
-                //  Emp_Code();
+                ////   this.BindGrid();
+                ////  Emp_Code();
                 year();
+                workorder();
             }
             //////txtYear.Text = DateTime.Now.ToString("yyyy");
 
@@ -41,6 +42,26 @@ namespace clms2.vendor_onboarding
             ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
         }
 
+        private void workorder()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            string query = "SELECT distinct(a.workorder),vendor_code FROM tbl_Attendance a,tbl_vendor_info v where vendor_code ='" + Session["User"].ToString() + "' ";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        ddlWorkdOrder.DataSource = dt;
+                        ddlWorkdOrder.DataTextField = "workorder";
+                        ddlWorkdOrder.DataValueField = "workorder";
+                        ddlWorkdOrder.DataBind();
+                    }
+                }
+            }
+            //ddlEmpCode.Items.Insert(0, new ListItem("Select", "0"));
+        }
         private void CreateEmptyTable()
         {
             DataTable dt = new DataTable();
@@ -149,24 +170,25 @@ namespace clms2.vendor_onboarding
            
             });
 
-
-
             //----------------------------------//
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             //string query = "SELECT emp_code,emp_name,date,in_time,out_time FROM tbl_manual_punch";
            // string query = "SELECT emp_code,emp_name,designation FROM tbl_emp where vendor_code ='" + Session["User"].ToString() + "' ";
-            string query = "SELECT emp_code,emp_name,designation,no_of_workdone,unit_of_workdone,daily_rate_of_wages,Basic,DA,overtime," +
-            "other_case_payment,total,pf_deduction,esic_deduction,other_deduction,net_amount_paid,signature,signature,intial_contractor FROM tbl_form16 ";
-            DataTable dt_emp;
+            //string query = "SELECT emp_code,emp_name,designation,no_of_workdone,unit_of_workdone,daily_rate_of_wages,Basic,DA,overtime," +
+            //"other_case_payment,total,pf_deduction,esic_deduction,other_deduction,net_amount_paid,signature,signature,intial_contractor FROM tbl_form16 ";
+            ///string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.present as unit_of_workdone,e.[basic]/8 as daily_rate_of_wages , a.Present * e.basic as Basic_wages, e.basic*0 as Dearness_Allowances ,a.monthly_ot_hrs * e.[basic]/8 as overtime ,e.allowance as other_cash_payment,(a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * e.basic ) * 12/100 as PF_Deduction , ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 as ESIC_deduction,other_deduction,((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) -( ((a.Present * e.basic ) * 12/100 ) + ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 ) as Net_Amount_Paid,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code";
+            string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.present as unit_of_workdone,e.[basic]/8 as daily_rate_of_wages , a.Present * e.basic as Basic_wages, e.basic*0 as Dearness_Allowances ,a.monthly_ot_hrs * e.[basic]/8 as overtime ,e.allowance as other_cash_payment,(a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * e.basic ) * 12/100 as PF_Deduction , ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 as ESIC_deduction,e.other_deduction, (((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) - ((a.Present * e.basic ) * 12/100 ) - ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100) - e.other_deduction  as Net_Amount_Paid,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
+            
+            DataTable dt1;
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
                 {
-                    using (dt_emp = new DataTable())
+                    using (dt1 = new DataTable())
                     {
 
-                        sda.Fill(dt_emp);
-                        string MyString = dt_emp.Rows[0].ItemArray[0].ToString();
+                        sda.Fill(dt1);
+                        string MyString = dt1.Rows[0].ItemArray[0].ToString();
                         //GridView2.DataSource = dt;
                         //GridView2.DataBind();
                     }
@@ -176,7 +198,7 @@ namespace clms2.vendor_onboarding
 
             //------------------------------------//
 
-            int dtEmpRowCount = dt_emp.Rows.Count;
+            int dtEmpRowCount = dt1.Rows.Count;
             int dtEmpColCount = 17;
             DataRow dr;
             for (int i = 0; i < dtEmpRowCount; i++)
@@ -184,10 +206,9 @@ namespace clms2.vendor_onboarding
                 dr = dt.NewRow();
                 for (int j = 0; j < dtEmpColCount; j++)
                 {
+                    string MyString = dt1.Rows[i].ItemArray[j].ToString();
 
-                    string MyString = dt_emp.Rows[i].ItemArray[j].ToString();
-
-                    dr[j] = dt_emp.Rows[i].ItemArray[j].ToString();
+                    dr[j] = dt1.Rows[i].ItemArray[j].ToString();
 
                     ////dr[2] = string.Empty;
                     //dr[3] = string.Empty;

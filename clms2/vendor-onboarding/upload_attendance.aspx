@@ -573,6 +573,11 @@
                                         <asp:Label ID="lblemp_name" runat="server" Text='<% #Eval("emp_name")%>'></asp:Label>
                                     </ItemTemplate>
                                 </asp:TemplateField>
+                                 <asp:TemplateField HeaderText="Department">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lbldepartment" runat="server" Text='<% #Eval("department")%>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Year">
                                     <ItemTemplate>
                                         <asp:Label ID="lblyear1" runat="server" Text='<% #Eval("year1")%>'></asp:Label>
@@ -777,7 +782,7 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
+                    <asp:Label ID="lblMessage" runat="server" Font-Bold="True" ForeColor="green"></asp:Label>
                 </td>
             </tr>
             <tr>

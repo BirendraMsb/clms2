@@ -85,10 +85,10 @@
                                         <span class="visually-hidden">(current)</span>
                                         </a>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
-                                          
+
                                             <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Shift Master
@@ -116,12 +116,11 @@
                                                 </a>
                                             </li>
 
-                                           <%-- <li>
+                                            <%-- <li>
                                                 <a class="dropdown-item" href="site-incharge.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Site Incharge
                                                 </a>
                                             </li>--%>
-
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -135,7 +134,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -168,7 +167,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Manual Corrections
                                                 </a>
                                             </li>
-                                          
+
 
                                         </ul>
                                     </li>
@@ -186,20 +185,20 @@
                                                     <i class="fa fa-angle-right me-1"></i>Upload Attendance
                                                 </a>
                                             </li>
-                                        
+
                                             <li>
                                                 <a class="dropdown-item" href="#">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
-                                          
+
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 16
@@ -211,7 +210,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form 17
                                                 </a>
                                             </li>
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
                                                 </a>
@@ -310,16 +309,23 @@
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <asp:Button ID="cmdShow" runat="server" Text="Show" Width="150px" class="btn btn-info" OnClick="cmdShow_Click"></asp:Button>
-                                                   <%-- <asp:Button ID="btnBulkInsert" runat="server" Text="Insert" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>--%>
+                                                    <%-- <asp:Button ID="btnBulkInsert" runat="server" Text="Insert" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>--%>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row" style="width: 1000px">
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
+                                                    <label>Work Order</label>
+                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50" >
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
                                                     <label>Month</label>
                                                     <asp:DropDownList ID="ddlMonth" runat="server" class="form-control" AutoPostBack="true" Width="150px" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
-                                                       <%-- <asp:ListItem>Select</asp:ListItem>--%>
+                                                        <%-- <asp:ListItem>Select</asp:ListItem>--%>
                                                         <asp:ListItem Value="1">Jan</asp:ListItem>
                                                         <asp:ListItem Value="2">Feb</asp:ListItem>
                                                         <asp:ListItem Value="3">Mar</asp:ListItem>
@@ -342,13 +348,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <%--<label>Employee Code</label>--%>
-                                                    <asp:DropDownList ID="ddlEmpCode" class="form-control" runat="server" Visible="false" MaxLength="50" >
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
+
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <%-- <label>Emloyee Name</label>--%>
@@ -356,7 +356,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" >
+                                        <div class="row">
                                             <asp:GridView ID="GridView1" runat="server" CellPadding="4" Width="25%" ForeColor="#333333" GridLines="None">
                                                 <AlternatingRowStyle BackColor="White" />
                                                 <EditRowStyle BackColor="#2461BF" />
@@ -376,7 +376,7 @@
                                         <br />
                                         <%--========================================================================================--%>
                                         <div>
-                                            <div class="table-responsive" style="overflow: auto; ">
+                                            <div class="table-responsive" style="overflow: auto;">
                                                 <%-- <div class="table-responsive" style="width:50%;">--%>
                                                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                     GridLines="Vertical" AllowPaging="false" PageSize="5" DataKeyNames="emp_code" EmptyDataText="No records has been added."
@@ -407,13 +407,13 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                       <asp:TemplateField HeaderText="No of days work done" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="No of days work done" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="no_of_workdone" runat="server" Text='<%# Eval("no_of_workdone") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Units of Work done" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Units of Work done" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="unit_of_workdone" runat="server" Text='<%# Eval("unit_of_workdone") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -491,7 +491,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                       
+
                                                     </Columns>
                                                     <AlternatingRowStyle BackColor="#FFFFFF" />
                                                     <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />

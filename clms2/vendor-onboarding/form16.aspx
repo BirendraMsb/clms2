@@ -315,6 +315,13 @@
                                             </div>
                                         </div>
                                         <div class="row" style="width: 1000px">
+                                           <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Work Order</label>
+                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50" >
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Month</label>
@@ -341,14 +348,7 @@
                                                     <asp:DropDownList ID="ddlYear" runat="server" class="form-control" Width="150px" MaxLength="50"></asp:DropDownList>
                                                 </div>
                                             </div>
-
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <%--<label>Employee Code</label>--%>
-                                                    <asp:DropDownList ID="ddlEmpCode" class="form-control" runat="server" Visible="false" MaxLength="50" >
-                                                    </asp:DropDownList>
-                                                </div>
-                                            </div>
+                                       
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <%-- <label>Emloyee Name</label>--%>
@@ -379,7 +379,7 @@
                                             <div class="table-responsive" style="overflow: auto; ">
                                                 <%-- <div class="table-responsive" style="width:50%;">--%>
                                                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                    GridLines="Vertical" AllowPaging="false" PageSize="5" DataKeyNames="emp_code" EmptyDataText="No records has been added."
+                                                    GridLines="Vertical" AllowPaging="false" PageSize="10" DataKeyNames="emp_code" EmptyDataText="No records has been added."
                                                     Class="table table-bordered nowrap w-25" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                     <Columns>
@@ -389,24 +389,57 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="30px" HorizontalAlign="Center" />
                                                         </asp:TemplateField>
+                                                         <asp:TemplateField HeaderText="Vendor Code" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="vendor_code" runat="server" Text='<%# Eval("vendor_code") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="150px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Work Order" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="workorder" runat="server" Text='<%# Eval("workorder") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="150px" />
+                                                        </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Emp Code" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
                                                             </ItemTemplate>
+                                                           <ControlStyle Width="100px" />
                                                             <ItemStyle Width="150px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
                                                             </ItemTemplate>
+                                                            <ControlStyle Width="100px" />
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Date" ItemStyle-Width="100px">
+                                                        <asp:TemplateField HeaderText="Department" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="department" runat="server" Text='<%# Eval("department") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ControlStyle Width="100px" />
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Month" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="month1" runat="server" Text='<%# Eval("month1") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                         <asp:TemplateField HeaderText="Year" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="year1" runat="server" Text='<%# Eval("year1") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                     <%--   <asp:TemplateField HeaderText="Date" ItemStyle-Width="100px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="date" runat="server" Width="100px" Text='<%# Eval("date","{0:dd-MM-yyyy}") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="100px" />
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
                                                     <%--     <asp:TemplateField HeaderText="In Time" ItemStyle-Width="100px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="in_time" runat="server" Width="100px" Text='<%# Eval("in_time","{0:HH:mm:ss}") %>'></asp:Label>
@@ -605,6 +638,18 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
+                                                     <%--   <asp:TemplateField HeaderText="HR Approval" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="hr_approval" runat="server" Text='<%# Eval("hr_approval") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Dept Approval" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="dept_approval" runat="server" Text='<%# Eval("dept_approval") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>--%>
                                                     </Columns>
                                                     <AlternatingRowStyle BackColor="#FFFFFF" />
                                                     <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />

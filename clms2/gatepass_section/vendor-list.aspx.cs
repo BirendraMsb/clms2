@@ -28,8 +28,10 @@ namespace clms2.gatepass_section
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                ////using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_work_order where status='A' "))
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_emp where status='P' and hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved'"))
+               
+                
+               ///// using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_emp where status='P' and hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved'"))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_work_order where status='A' "))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -38,8 +40,8 @@ namespace clms2.gatepass_section
                         DataSet ds = new DataSet();
                         sda.Fill(ds);
                         ddlWorkOrder.DataSource = ds.Tables[0];
-                        ddlWorkOrder.DataTextField = "workorderno";
-                        ddlWorkOrder.DataValueField = "workorderno";
+                        ddlWorkOrder.DataTextField = "work_worder";
+                        ddlWorkOrder.DataValueField = "work_worder";
                         ddlWorkOrder.DataBind();
                     }
                 }

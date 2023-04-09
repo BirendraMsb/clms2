@@ -72,6 +72,7 @@
     <Content Include="admin\testChart.aspx" />
     <Content Include="admin\update-leave-register.aspx" />
     <Content Include="admin\user.aspx" />
+    <Content Include="contractor_cell\attendance-approval.aspx" />
     <Content Include="contractor_cell\dashboard.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-approval.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-block.aspx" />
@@ -2826,6 +2827,7 @@
     <Content Include="safety_dept\safety-dashboard.aspx" />
     <Content Include="safety_dept\vendor-list.aspx" />
     <Content Include="style.css" />
+    <Content Include="user_dept\attendance-approval.aspx" />
     <Content Include="user_dept\dept-home.aspx" />
     <Content Include="user_dept\purposed-emp-detail-approval.aspx" />
     <Content Include="user_dept\purposed-emp-detail.aspx" />
@@ -2954,6 +2956,13 @@
     </Compile>
     <Compile Include="admin\user.aspx.designer.cs">
       <DependentUpon>user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\attendance-approval.aspx.cs">
+      <DependentUpon>attendance-approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\attendance-approval.aspx.designer.cs">
+      <DependentUpon>attendance-approval.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
@@ -3109,6 +3118,13 @@
     </Compile>
     <Compile Include="safety_dept\vendor-list.aspx.designer.cs">
       <DependentUpon>vendor-list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="user_dept\attendance-approval.aspx.cs">
+      <DependentUpon>attendance-approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="user_dept\attendance-approval.aspx.designer.cs">
+      <DependentUpon>attendance-approval.aspx</DependentUpon>
     </Compile>
     <Compile Include="user_dept\dept-home.aspx.cs">
       <DependentUpon>dept-home.aspx</DependentUpon>

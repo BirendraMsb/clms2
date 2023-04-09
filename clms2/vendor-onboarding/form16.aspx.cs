@@ -23,8 +23,10 @@ namespace clms2.vendor_onboarding
             if (!this.IsPostBack)
             {
                 CreateEmptyTable();
-             //   this.BindGrid();
-              //  Emp_Code();
+               
+                workorder();
+             //////   this.BindGrid();
+             //// //  Emp_Code();
                 year();
             }
             //////txtYear.Text = DateTime.Now.ToString("yyyy");
@@ -41,9 +43,14 @@ namespace clms2.vendor_onboarding
         private void CreateEmptyTable()
         {
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[34] { new DataColumn("emp_code", typeof(string)),
+            dt.Columns.AddRange(new DataColumn[40] {new DataColumn("vendor_code", typeof(string)),
+            new DataColumn("workorder", typeof(string)),
+            new DataColumn("emp_code", typeof(string)),
             new DataColumn("emp_name",typeof(string)),
-            new DataColumn("date",typeof(string)),
+            new DataColumn("department",typeof(string)),
+            new DataColumn("month1",typeof(string)),
+             new DataColumn("year1",typeof(string)),
+            //new DataColumn("date",typeof(string)),
             new DataColumn("D1",typeof(string)),
             new DataColumn("D2",typeof(string)),
             new DataColumn("D3",typeof(string)),
@@ -75,98 +82,129 @@ namespace clms2.vendor_onboarding
             new DataColumn("D29",typeof(string)),
             new DataColumn("D30",typeof(string)),
             new DataColumn("D31",typeof(string)),
+            new DataColumn("hr_approval",typeof(string)),
+            new DataColumn("dept_approval",typeof(string)),
             });
-
-            //----------------------------------//
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            //string query = "SELECT emp_code,emp_name,date,in_time,out_time FROM tbl_manual_punch";
-            string query = "SELECT emp_code,emp_name,date FROM tbl_manual_punch";
-            DataTable dtPunch;
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
-                {
-                    using ( dtPunch = new DataTable())
-                    {
-                       
-                        sda.Fill(dtPunch);
-                        string MyString = dtPunch.Rows[0].ItemArray[0].ToString();
-                        //GridView2.DataSource = dt;
-                        //GridView2.DataBind();
-                    }
-                }
-            }
-
-
             //------------------------------------//
-
-            int dtPunchRowCount = dtPunch.Rows.Count;
-            int dtPunchColCount = 3;
             DataRow dr;
-            for (int i = 0; i < dtPunchRowCount; i++)
+            for (int i = 0; i < 3; i++)
             {
                 dr = dt.NewRow();
-                for (int j = 0; j <3; j++)
+                for (int j = 0; j <38; j++)
                 {
-         
-                string MyString = dtPunch.Rows[i].ItemArray[j].ToString();
-               
-                dr[j] = dtPunch.Rows[i].ItemArray[j].ToString();
-                dr[3] = "A";
-                dr[4] = "A";
-                //dr[0] ="e001"; //string.Empty;
-                //dr[1] = "bk";// sring.Empty;
-                //dr[2] = "27-03-2023";//string.Empty;
-                //dr[3] = "A";//string.Empty;
-                //dr[4] = string.Empty;
-                dr[5] = "P";
-                dr[6] = "P";
-                dr[7] = "WO";
-                dr[8] = "HL";
-                dr[9] = "P";
-                dr[10] = "P";
-                dr[11] = "A";
-                dr[12] = "A";
-                dr[13] = "P";
-                dr[14] = "WO";
-                dr[15] = "P";
-                dr[16] = "P";
-                dr[17] = "P";
-                dr[18] = "P";
-                dr[19] = "P";
-                dr[20] = "P";
-                dr[21] = "wo";
-                dr[22] = "P";
-                dr[23] = "P";
-                dr[24] = "P";
-                dr[25] = "P";
-                dr[26] = "P";
-                dr[27] = "P";
-                dr[28] = "wo";
-                dr[29] = "P";
-                dr[30] = "P";
-                dr[31] = "P";
-                dr[32] = "P";
-                dr[32] = "A";
-                dr[33] = "P";
-
-               
-
+                    dr[j] = string.Empty;
                 }
                 dt.Rows.Add(dr);
             }
-
-
-
-
             GridView2.DataSource = dt;
             GridView2.DataBind();
+            //----------------------------------//
+            //string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            ////string query = "SELECT emp_code,emp_name,date,in_time,out_time FROM tbl_manual_punch";
+            //string query = "SELECT emp_code,emp_name,date FROM tbl_manual_punch";
+            //DataTable dtPunch;
+            //using (SqlConnection con = new SqlConnection(constr))
+            //{
+            //    using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+            //    {
+            //        using ( dtPunch = new DataTable())
+            //        {
+                       
+            //            sda.Fill(dtPunch);
+            //            string MyString = dtPunch.Rows[0].ItemArray[0].ToString();
+            //            //GridView2.DataSource = dt;
+            //            //GridView2.DataBind();
+            //        }
+            //    }
+            //}
+
+
+            ////------------------------------------//
+
+            //int dtPunchRowCount = dtPunch.Rows.Count;
+            //int dtPunchColCount = 3;
+            //DataRow dr;
+            //for (int i = 0; i < dtPunchRowCount; i++)
+            //{
+            //    dr = dt.NewRow();
+            //    for (int j = 0; j <3; j++)
+            //    {
+         
+            //    string MyString = dtPunch.Rows[i].ItemArray[j].ToString();
+               
+            //    dr[j] = dtPunch.Rows[i].ItemArray[j].ToString();
+            //    dr[3] = "A";
+            //    dr[4] = "A";
+            //    //dr[0] ="e001"; //string.Empty;
+            //    //dr[1] = "bk";// sring.Empty;
+            //    //dr[2] = "27-03-2023";//string.Empty;
+            //    //dr[3] = "A";//string.Empty;
+            //    //dr[4] = string.Empty;
+            //    dr[5] = "P";
+            //    dr[6] = "P";
+            //    dr[7] = "WO";
+            //    dr[8] = "HL";
+            //    dr[9] = "P";
+            //    dr[10] = "P";
+            //    dr[11] = "A";
+            //    dr[12] = "A";
+            //    dr[13] = "P";
+            //    dr[14] = "WO";
+            //    dr[15] = "P";
+            //    dr[16] = "P";
+            //    dr[17] = "P";
+            //    dr[18] = "P";
+            //    dr[19] = "P";
+            //    dr[20] = "P";
+            //    dr[21] = "wo";
+            //    dr[22] = "P";
+            //    dr[23] = "P";
+            //    dr[24] = "P";
+            //    dr[25] = "P";
+            //    dr[26] = "P";
+            //    dr[27] = "P";
+            //    dr[28] = "wo";
+            //    dr[29] = "P";
+            //    dr[30] = "P";
+            //    dr[31] = "P";
+            //    dr[32] = "P";
+            //    dr[32] = "A";
+            //    dr[33] = "P";
+            //    }
+            //    dt.Rows.Add(dr);
+            //}
+
+
+
+
+            //GridView2.DataSource = dt;
+            //GridView2.DataBind();
+
+            ////---------------------------------////////////
 
         }
         private void BindGrid()
         {
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             string query = "SELECT emp_code,emp_name,date,in_time,out_time FROM tbl_manual_punch";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridView2.DataSource = dt;
+                        GridView2.DataBind();
+                    }
+                }
+            }
+        }
+
+        private void BindGrid_Atted()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            string query = "SELECT * FROM tbl_Attendance where vendor_code ='" + Session["User"].ToString() + "' ";
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
@@ -250,7 +288,22 @@ namespace clms2.vendor_onboarding
 
         protected void cmdShow_Click(object sender, EventArgs e)
         {
+           // BindGrid_Atted();
 
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            string query = "SELECT * FROM tbl_Attendance where vendor_code ='" + Session["User"].ToString() + "' and workorder= '" + ddlWorkdOrder.SelectedItem.Text + "' and month1='" + ddlMonth.SelectedValue + "' and year1='" + ddlYear.SelectedItem.Text + "' and hr_approval='Approved' and dept_approval='Approved' ";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridView2.DataSource = dt;
+                        GridView2.DataBind();
+                    }
+                }
+            }
         }
 
         protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
@@ -311,6 +364,28 @@ namespace clms2.vendor_onboarding
 
             }
 
+        }
+
+
+        private void workorder()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            string query = "SELECT distinct(a.workorder),vendor_code FROM tbl_Attendance a,tbl_vendor_info v where vendor_code ='" + Session["User"].ToString() + "' ";
+           using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        ddlWorkdOrder.DataSource = dt;
+                        ddlWorkdOrder.DataTextField = "workorder";
+                        ddlWorkdOrder.DataValueField = "workorder";
+                        ddlWorkdOrder.DataBind();
+                    }
+                }
+            }
+            //ddlEmpCode.Items.Insert(0, new ListItem("Select", "0"));
         }
     }
 }

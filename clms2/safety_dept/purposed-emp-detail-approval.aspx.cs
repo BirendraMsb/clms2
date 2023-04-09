@@ -26,7 +26,7 @@ namespace clms2.safety_dept
             string usrnm = Session["User"].ToString();
             lblUser.Text = usrnm;
             // lblUser1.Text = usrnm
-
+            lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
             dbConnection();
 
             if (!Page.IsPostBack)

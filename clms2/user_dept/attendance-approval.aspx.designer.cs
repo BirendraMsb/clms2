@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace clms2.vendor_onboarding {
+namespace clms2.user_dept {
     
     
-    public partial class attendance_view {
+    public partial class attendance_approval {
         
         /// <summary>
         /// Head1 control.

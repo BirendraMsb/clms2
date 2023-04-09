@@ -42,11 +42,12 @@ namespace clms2.vendor_onboarding
 
                 //Create a DataTable.
                 DataTable dt = new DataTable();
-                dt.Columns.AddRange(new DataColumn[40] {
+                dt.Columns.AddRange(new DataColumn[41] {
                 new DataColumn("emp_code", typeof(string)),
                 new DataColumn("vendor_code", typeof(string)),
                 new DataColumn("workorder", typeof(string)),
                 new DataColumn("emp_name", typeof(string)),
+                new DataColumn("department",typeof(string)),
                 new DataColumn("year1",typeof(Int16)),
                 new DataColumn("month1",typeof(Int16)),
                  new DataColumn("d1",typeof(string)),
@@ -145,6 +146,7 @@ namespace clms2.vendor_onboarding
                     string vendor_code = (g1.FindControl("lblvendor_code") as Label).Text;
                     string workorder = (g1.FindControl("lblworkorder") as Label).Text;
                     string emp_name = (g1.FindControl("lblemp_name") as Label).Text;
+                    string department = (g1.FindControl("lbldepartment") as Label).Text;
                     string year1 = (g1.FindControl("lblyear1") as Label).Text;
                     string month1 = (g1.FindControl("lblmonth1") as Label).Text;
                    
@@ -940,7 +942,7 @@ namespace clms2.vendor_onboarding
 
 
 
-                    string query = "insert into tbl_attendance(emp_code,vendor_code,workorder,emp_name,year1,month1,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,daily_working_hrs,monthly_work_hrs,monthly_ot_hrs,Absent,Present,tot_holidays,tot_leave,tot_week_off,tot_working_day) values('" + emp_code + "','" + vendor_code + "','" + workorder + "','" + emp_name + "'," + year1 + " ," + month1 + " , '" + d1 + "' ,'" + d2 + "' ,'" + d3 + "' ,'" + d4 + "'   ,'" + d5 + "' ,'" + d6 + "'   ,'" + d7 + "'    ,'" + d8 + "'      ,'" + d9 + "' ,'" + d10 + "','" + d11 + "' ,'" + d12 + "' ,'" + d13 + "' ,'" + d14 + "'   ,'" + d15 + "' ,'" + d16 + "'   ,'" + d17 + "'    ,'" + d18 + "','" + d19 + "' ,'" + d20 + "','" + d21 + "' ,'" + d22 + "' ,'" + d23 + "' ,'" + d24 + "'   ,'" + d25 + "' ,'" + d26 + "' ,'" + d27 + "' ,'" + d28 + "' ,'" + d29 + "' ,'" + d30 + "','" + d31 + "','" + daily_working_hrs + "','" + monthly_work_hrs + "','" + monthly_ot_hrs + "','" + absent + "','" + present + "','" + tot_holidays + "' ,'" + tot_leave + "','" + tot_week_off + "','" + tot_working_day + "')";
+                    string query = "insert into tbl_attendance(emp_code,vendor_code,workorder,emp_name,department,year1,month1,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,daily_working_hrs,monthly_work_hrs,monthly_ot_hrs,Absent,Present,tot_holidays,tot_leave,tot_week_off,tot_working_day) values('" + emp_code + "','" + vendor_code + "','" + workorder + "','" + emp_name + "','" + department + "'," + year1 + " ," + month1 + " , '" + d1 + "' ,'" + d2 + "' ,'" + d3 + "' ,'" + d4 + "'   ,'" + d5 + "' ,'" + d6 + "'   ,'" + d7 + "'    ,'" + d8 + "'      ,'" + d9 + "' ,'" + d10 + "','" + d11 + "' ,'" + d12 + "' ,'" + d13 + "' ,'" + d14 + "'   ,'" + d15 + "' ,'" + d16 + "'   ,'" + d17 + "'    ,'" + d18 + "','" + d19 + "' ,'" + d20 + "','" + d21 + "' ,'" + d22 + "' ,'" + d23 + "' ,'" + d24 + "'   ,'" + d25 + "' ,'" + d26 + "' ,'" + d27 + "' ,'" + d28 + "' ,'" + d29 + "' ,'" + d30 + "','" + d31 + "','" + daily_working_hrs + "','" + monthly_work_hrs + "','" + monthly_ot_hrs + "','" + absent + "','" + present + "','" + tot_holidays + "' ,'" + tot_leave + "','" + tot_week_off + "','" + tot_working_day + "')";
                     //cmd.CommandText = "insert into Members values ('" + g1.Cells[0].Text + "','" + g1.Cells[1].Text + "','" + g1.Cells[2].Text + "','" + g1.Cells[3].Text + "')";  
                     slno = vendor_code;
                     cmd.CommandText = query;

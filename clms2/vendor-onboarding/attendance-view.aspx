@@ -410,9 +410,9 @@
                 </td>
             </tr>
             <tr>
-                <td>
+              <%--  <td>
                     <asp:LinkButton ID="btnDownload" class="form-control" runat="server" OnClick="btnDownload_Click">Download Format</asp:LinkButton>
-                </td>
+                </td>--%>
             </tr>
             <tr>
                 <td>
@@ -462,11 +462,11 @@
                 });
             });
         </script>
-          <script type="text/jscript">
+       <%--   <script type="text/jscript">
               $(window).on("load", function () {
                   $('#GvAttn').DataTable({ responsive: true });
               });
-        </script>
+        </script>--%>
 
     </form>
 </body>

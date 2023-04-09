@@ -67,6 +67,15 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.Button cmdShow;
         
         /// <summary>
+        /// ddlWorkdOrder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlWorkdOrder;
+        
+        /// <summary>
         /// ddlMonth control.
         /// </summary>
         /// <remarks>
@@ -83,15 +92,6 @@ namespace clms2.vendor_onboarding {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlYear;
-        
-        /// <summary>
-        /// ddlEmpCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEmpCode;
         
         /// <summary>
         /// txtEmpName control.

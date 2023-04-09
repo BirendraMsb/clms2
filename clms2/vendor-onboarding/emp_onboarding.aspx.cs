@@ -78,7 +78,7 @@ namespace clms2.vendor_onboarding
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT  distinct vendor_reg_code  FROM tbl_vendor_work_order where work_worder= '" + txtWorkOrderNo.SelectedValue + "' and status='A'"))
+                using (SqlCommand cmd = new SqlCommand("SELECT  distinct vendor_reg_code,department FROM tbl_vendor_work_order where work_worder= '" + txtWorkOrderNo.SelectedValue + "' and status='A'"))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -86,7 +86,11 @@ namespace clms2.vendor_onboarding
                     SqlDataReader r = cmd.ExecuteReader();
 
                     if ((r.Read()))
+                    {
                         txtVendorCode.Text = r["vendor_reg_code"].ToString();
+                        txtDepart.Text = r["department"].ToString();
+                    }
+                       
                     r.Close();
                     con.Close();
                 }
@@ -217,7 +221,6 @@ namespace clms2.vendor_onboarding
         private void Auto_Emp_Code()
         {
           
-
             // ------------cont vendor and workorderwise ---------//
 
             using (SqlConnection con1 = new SqlConnection(Conn))
@@ -230,7 +233,14 @@ namespace clms2.vendor_onboarding
                     if (o != null)
                     {
                         count_emp = (int)o;
+
+                        if (count_emp >= 0)
+                        {
+                            count_emp = count_emp + 1;
+                        }
+                      
                     }
+                  
                     con1.Close();
                 }
 
@@ -870,8 +880,8 @@ namespace clms2.vendor_onboarding
                     {
                     }
                     ///////// ===============================================================================
-                    string Str = "insert into tbl_emp(id, " + "vendor_code, " + "emp_name, emp_add, " + "emp_ph_no1,emp_ph_no2, " + "email, " + "gender,dob, " + "emp_cast,blood_grp, " + "nationality, aadhar_no, " + "pfno,pf_declaration, " + "escic,esic_declaration, " + "education, " + "police_verification, " + "medical_examination, " + "bank_name, acc_no, ifs_code, " + "emergency_contact_person_name, ecpn_ph_no, img_file, " + "status,remarks, " + "dept_approval,dept_remarks, " + "hr_approval,hr_remarks, " + "safety_approval,safety_remarks, " + "security_approval,security_remarks, " + "workorderno,any_disease, " + "designation,skill_category, " + "police_veryfication_dt,medical_certificate_dt,shift,basic,emp_code,city,state,experience" + ")";
-                    Str = Str + " values(" + txtID.Text + "," + "'" + Session["User"] + "', " + "'" + txtEmpName.Text + "', '" + txtAddress.Text + "', " + "'" + txtPhNo1.Text + "', '" + txtPhNo2.Text + "', '" + txtEMail.Text + "', " + "'" + ddlGender.Text + "','" + txtDOB.Text + "', '" + ddlCast.Text + "', " + "'" + ddlBloodGrp.Text + "', '" + txtNationality.Text + "', " + "'" + txtAadharNo.Text + "', " + "'" + txtPFNO.Text + "','" + pffile + "', " + "'" + txtESIC.Text + "', '" + escicfile + "', " + "'" + ddlEducation.SelectedValue + "', " + "'" + policeverification + "', '" + medicalexamination + "', " + "'" + txtBankName.Text + "', '" + txtAccountNo.Text + "', '" + txtIFSC.Text + "', " + "'" + txtContactPerson.Text + "', '" + txtContactNo.Text + "', '" + imgName + "', " + "'P','-','N','-','N','-','N','-','N','-','" + txtWorkOrderNo.Text + "', " + "'" + txtDiseaseName.Text + "', " + "'" + ddlDesignation.SelectedValue + "','" + ddlSkill.SelectedValue + "', " + "'" + txtPVD.Text + "','" + txtMCID.Text + "','" + txtShift.Text + "','" + txtBasic.Text + "','" + txtEmpCode.Text + "','" + txtCity.Text + "','" + txtState.Text + "','" + txtExp.Text + "')";  //, @ImageData
+                    string Str = "insert into tbl_emp(id, " + "vendor_code, " + "emp_name, emp_add, " + "emp_ph_no1,emp_ph_no2, " + "email, " + "gender,dob, " + "emp_cast,blood_grp, " + "nationality, aadhar_no, " + "pfno,pf_declaration, " + "escic,esic_declaration, " + "education, " + "police_verification, " + "medical_examination, " + "bank_name, acc_no, ifs_code, " + "emergency_contact_person_name, ecpn_ph_no, img_file, " + "status,remarks, " + "dept_approval,dept_remarks, " + "hr_approval,hr_remarks, " + "safety_approval,safety_remarks, " + "security_approval,security_remarks, " + "workorderno,any_disease, " + "designation,skill_category, " + "police_veryfication_dt,medical_certificate_dt,shift,basic,emp_code,city,state,experience,department,domicile_date,domicile_desc" + ")";
+                    Str = Str + " values(" + txtID.Text + "," + "'" + Session["User"] + "', " + "'" + txtEmpName.Text + "', '" + txtAddress.Text + "', " + "'" + txtPhNo1.Text + "', '" + txtPhNo2.Text + "', '" + txtEMail.Text + "', " + "'" + ddlGender.Text + "','" + txtDOB.Text + "', '" + ddlCast.Text + "', " + "'" + ddlBloodGrp.Text + "', '" + txtNationality.Text + "', " + "'" + txtAadharNo.Text + "', " + "'" + txtPFNO.Text + "','" + pffile + "', " + "'" + txtESIC.Text + "', '" + escicfile + "', " + "'" + ddlEducation.SelectedValue + "', " + "'" + policeverification + "', '" + medicalexamination + "', " + "'" + txtBankName.Text + "', '" + txtAccountNo.Text + "', '" + txtIFSC.Text + "', " + "'" + txtContactPerson.Text + "', '" + txtContactNo.Text + "', '" + imgName + "', " + "'P','-','N','-','N','-','N','-','N','-','" + txtWorkOrderNo.Text + "', " + "'" + txtDiseaseName.Text + "', " + "'" + ddlDesignation.SelectedValue + "','" + ddlSkill.SelectedItem.Text + "', " + "'" + txtPVD.Text + "','" + txtMCID.Text + "','" + txtShift.Text + "','" + txtBasic.Text + "','" + txtEmpCode.Text + "','" + txtCity.Text + "','" + txtState.Text + "','" + txtExp.Text + "','" + txtDepart.Text + "','" + txtDomDate.Text + "','" + txtDomDesc.Text + "')";  //, @ImageData
 
                     SqlCommand cm = new SqlCommand(Str, con);
                     //// ' cm.Parameters.Add("@ImageData", SqlDbType.Image).Value = Imagebytes

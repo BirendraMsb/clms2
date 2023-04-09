@@ -41,7 +41,7 @@ namespace clms2.gatepass_section
                         sda.Fill(ds);
                         txtSearch.DataSource = ds.Tables[0];
                         txtSearch.DataTextField = "emp_name";
-                        txtSearch.DataValueField = "vendor_code";
+                        txtSearch.DataValueField = "emp_code";
                         txtSearch.DataBind();
                     }
                 }
@@ -70,7 +70,7 @@ namespace clms2.gatepass_section
                 if ((IsPostBack))
                 {
                     // 'strSQL = "select * from tbl_vendor_work_order where vendor_reg_code = '" & Request.QueryString("vcd") & "'"
-                    strSQL = "select a.valid_from,a.work_worder,a.valid_to,b.emp_name,b.gender,b.blood_grp,a.department,b.vendor_code, b.escic,b.pfno from tbl_vendor_work_order a,tbl_emp b where a.vendor_reg_code =b.vendor_code and b.id='" + txtSearch.SelectedValue + "'";
+                    strSQL = "select a.valid_from,a.work_worder,a.valid_to,b.emp_name,b.gender,b.blood_grp,a.department,b.vendor_code, b.escic,b.pfno from tbl_vendor_work_order a,tbl_emp b where a.vendor_reg_code = b.vendor_code and b.emp_code='" + txtSearch.SelectedValue + "'";
                     // 'strSQL = "select * from tbl_emp where emp_name = '" + txtSearch.Text + "'"
                     SqlCommand cm = new SqlCommand(strSQL, con);
 
@@ -94,7 +94,8 @@ namespace clms2.gatepass_section
                     }
                     r.Close();
 
-                    strSQL = "select a.*, b.vendor_name from tbl_emp a, tbl_vendor_info b where a.vendor_code =b.vendor_reg_code and a.vendor_code = '" + txtSearch.SelectedValue + "'";    //Request.QueryString["vcd"]
+                    strSQL = "select a.*, b.vendor_name from tbl_emp a, tbl_vendor_info b where a.vendor_code =b.vendor_reg_code and a.emp_code = '" + txtSearch.SelectedValue + "'";    //Request.QueryString["vcd"]
+                  ///  strSQL = "select a.*, b.vendor_name from tbl_emp a, tbl_vendor_info b where a.vendor_code =b.vendor_reg_code and a.vendor_code = '" + txtSearch.SelectedValue + "'";    //Request.QueryString["vcd"]
                     SqlCommand cm1 = new SqlCommand(strSQL, con);
                     SqlDataReader r1 = cm1.ExecuteReader();
                     if (r1.Read())

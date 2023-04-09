@@ -29,7 +29,8 @@ namespace clms2.safety_dept
             using (SqlConnection con = new SqlConnection(constr))
             {
                
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_emp where status='P' and hr_approval='Approved' and dept_approval='Approved'"))
+               /// using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_emp where status='P' and hr_approval='Approved' and dept_approval='Approved'"))
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_work_order where status='A'"))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -38,8 +39,8 @@ namespace clms2.safety_dept
                         DataSet ds = new DataSet();
                         sda.Fill(ds);
                         ddlWorkOrder.DataSource = ds.Tables[0];
-                        ddlWorkOrder.DataTextField = "workorderno";
-                        ddlWorkOrder.DataValueField = "workorderno";
+                        ddlWorkOrder.DataTextField = "work_worder";
+                        ddlWorkOrder.DataValueField = "work_worder";
                         ddlWorkOrder.DataBind();
                     }
                 }

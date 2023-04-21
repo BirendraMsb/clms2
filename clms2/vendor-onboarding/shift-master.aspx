@@ -248,7 +248,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-
+                                            <li>
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -317,9 +321,8 @@
                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical" AllowPaging="True" DataKeyNames="shiftcode" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnPageIndexChanging="OnPaging"
                                                 OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
-                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
+                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True" OnRowDeleting="GridView1_RowDeleting" OnRowDataBound="GridView1_RowDataBound">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Sl. No">
                                                         <ItemTemplate>
@@ -333,6 +336,7 @@
                                                         </ItemTemplate>
                                                           <EditItemTemplate>
                                                             <asp:TextBox ID="txtShiftName" runat="server" Text='<%# Eval("ShiftName")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtShiftName" ErrorMessage="* Pls Enter Shift Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
@@ -342,6 +346,7 @@
                                                         </ItemTemplate>
                                                          <EditItemTemplate>
                                                             <asp:TextBox ID="txtInTime" runat="server" Text='<%# Eval("InTime","{0:HH:mm:ss}")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtInTime" ErrorMessage="* Pls Enter In Time" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
@@ -351,14 +356,16 @@
                                                         </ItemTemplate>
                                                           <EditItemTemplate>
                                                             <asp:TextBox ID="txtOutTime" runat="server" Text='<%# Eval("OutTime","{0:HH:mm:ss}")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtOutTime" ErrorMessage="* Pls Enter Out Time" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
                                                   
-                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true"
-                                                        ItemStyle-Width="150" HeaderText="Action">
+                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true"
+                                                        ItemStyle-Width="150" HeaderText="Action" CausesValidation="False">
                                                         <ItemStyle Width="150px" />
                                                     </asp:CommandField>
+                                                  
                                                 </Columns>
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -378,26 +385,28 @@
                                                 <div class="form-group mb-3">
                                                     <label>ShiftName</label>
                                                     <asp:TextBox ID="txtShiftName" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtShiftName" ErrorMessage="* Pls Enter Shift Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>In Time</label>
                                                     <asp:TextBox ID="txtInTime" class="form-control" TextMode="Time" runat="server"></asp:TextBox>
-                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtOutTime" ErrorMessage="* Pls Out Time." ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtOutTime" ErrorMessage="* Pls in Time." ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                              <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Out Time</label>
                                                     <asp:TextBox ID="txtOutTime" class="form-control" TextMode="Time" runat="server" AutoPostBack="True" OnTextChanged="txtOutTime_TextChanged"></asp:TextBox>
-                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtOutTime" ErrorMessage="* Pls Out Time." ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtOutTime" ErrorMessage="* Pls Out Time." ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Hrs</label>
                                                     <asp:TextBox ID="txtWorkingHrs" class="form-control" TextMode="Time" runat="server"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtOutTime" ErrorMessage="* Pls Enter Working Hrs" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                              <div class="col-md-2">
@@ -406,16 +415,17 @@
                                                         <ContentTemplate>
                                                             <label>Week Off</label>
                                                           <asp:DropDownList ID="ddlWeekOff1" class="form-control" runat="server">
-                                                              <asp:ListItem></asp:ListItem>
+                                                              <asp:ListItem>Select</asp:ListItem>
                                                               <asp:ListItem>Sunday</asp:ListItem>
                                                               <asp:ListItem>MondayTuesday</asp:ListItem>
-                                                              <asp:ListItem Value="Wednesday">Wednesday</asp:ListItem>
+                                                              <asp:ListItem>Wednesday</asp:ListItem>
                                                               <asp:ListItem>Thursday</asp:ListItem>
                                                               <asp:ListItem>Friday</asp:ListItem>
                                                               <asp:ListItem>Saturday</asp:ListItem>
                                                               <asp:ListItem></asp:ListItem>
                                                           </asp:DropDownList>
-                                                          </ContentTemplate>
+                                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlWeekOff1" ErrorMessage="* Pls Select Week Off." InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                       </ContentTemplate>
                                                     </asp:UpdatePanel>
                                                 </div>
                                             </div>

@@ -43,7 +43,8 @@ namespace clms2.vendor_onboarding
                     }
                 }
             }
-            ddlWorkOrder.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            //ddlWorkOrder.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            ddlWorkOrder.Items.Insert(0, new ListItem("Select", "Select"));
         }
         public void ShowWorkOrdeDetails()
         {
@@ -52,7 +53,8 @@ namespace clms2.vendor_onboarding
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("select a.email,a.contact_no1,b.valid_from,b.valid_to,a.workers_authorised from tbl_vendor_info a,tbl_vendor_work_order b where a.work_worder = b.work_worder and b.work_worder= '" + ddlWorkOrder.SelectedItem.Text + "' and a.vendor_reg_code=" + Session["User"] + " "))
+                ////using (SqlCommand cmd = new SqlCommand("select a.email,a.contact_no1,b.valid_from,b.valid_to,a.workers_authorised from tbl_vendor_info a,tbl_vendor_work_order b where a.work_worder = b.work_worder and b.work_worder= '" + ddlWorkOrder.SelectedItem.Text + "' and a.vendor_reg_code=" + Session["User"] + " "))
+                using (SqlCommand cmd = new SqlCommand("select a.email,a.contact_no1,a.contact_no2,a.firm_address,a.firm_city,a.firm_state,a.firm_pin,a.license_no, b.valid_from,b.valid_to,a.workers_authorised,a.img_file,a.pfno,a.esicno,a.pano,gstno from tbl_vendor_info a,tbl_vendor_work_order b where a.work_worder = b.work_worder and b.work_worder= '" + ddlWorkOrder.SelectedItem.Text + "' and a.vendor_reg_code=" + Session["User"] + " "))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -62,10 +64,25 @@ namespace clms2.vendor_onboarding
                     {
                         txtEMail.Text = r["email"].ToString();
                         txtPhNo1.Text = r["contact_no1"].ToString();
+
+                        txtPhNo2.Text = r["contact_no2"].ToString();
+                        txtAddress.Text = r["firm_address"].ToString();
+                        txtCity.Text = r["firm_city"].ToString();
+                        txtState.Text = r["firm_state"].ToString();
+                        txtPIN.Text = r["firm_pin"].ToString();
+                        txtLicenseNo.Text = r["license_no"].ToString();
+
                         txtValidFrom.Text = r["valid_from"].ToString();
                         txtValidTo.Text = r["valid_to"].ToString();
                         txtWAuthorised.Text = r["workers_authorised"].ToString();
+
+                        txtPFNO.Text = r["pfno"].ToString();
+                        txtESIC.Text = r["esicno"].ToString();
+                        txtPANNo.Text = r["pano"].ToString();
+                        txtGSTNo.Text = r["gstno"].ToString();
                     }
+                    txtValidFrom.Text = Convert.ToDateTime(txtValidFrom.Text).ToString("MM-dd-yyyy");
+                    txtValidTo.Text = Convert.ToDateTime(txtValidTo.Text).ToString("MM-dd-yyyy");
                     con.Close();
                 }
             }
@@ -76,8 +93,10 @@ namespace clms2.vendor_onboarding
             if ((!IsPostBack))
                 work_order_no();
 
-            if ((Session["User"] == ""))
+            if ((Session["User"].ToString()) == "")
+            {
                 Response.Redirect("../login/login.aspx");
+            }
             else
             {
                 lblUser.Text = Session["User"].ToString();
@@ -139,7 +158,7 @@ namespace clms2.vendor_onboarding
             if (pfRadio1.Checked == true)
             {
                 txtPFNO.Visible = true;
-                btnDownloadPF.Visible = false;
+                //btnDownloadPF.Visible = false;
                 PFileUpload.Visible = false;
                // HyperLinkPF.Visible = false;
               
@@ -154,7 +173,7 @@ namespace clms2.vendor_onboarding
                 txtPFNO.Visible = false;
                 PFileUpload.Visible = true;
                // HyperLinkPF.Visible = true;
-                btnDownloadPF.Visible = true;
+                //btnDownloadPF.Visible = true;
             }
 
         }
@@ -166,7 +185,7 @@ namespace clms2.vendor_onboarding
                 txtESIC.Visible = true;
                 ESICFileUpload.Visible = false;
                 //HyperLinkESIC.Visible = false;
-                btnDownloadEsic.Visible = false;
+                //btnDownloadEsic.Visible = false;
             }
 
         }
@@ -178,7 +197,7 @@ namespace clms2.vendor_onboarding
                 txtESIC.Visible = false;
                 ESICFileUpload.Visible = true;
                // HyperLinkESIC.Visible = true;
-                btnDownloadEsic.Visible = false;
+               // btnDownloadEsic.Visible = false;
             }
 
         }
@@ -417,10 +436,23 @@ namespace clms2.vendor_onboarding
                 /////========================================================================//////////
                 string fdt = Convert.ToDateTime(txtValidFrom.Text).ToString("dd-MM-yyyy");
                 string tdt = Convert.ToDateTime(txtValidTo.Text).ToString("dd-MM-yyyy");
+                //----------------
+                ////string Str = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + txtState.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where vendor_reg_code='" + Session["User"] + "' ";
+                ////SqlCommand cmd = new SqlCommand("str",con); 
+                ////cmd.ExecuteNonQuery();
+               
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                   
+                    cmd.CommandText = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + txtState.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";
+                    cmd.ExecuteNonQuery();
 
-                string Str = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + txtState.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where vendor_reg_code='" + Session["User"] + "' ";
-                SqlCommand cm = new SqlCommand(Str, con);
-                cm.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                    cmd.CommandText = "update tbl_vendor_work_order set valid_from='" + fdt + "'," + "valid_to= '" + tdt + "' where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
                 lblMSG.Text = "Data updated successfully";
             }
             catch (Exception ex)
@@ -661,9 +693,60 @@ namespace clms2.vendor_onboarding
 
            }
 
+
+
+        //protected void btnDownloandPF_Click(object sender, EventArgs e)
+        //{
+        //    var path = Server.MapPath("../attd_down_doc");
+        //    var filePath = Path.Combine(path, "Atted_Format.csv");
+        //    FileInfo file = new FileInfo(filePath);
+        //    if (file.Exists)
+        //    {
+        //        // Clear Rsponse reference  
+        //        Response.Clear();
+        //        // Add header by specifying file name  
+        //        Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+        //        // Add header for content length  
+        //        Response.AddHeader("Content-Length", file.Length.ToString());
+        //        // Specify content type  
+        //        Response.ContentType = "text/plain";
+        //        // Clearing flush  
+        //        Response.Flush();
+        //        // Transimiting file  
+        //        Response.TransmitFile(file.FullName);
+        //        Response.End();
+        //    }
+        //    Response.Write("Requested file is not available to download");
+        //}
+
+        //protected void btnDownloandEsic_Click(object sender, EventArgs e)
+        //{
+        //    var path = Server.MapPath("~/attd_down_doc");
+        //    var filePath = Path.Combine(path, "Atted_Format.csv");
+        //    FileInfo file = new FileInfo(filePath);
+        //    if (file.Exists)
+        //    {
+        //        // Clear Rsponse reference  
+        //        Response.Clear();
+        //        // Add header by specifying file name  
+        //        Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+        //        // Add header for content length  
+        //        Response.AddHeader("Content-Length", file.Length.ToString());
+        //        // Specify content type  
+        //        Response.ContentType = "text/plain";
+        //        // Clearing flush  
+        //        Response.Flush();
+        //        // Transimiting file  
+        //        Response.TransmitFile(file.FullName);
+        //        Response.End();
+        //    }
+        //    Response.Write("Requested file is not available to download");
+
+        //}
+
         protected void btnDownloandPF_Click(object sender, EventArgs e)
         {
-            var path = Server.MapPath("~/attd_down_doc");
+            var path = Server.MapPath("../attd_down_doc");
             var filePath = Path.Combine(path, "Atted_Format.csv");
             FileInfo file = new FileInfo(filePath);
             if (file.Exists)
@@ -707,7 +790,6 @@ namespace clms2.vendor_onboarding
                 Response.End();
             }
             Response.Write("Requested file is not available to download");
-
         }
       
 

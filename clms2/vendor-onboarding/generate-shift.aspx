@@ -244,7 +244,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-
+                                            <li>
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -308,11 +312,21 @@
                                     <div class="card-body">
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
+                                         <hr class="my-5" />
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group mb-3">
+                                                    <asp:Label ID="lblError" runat="server" Text="" Font-Size="Large" ForeColor="Red" Font-Bold="True"></asp:Label><br />
+                                                    <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Large" ForeColor="blue" Font-Bold="True"></asp:Label>
+                                                    <asp:Label ID="lblMsgError" runat="server" ForeColor="#CC0000" Font-Bold="True"></asp:Label>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
-                                                    <asp:Button ID="cmdShow" runat="server" Text="Show" Width="150px" class="btn btn-info" OnClick="cmdShow_Click"></asp:Button>
-                                                    <asp:Button ID="btnBulkInsert" runat="server" Text="Insert" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>
+                                                    <asp:Button ID="cmdShow" runat="server" Text="Show Records" Width="150px" class="btn btn-info" OnClick="cmdShow_Click"></asp:Button>
+                                                    <asp:Button ID="btnBulkInsert" runat="server" Text="Submit" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>
                                                 </div>
                                             </div>
                                         </div>
@@ -359,7 +373,7 @@
                                             </div>
                                         </div>
                                         <div class="row" >
-                                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" Width="25%" ForeColor="#333333" GridLines="None">
+                                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" Width="50%" ForeColor="#333333" GridLines="None">
                                                 <AlternatingRowStyle BackColor="White" />
                                                 <EditRowStyle BackColor="#2461BF" />
                                                 <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
@@ -378,11 +392,11 @@
                                         <br />
                                         <%--========================================================================================--%>
                                         <div>
-                                            <div class="table-responsive" style="overflow: scroll; width: 30%">
+                                            <div class="table-responsive" style="overflow: scroll; width: 60%">
                                                 <%-- <div class="table-responsive" style="width:50%;">--%>
                                                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                     GridLines="Vertical" AllowPaging="True" PageSize="5" DataKeyNames="emp_code" EmptyDataText="No records has been added."
-                                                    Class="table table-bordered nowrap w-25" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
+                                                    Class="table table-bordered nowrap w-25" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowDataBound="GridView2_RowDataBound">
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                     <Columns>
                                                         <asp:TemplateField HeaderText="Sl. No">
@@ -393,13 +407,13 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Emp Code" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
+                                                                <asp:Label ID="emp_code" runat="server" Width="200px" Text='<%# Eval("emp_code") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="150px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
+                                                                <asp:Label ID="emp_name" runat="server" Width="200px" Text='<%# Eval("emp_name") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
@@ -410,191 +424,224 @@
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="1" ItemStyle-Width="50px">
-                                                            <ItemTemplate>
-                                                                <asp:TextBox ID="D1" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                           <ItemTemplate>
+                                                               <asp:DropDownList ID="D1" runat="server" Width="70px"></asp:DropDownList>
+                                                              <%--<asp:TextBox ID="D1" runat="server" Width="70px" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
+                                                           
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="2" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D2" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D2" runat="server" Width="70px"></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D2" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="3" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D3" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D3" runat="server" Width="70px"></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D3" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="4" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D4" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D4" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D4" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="5" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D5" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D5" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D5" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="6" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D6" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D6" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D6" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="7" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D7" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D7" runat="server" Width="70px"></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D7" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="8" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D8" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D8" runat="server" Width="70px" ></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D8" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="9" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D9" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D9" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D9" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="10" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D10" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D10" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D10" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="11" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D11" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D11" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D11" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="12" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D12" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D12" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D12" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="13" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D13" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D13" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D13" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="14" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D14" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D14" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D14" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="15" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D15" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D15" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D15" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="16" ItemStyle-Width="100px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D16" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D16" runat="server" Width="70px"></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D16" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="100px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="17" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D17" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D17" runat="server" Width="70px"></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D17" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="18" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D18" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                  <asp:DropDownList ID="D18" runat="server" Width="70px"></asp:DropDownList>
+                                                              <%--  <asp:TextBox ID="D18" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="19" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D19" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                  <asp:DropDownList ID="D19" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D19" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="20" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D20" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                  <asp:DropDownList ID="D20" runat="server" Width="70px" ></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D20" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="21" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D21" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D21" runat="server" Width="70px"></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D21" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="22" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D22" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D22" runat="server" Width="70px"></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D22" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="23" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D23" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                <asp:DropDownList ID="D23" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D23" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="24" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D24" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D24" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D24" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="25" ItemStyle-Width="100px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D25" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D25" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D25" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="100px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="26" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D26" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D26" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D26" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="27" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D27" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D27" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D27" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="28" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D28" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D28" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D28" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="29" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D29" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D29" runat="server" Width="70px"></asp:DropDownList>
+                                                                <%--<asp:TextBox ID="D29" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="30" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D30" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D30" runat="server" Width="70px"></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D30" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="31" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="D31" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>
+                                                                 <asp:DropDownList ID="D31" runat="server" Width="70px"></asp:DropDownList>
+                                                               <%-- <asp:TextBox ID="D31" runat="server" Text='<%# Eval("shift") %>'></asp:TextBox>--%>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
+                                                        <asp:CommandField />
                                                     </Columns>
                                                     <AlternatingRowStyle BackColor="#FFFFFF" />
                                                     <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -611,16 +658,7 @@
                                         </div>
 
                                         <%--========================================================================================--%>
-                                        <hr class="my-5" />
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                    <asp:Label ID="lblError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                                    <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Large" ForeColor="blue" Font-Bold="True"></asp:Label>
-                                                    <asp:Label ID="lblMsgError" runat="server" ForeColor="#CC0000" Font-Bold="True"></asp:Label>
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
 
                                     </div>
                                 </div>

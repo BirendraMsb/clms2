@@ -67,31 +67,40 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.TextBox txtID1;
         
         /// <summary>
-        /// ddlVendorCode control.
+        /// txtVendorCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlVendorCode;
+        protected global::System.Web.UI.WebControls.TextBox txtVendorCode;
         
         /// <summary>
-        /// txtDate control.
+        /// ddlMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMonth;
         
         /// <summary>
-        /// txtEMail control.
+        /// ddlYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEMail;
+        protected global::System.Web.UI.WebControls.DropDownList ddlYear;
+        
+        /// <summary>
+        /// txtTotValidGP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTotValidGP;
         
         /// <summary>
         /// txtNoOfEmpPaid control.
@@ -112,13 +121,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.TextBox txtManDays;
         
         /// <summary>
-        /// txtAddress control.
+        /// txtGrossWagesPaid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAddress;
+        protected global::System.Web.UI.WebControls.TextBox txtGrossWagesPaid;
         
         /// <summary>
         /// txtPFAmountDeposited control.
@@ -139,31 +148,31 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.TextBox txtPFChallanNo;
         
         /// <summary>
-        /// txtPIN control.
+        /// txtPFChallanDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPIN;
+        protected global::System.Web.UI.WebControls.TextBox txtPFChallanDate;
         
         /// <summary>
-        /// txtESIAmtDeposited control.
+        /// txtEsiAmtDeposited control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtESIAmtDeposited;
+        protected global::System.Web.UI.WebControls.TextBox txtEsiAmtDeposited;
         
         /// <summary>
-        /// txtESIChallanNo control.
+        /// txtEsiChallanNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtESIChallanNo;
+        protected global::System.Web.UI.WebControls.TextBox txtEsiChallanNo;
         
         /// <summary>
         /// txtEsiChallanDate control.
@@ -184,13 +193,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.TextBox txtEsiContribution;
         
         /// <summary>
-        /// txtPANNo control.
+        /// txtPFContribution control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPANNo;
+        protected global::System.Web.UI.WebControls.TextBox txtPFContribution;
         
         /// <summary>
         /// PFChallanUpload control.
@@ -202,13 +211,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.FileUpload PFChallanUpload;
         
         /// <summary>
-        /// EsciChallanUpload control.
+        /// EsicChallanUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload EsciChallanUpload;
+        protected global::System.Web.UI.WebControls.FileUpload EsicChallanUpload;
         
         /// <summary>
         /// BankStatementUpload control.

@@ -244,7 +244,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-
+                                            <li>
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -311,8 +315,8 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
-                                                    <asp:Button ID="cmdShow" runat="server" Text="Show All" Width="150px" class="btn btn-info" OnClick="cmdShow_Click"></asp:Button>
-                                                    <asp:Button ID="btnGenShift" runat="server" Text="Generate" class="btn btn-info" OnClick="btnGenShift_Click"></asp:Button>
+                                                    <asp:Button ID="cmdShow" runat="server" Text="Show Records" Width="150px" class="btn btn-info" OnClick="cmdShow_Click"></asp:Button>
+                                                    <asp:Button ID="btnGenShift" runat="server" Text="Generate Shift" class="btn btn-info" OnClick="btnGenShift_Click"></asp:Button>
 
                                                 </div>
                                             </div>
@@ -328,13 +332,14 @@
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Emloyee Name</label>
-                                                    <asp:TextBox ID="txtEmpName" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:TextBox ID="txtEmpName" runat="server"  class="form-control" MaxLength="50"></asp:TextBox>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Month</label>
                                                     <asp:DropDownList ID="ddlMonth" runat="server" class="form-control" MaxLength="50" AutoPostBack="true" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
+                                                        <asp:ListItem Value="Select">Select</asp:ListItem>
                                                         <asp:ListItem Value="1">Jan</asp:ListItem>
                                                         <asp:ListItem Value="2">Feb</asp:ListItem>
                                                         <asp:ListItem Value="3">Mar</asp:ListItem>
@@ -353,7 +358,9 @@
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Year</label>
-                                                    <asp:DropDownList ID="ddlYear" runat="server" class="form-control" MaxLength="50"></asp:DropDownList>
+                                                    <asp:DropDownList ID="ddlYear" runat="server" class="form-control" MaxLength="50">
+                                                         <%-- <asp:ListItem Value="Select" Selected="True">Select</asp:ListItem>--%>
+                                                    </asp:DropDownList>
                                                     <%-- <asp:TextBox ID="txtYear" runat="server" class="form-control" MaxLength="50" ></asp:TextBox>--%>
                                                 </div>
                                             </div>
@@ -379,13 +386,13 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Emp Code" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
+                                                                <asp:Label ID="emp_code" runat="server" width="150px" Text='<%# Eval("emp_code") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="150px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="150px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
+                                                                <asp:Label ID="emp_name" runat="server" Width="250px" Text='<%# Eval("emp_name") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>

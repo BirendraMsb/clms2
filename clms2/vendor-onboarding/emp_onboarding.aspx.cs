@@ -44,9 +44,180 @@ namespace clms2.vendor_onboarding
                     }
                 }
             }
-            txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+           /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            txtWorkOrderNo.Items.Insert(0, new ListItem("Select", "Select"));
+        }
+        public void cast()
+        {
+            // Call dbConnection()
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_cast"))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        ddlCast.DataSource = ds.Tables[0];
+                        ddlCast.DataTextField = "cast";
+                        ddlCast.DataValueField = "cast";
+                        ddlCast.DataBind();
+                    }
+                }
+            }
+            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            ddlCast.Items.Insert(0, new ListItem("Select", "Select"));
         }
 
+        public void blood_group()
+        {
+            // Call dbConnection()
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_blood_group"))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        ddlBloodGrp.DataSource = ds.Tables[0];
+                        ddlBloodGrp.DataTextField = "blood_group";
+                        ddlBloodGrp.DataValueField = "blood_group";
+                        ddlBloodGrp.DataBind();
+                    }
+                }
+            }
+            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            ddlBloodGrp.Items.Insert(0, new ListItem("Select", "Select"));
+        }
+
+        public void designation()
+        {
+            // Call dbConnection()
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_designation"))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        ddlDesignation.DataSource = ds.Tables[0];
+                        ddlDesignation.DataTextField = "designation";
+                        ddlDesignation.DataValueField = "designation";
+                        ddlDesignation.DataBind();
+                    }
+                }
+            }
+            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            ddlDesignation.Items.Insert(0, new ListItem("Select", "Select"));
+        }
+        public void education()
+        {
+            // Call dbConnection()
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_education"))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        ddlEducation.DataSource = ds.Tables[0];
+                        ddlEducation.DataTextField = "education";
+                        ddlEducation.DataValueField = "education";
+                        ddlEducation.DataBind();
+                    }
+                }
+            }
+            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            ddlEducation.Items.Insert(0, new ListItem("Select", "Select"));
+        }
+
+        public void skill_category()
+        {
+            // Call dbConnection()
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_skill_cat"))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        ddlSkill.DataSource = ds.Tables[0];
+                        ddlSkill.DataTextField = "skill_cat";
+                        ddlSkill.DataValueField = "id";
+                        ddlSkill.DataBind();
+                    }
+                }
+            }
+            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            ddlSkill.Items.Insert(0, new ListItem("Select", "Select"));
+        }
+        public void state()
+        {
+            // Call dbConnection()
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_state"))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        ddlState.DataSource = ds.Tables[0];
+                        ddlState.DataTextField = "state";
+                        ddlState.DataValueField = "state";
+                        ddlState.DataBind();
+                    }
+                }
+            }
+            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            ddlState.Items.Insert(0, new ListItem("Select", "Select"));
+        }
+        public void bank()
+        {
+            // Call dbConnection()
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_bank"))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        ddlBankName.DataSource = ds.Tables[0];
+                        ddlBankName.DataTextField = "bank_name";
+                        ddlBankName.DataValueField = "bank_name";
+                        ddlBankName.DataBind();
+                    }
+                }
+            }
+            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            ddlBankName.Items.Insert(0, new ListItem("Select", "Select"));
+        }
         public void shift_name()
         {
             // Call dbConnection()
@@ -63,12 +234,13 @@ namespace clms2.vendor_onboarding
                         sda.Fill(ds);
                         txtShift.DataSource = ds.Tables[0];
                         txtShift.DataTextField = "ShiftName";
-                        txtShift.DataValueField = "shiftcode";
+                        txtShift.DataValueField = "ShiftName";
                         txtShift.DataBind();
                     }
                 }
             }
-            txtShift.Items.Insert(0, new ListItem("--Select Shift--", "0"));
+            ///txtShift.Items.Insert(0, new ListItem("--Select Shift--", "0"));
+            txtShift.Items.Insert(0, new ListItem("Select", "Select"));
         }
 
         // ' show  vendor reg code on selecting work order no''
@@ -129,92 +301,111 @@ namespace clms2.vendor_onboarding
             string usrnm = Session["User"].ToString();
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd-MMM-yyyy");
+            /// String.Format("{0:dd/MM/yyyy}", txtMCID.Text);
 
             if ((!IsPostBack))
             {
+                txtBasic.Text = "0";
+                txtPFNO.Visible = false;
+                txtESIC.Visible = false;
+                PFileUpload.Visible = false;
+                ESICFileUpload.Visible = false;
+
                 work_order_no();
                 shift_name();
+                cast();
+                designation();
+                blood_group();
+                education();
+                skill_category();
+                state();
+                bank();
+
                
             }
                 
 
-            txtBasic.Text = "400";
-            try
-            {
-                lblUser.Text = Session["User"].ToString();
-                if (!Page.IsPostBack)
-                {
-                    txtPFNO.Visible = false;
-                    PFileUpload.Visible = false;
-                    txtESIC.Visible = false;
-                    ESICFileUpload.Visible = false;
+           
 
-                    if ( (Convert.ToInt16((Session["EmpID"])) < 0 | Session["User"] == null/* TODO Change to default(_) if this is not a reference type */))
-                    {
-                    }
-                    else
-                    {
-                        dbConnection();
-                        string gv_id = Session["EmpID"].ToString();
+            //-------this updte is not working----------//
+            ////try
+            ////{
+            ////    lblUser.Text = Session["User"].ToString();
+            ////    if (!Page.IsPostBack)
+            ////    {
+            ////        txtPFNO.Visible = false;
+            ////        PFileUpload.Visible = false;
+            ////        txtESIC.Visible = false;
+            ////        ESICFileUpload.Visible = false;
 
-                        strSQL = "select * from tbl_emp where id = " + gv_id + "";
-                        SqlCommand cm = new SqlCommand(strSQL, con);
-                        SqlDataReader r = cm.ExecuteReader();
-                        if (r.Read())
-                        {
-                            txtEmpName.Text = r["emp_name"].ToString();
-                            txtWorkOrderNo.Text = r["workorderno"].ToString();
-                            txtVendorCode.Text = r["vendor_code"].ToString();
-                            txtEmpCode.Text = r["emp_code"].ToString();
-                            txtAddress.Text = r["emp_add"].ToString();
-                            txtEMail.Text = r["email"].ToString();
-                            txtPhNo1.Text = r["emp_ph_no1"].ToString();
-                            txtPhNo2.Text = r["emp_ph_no2"].ToString();
-                            txtDOB.Text = r["dob"].ToString();
-                            ddlGender.Text = r["gender"].ToString();
-                            ddlCast.Text = r["emp_cast"].ToString();
-                            ddlBloodGrp.Text = r["blood_grp"].ToString();
-                            // RadioButton1.Checked = True
-                            // RadioButton2.Checked = True
-                            txtDiseaseName.Text = r["any_disease"].ToString();
-                            txtNationality.Text = r["nationality"].ToString();
-                            txtAadharNo.Text = r["aadhar_no"].ToString();
-                            ddlDesignation.Text = r["designation"].ToString();
-                            // pfRadio1.Checked = True
-                            // pfRadio2.Checked = True
-                            txtPFNO.Text = r["pfno"].ToString();
-                            // PFileUpload
-                            // ESICRadio1.Checked = True
-                            // ESICRadio2.Checked = True
-                            txtESIC.Text = r["escic"].ToString();
-                            // ESICFileUpload
-                            ddlEducation.Text = r["education"].ToString();
-                            ddlSkill.Text = r["skill_category"].ToString();
-                            // txtPoliceVerification.Text = r("")
-                            txtPVD.Text = r["police_veryfication_dt"].ToString();
-                            // txtMedicalExamination.Text = r("")
-                            txtMCID.Text = r["medical_certificate_dt"].ToString();
-                            txtBankName.Text = r["bank_name"].ToString();
-                            txtAccountNo.Text = r["acc_no"].ToString();
-                            txtIFSC.Text = r["ifs_code"].ToString();
-                            txtContactPerson.Text = r["emergency_contact_person_name"].ToString();
-                            txtContactNo.Text = r["ecpn_ph_no"].ToString();
-                            // FileUpload1
+            ////        if ((Convert.ToInt16((Session["EmpID"])) < 0 | Session["User"] == null/* TODO Change to default(_) if this is not a reference type */))
+            ////        {
+            ////        }
+            ////        else
+            ////        {
+            ////            dbConnection();
+            ////            string gv_id = Session["EmpID"].ToString();
 
-
-                            cmdSave.Text = "Update";
-                        }
-                        r.Close();
-                        Session["EmpID"] = 0;
-                    }
-                }
-            }
-            // End If
+            ////            strSQL = "select * from tbl_emp where id = " + gv_id + "";
+            ////            SqlCommand cm = new SqlCommand(strSQL, con);
+            ////            SqlDataReader r = cm.ExecuteReader();
+            ////            if (r.Read())
+            ////            {
+            ////                txtEmpName.Text = r["emp_name"].ToString();
+            ////                txtWorkOrderNo.Text = r["workorderno"].ToString();
+            ////                txtVendorCode.Text = r["vendor_code"].ToString();
+            ////                txtEmpCode.Text = r["emp_code"].ToString();
+            ////                txtAddress.Text = r["emp_add"].ToString();
+            ////                txtEMail.Text = r["email"].ToString();
+            ////                txtPhNo1.Text = r["emp_ph_no1"].ToString();
+            ////                txtPhNo2.Text = r["emp_ph_no2"].ToString();
+            ////                txtDOB.Text = r["dob"].ToString();
+            ////                ddlGender.Text = r["gender"].ToString();
+            ////                ddlCast.Text = r["emp_cast"].ToString();
+            ////                ddlBloodGrp.Text = r["blood_grp"].ToString();
+            ////                // RadioButton1.Checked = True
+            ////                // RadioButton2.Checked = True
+            ////                txtDiseaseName.Text = r["any_disease"].ToString();
+            ////                txtNationality.Text = r["nationality"].ToString();
+            ////                txtAadharNo.Text = r["aadhar_no"].ToString();
+            ////                ddlDesignation.Text = r["designation"].ToString();
+            ////                // pfRadio1.Checked = True
+            ////                // pfRadio2.Checked = True
+            ////                txtPFNO.Text = r["pfno"].ToString();
+            ////                // PFileUpload
+            ////                // ESICRadio1.Checked = True
+            ////                // ESICRadio2.Checked = True
+            ////                txtESIC.Text = r["escic"].ToString();
+            ////                // ESICFileUpload
+            ////                ddlEducation.Text = r["education"].ToString();
+            ////                ddlSkill.Text = r["skill_category"].ToString();
+            ////                // txtPoliceVerification.Text = r("")
+            ////                txtPVD.Text = r["police_veryfication_dt"].ToString();
+            ////                txtPVD.Text = (Convert.ToDateTime(txtPVD.Text)).ToString("MM-dd-yyyy");
+            ////                // txtMedicalExamination.Text = r("")
+            ////                txtMCID.Text = r["medical_certificate_dt"].ToString();
+            ////                txtMCID.Text = (Convert.ToDateTime(txtMCID.Text)).ToString("MM-dd-yyyy");
+            ////                ddlBankName.Text = r["bank_name"].ToString();
+            ////                txtAccountNo.Text = r["acc_no"].ToString();
+            ////                txtIFSC.Text = r["ifs_code"].ToString();
+            ////                txtContactPerson.Text = r["emergency_contact_person_name"].ToString();
+            ////                txtContactNo.Text = r["ecpn_ph_no"].ToString();
+            ////                // FileUpload1
 
 
-            catch (Exception ex)
-            {
-            }
+            ////                cmdSave.Text = "Update";
+            ////            }
+            ////            r.Close();
+            ////            Session["EmpID"] = 0;
+            ////        }
+            ////    }
+            ////}
+            ////// End If -   /////
+
+
+            ////catch (Exception ex)
+            ////{
+            ////}
 
         }
 
@@ -589,6 +780,10 @@ namespace clms2.vendor_onboarding
         {
             vendor_reg_code();
             Auto_Emp_Code();
+            lblMSG.Text = "";
+            lblMSGError.Text = "";
+            lblPoliceExpiry.Text = "";
+            lblMedicalExpiry.Text = "";
         }
 
         protected void RadioButton1_CheckedChanged(object sender, EventArgs e)
@@ -602,56 +797,58 @@ namespace clms2.vendor_onboarding
             txtDiseaseName.ReadOnly = true;
         }
      
-        protected void pfRadio1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (pfRadio1.Checked == true)
-            {
-                txtPFNO.Visible = true;
-                PFileUpload.Visible = false;
-                HyperLinkPF.Visible = false;
-            }
-        }
+        //protected void pfRadio1_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (pfRadio1.Checked == true)
+        //    {
+        //        txtPFNO.Visible = true;
+        //        PFileUpload.Visible = false;
+        //        HyperLinkPF.Visible = false;
+        //    }
+        //}
 
-        protected void pfRadio2_CheckedChanged(object sender, EventArgs e)
-        {
-             if (pfRadio2.Checked == true)
-             {
-                 txtPFNO.Visible = false;
-                 PFileUpload.Visible = true;
-                 HyperLinkPF.Visible = true;
-             }
+        //protected void pfRadio2_CheckedChanged(object sender, EventArgs e)
+        //{
+        //     if (pfRadio2.Checked == true)
+        //     {
+        //         txtPFNO.Visible = false;
+        //         PFileUpload.Visible = true;
+        //         HyperLinkPF.Visible = true;
+        //     }
 
-        }
+        //}
 
-        protected void ESICRadio1_CheckedChanged(object sender, EventArgs e)
-        {
-             if (ESICRadio1.Checked == true)
-             {
-                 txtESIC.Visible = true;
-                 ESICFileUpload.Visible = false;
-                 HyperLinkESIC.Visible = false;
-             }
-        }
+        //protected void ESICRadio1_CheckedChanged(object sender, EventArgs e)
+        //{
+        //     if (ESICRadio1.Checked == true)
+        //     {
+        //         txtESIC.Visible = true;
+        //         ESICFileUpload.Visible = false;
+        //         HyperLinkESIC.Visible = false;
+        //     }
+        //}
 
-        protected void ESICRadio2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ESICRadio2.Checked == true)
-            {
-                txtESIC.Visible = false;
-                ESICFileUpload.Visible = true;
-                HyperLinkESIC.Visible = true;
-            }
-        }
+        //protected void ESICRadio2_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    if (ESICRadio2.Checked == true)
+        //    {
+        //        txtESIC.Visible = false;
+        //        ESICFileUpload.Visible = true;
+        //        HyperLinkESIC.Visible = true;
+        //    }
+        //}
 
         protected void ddlSkill_SelectedIndexChanged(object sender, EventArgs e)
         {
              if ((ddlSkill.SelectedIndex == 0))
+                  txtBasic.Text = "0";
+             else if((ddlSkill.SelectedIndex == 1))
                  txtBasic.Text = "400";
-             else if ((ddlSkill.SelectedIndex == 1))
-                 txtBasic.Text = "500";
              else if ((ddlSkill.SelectedIndex == 2))
-                 txtBasic.Text = "600";
+                 txtBasic.Text = "500";
              else if ((ddlSkill.SelectedIndex == 3))
+                 txtBasic.Text = "600";
+             else if ((ddlSkill.SelectedIndex == 4))
                  txtBasic.Text = "700";
         }
 
@@ -712,7 +909,6 @@ namespace clms2.vendor_onboarding
                     }
 
                 }
-
 
                 if (pffile != "")
                 {
@@ -836,11 +1032,11 @@ namespace clms2.vendor_onboarding
                      decimal empsize = Math.Round((System.Convert.ToDecimal(FileUpload1.PostedFile.ContentLength) / (System.Convert.ToDecimal(1024))), 2);
 
                      
-                     if (empsize > 100) 
+                    if (empsize > 100) 
                     {
                         lblMSGError.Text = "File is too big to upload";
                     }
-                     else
+                    else
                     {
                         FileUpload1.SaveAs(Server.MapPath(empimgPath));
                     }
@@ -881,32 +1077,33 @@ namespace clms2.vendor_onboarding
                     }
                     ///////// ===============================================================================
                     string Str = "insert into tbl_emp(id, " + "vendor_code, " + "emp_name, emp_add, " + "emp_ph_no1,emp_ph_no2, " + "email, " + "gender,dob, " + "emp_cast,blood_grp, " + "nationality, aadhar_no, " + "pfno,pf_declaration, " + "escic,esic_declaration, " + "education, " + "police_verification, " + "medical_examination, " + "bank_name, acc_no, ifs_code, " + "emergency_contact_person_name, ecpn_ph_no, img_file, " + "status,remarks, " + "dept_approval,dept_remarks, " + "hr_approval,hr_remarks, " + "safety_approval,safety_remarks, " + "security_approval,security_remarks, " + "workorderno,any_disease, " + "designation,skill_category, " + "police_veryfication_dt,medical_certificate_dt,shift,basic,emp_code,city,state,experience,department,domicile_date,domicile_desc" + ")";
-                    Str = Str + " values(" + txtID.Text + "," + "'" + Session["User"] + "', " + "'" + txtEmpName.Text + "', '" + txtAddress.Text + "', " + "'" + txtPhNo1.Text + "', '" + txtPhNo2.Text + "', '" + txtEMail.Text + "', " + "'" + ddlGender.Text + "','" + txtDOB.Text + "', '" + ddlCast.Text + "', " + "'" + ddlBloodGrp.Text + "', '" + txtNationality.Text + "', " + "'" + txtAadharNo.Text + "', " + "'" + txtPFNO.Text + "','" + pffile + "', " + "'" + txtESIC.Text + "', '" + escicfile + "', " + "'" + ddlEducation.SelectedValue + "', " + "'" + policeverification + "', '" + medicalexamination + "', " + "'" + txtBankName.Text + "', '" + txtAccountNo.Text + "', '" + txtIFSC.Text + "', " + "'" + txtContactPerson.Text + "', '" + txtContactNo.Text + "', '" + imgName + "', " + "'P','-','N','-','N','-','N','-','N','-','" + txtWorkOrderNo.Text + "', " + "'" + txtDiseaseName.Text + "', " + "'" + ddlDesignation.SelectedValue + "','" + ddlSkill.SelectedItem.Text + "', " + "'" + txtPVD.Text + "','" + txtMCID.Text + "','" + txtShift.Text + "','" + txtBasic.Text + "','" + txtEmpCode.Text + "','" + txtCity.Text + "','" + txtState.Text + "','" + txtExp.Text + "','" + txtDepart.Text + "','" + txtDomDate.Text + "','" + txtDomDesc.Text + "')";  //, @ImageData
+                    Str = Str + " values(" + txtID.Text + "," + "'" + Session["User"] + "', " + "'" + txtEmpName.Text + "', '" + txtAddress.Text + "', " + "'" + txtPhNo1.Text + "', '" + txtPhNo2.Text + "', '" + txtEMail.Text + "', " + "'" + ddlGender.Text + "','" + txtDOB.Text + "', '" + ddlCast.Text + "', " + "'" + ddlBloodGrp.Text + "', '" + txtNationality.Text + "', " + "'" + txtAadharNo.Text + "', " + "'" + txtPFNO.Text + "','" + pffile + "', " + "'" + txtESIC.Text + "', '" + escicfile + "', " + "'" + ddlEducation.SelectedValue + "', " + "'" + policeverification + "', '" + medicalexamination + "', " + "'" + ddlBankName.Text + "', '" + txtAccountNo.Text + "', '" + txtIFSC.Text + "', " + "'" + txtContactPerson.Text + "', '" + txtContactNo.Text + "', '" + imgName + "', " + "'P','-','N','-','N','-','N','-','N','-','" + txtWorkOrderNo.Text + "', " + "'" + txtDiseaseName.Text + "', " + "'" + ddlDesignation.SelectedValue + "','" + ddlSkill.SelectedItem.Text + "', " + "'" + txtPVD.Text + "','" + txtMCID.Text + "','" + txtShift.Text + "','" + txtBasic.Text + "','" + txtEmpCode.Text + "','" + txtCity.Text + "','" + ddlState.Text + "','" + txtExp.Text + "','" + txtDepart.Text + "','" + txtDomDate.Text + "','" + txtDomDesc.Text + "')";  //, @ImageData
 
                     SqlCommand cm = new SqlCommand(Str, con);
-                    //// ' cm.Parameters.Add("@ImageData", SqlDbType.Image).Value = Imagebytes
-                    //SqlParameter paramImageData = new SqlParameter()
-                    //{
-                    //    ParameterName = "@ImageData",
-                    //    Value = Imagebytes
-                    //};
-                    // ''Dim pvImageData As SqlParameter = New SqlParameter() With {
-                    // '' .ParameterName = "@pvImageData",
-                    // '' .Value = pvImagebytes
-                    // ''}
+                   ////// //// ' cm.Parameters.Add("@ImageData", SqlDbType.Image).Value = Imagebytes
+                   ////// //SqlParameter paramImageData = new SqlParameter()
+                   ////// //{
+                   ////// //    ParameterName = "@ImageData",
+                   ////// //    Value = Imagebytes
+                   ////// //};
+                   ////// // ''Dim pvImageData As SqlParameter = New SqlParameter() With {
+                   ////// // '' .ParameterName = "@pvImageData",
+                   ////// // '' .Value = pvImagebytes
+                   ////// // ''}
 
-                    // ''Dim mvImageData As SqlParameter = New SqlParameter() With {
-                    // '' .ParameterName = "@mvImageData",
-                    // '' .Value = mvImagebytes
-                    // ''}
+                   ////// // ''Dim mvImageData As SqlParameter = New SqlParameter() With {
+                   ////// // '' .ParameterName = "@mvImageData",
+                   ////// // '' .Value = mvImagebytes
+                   ////// // ''}
 
-                   // cm.Parameters.Add(paramImageData);
-                    // ''cm.Parameters.Add(pvImageData)
-                    // ''cm.Parameters.Add(mvImageData)
+                   //////// cm.Parameters.Add(paramImageData);
+                   ////// // ''cm.Parameters.Add(pvImageData)
+                   ////// // ''cm.Parameters.Add(mvImageData)
                     cm.ExecuteNonQuery();
 
                     // ============================================================================
                     lblMSG.Text = "Data Saved successfully";
+
                 }
                 else
                     lblMSGError.Text = "Only images (.jpg, .png, .gif and .bmp) can be uploaded";
@@ -921,8 +1118,16 @@ namespace clms2.vendor_onboarding
             {
                 DateTime PolVarDate = Convert.ToDateTime(txtPVD.Text);
                 DateTime PolVarExpDate1 = PolVarDate.AddMonths(1);
-                string PolVarExpDate2 = string.Format("{0:dd/MM/yyyy}", PolVarExpDate1);
+                string PolVarExpDate2 = string.Format("{0:dd-MM-yyyy}", PolVarExpDate1);
                 lblPoliceExpiry.Text = "Police Verification expiry Date is : " + PolVarExpDate2;
+            }
+            // ''' Medical varification expiry alert
+            if (txtMCID.Text != "")
+            {
+                DateTime MedVarDate = Convert.ToDateTime(txtMCID.Text);
+                DateTime MedVarExpDate1 = MedVarDate.AddMonths(1);
+                string MedVarExpDate2 = string.Format("{0:dd-MM-yyyy}", MedVarExpDate1);
+                lblMedicalExpiry.Text = "Medical Verification expiry Date is : " + MedVarExpDate2;
             }
 
             }
@@ -931,28 +1136,38 @@ namespace clms2.vendor_onboarding
 
                 Response.Write(ex.Message);
             }
+
+            clear_fields();
+
         }
-
-
 
         protected void cmdCancel_Click(object sender, EventArgs e)
         {
+            clear_fields();
+        }
+
+        private void clear_fields()
+        {
             txtID.Text = "";
+            txtWorkOrderNo.SelectedIndex = -1;
+            txtVendorCode.Text = "";
+            txtEmpCode.Text = "";
+            txtDepart.Text = "";
             txtEmpName.Text = "";
             txtAddress.Text = "";
             txtPhNo1.Text = "";
             txtPhNo2.Text = "";
             txtEMail.Text = "";
-            ddlGender.Text = "";
+            ddlGender.Text ="" ;
             txtDOB.Text = "";
-            ddlCast.Text = "";
+            ddlCast.SelectedIndex = -1;
             txtNationality.Text = "";
             txtAadharNo.Text = "";
             txtPFNO.Text = "";
             txtESIC.Text = "";
 
             ddlEducation.SelectedIndex = -1;
-            txtBankName.Text = "";
+            ddlBankName.SelectedIndex = -1;
             txtAccountNo.Text = "";
             txtIFSC.Text = "";
             txtContactPerson.Text = "";
@@ -963,12 +1178,97 @@ namespace clms2.vendor_onboarding
             ddlSkill.SelectedIndex = -1;
             txtPVD.Text = "";
             txtMCID.Text = "";
-            txtShift.Text = "";
+            txtShift.SelectedIndex = -1;
             txtBasic.Text = "";
             txtEmpCode.Text = "";
             txtCity.Text = "";
-            txtState.Text = "";
+            ddlState.SelectedIndex = -1;
             txtExp.Text = "";
+            txtDomDesc.Text = "";
         }
+        protected void PFRadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (PFRadioButtonList1.SelectedItem.Text =="Y")
+            {
+                txtPFNO.Visible = true;
+                PFileUpload.Visible = false;
+                //HyperLinkPF.Visible = false;
+            }
+            else if(PFRadioButtonList1.SelectedItem.Text=="N")
+            {
+                txtPFNO.Visible = false;
+                PFileUpload.Visible = true;
+                //HyperLinkPF.Visible = true;
+            }
+        }
+
+        protected void ESICRadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ESICRadioButtonList1.SelectedItem.Text == "Y")
+            {
+                txtESIC.Visible = true;
+                ESICFileUpload.Visible = false;
+                //HyperLinkESIC.Visible = false;
+            }
+            else if (ESICRadioButtonList1.SelectedItem.Text == "N")
+            {
+                txtESIC.Visible = false;
+                ESICFileUpload.Visible = true;
+                //HyperLinkESIC.Visible = true;
+            }
+        }
+
+        protected void pfLinkButton1_Click(object sender, EventArgs e)
+        {
+            var path = Server.MapPath("../pf_doc_for_download");
+            var filePath = Path.Combine(path, "EPF Registration.pdf");
+            FileInfo file = new FileInfo(filePath);
+            if (file.Exists)
+            {
+                // Clear Rsponse reference  
+                Response.Clear();
+                // Add header by specifying file name  
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                // Add header for content length  
+                Response.AddHeader("Content-Length", file.Length.ToString());
+                // Specify content type  
+                Response.ContentType = "text/plain";
+                // Clearing flush  
+                Response.Flush();
+                // Transimiting file  
+                Response.TransmitFile(file.FullName);
+                Response.End();
+            }
+            Response.Write("Requested file is not available to download");
+        }
+
+        protected void esicLinkButton2_Click(object sender, EventArgs e)
+        {
+            var path = Server.MapPath("~/esic_doc_for_download");
+            var filePath = Path.Combine(path, "ESIC Registration.pdf");
+            FileInfo file = new FileInfo(filePath);
+            if (file.Exists)
+            {
+                // Clear Rsponse reference  
+                Response.Clear();
+                // Add header by specifying file name  
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                // Add header for content length  
+                Response.AddHeader("Content-Length", file.Length.ToString());
+                // Specify content type  
+                Response.ContentType = "text/plain";
+                // Clearing flush  
+                Response.Flush();
+                // Transimiting file  
+                Response.TransmitFile(file.FullName);
+                Response.End();
+            }
+            Response.Write("Requested file is not available to download");
+
+        }
+
+
+
+       
     }
 }

@@ -264,6 +264,7 @@ namespace clms2.vendor_onboarding
 
         protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // show monthly calender
             if (ddlMonth.SelectedItem.Text != "Select")
             {
                 DateTime dt = DateTime.Now;
@@ -320,10 +321,7 @@ namespace clms2.vendor_onboarding
             }
         }
 
-        private void bulkCopy_RowsCopied(object sender, SqlRowsCopiedEventArgs e)
-        {
-            lblMsg.Text = lblMsg.Text + "<h1>Records Inserted...<h1>";
-        }
+       
 
         protected void btnBulkInsert_Click(object sender, EventArgs e)
         {
@@ -405,37 +403,37 @@ namespace clms2.vendor_onboarding
                     dr[2] = ((Label)row.Cells[0].FindControl("shift")).Text;
                     dr[3] = ddlYear.SelectedItem.Text;
                     dr[4] = ddlMonth.SelectedItem.Text;
-                    dr[5] = ((TextBox)row.Cells[0].FindControl("D1")).Text;
-                    dr[6] = ((TextBox)row.Cells[0].FindControl("D2")).Text;
-                    dr[7] = ((TextBox)row.Cells[0].FindControl("D3")).Text;
-                    dr[8] = ((TextBox)row.Cells[0].FindControl("D4")).Text;
-                    dr[9] = ((TextBox)row.Cells[0].FindControl("D5")).Text;
-                    dr[10] = ((TextBox)row.Cells[0].FindControl("D6")).Text;
-                    dr[11] = ((TextBox)row.Cells[0].FindControl("D7")).Text;
-                    dr[12] = ((TextBox)row.Cells[0].FindControl("D8")).Text;
-                    dr[13] = ((TextBox)row.Cells[0].FindControl("D9")).Text;
-                    dr[14] = ((TextBox)row.Cells[0].FindControl("D10")).Text;
-                    dr[15] = ((TextBox)row.Cells[0].FindControl("D11")).Text;
-                    dr[16] = ((TextBox)row.Cells[0].FindControl("D12")).Text;
-                    dr[17] = ((TextBox)row.Cells[0].FindControl("D13")).Text;
-                    dr[18] = ((TextBox)row.Cells[0].FindControl("D14")).Text;
-                    dr[19] = ((TextBox)row.Cells[0].FindControl("D15")).Text;
-                    dr[20] = ((TextBox)row.Cells[0].FindControl("D16")).Text;
-                    dr[21] = ((TextBox)row.Cells[0].FindControl("D17")).Text;
-                    dr[22] = ((TextBox)row.Cells[0].FindControl("D18")).Text;
-                    dr[23] = ((TextBox)row.Cells[0].FindControl("D19")).Text;
-                    dr[24] = ((TextBox)row.Cells[0].FindControl("D20")).Text;
-                    dr[25] = ((TextBox)row.Cells[0].FindControl("D21")).Text;
-                    dr[26] = ((TextBox)row.Cells[0].FindControl("D22")).Text;
-                    dr[27] = ((TextBox)row.Cells[0].FindControl("D23")).Text;
-                    dr[28] = ((TextBox)row.Cells[0].FindControl("D24")).Text;
-                    dr[29] = ((TextBox)row.Cells[0].FindControl("D25")).Text;
-                    dr[30] = ((TextBox)row.Cells[0].FindControl("D26")).Text;
-                    dr[31] = ((TextBox)row.Cells[0].FindControl("D27")).Text;
-                    dr[32] = ((TextBox)row.Cells[0].FindControl("D28")).Text;
-                    dr[33] = ((TextBox)row.Cells[0].FindControl("D29")).Text;
-                    dr[34] = ((TextBox)row.Cells[0].FindControl("D30")).Text;
-                    dr[35] = ((TextBox)row.Cells[0].FindControl("D31")).Text;
+                    dr[5] = ((DropDownList)row.Cells[0].FindControl("D1")).Text;
+                    dr[6] = ((DropDownList)row.Cells[0].FindControl("D2")).Text;
+                    dr[7] = ((DropDownList)row.Cells[0].FindControl("D3")).Text;
+                    dr[8] = ((DropDownList)row.Cells[0].FindControl("D4")).Text;
+                    dr[9] = ((DropDownList)row.Cells[0].FindControl("D5")).Text;
+                    dr[10] = ((DropDownList)row.Cells[0].FindControl("D6")).Text;
+                    dr[11] = ((DropDownList)row.Cells[0].FindControl("D7")).Text;
+                    dr[12] = ((DropDownList)row.Cells[0].FindControl("D8")).Text;
+                    dr[13] = ((DropDownList)row.Cells[0].FindControl("D9")).Text;
+                    dr[14] = ((DropDownList)row.Cells[0].FindControl("D10")).Text;
+                    dr[15] = ((DropDownList)row.Cells[0].FindControl("D11")).Text;
+                    dr[16] = ((DropDownList)row.Cells[0].FindControl("D12")).Text;
+                    dr[17] = ((DropDownList)row.Cells[0].FindControl("D13")).Text;
+                    dr[18] = ((DropDownList)row.Cells[0].FindControl("D14")).Text;
+                    dr[19] = ((DropDownList)row.Cells[0].FindControl("D15")).Text;
+                    dr[20] = ((DropDownList)row.Cells[0].FindControl("D16")).Text;
+                    dr[21] = ((DropDownList)row.Cells[0].FindControl("D17")).Text;
+                    dr[22] = ((DropDownList)row.Cells[0].FindControl("D18")).Text;
+                    dr[23] = ((DropDownList)row.Cells[0].FindControl("D19")).Text;
+                    dr[24] = ((DropDownList)row.Cells[0].FindControl("D20")).Text;
+                    dr[25] = ((DropDownList)row.Cells[0].FindControl("D21")).Text;
+                    dr[26] = ((DropDownList)row.Cells[0].FindControl("D22")).Text;
+                    dr[27] = ((DropDownList)row.Cells[0].FindControl("D23")).Text;
+                    dr[28] = ((DropDownList)row.Cells[0].FindControl("D24")).Text;
+                    dr[29] = ((DropDownList)row.Cells[0].FindControl("D25")).Text;
+                    dr[30] = ((DropDownList)row.Cells[0].FindControl("D26")).Text;
+                    dr[31] = ((DropDownList)row.Cells[0].FindControl("D27")).Text;
+                    dr[32] = ((DropDownList)row.Cells[0].FindControl("D28")).Text;
+                    dr[33] = ((DropDownList)row.Cells[0].FindControl("D29")).Text;
+                    dr[34] = ((DropDownList)row.Cells[0].FindControl("D30")).Text;
+                    dr[35] = ((DropDownList)row.Cells[0].FindControl("D31")).Text;
 
                     dt.Rows.Add(dr);
                 }
@@ -508,14 +506,76 @@ namespace clms2.vendor_onboarding
                             }
                         }
                     }
+                    lblMsg.Text = lblMsg.Text + "<h1>Records Inserted...<h1>";
                 }
-
+              
         }
 
+        private void bulkCopy_RowsCopied(object sender, SqlRowsCopiedEventArgs e)
+        {
+           //// lblMsg.Text = lblMsg.Text + "<h1>Records Inserted...<h1>";
+        }
         protected void cmdShow_Click(object sender, EventArgs e)
         {
             Response.Redirect("show-gen-shift.aspx");
         }
 
+        protected void GridView2_RowDataBound(object sender, GridViewRowEventArgs e)
+        {  //
+            if (e.Row.RowType==DataControlRowType.DataRow)
+            {
+                // //Call dbConnection()
+                DropDownList[] dropdown = new DropDownList[32];
+                string[] D = new string[30];  //D1, D2 are dropdown list control in aspx file
+
+                for (int i = 1 ; i<=31 ; i++)
+                {
+
+                  dropdown[i] = (DropDownList)e.Row.FindControl("D"+i);
+                //var dropdown1 = (DropDownList)e.Row.FindControl("D1");
+                //var dropdown2 = (DropDownList)e.Row.FindControl("D2");
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                 
+                    using (SqlCommand cmd = new SqlCommand("SELECT  * FROM tbl_shift_master"))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Connection = con;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+
+                            dropdown[i].DataSource = ds.Tables[0];
+                            dropdown[i].DataTextField = "ShiftName";
+                            dropdown[i].DataValueField = "ShiftName";
+                            dropdown[i].DataBind();
+
+                            ////dropdown1.DataSource = ds.Tables[0];
+                            ////dropdown1.DataTextField = "ShiftName";
+                            ////dropdown1.DataValueField = "ShiftName";
+                            ////dropdown1.DataBind();
+
+                            ////dropdown2.DataSource = ds.Tables[0];
+                            ////dropdown2.DataTextField = "ShiftName";
+                            ////dropdown2.DataValueField = "ShiftName";
+                            ////dropdown2.DataBind();
+
+
+
+                        }
+                    }
+                }
+                /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+                //dropdown1.Items.Insert(0, new ListItem("Select", "Select"));
+
+                }
+
+
+            }
+        }
+
+       
     }
 }

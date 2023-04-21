@@ -244,7 +244,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-
+                                             <li>
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -313,7 +317,7 @@
                                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical" AllowPaging="True" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnPageIndexChanging="OnPaging"
                                                 OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
-                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
+                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True" OnRowDataBound="GridView1_RowDataBound" OnRowDeleting="GridView1_RowDeleting">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
 
                                                 <Columns>
@@ -329,6 +333,7 @@
                                                         </ItemTemplate>
                                                           <EditItemTemplate>
                                                             <asp:TextBox ID="txtHoliday_dt" runat="server" Text='<%# Eval("holiday_dt","{0:dd-MM-yyyy}")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtHoliday_dt" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
@@ -338,6 +343,7 @@
                                                         </ItemTemplate>
                                                          <EditItemTemplate>
                                                             <asp:TextBox ID="txtHoliday_code" runat="server" Text='<%# Eval("holiday_code")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtHoliday_code" ErrorMessage="* Pls Holiday Code"  ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
@@ -347,6 +353,7 @@
                                                         </ItemTemplate>
                                                          <EditItemTemplate>
                                                             <asp:TextBox ID="txtHoliday_name" runat="server" Text='<%# Eval("holiday_name")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtHoliday_name" ErrorMessage="* Pls Enter Holiday Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
@@ -356,12 +363,13 @@
                                                         </ItemTemplate>
                                                           <EditItemTemplate>
                                                             <asp:TextBox ID="txtHoliday_type" runat="server" Text='<%# Eval("holiday_type")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtHoliday_type" ErrorMessage="* Pls Enter Holiday Type" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
                                                   
-                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true"
-                                                        ItemStyle-Width="150" HeaderText="Action">
+                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true"
+                                                        ItemStyle-Width="150" HeaderText="Action" CausesValidation="False">
                                                         <ItemStyle Width="150px" />
                                                     </asp:CommandField>
                                                 </Columns>
@@ -383,26 +391,31 @@
                                                 <div class="form-group mb-3">
                                                     <label>Date</label>
                                                     <asp:TextBox ID="txtHolidaDate" runat="server" class="form-control" MaxLength="50" TextMode="Date"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtHolidaDate" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                              <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Holiday Code</label>
                                                     <asp:DropDownList ID="txtHolidayCode" class="form-control" runat="server">
+                                                         <asp:ListItem>Select</asp:ListItem>
                                                         <asp:ListItem>HL</asp:ListItem>
                                                     </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtHolidayCode" ErrorMessage="* Pls Holiday Code" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                              <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Holiday Name</label>
                                                     <asp:TextBox ID="txtHolidayName" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtHolidayName" ErrorMessage="* Pls Enter Holiday Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                              <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Holiday Type</label>
                                                     <asp:TextBox ID="txtHolidaytype" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtHolidaytype" ErrorMessage="* Pls Enter Holiday Type" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                              <div class="col-md-2">

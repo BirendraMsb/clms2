@@ -86,10 +86,10 @@
                                 <span class="visually-hidden">(current)</span>
                                         </a>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
-                                         
+
                                             <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Shift Master
@@ -117,16 +117,15 @@
                                                 </a>
                                             </li>
 
-                                           <%-- <li>
+                                            <%-- <li>
                                                 <a class="dropdown-item" href="site-incharge.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Site Incharge
                                                 </a>
                                             </li>--%>
-
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -136,7 +135,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -149,7 +148,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
                                             </li>
-                                                 <li>
+                                            <li>
                                                 <a class="dropdown-item" href="upload_attendance.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Upload Attendance
                                                 </a>
@@ -169,13 +168,13 @@
                                                     <i class="fa fa-angle-right me-1"></i>Manual Corrections
                                                 </a>
                                             </li>
-                                          
+
 
                                         </ul>
                                     </li>
 
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -183,7 +182,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Allowences
                                                 </a>
                                             </li>
-                                       
+
                                             <li>
                                                 <a class="dropdown-item" href="#">
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
@@ -194,14 +193,14 @@
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
-                                       
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 16
@@ -213,7 +212,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form 17
                                                 </a>
                                             </li>
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
                                                 </a>
@@ -222,7 +221,7 @@
                                     </li>
 
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -245,11 +244,15 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-
+                                            <li>
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -313,7 +316,7 @@
                                             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical" AllowPaging="True" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnPageIndexChanging="OnPaging"
                                                 OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
-                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
+                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True" OnRowDataBound="GridView1_RowDataBound" OnRowDeleting="GridView1_RowDeleting">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
 
                                                 <Columns>
@@ -329,6 +332,7 @@
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txtLeaveCode" runat="server" Text='<%# Eval("Leave_code")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtLeaveCode" ErrorMessage="* Pls Enter Leave" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
@@ -337,7 +341,9 @@
                                                             <asp:Label ID="lblLeaveType" runat="server" Text='<%# Eval("leave_type")%>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
+                                                           <%-- <asp:DropDownList ID="txtLeaveType" runat="server" Width="140"></asp:DropDownList>--%>
                                                             <asp:TextBox ID="txtLeaveType" runat="server" Text='<%# Eval("leave_type")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtLeaveType" ErrorMessage="* Pls Select Leave Type" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
@@ -347,14 +353,31 @@
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txtPaid" runat="server" Text='<%# Eval("IsPaid")%>' Width="140"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtPaid" ErrorMessage="* Pls Select Paid Option" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
 
-                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true"
-                                                        ItemStyle-Width="150" HeaderText="Action">
+                                                       <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true"
+                                                        ItemStyle-Width="150" HeaderText="Action" CausesValidation="False">
                                                         <ItemStyle Width="150px" />
                                                     </asp:CommandField>
+
+                                                <%--    <asp:TemplateField ShowHeader="False" ItemStyle-Width="150">
+                                                         <ItemTemplate>
+                                                            <asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="False"
+                                                                CommandName="Edit" Text="Edit"></asp:LinkButton>
+                                                             <asp:LinkButton ID="LinkButton4" runat="server" CausesValidation="False"
+                                                                CommandName="Delete" Text="Delete"></asp:LinkButton>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="false"
+                                                                CommandName="Update" Text="Update"></asp:LinkButton>
+                                                            &nbsp;<asp:LinkButton ID="LinkButton2" runat="server" CausesValidation="False"
+                                                                CommandName="Cancel" Text="Cancel"></asp:LinkButton>
+                                                        </EditItemTemplate>
+                                                   </asp:TemplateField>--%>
+                                                   
                                                 </Columns>
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -374,25 +397,30 @@
                                                 <div class="form-group mb-3">
                                                     <label>Leave Code</label>
                                                     <asp:TextBox ID="txtLeaveCode" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtLeaveCode" ErrorMessage="* Pls Enter Leave" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Type of Leave</label>
                                                     <asp:DropDownList ID="ddlLeaveType" class="form-control" runat="server">
+                                                        <asp:ListItem>Select</asp:ListItem>
                                                         <asp:ListItem>Leave</asp:ListItem>
                                                         <asp:ListItem>Casual Leave</asp:ListItem>
                                                         <asp:ListItem>Sick Leave</asp:ListItem>
                                                     </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlLeaveType" ErrorMessage="* Pls Select Leave Type" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Paid[Y/N]</label>
                                                     <asp:DropDownList ID="ddlPaid" class="form-control" runat="server">
+                                                        <asp:ListItem>Select</asp:ListItem>
                                                         <asp:ListItem>Y</asp:ListItem>
                                                         <asp:ListItem>N</asp:ListItem>
                                                     </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="ddlPaid" ErrorMessage="* Pls Select Paid Option" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
 

@@ -254,7 +254,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-
+                                            <li>
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -326,24 +330,46 @@
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                           <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>Vendor Code</label>
-                                                    <asp:DropDownList ID="ddlVendorCode" runat="server" class="form-control"></asp:DropDownList>
+                                                     <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" ></asp:TextBox>
+                                                    <%--<asp:DropDownList ID="ddlWorkdOrder" runat="server" class="form-control"></asp:DropDownList>--%>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>Month & Year</label>
-                                                    <asp:TextBox ID="txtDate" runat="server" class="form-control" ></asp:TextBox>
+                                                    <label>Month</label>
+                                                      <asp:DropDownList ID="ddlMonth" runat="server" class="form-control" AutoPostBack="true" MaxLength="150">
+                                                       <%-- <asp:ListItem>Select</asp:ListItem>--%>
+                                                       <%-- <asp:ListItem Value="1">Jan</asp:ListItem>
+                                                        <asp:ListItem Value="2">Feb</asp:ListItem>
+                                                        <asp:ListItem Value="3">Mar</asp:ListItem>
+                                                        <asp:ListItem Value="4">Apr</asp:ListItem>
+                                                        <asp:ListItem Value="5">May</asp:ListItem>
+                                                        <asp:ListItem Value="6">Jun</asp:ListItem>
+                                                        <asp:ListItem Value="7">Jul</asp:ListItem>
+                                                        <asp:ListItem Value="8">Aug</asp:ListItem>
+                                                        <asp:ListItem Value="9">Sep</asp:ListItem>
+                                                        <asp:ListItem Value="10">Oct</asp:ListItem>
+                                                        <asp:ListItem Value="11">Nov</asp:ListItem>
+                                                        <asp:ListItem Value="12">Dec</asp:ListItem>--%>
+                                                    </asp:DropDownList>
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Year</label>
+                                                     <asp:DropDownList ID="ddlYear" runat="server" class="form-control"  MaxLength="50"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                        
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>Total Valid GP</label>
-                                                    <asp:TextBox ID="txtEMail" runat="server" class="form-control" TextMode="SingleLine"></asp:TextBox>
+                                                    <asp:TextBox ID="txtTotValidGP" runat="server" class="form-control" TextMode="SingleLine"></asp:TextBox>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -363,7 +389,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>Gross Wages Paid</label>
-                                                    <asp:TextBox ID="txtAddress" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:TextBox ID="txtGrossWagesPaid" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -375,44 +401,40 @@
                                                     <asp:TextBox ID="txtPFAmountDeposited" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>PF Challan Number</label>
                                                     <asp:TextBox ID="txtPFChallanNo" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>PF Challan Date</label>
-                                                    <asp:TextBox ID="txtPIN" runat="server" class="form-control" MaxLength="6"></asp:TextBox>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>ESI Amount Deposited</label>
-                                                    <asp:TextBox ID="txtESIAmtDeposited" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:TextBox ID="txtPFChallanDate" runat="server" class="form-control" MaxLength="6"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                              <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>ESI Challan Number.</label>
-                                                    <asp:TextBox ID="txtESIChallanNo" runat="server" class="form-control"></asp:TextBox>
+                                                    <label>ESI Amount Deposited</label>
+                                                    <asp:TextBox ID="txtEsiAmtDeposited" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>ESI Challan Number.</label>
+                                                    <asp:TextBox ID="txtEsiChallanNo" runat="server" class="form-control"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>ESI Challan Date</label>
                                                     <asp:TextBox ID="txtEsiChallanDate" runat="server" class="form-control"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
-
+                                     
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
@@ -423,7 +445,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>PF Contricution (In No)</label>
-                                                    <asp:TextBox ID="txtPANNo" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+                                                    <asp:TextBox ID="txtPFContribution" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -435,15 +457,15 @@
                                             </div>
                                         </div>
                                       </div>
-                                         <div class="row">
+                                      <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
                                                 <label>ESIC Challan [PDF] </label><br />
-                                                <asp:FileUpload ID="EsciChallanUpload" runat="server"></asp:FileUpload>
+                                                <asp:FileUpload ID="EsicChallanUpload" runat="server"></asp:FileUpload>
                                             </div>
                                         </div>
                                       </div>
-                                       <div class="row">
+                                      <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
                                                 <label>Bank Statement [PDF] </label><br />
@@ -453,11 +475,11 @@
                                       </div>
                                    
 
-                                        <%--  <hr class="my-3">--%>
-                                        <div class="row">
+                                      <hr class="my-3"/>
+                                     <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
-                                                    <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info"></asp:Button>
+                                                    <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
                                                     <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-danger"></asp:Button>
                                                 </div>
                                             </div>
@@ -537,7 +559,7 @@
         <script type="text/jscript">
             new Pikaday(
             {
-                field: document.getElementById('txtValidFrom'),
+                field: document.getElementById('txtPFChallanDate'),
                 toString: function (date, format) {
                     return dateFns.format(date, format);
                 },
@@ -556,7 +578,7 @@
             //    ========================================================
             new Pikaday(
             {
-                field: document.getElementById('txtValidTo'),
+                field: document.getElementById('txtEsiChallanDate'),
                 toString: function (date, format) {
                     return dateFns.format(date, format);
                 },

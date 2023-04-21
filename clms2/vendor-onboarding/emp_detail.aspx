@@ -247,7 +247,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-
+                                            <li>
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -312,9 +316,10 @@
                             <span><a href="emp_onboarding.aspx" class="text-white">Add New</a></span>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive" style="overflow: auto;">
+                            <div>
+                                
+                                <div class="table-responsive" style="overflow: scroll;width:60%">
                                 <%--========================================================================================--%>
-
                                 <asp:GridView ID="GvEmp" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                     GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered " ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowDataBound="GvEmp_RowDataBound" OnSelectedIndexChanged="GvEmp_SelectedIndexChanged">
                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -333,12 +338,13 @@
                                                 <asp:Image ID="image1" runat="server" Width="80px" Height="100px" ImageUrl='<%# Eval("img_file","../emp_pic/{0}") %>'/>
                                             </ItemTemplate>
                                             <ItemStyle Height="50px" Width="50px" />
-                                        </asp:TemplateField> 
+                                        </asp:TemplateField>
                                         <asp:BoundField DataField="emp_add" HeaderText="Address" SortExpression="emp_add" ItemStyle-Wrap="false"></asp:BoundField>
+                                        <asp:BoundField DataField="department" HeaderText="Department" SortExpression="department" ItemStyle-Wrap="false"></asp:BoundField>
                                         <asp:BoundField DataField="emp_ph_no1" HeaderText="Contact No. 1" SortExpression="emp_ph_no1" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="emp_ph_no2" HeaderText="Contact No. 2" SortExpression="emp_ph_no2" ItemStyle-HorizontalAlign="Center" ItemStyle-Wrap="false">
+                                       <%-- <asp:BoundField DataField="emp_ph_no2" HeaderText="Contact No. 2" SortExpression="emp_ph_no2" ItemStyle-HorizontalAlign="Center" ItemStyle-Wrap="false">
                                             <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                        </asp:BoundField>
+                                        </asp:BoundField>--%>
 
                                         <asp:BoundField DataField="email" HeaderText="E-Mail" SortExpression="email" ItemStyle-Wrap="false"></asp:BoundField>
                                         <asp:BoundField DataField="gender" HeaderText="Gender" SortExpression="gender" ItemStyle-Wrap="false"></asp:BoundField>
@@ -403,8 +409,9 @@
                                 <%--========================================================================================--%>
                                 <asp:Label ID="lblID" runat="server" Text="" Visible="false"></asp:Label>
                             </div>
+                            
                         </div>
-                      
+                         </div>
                     </div>
                 </div>
             </div>

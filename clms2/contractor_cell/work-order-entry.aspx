@@ -205,6 +205,15 @@
                                 <div class="card-body">
                                     <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                     <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
+                                     <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-3">
+                                                <asp:Label ID="lblMsgError" runat="server" Text="" Font-Size="Larger" ForeColor="Red" Font-Bold="True"></asp:Label><br />
+                                                <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label><br />
+                                                <asp:Label ID="lblMsgMail" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
@@ -266,9 +275,9 @@
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
                                                 <label>No. of Emp</label>
-                                                <asp:TextBox ID="txtNoEmp" runat="server" class="form-control" MaxLength="4"></asp:TextBox>
+                                                <asp:TextBox ID="txtNoEmp" runat="server" class="form-control" MaxLength="4" ></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtNoEmp" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtNoEmp" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>
                                     </div>
@@ -323,26 +332,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr class="my-3">
+                                   
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group mb-3">
                                                 <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
                                                 <asp:Button ID="BtnMail" runat="server" Text="Mail" Width="100px" class="btn btn-info" OnClick="BtnMail_Click"></asp:Button>
-                                                <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-info" OnClick="cmdCancel_Click"></asp:Button>
+                                                <asp:Button ID="cmdCancel" runat="server" Text="Cancel/Clear" class="btn btn-info" OnClick="cmdCancel_Click"></asp:Button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group mb-3">
-                                                <asp:Label ID="lblMsgError" runat="server" Text="" Font-Size="Larger" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                                <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label><br />
-                                                <asp:Label ID="lblMsgMail" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label>
-                                            </div>
-                                        </div>
-
-                                    </div>
+                                     <hr class="my-5"/>
+                             
 
                                 </div>
                             </div>

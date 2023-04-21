@@ -2836,6 +2836,7 @@
     <Content Include="vendor-onboarding\attendance-view.aspx" />
     <Content Include="vendor-onboarding\dashboard.aspx" />
     <Content Include="vendor-onboarding\department.aspx" />
+    <Content Include="vendor-onboarding\emp_chart_report.aspx" />
     <Content Include="vendor-onboarding\emp_detail.aspx" />
     <Content Include="vendor-onboarding\emp_onboarding.aspx" />
     <Content Include="vendor-onboarding\form16.aspx" />
@@ -2854,6 +2855,9 @@
     <Content Include="vendor-onboarding\wages_document.aspx" />
     <Content Include="vendor-onboarding\work-order-detail.aspx" />
     <Content Include="vendors_pic\index111.jpg" />
+    <Content Include="wages_doc_uplouad\bank_doc\SampleJPGImage_50kbmb.jpg" />
+    <Content Include="wages_doc_uplouad\esic_doc\SampleJPGImage_50kbmb.jpg" />
+    <Content Include="wages_doc_uplouad\pf_doc\SampleJPGImage_50kbmb.jpg" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -3181,6 +3185,13 @@
     </Compile>
     <Compile Include="vendor-onboarding\department.aspx.designer.cs">
       <DependentUpon>department.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\emp_chart_report.aspx.cs">
+      <DependentUpon>emp_chart_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\emp_chart_report.aspx.designer.cs">
+      <DependentUpon>emp_chart_report.aspx</DependentUpon>
     </Compile>
     <Compile Include="vendor-onboarding\emp_detail.aspx.cs">
       <DependentUpon>emp_detail.aspx</DependentUpon>

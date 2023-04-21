@@ -245,7 +245,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-
+                                            <li>
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -310,9 +314,9 @@
                             <span><a href="emp_onboarding.aspx" class="text-white">Add New</a></span>
                         </div>
                         <div class="card-body">
-                            <div class="table-responsive" style="overflow: auto;">
+                            <div>
+                               <div class="table-responsive" style="overflow: scroll;width:80%">
                                 <%--========================================================================================--%>
-
                                 <asp:GridView ID="GvEmp" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                     GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered " ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowDataBound="GvEmp_RowDataBound" OnSelectedIndexChanged="GvEmp_SelectedIndexChanged">
                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -404,6 +408,7 @@
                                 </div>
                                 <%--========================================================================================--%>
                                 <asp:Label ID="lblID" runat="server" Text="" Visible="false"></asp:Label>
+                            </div>
                             </div>
                         </div>
 

@@ -70,14 +70,14 @@ namespace clms2.gatepass_section
                 if ((IsPostBack))
                 {
                     // 'strSQL = "select * from tbl_vendor_work_order where vendor_reg_code = '" & Request.QueryString("vcd") & "'"
-                    strSQL = "select a.valid_from,a.work_worder,a.valid_to,b.emp_name,b.gender,b.blood_grp,a.department,b.vendor_code, b.escic,b.pfno from tbl_vendor_work_order a,tbl_emp b where a.vendor_reg_code = b.vendor_code and b.emp_code='" + txtSearch.SelectedValue + "'";
+                    strSQL = "select b.emp_code, a.valid_from,a.work_worder,a.valid_to,b.emp_name,b.gender,b.blood_grp,a.department,b.vendor_code, b.escic,b.pfno from tbl_vendor_work_order a,tbl_emp b where a.vendor_reg_code = b.vendor_code and b.emp_code='" + txtSearch.SelectedValue + "'";
                     // 'strSQL = "select * from tbl_emp where emp_name = '" + txtSearch.Text + "'"
                     SqlCommand cm = new SqlCommand(strSQL, con);
 
                     SqlDataReader r = cm.ExecuteReader();
                     if (r.Read())
                     {
-                        lblGPNo.Text = "100";
+                        lblGPNo.Text = "100"; //r["valid_from"].ToString(); 
                         lblValidFrom.Text = r["valid_from"].ToString();
                         lblOrderNo.Text = r["work_worder"].ToString();
                         lblValidTo.Text = r["valid_to"].ToString();
@@ -100,7 +100,7 @@ namespace clms2.gatepass_section
                     SqlDataReader r1 = cm1.ExecuteReader();
                     if (r1.Read())
                     {
-                        lblGPNo.Text = "";
+                        lblGPNo.Text = r1["emp_code"].ToString(); 
                         lblName.Text = r1["emp_name"].ToString();
                         lblIdentityMark.Text = "";
                         lblGender.Text = r1["gender"].ToString();

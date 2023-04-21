@@ -71,6 +71,7 @@ namespace clms2.vendor_onboarding
 
         protected void cmdSave_Click(object sender, EventArgs e)
         {
+
             int ShiftCode = Auto_ID();
             string query = "insert into tbl_shift_master (shiftcode,ShiftName,InTime,OutTime,WorkingHrs,WeekOffDay) values(@shiftcode,@ShiftName,@InTime,@OutTime,@WorkingHrs,@WeekOffDay)";
             //string query = "UPDATE tbl_emp SET vendor_code=@vendor_code, emp_name=@emp_name ,skill_category=@skill_category,basic=@basic,allowance=@allowance WHERE id=@id";
@@ -151,6 +152,52 @@ namespace clms2.vendor_onboarding
             TimeSpan outtime = TimeSpan.Parse(txtOutTime.Text);
             TimeSpan hrs = outtime - intime;
             txtWorkingHrs.Text = hrs.ToString();
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = GridView1.Rows[e.RowIndex];
+            int Id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+            string query = "Delete from tbl_shift_master WHERE shiftcode=@id";
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query))
+                {
+                    cmd.Parameters.AddWithValue("@id", Id);
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            GridView1.EditIndex = -1;
+            this.BindGrid();
+
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            //////------ alert for deleting record--------/////
+            if(e.Row.RowType== DataControlRowType.DataRow && e.Row.RowIndex != GridView1.EditIndex)
+            {
+                (e.Row.Cells[4].Controls[2] as LinkButton).Attributes["onclick"] = "return confirm('Do you want to delete this row?');";
+            }
+
+
+
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+            //    string item = e.Row.Cells[1].Text;
+            //    foreach (Button button in e.Row.Cells[4].Controls.OfType<Button>())
+            //    {
+            //        if (button.CommandName == "Delete")
+            //        {
+            //            button.Attributes["onclick"] = "if(!confirm('Do you want to delete " + item + "?')){ return false; };";
+            //        }
+            //    }
+            //}
         }
 
 

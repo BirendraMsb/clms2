@@ -211,7 +211,8 @@ namespace clms2.contractor_cell
         protected void cmdSave_Click(object sender, EventArgs e)
         {
             dbConnection();
-
+            AutoID();
+            Auto_ID();
             try
             {
                 var idd = txtID.Text;
@@ -225,13 +226,12 @@ namespace clms2.contractor_cell
                 // ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 string Str1 = "insert into tbl_vendor_info(id,  " + "vendor_reg_code, " + "vendor_name, " + "vendor_owner_name, " + "email, " + "contact_no1,contact_no2, " + "firm_address,firm_city, " + "firm_state,firm_pin,license_no, " + "valid_from,valid_to, " + "workers_authorised, " + "pfno,esicno,pwd,img_file,status,work_worder)";
 
-                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEmail.Text + "', " + "'" + txtPhNo.Text + "', " + "'0', " + "'0', " + "'0', " + "'0', " + "'0', " + "'0', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'0', " + "'0', " + "'123@123', " + "'-', " + "'N','" + txtWONo.Text + "')";
+                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEmail.Text + "', " + "'" + txtPhNo.Text + "', " + "'', " + "'', " + "'', " + "'', " + "'', " + "' ', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'', " + "'', " + "'123@123', " + "'-', " + "'N','" + txtWONo.Text + "')";
 
                 SqlCommand cm1 = new SqlCommand(Str1, con);
                 cm1.ExecuteNonQuery();
 
-                AutoID();
-                Auto_ID();
+             
 
                 lblMsg.Text = "UID : " + txtVendorRegNo.Text + " Password : 123@123";
                 //lblMSG1.Text = "Record Saved.......";
@@ -278,7 +278,7 @@ namespace clms2.contractor_cell
                     //Msg.From = new MailAddress(txtEmail.Text);
                     from = "bkbirendramca@outlook.com";
                     pass = "bkp@1971";
-                    Msg.From = new MailAddress(from,"GREEN HRM SOLUTION");
+                    Msg.From = new MailAddress(from,"GREENHRM SOLUTION");
 
                    // Msg.From = new MailAddress(txtEmail.Text); 
                     // Recipient e-mail address.
@@ -337,6 +337,9 @@ namespace clms2.contractor_cell
             txtPhNo.Text = "";
             txtNoEmp.Text = "";
             txtDescription.Text = "";
+            lblMsg.Text = "";
+            lblMsgError.Text = "";
+            lblMsgMail.Text = "";
 
         }
 

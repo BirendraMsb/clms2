@@ -61,12 +61,14 @@
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
         <%--   <div class="loading">
             <div class="loader"></div>
         </div>--%>
         <table class="table">
             <tr>
+
                 <td>
                     <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
@@ -89,10 +91,10 @@
                                         <span class="visually-hidden">(current)</span>
                                         </a>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
-                                         
+
                                             <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Shift Master
@@ -138,7 +140,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -151,7 +153,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="upload_attendance.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Upload Attendance
                                                 </a>
@@ -171,7 +173,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Manual Corrections
                                                 </a>
                                             </li>
-                                          
+
 
                                         </ul>
                                     </li>
@@ -184,7 +186,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Allowences
                                                 </a>
                                             </li>
-                                     
+
                                             <li>
                                                 <a class="dropdown-item" href="#">
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
@@ -195,14 +197,14 @@
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
-                                      
+
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 16
@@ -214,7 +216,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form 17
                                                 </a>
                                             </li>
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
                                                 </a>
@@ -245,7 +247,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-
+                                            <li>
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -319,22 +325,33 @@
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Employee Detail Entry</div>
                                     <div class="card-body">
                                         <%--========================================================================================--%>
-                                        <asp:Label ID="lblMSG" ForeColor="Green" Font-Size="X-Large" runat="server" Text=""></asp:Label><br />
-                                        <asp:Label ID="lblMSGError" ForeColor="Red" Font-Size="X-Large" runat="server" Text=""></asp:Label><br />
-                                        <asp:Label ID="lblPoliceExpiry" ForeColor="Green" Font-Size="X-Large" runat="server" Text=""></asp:Label>
+                                        <asp:Label ID="lblMSG" ForeColor="Green" Font-Size="Large" runat="server" Text=""></asp:Label><br />
+                                        <asp:Label ID="lblMSGError" ForeColor="Red" Font-Size="Large" runat="server" Text=""></asp:Label><br />
+                                        <asp:Label ID="lblPoliceExpiry" ForeColor="Green" Font-Size="Large" runat="server" Text=""></asp:Label><br />
+                                        <asp:Label ID="lblMedicalExpiry" ForeColor="Green" Font-Size="Large" runat="server" Text=""></asp:Label>
                                         <asp:TextBox ID="txtID" runat="server" class="form-control" Visible="false"></asp:TextBox>
                                         <%--========================================================================================--%>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group mb-3">
+                                                    <asp:LinkButton ID="pfLinkButton1" runat="server" CssClass="btn btn-primary" CausesValidation="False" OnClick="pfLinkButton1_Click">download PF Declaration</asp:LinkButton>
+                                                    <asp:LinkButton ID="esicLinkButton2" runat="server" CssClass="btn btn-primary" CausesValidation="False" OnClick="esicLinkButton2_Click">download ESIC Declaration</asp:LinkButton><br />
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="txtWorkOrderNo">Work Order No.</label>
                                                     <asp:DropDownList ID="txtWorkOrderNo" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="txtWorkOrderNo_SelectedIndexChanged"></asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtWorkOrderNo" ErrorMessage="* Pls Select Work Order" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="txtEmpName">Emp Name</label>
                                                     <asp:TextBox ID="txtEmpName" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtEmpName" ErrorMessage="* Pls Enter Emp Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -344,24 +361,28 @@
                                                 <div class="form-group mb-3">
                                                     <label for="txtVendorCode">Vendor code</label>
                                                     <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtVendorCode" ErrorMessage="* Pls Enter Vendor Reg. No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Emp Code</label>
                                                     <asp:TextBox ID="txtEmpCode" runat="server" class="form-control" placeholder="Emp Code"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtEmpCode" ErrorMessage="* Pls Enter Emp code" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label for="txtAddress">Department</label>
+                                                    <label for="txtDepart">Department</label>
                                                     <asp:TextBox ID="txtDepart" runat="server" class="form-control" MaxLength="100"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtDepart" ErrorMessage="* Pls Enter Department" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label for="txtAddress">Address</label>
                                                     <asp:TextBox ID="txtAddress" runat="server" class="form-control" MaxLength="100"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtAddress" ErrorMessage="* Pls Enter Address" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -370,12 +391,15 @@
                                                 <div class="form-group mb-3">
                                                     <label>City</label>
                                                     <asp:TextBox ID="txtCity" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtCity" ErrorMessage="* Pls Enter City" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>State</label>
-                                                    <asp:TextBox ID="txtState" runat="server" class="form-control" placeholder="State"></asp:TextBox>
+                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-control" placeholder="State"></asp:DropDownList>
+                                                    <%-- <asp:TextBox ID="txtState" runat="server" class="form-control" placeholder="State"></asp:TextBox>--%>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlState" ErrorMessage="* Pls Select State" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -385,17 +409,17 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="txtEMail">E-Mail</label>
-
                                                     <asp:TextBox ID="txtEMail" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-
+                                                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtEMail" ErrorMessage="* Pls Enter Email" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>--%>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Enter Valid Mail" ControlToValidate="txtEMail" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-2">
                                                     <label for="txtPhNo1">Contact No.1</label>
-
                                                     <asp:TextBox ID="txtPhNo1" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
-
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtPhNo1" ErrorMessage="* Pls Enter contact No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter Valid Mob No." ControlToValidate="txtPhNo1" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\+?\d[\d -]{8,12}\d"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
 
@@ -405,52 +429,47 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-2">
                                                     <label for="txtPhNo2">Contact No.2</label>
-
                                                     <asp:TextBox ID="txtPhNo2" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtPhNo2" ErrorMessage="* Pls Enter contact No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Enter Valid Mob No." ControlToValidate="txtPhNo2" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\+?\d[\d -]{8,12}\d"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="txtDOB">DOB</label>
-
                                                     <asp:TextBox ID="txtDOB" runat="server" class="form-control"></asp:TextBox>
                                                     <asp:Label ID="lblDobError" runat="server" Text=""></asp:Label>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtDOB" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtDOB" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                         </div>
                                         <%--========================================================================================--%>
-
-
-
                                         <div class="row">
-
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-
-
                                                     <label for="ddlGender">Gender</label>
-
                                                     <asp:DropDownList ID="ddlGender" runat="server" class="form-control">
+                                                        <asp:ListItem Value="Select">Select</asp:ListItem>
                                                         <asp:ListItem Value="Male">Male</asp:ListItem>
                                                         <asp:ListItem Value="Female">Female</asp:ListItem>
                                                         <asp:ListItem Value="Trans">Trans</asp:ListItem>
                                                     </asp:DropDownList>
-
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="ddlGender" ErrorMessage="* Pls Select Gender" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
-
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="ddlCast">Cast</label>
-
                                                     <asp:DropDownList ID="ddlCast" runat="server" class="form-control">
+                                                        <%-- <asp:ListItem Value="Select">Select</asp:ListItem>
                                                         <asp:ListItem Value="SC">SC</asp:ListItem>
                                                         <asp:ListItem Value="ST">ST</asp:ListItem>
                                                         <asp:ListItem Value="OBC">OBC</asp:ListItem>
-                                                        <asp:ListItem Value="GEN">GEN</asp:ListItem>
+                                                        <asp:ListItem Value="GEN">GEN</asp:ListItem>--%>
                                                     </asp:DropDownList>
-
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="ddlCast" ErrorMessage="* Pls Select Cast" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -459,8 +478,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="ddlBloodGrp">Blood Grp</label>
-
                                                     <asp:DropDownList ID="ddlBloodGrp" runat="server" class="form-control">
+                                                        <%--<asp:ListItem Value="Select">Select</asp:ListItem>
                                                         <asp:ListItem Value="A+">A+</asp:ListItem>
                                                         <asp:ListItem Value="A-">A-</asp:ListItem>
                                                         <asp:ListItem Value="O+">O+</asp:ListItem>
@@ -468,22 +487,37 @@
                                                         <asp:ListItem Value="B+">B+</asp:ListItem>
                                                         <asp:ListItem Value="B-">B-</asp:ListItem>
                                                         <asp:ListItem Value="AB+">AB+</asp:ListItem>
-                                                        <asp:ListItem Value="AB-">AB-</asp:ListItem>
+                                                        <asp:ListItem Value="AB-">AB-</asp:ListItem>--%>
                                                     </asp:DropDownList>
-
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="ddlBloodGrp" ErrorMessage="* Pls Select Blood Group" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
 
+                                            <%-- <div class="col-md-4">
+                                                    <div class="form-group mb-3">
+                                                            <label for="CDRadioButtonList1" >Any Critical Disease</label>
+                                                          <asp:RadioButtonList ID="CDRadioButtonList1" runat="server" RepeatDirection="Horizontal" AutoPostBack="True" >
+                                                                    <asp:ListItem Value="Y">Y</asp:ListItem>
+                                                                    <asp:ListItem Value="N">N</asp:ListItem>
+                                                            </asp:RadioButtonList> <asp:TextBox ID="txtDiseaseName" runat="server" placeholder="Disease Name" class="form-control" ReadOnly="True"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator35" runat="server" ControlToValidate="CDRadioButtonList1" ErrorMessage="* Select Radio Button" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                         
+                                                   </div>
+                                               </div>--%>
 
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label for="aa">Any Critical Disease</label>
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                        <asp:RadioButton ID="RadioButton1" runat="server" Text="Y" AutoPostBack="true" GroupName="ACD" OnCheckedChanged="RadioButton1_CheckedChanged" />
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                        <asp:RadioButton ID="RadioButton2" runat="server" Text="N" AutoPostBack="true" GroupName="ACD" OnCheckedChanged="RadioButton2_CheckedChanged" />
-                                                    <br />
-                                                    <asp:TextBox ID="txtDiseaseName" runat="server" placeholder="Disease Name" class="form-control" ReadOnly="True"></asp:TextBox>
+                                                    <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                                        <ContentTemplate>
+                                                            <label for="aa">Any Critical Disease</label>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                    <asp:RadioButton ID="RadioButton1" runat="server" Text="Y" AutoPostBack="true" GroupName="ACD" OnCheckedChanged="RadioButton1_CheckedChanged" />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                    <asp:RadioButton ID="RadioButton2" runat="server" Text="N" AutoPostBack="true" GroupName="ACD" OnCheckedChanged="RadioButton2_CheckedChanged" />
+                                                            <br />
+                                                            <asp:TextBox ID="txtDiseaseName" runat="server" placeholder="Disease Name" class="form-control" ReadOnly="True"></asp:TextBox>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
                                                 </div>
                                             </div>
                                         </div>
@@ -492,8 +526,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-2">
                                                     <label for="txtNationality">Nationality</label>
-
                                                     <asp:TextBox ID="txtNationality" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="txtNationality" ErrorMessage="* Pls Enter Nationality" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
 
@@ -501,62 +535,86 @@
                                                 <div class="form-group mb-3">
 
                                                     <label for="txtAadharNo">Aadhar No.</label>
-
                                                     <asp:TextBox ID="txtAadharNo" runat="server" class="form-control" MaxLength="12"></asp:TextBox>
-
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtAadharNo" ErrorMessage="* Pls Enter Aadhar No" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label for="ddlDesignation">Designation</label>
-
                                                     <asp:DropDownList ID="ddlDesignation" runat="server" class="form-control">
+                                                        <%--<asp:ListItem Value="Select">Select</asp:ListItem>
                                                         <asp:ListItem Value="Helper">Helper</asp:ListItem>
                                                         <asp:ListItem Value="Operator">Operator</asp:ListItem>
-                                                        <asp:ListItem Value="Supervisor">Supervisor</asp:ListItem>
+                                                        <asp:ListItem Value="Supervisor">Supervisor</asp:ListItem>--%>
                                                     </asp:DropDownList>
-
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="ddlDesignation" ErrorMessage="* Pls Select Designation" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
 
                                         </div>
                                         <%--========================================================================================--%>
-                                        <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
+                                        <%--   <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>--%>
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
                                                 <div class="row">
-
                                                     <div class="col-md-4">
                                                         <div class="form-group mb-3">
                                                             <label for="PFNO">PF No.</label>
-
-                                                            <asp:RadioButton ID="pfRadio1" runat="server" Text="Y" AutoPostBack="true" GroupName="pf" OnCheckedChanged="pfRadio1_CheckedChanged" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                                        <asp:RadioButton ID="pfRadio2" runat="server" Text="N" AutoPostBack="true" GroupName="pf" OnCheckedChanged="pfRadio2_CheckedChanged" />
+                                                            <asp:RadioButtonList ID="PFRadioButtonList1" runat="server" RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="PFRadioButtonList1_SelectedIndexChanged">
+                                                                <asp:ListItem Value="Y">Y</asp:ListItem>
+                                                                <asp:ListItem Value="N">N</asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="PFRadioButtonList1" ErrorMessage="* Select Radio Button" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                             <br />
                                                             <asp:TextBox ID="txtPFNO" runat="server" class="form-control"></asp:TextBox>
                                                             <asp:FileUpload ID="PFileUpload" runat="server"></asp:FileUpload><br />
-                                                            <%--<a href="#">Download declaration form here.....</a>--%>
-                                                            <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download PF declaration form here.....</asp:HyperLink>
+                                                            <%--   <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download PF declaration form here.....</asp:HyperLink>--%>
                                                         </div>
                                                     </div>
 
+                                                    <%--     <div class="col-md-4">
+                                                        <div class="form-group mb-3">
+                                                            <label for="PFNO">PF No.</label>
+                                                            <asp:RadioButton ID="pfRadio1" runat="server" Text="Y" AutoPostBack="true" GroupName="pf" OnCheckedChanged="pfRadio1_CheckedChanged" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                                                            <asp:RadioButton ID="pfRadio2" runat="server" Text="N" AutoPostBack="true" GroupName="pf" OnCheckedChanged="pfRadio2_CheckedChanged" />
+                                                            <br />
+                                                            <asp:TextBox ID="txtPFNO" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:FileUpload ID="PFileUpload" runat="server"></asp:FileUpload><br />
+                                                            <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download PF declaration form here.....</asp:HyperLink>
+                                                        </div>
+                                                    </div>--%>
                                                     <div class="col-md-4">
                                                         <div class="form-group mb-3">
                                                             <label for="ESIC">ESIC</label>
-
-                                                            <asp:RadioButton ID="ESICRadio1" runat="server" Text="Y" AutoPostBack="true" GroupName="ESIC" OnCheckedChanged="ESICRadio1_CheckedChanged" />
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                                        <asp:RadioButton ID="ESICRadio2" runat="server" Text="N" AutoPostBack="true" GroupName="ESIC" OnCheckedChanged="ESICRadio2_CheckedChanged" />
+                                                            <asp:RadioButtonList ID="ESICRadioButtonList1" runat="server" RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="ESICRadioButtonList1_SelectedIndexChanged">
+                                                                <asp:ListItem Value="Y">Y</asp:ListItem>
+                                                                <asp:ListItem Value="N">N</asp:ListItem>
+                                                            </asp:RadioButtonList>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" ControlToValidate="ESICRadioButtonList1" ErrorMessage="* Select Radio Button" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                             <br />
                                                             <asp:TextBox ID="txtESIC" runat="server" class="form-control"></asp:TextBox>
                                                             <asp:FileUpload ID="ESICFileUpload" runat="server"></asp:FileUpload><br />
-                                                            <%--<a href="#">Download declaration form here.....</a>--%>
-                                                            <%-- <asp:Button ID="btn1"  runat="server" Text="Download ESIC declaration form here..... " OnClick="btn1_Click"/>--%>
-                                                            <asp:HyperLink ID="HyperLinkESIC" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.patelconsultancy.in/esic-forms-download.html">Download ESIC declaration form here.....</asp:HyperLink>
 
+                                                            <%--  <asp:HyperLink ID="HyperLinkESIC" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.patelconsultancy.in/esic-forms-download.html">Download ESIC declaration form here.....</asp:HyperLink>--%>
                                                         </div>
                                                     </div>
+
+                                                    <%--   <div class="col-md-4">
+                                                        <div class="form-group mb-3">
+                                                            <label for="ESIC">ESIC</label>
+                                                            <asp:RadioButton ID="ESICRadio1" runat="server" Text="Y" AutoPostBack="true" GroupName="ESIC" OnCheckedChanged="ESICRadio1_CheckedChanged" />
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                                                             <asp:RadioButton ID="ESICRadio2" runat="server" Text="N" AutoPostBack="true" GroupName="ESIC" OnCheckedChanged="ESICRadio2_CheckedChanged" />
+                                                            <br />
+                                                            <asp:TextBox ID="txtESIC" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:FileUpload ID="ESICFileUpload" runat="server"></asp:FileUpload><br />
+                                                           
+                                                            <%-- <asp:Button ID="btn1"  runat="server" Text="Download ESIC declaration form here..... " OnClick="btn1_Click"/>
+                                                           <%-- <asp:HyperLink ID="HyperLinkESIC" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.patelconsultancy.in/esic-forms-download.html">Download ESIC declaration form here.....</asp:HyperLink>
+                                                        </div>
+                                                    </div>--%>
                                                 </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
@@ -567,46 +625,66 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="ddlEducation">Education</label>
-
                                                     <asp:DropDownList ID="ddlEducation" runat="server" class="form-control">
+                                                        <%--<asp:ListItem Value="Select">Select</asp:ListItem>
                                                         <asp:ListItem Value="Non-Matric">Non-Matric</asp:ListItem>
                                                         <asp:ListItem Value="Matric">Matric</asp:ListItem>
                                                         <asp:ListItem Value="Intermediate">Intermediate</asp:ListItem>
                                                         <asp:ListItem Value="Graduation">Graduation</asp:ListItem>
-                                                        <asp:ListItem Value="Master Degree">Master Degree</asp:ListItem>
+                                                        <asp:ListItem Value="Master Degree">Master Degree</asp:ListItem>--%>
                                                     </asp:DropDownList>
-
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ControlToValidate="ddlEducation" ErrorMessage="* Pls Select Education" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label for="ddlSkill">Skill Category</label>
-
-                                                    <asp:DropDownList ID="ddlSkill" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlSkill_SelectedIndexChanged">
-                                                        <asp:ListItem Value="SU">Un-Skilled</asp:ListItem>
-                                                        <asp:ListItem Value="SS">Semi Skilled</asp:ListItem>
-                                                        <asp:ListItem Value="S">Skilled</asp:ListItem>
-                                                        <asp:ListItem Value="HS">High Skilled</asp:ListItem>
-                                                    </asp:DropDownList>
-
+                                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                                        <ContentTemplate>
+                                                            <label for="ddlSkill">Skill Category</label>
+                                                            <asp:DropDownList ID="ddlSkill" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlSkill_SelectedIndexChanged">
+                                                                <%--   <asp:ListItem Value="Select">Select</asp:ListItem>
+                                                                    <asp:ListItem Value="SU">Un-Skilled</asp:ListItem>
+                                                                    <asp:ListItem Value="SS">Semi Skilled</asp:ListItem>
+                                                                    <asp:ListItem Value="S">Skilled</asp:ListItem>
+                                                                    <asp:ListItem Value="HS">High Skilled</asp:ListItem>--%>
+                                                            </asp:DropDownList>
+                                                            <%--  <asp:TextBox ID="txtBasic" runat="server" class="form-control" ReadOnly="false" placeholder="Basic"></asp:TextBox>--%>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" ControlToValidate="ddlSkill" ErrorMessage="* Pls Select Skill" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
                                                 </div>
                                             </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                                        <ContentTemplate>
+                                                            <label>Basic</label>
+                                                            <asp:TextBox ID="txtBasic" runat="server" class="form-control" ReadOnly="false" placeholder="Basic"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="txtBasic" ErrorMessage="* Pls Enter Basic " ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="PVFileUpload" class="col-sm-2 control-label">Police Verification</label>
                                                     <asp:FileUpload ID="PVFileUpload" runat="server"></asp:FileUpload>
-                                                    <%--<label for="txtPoliceVerification">Police Verification</label>
-                                        <asp:FileUpload ID="txtPoliceVerification" runat="server"></asp:FileUpload>--%>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label for="txtPVD">Police Verification Date</label>
-                                                    <asp:TextBox ID="txtPVD" runat="server" class="form-control"></asp:TextBox>
+
+                                                    <%--<label for="txtPVD">Police Verification Date</label>--%>
+                                                    <label>Police Verification Date</label>
+                                                    <asp:TextBox ID="txtPVD" runat="server" class="form-control" TextMode="DateTime"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" ControlToValidate="txtPVD" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtPVD" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -616,37 +694,35 @@
                                                 <div class="form-group mb-3">
                                                     <label for="MVFileUpload" class="col-sm-2 control-label">Medical Examination</label>
                                                     <asp:FileUpload ID="MVFileUpload" runat="server"></asp:FileUpload>
-                                                    <%--  <label for="txtMedicalExamination">Medical Examination</label>
-                                        <asp:FileUpload ID="txtMedicalExamination" runat="server"></asp:FileUpload>--%>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
+
                                                     <label for="txtMCID">Medical Certificate Issue Date</label>
                                                     <asp:TextBox ID="txtMCID" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" ControlToValidate="txtMCID" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtMCID" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                         </div>
-
-
                                         <%--========================================================================================--%>
-
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="txtBankName">Bank Name</label>
-
-                                                    <asp:TextBox ID="txtBankName" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:DropDownList ID="ddlBankName" runat="server" class="form-control"></asp:DropDownList>
+                                                    <%--<asp:TextBox ID="txtBankName" runat="server" class="form-control"></asp:TextBox>--%>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" ControlToValidate="ddlBankName" ErrorMessage="* Pls Select Bank Name" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="txtAccountNo">Account No.</label>
-
                                                     <asp:TextBox ID="txtAccountNo" runat="server" class="form-control" MaxLength="20"></asp:TextBox>
-
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator26" runat="server" ControlToValidate="txtAccountNo" ErrorMessage="* Pls Enter Account Number" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -655,65 +731,69 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="txtIFSC">IFS Code</label>
-
                                                     <asp:TextBox ID="txtIFSC" runat="server" class="form-control" MaxLength="12"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator27" runat="server" ControlToValidate="txtIFSC" ErrorMessage="* Pls Enter IFSC Number" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
-
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="txtContactPerson">Contact person name in case of emergency</label>
-
                                                     <asp:TextBox ID="txtContactPerson" runat="server" class="form-control" placeholder="Contact person name in case of emergency" MaxLength="50"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator28" runat="server" ControlToValidate="txtContactPerson" ErrorMessage="* Pls Enter Contract Person" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <%--========================================================================================--%>
                                         <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>Contact No.</label>
                                                     <asp:TextBox ID="txtContactNo" runat="server" class="form-control" placeholder="Contact No." MaxLength="10"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" ControlToValidate="txtContactNo" ErrorMessage="* Pls Enter Contract Number" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Shift</label>
-
                                                     <asp:DropDownList ID="txtShift" runat="server" class="form-control" placeholder="shift">
-                                                      <%--  <asp:ListItem>A</asp:ListItem>
+                                                        <%--  <asp:ListItem>A</asp:ListItem>
                                                         <asp:ListItem>B</asp:ListItem>
                                                         <asp:ListItem>C</asp:ListItem>
                                                         <asp:ListItem>General</asp:ListItem>--%>
                                                     </asp:DropDownList>
-
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" ControlToValidate="txtShift" ErrorMessage="* Pls Select Shift" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <%--<div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Basic</label>
-                                                    <asp:TextBox ID="txtBasic" runat="server" class="form-control" ReadOnly="true" placeholder="Basic"></asp:TextBox>
+                                                    <asp:TextBox ID="txtBasic" runat="server" class="form-control" ReadOnly="false" placeholder="Basic"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" ControlToValidate="txtBasic" ErrorMessage="* Pls Enter Basic " ForeColor="#CC0000"></asp:RequiredFieldValidator>
                                                 </div>
-                                            </div>
+                                            </div>--%>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Experience</label>
                                                     <asp:TextBox ID="txtExp" runat="server" class="form-control" placehol="Experience"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator32" runat="server" ControlToValidate="txtExp" ErrorMessage="* Pls Enter Experience " ForeColor="#CC0000"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                             <div class="col-md-4">
+                                            <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>Domicile</label>
-                                                    <asp:TextBox ID="txtDomDate" runat="server" class="form-control"  MaxLength="10"></asp:TextBox>
+                                                    <asp:TextBox ID="txtDomDate" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator34" runat="server" ControlToValidate="txtDomDate" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtDomDate" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>Domicile Description</label>
-                                                    <asp:TextBox ID="txtDomDesc" runat="server" class="form-control" placeholder="Descriotion" TextMode="MultiLine" ></asp:TextBox>
+                                                    <asp:TextBox ID="txtDomDesc" runat="server" class="form-control" placeholder="Descriotion" TextMode="MultiLine"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator33" runat="server" ControlToValidate="txtDomDesc" ErrorMessage="* Pls Enter Domicile Desc " ForeColor="#CC0000"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -827,7 +907,7 @@
                 onSelect: function (selectedDate) {
                     // not necessary, just showing off
                     if (dateFns.isValid(selectedDate)) {
-                        var p = document.createElement('p');
+                        var p = document.createElement('p1');
                         p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
                         document.getElementById('selected').appendChild(p);
                     }
@@ -845,13 +925,13 @@
                 onSelect: function (selectedDate) {
                     // not necessary, just showing off
                     if (dateFns.isValid(selectedDate)) {
-                        var p = document.createElement('p');
+                        var p = document.createElement('p2');
                         p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
                         document.getElementById('selected').appendChild(p);
                     }
                 }
             });
-            
+
             new Pikaday(
             {
                 field: document.getElementById('txtMCID'),
@@ -864,7 +944,7 @@
                 onSelect: function (selectedDate) {
                     // not necessary, just showing off
                     if (dateFns.isValid(selectedDate)) {
-                        var p = document.createElement('p');
+                        var p = document.createElement('p3');
                         p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
                         document.getElementById('selected').appendChild(p);
                     }
@@ -883,7 +963,7 @@
                onSelect: function (selectedDate) {
                    // not necessary, just showing off
                    if (dateFns.isValid(selectedDate)) {
-                       var p = document.createElement('p');
+                       var p = document.createElement('p4');
                        p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
                        document.getElementById('selected').appendChild(p);
                    }

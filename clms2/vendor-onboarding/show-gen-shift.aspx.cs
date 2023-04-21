@@ -23,7 +23,7 @@ namespace clms2.vendor_onboarding
             if (!this.IsPostBack)
             {
                 //CreateEmptyTable();
-                this.BindGrid();
+               // this.BindGrid();
                 Emp_Code();
                 year();
             }
@@ -59,20 +59,29 @@ namespace clms2.vendor_onboarding
 
         private void BindGrid(string month, string year)
         {
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "SELECT * FROM tbl_shfit_schedule where month= '" + month + "' and year='" + year + "' ";
-            using (SqlConnection con = new SqlConnection(constr))
+            lblMsg.Text ="";
+            if (month !="Select" && year !="Select")
             {
-                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                string query = "SELECT * FROM tbl_shfit_schedule where month= '" + month + "' and year='" + year + "' ";
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    using (DataTable dt = new DataTable())
+                    using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
                     {
-                        sda.Fill(dt);
-                        GridView2.DataSource = dt;
-                        GridView2.DataBind();
+                        using (DataTable dt = new DataTable())
+                        {
+                            sda.Fill(dt);
+                            GridView2.DataSource = dt;
+                            GridView2.DataBind();
+                        }
                     }
                 }
             }
+            else
+            {
+                lblMsg.Text = "Select Month and Year";
+            }
+          
         }
 
         private void BindGrid(string empcode, string month, string year)
@@ -138,7 +147,7 @@ namespace clms2.vendor_onboarding
 
         protected void cmdShow_Click(object sender, EventArgs e)
         {
-            BindGrid();
+            BindGrid( ddlMonth.SelectedItem.Text, ddlYear.SelectedItem.Text );
             //string empcode = ddlEmpCode.SelectedItem.Text;
             //string month  = ddlMonth.SelectedItem.Text;
             //string year = ddlYear.SelectedItem.Text;
@@ -163,9 +172,9 @@ namespace clms2.vendor_onboarding
 
         protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string month = ddlMonth.SelectedItem.Text;
-            string year = ddlYear.SelectedItem.Text;
-            BindGrid(month, year); 
+            //string month = ddlMonth.SelectedItem.Text;
+            //string year = ddlYear.SelectedItem.Text;
+            //BindGrid(month, year); 
         }
 
         protected void btnGenShift_Click(object sender, EventArgs e)

@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="clms2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="clms2ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.clms2ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="clms2ConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT tbl_vendor_work_order.vendor_reg_code, tbl_vendor_work_order.work_worder, tbl_vendor_work_order.valid_from, tbl_vendor_work_order.valid_to, tbl_emp.emp_name, tbl_emp.gender, tbl_emp.dob, tbl_emp.blood_grp, 
+                  tbl_emp.emp_code, tbl_vendor_work_order.department, tbl_emp.escic, tbl_emp.pfno, tbl_emp.img_file, tbl_vendor_info.vendor_name
+FROM     tbl_vendor_work_order INNER JOIN
+                  tbl_emp ON tbl_vendor_work_order.work_worder = tbl_emp.workorderno INNER JOIN
+                  tbl_vendor_info ON tbl_emp.workorderno = tbl_vendor_info.work_worder</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="vendor_reg_code" DataSetColumn="vendor_reg_code" />
+              <Mapping SourceColumn="work_worder" DataSetColumn="work_worder" />
+              <Mapping SourceColumn="valid_from" DataSetColumn="valid_from" />
+              <Mapping SourceColumn="valid_to" DataSetColumn="valid_to" />
+              <Mapping SourceColumn="emp_name" DataSetColumn="emp_name" />
+              <Mapping SourceColumn="gender" DataSetColumn="gender" />
+              <Mapping SourceColumn="dob" DataSetColumn="dob" />
+              <Mapping SourceColumn="blood_grp" DataSetColumn="blood_grp" />
+              <Mapping SourceColumn="img_file" DataSetColumn="img_file" />
+              <Mapping SourceColumn="emp_code" DataSetColumn="emp_code" />
+              <Mapping SourceColumn="department" DataSetColumn="department" />
+              <Mapping SourceColumn="escic" DataSetColumn="escic" />
+              <Mapping SourceColumn="pfno" DataSetColumn="pfno" />
+              <Mapping SourceColumn="vendor_name" DataSetColumn="vendor_name" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="vendor_reg_code" msprop:Generator_ColumnVarNameInTable="columnvendor_reg_code" msprop:Generator_ColumnPropNameInRow="vendor_reg_code" msprop:Generator_ColumnPropNameInTable="vendor_reg_codeColumn" msprop:Generator_UserColumnName="vendor_reg_code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="work_worder" msprop:Generator_ColumnVarNameInTable="columnwork_worder" msprop:Generator_ColumnPropNameInRow="work_worder" msprop:Generator_ColumnPropNameInTable="work_worderColumn" msprop:Generator_UserColumnName="work_worder">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="valid_from" msprop:Generator_ColumnVarNameInTable="columnvalid_from" msprop:Generator_ColumnPropNameInRow="valid_from" msprop:Generator_ColumnPropNameInTable="valid_fromColumn" msprop:Generator_UserColumnName="valid_from" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="valid_to" msprop:Generator_ColumnVarNameInTable="columnvalid_to" msprop:Generator_ColumnPropNameInRow="valid_to" msprop:Generator_ColumnPropNameInTable="valid_toColumn" msprop:Generator_UserColumnName="valid_to" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="emp_name" msprop:Generator_ColumnVarNameInTable="columnemp_name" msprop:Generator_ColumnPropNameInRow="emp_name" msprop:Generator_ColumnPropNameInTable="emp_nameColumn" msprop:Generator_UserColumnName="emp_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="gender" msprop:Generator_ColumnVarNameInTable="columngender" msprop:Generator_ColumnPropNameInRow="gender" msprop:Generator_ColumnPropNameInTable="genderColumn" msprop:Generator_UserColumnName="gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dob" msprop:Generator_ColumnVarNameInTable="columndob" msprop:Generator_ColumnPropNameInRow="dob" msprop:Generator_ColumnPropNameInTable="dobColumn" msprop:Generator_UserColumnName="dob" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="blood_grp" msprop:Generator_ColumnVarNameInTable="columnblood_grp" msprop:Generator_ColumnPropNameInRow="blood_grp" msprop:Generator_ColumnPropNameInTable="blood_grpColumn" msprop:Generator_UserColumnName="blood_grp" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="img_file" msprop:Generator_ColumnVarNameInTable="columnimg_file" msprop:Generator_ColumnPropNameInRow="img_file" msprop:Generator_ColumnPropNameInTable="img_fileColumn" msprop:Generator_UserColumnName="img_file" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="emp_code" msprop:Generator_ColumnVarNameInTable="columnemp_code" msprop:Generator_ColumnPropNameInRow="emp_code" msprop:Generator_ColumnPropNameInTable="emp_codeColumn" msprop:Generator_UserColumnName="emp_code">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="department" msprop:Generator_ColumnVarNameInTable="columndepartment" msprop:Generator_ColumnPropNameInRow="department" msprop:Generator_ColumnPropNameInTable="departmentColumn" msprop:Generator_UserColumnName="department" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="escic" msprop:Generator_ColumnVarNameInTable="columnescic" msprop:Generator_ColumnPropNameInRow="escic" msprop:Generator_ColumnPropNameInTable="escicColumn" msprop:Generator_UserColumnName="escic" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pfno" msprop:Generator_ColumnVarNameInTable="columnpfno" msprop:Generator_ColumnPropNameInRow="pfno" msprop:Generator_ColumnPropNameInTable="pfnoColumn" msprop:Generator_UserColumnName="pfno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vendor_name" msprop:Generator_ColumnVarNameInTable="columnvendor_name" msprop:Generator_ColumnPropNameInRow="vendor_name" msprop:Generator_ColumnPropNameInTable="vendor_nameColumn" msprop:Generator_UserColumnName="vendor_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:work_worder" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,4 +1,3 @@
-emp_code,vendor_code,workorder,emp_name,year1,month1,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31
-1,1,1012,Kamlesh Kumar,2023,2,P,P,P,P,WO,P,P,P,P,P,P,WO,P,P,P,P,P,P,WO,P,P,P,P,P,P,WO,A,A,,,
-2,2,1013,Dilip Prasad,2023,2,P,p,P,P,WO,P,P,P,P,P,P,WO,P,P,P,P,P,P,WO,P,P,P,P,P,P,WO,A,P,,,
-3,3,2222,Mahesh,2023,2,P,p,P,P,WO,P,P,P,P,P,P,WO,P,P,P,P,P,P,WO,P,P,P,P,P,P,WO,P,A,,,
+emp_code,vendor_code,workorder,emp_name,Department,year1,month1,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,Daily Working Hours,Month Worked Hours,Monthly OT Hours
+111111-121212-1,111111,121212,KRISHNA MOHAN KALINDI,HR,2023,1,P,L,L,P,WO,P,P,HL,P,P,P,WO,P,P,P,P,P,P,WO,P,P,P,P,P,P,WO,A,A,P,P,P,8,176,4
+111111-121212-2,111111,121212,RAHUL KUMAR SINGH,HR,2023,1,P,L,P,P,WO,P,P,HL,HL,P,P,WO,P,P,P,P,P,P,WO,P,P,P,P,P,P,WO,A,P,P,P,P,8,176,8

@@ -385,7 +385,7 @@ namespace clms2.vendor_onboarding
                     }
                 }
             }
-            //ddlEmpCode.Items.Insert(0, new ListItem("Select", "0"));
+           ddlWorkdOrder.Items.Insert(0, new ListItem("Select", "Select"));
         }
     }
 }

@@ -107,12 +107,16 @@ namespace clms2.contractor_cell
         protected void GvVendor_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             Label id = GvVendor.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
-            // Dim rmrks As TextBox = TryCast(GvVendor.Rows(e.RowIndex).FindControl("txt_remarks"), TextBox)
+            TextBox rmrks = GvVendor.Rows[e.RowIndex].FindControl("txt_HRRemarks") as TextBox;
             DropDownList approv = GvVendor.Rows[e.RowIndex].FindControl("ddlApproval") as DropDownList;
 
+            if (approv.SelectedItem.Text == "Approved")
+            {
+                rmrks.Text = "";
+            }
             dbConnection();
 
-            string Str = "Update tbl_vendor_info set status='" + approv.SelectedValue + "' where vendor_reg_code=" + id.Text + "";
+            string Str = "Update tbl_vendor_info set hr_remarks='" + rmrks.Text + "', status='" + approv.SelectedValue + "' where vendor_reg_code=" + id.Text + "";
             SqlCommand cm = new SqlCommand(Str, con);
             cm.ExecuteNonQuery();
 
@@ -126,6 +130,24 @@ namespace clms2.contractor_cell
 
             BindGrid();
 
+
+            /////---- mail sending-------------------//// 
+            string reciever_mail = "Kapildevblog@gmail.com";
+            string approval = approv.SelectedValue;
+            string remarks = rmrks.Text;
+            //clsMail cls_mail = new clsMail();
+            //cls_mail.send_mail_Approval_Test(reciever_mail, approval, remarks);
+
+        }
+
+        protected void ddlApproval_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList list = (DropDownList)sender;
+            string str = list.SelectedValue;
+            if (str == "R")
+                GvVendor.Columns[14].Visible = true;
+            else
+                GvVendor.Columns[14].Visible = false;
         }
 
     }

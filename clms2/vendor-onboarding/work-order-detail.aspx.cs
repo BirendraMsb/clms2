@@ -30,8 +30,8 @@ namespace clms2.vendor_onboarding
         public void gvInfo()
         {
             dbConnection();
-            strSQL = "SELECT * FROM tbl_vendor_work_order where vendor_reg_code='" + Session["User"] + "'";
-
+            strSQL = "SELECT a.*, b.pano,b.gstno,b.pfno,b.esicno,b.pfdoc,b.esicdoc FROM tbl_vendor_work_order a,tbl_vendor_info b  where a.vendor_reg_code='" + Session["User"] + "'";
+           // strSQL = "SELECT * FROM tbl_vendor_work_order where vendor_reg_code='" + Session["User"] + "'";
             SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
             DataTable dt = new DataTable();
             sda.Fill(dt);

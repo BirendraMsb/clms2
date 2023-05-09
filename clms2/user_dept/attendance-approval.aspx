@@ -174,7 +174,7 @@
 
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: auto;">
+                                        <div class="table-responsive" style="overflow:scroll; width:70%">
                                             <%--========================================================================================--%>
                                             <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
                                             <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="15" ForeColor="Red"></asp:Label>
@@ -210,7 +210,7 @@
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id") %>' Text='<%# Eval("emp_code") %>'></asp:HyperLink>
                                                         </ItemTemplate>
-                                                        <ControlStyle Width="100px" />
+                                                        <ControlStyle Width="150px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Emp Name" SortExpression="emp_name">
@@ -220,7 +220,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label44" runat="server" Text='<%# Bind("emp_name") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                        <ControlStyle Width="100px" />
+                                                        <%--<ControlStyle Width="200px" />--%>
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Department" SortExpression="department">

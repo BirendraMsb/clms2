@@ -80,7 +80,6 @@
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-
                             <div class="collapse navbar-collapse" id="navbarColor02">
                                 <ul class="navbar-nav me-auto">
                                     <li class="nav-item">
@@ -126,7 +125,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
@@ -137,7 +136,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                       <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
@@ -147,6 +146,33 @@
                                                 </a>
                                             </li>
                                            
+                                        </ul>
+                                    </li>
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Registor of Contractors 
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Annual Return
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                        
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -233,7 +259,7 @@
                                                     <asp:HyperLinkField DataTextField="work_worder" DataNavigateUrlFields="vendor_reg_code"
                                                         DataNavigateUrlFormatString="vendor-detail.aspx?Id={0}"
                                                         HeaderText="Work order No" ItemStyle-Wrap="false" />
-                                                     <asp:BoundField DataField="vendor_reg_code" HeaderText="Ven Reg.No." SortExpression="vendor_reg_code"></asp:BoundField>
+                                                     <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor Code" SortExpression="vendor_reg_code"></asp:BoundField>
                                                     <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from">
                                                         <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </asp:BoundField>
@@ -247,6 +273,12 @@
                                                     <asp:BoundField DataField="work_description" HeaderText="Work Description" SortExpression="work_description"></asp:BoundField>
                                                     <asp:BoundField DataField="type_of_contract" HeaderText="Type Of Contract" SortExpression="type_of_contract"></asp:BoundField>
                                                     <asp:BoundField DataField="department" HeaderText="Department" SortExpression="department"></asp:BoundField>
+
+                                                     <asp:BoundField DataField="pano" HeaderText="PAN No." SortExpression="pano"></asp:BoundField>
+                                                     <asp:BoundField DataField="gstno" HeaderText="GST No." SortExpression="gstno"></asp:BoundField>
+                                                     <asp:BoundField DataField="pfno" HeaderText="PF No." SortExpression="pfno"></asp:BoundField>
+                                                     <asp:BoundField DataField="esicno" HeaderText="ESIC No." SortExpression="esicno"></asp:BoundField>
+
                                                     <asp:BoundField DataField="job_location" HeaderText="Job Location" SortExpression="job_location"></asp:BoundField>
                                                     <%--<asp:BoundField DataField="status" HeaderText="Status" SortExpression="status"></asp:BoundField>--%>
                                                 </Columns>
@@ -294,7 +326,7 @@
         <script type="text/jscript" src="../public/newfront/assets/js/app.js" defer></script>
         <script type="text/jscript" src="../public/newfront/datatables/datatables.min.js" defer></script>
         <script type="text/jscript" src="../public/newfront/js/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+       <%-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
 
         <script type="text/jscript" defer>
             $(window).on("load", function () {

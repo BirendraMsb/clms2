@@ -256,13 +256,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
-        /// txtState control.
+        /// ddlState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtState;
+        protected global::System.Web.UI.WebControls.DropDownList ddlState;
         
         /// <summary>
         /// RequiredFieldValidator8 control.
@@ -463,6 +463,24 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.FileUpload PFileUpload;
         
         /// <summary>
+        /// lblPFfileSizeMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPFfileSizeMsg;
+        
+        /// <summary>
+        /// UpdatePanel3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+        
+        /// <summary>
         /// ESICRadio1 control.
         /// </summary>
         /// <remarks>
@@ -497,6 +515,15 @@ namespace clms2.vendor_onboarding {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload ESICFileUpload;
+        
+        /// <summary>
+        /// lblEsicfileSizeMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEsicfileSizeMsg;
         
         /// <summary>
         /// txtPANNo control.

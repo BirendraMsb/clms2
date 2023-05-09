@@ -125,6 +125,7 @@ namespace clms2.contractor_cell
 
         protected void UncheckAll_Click(object sender, EventArgs e)
         {
+            
         }
 
         //protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -135,12 +136,26 @@ namespace clms2.contractor_cell
 
         protected void ddlHRApproval_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList list = (DropDownList)sender;
-            string str = list.SelectedValue;
+            DropDownList ddl_hr_approv = (DropDownList)sender;
+            string str = ddl_hr_approv.SelectedValue;
             if (str == "Reject")
-                GvEmp.Columns[15].Visible = true;
+                GvEmp.Columns[17].Visible = true;
             else
-                GvEmp.Columns[15].Visible = false;
+                GvEmp.Columns[17].Visible = false;
+
+           // CheckBox chkbox = sender as CheckBox;
+            GridViewRow currentRow = ddl_hr_approv.NamingContainer as GridViewRow;
+            RequiredFieldValidator rfv = GvEmp.Rows[currentRow.RowIndex]
+                                               .FindControl("ReqValHRRemarks") as RequiredFieldValidator;
+            if (ddl_hr_approv.SelectedItem.Text=="Reject")
+            {
+                rfv.Enabled = true;
+            }
+            else
+            {
+                rfv.Enabled = false;
+            }
+               
         }
 
         //protected void GvEmp_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -154,11 +169,11 @@ namespace clms2.contractor_cell
         //    }
         //}
 
-        protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GvEmp.PageIndex = e.NewPageIndex;
-            GvEmp.DataBind();
-        }
+        //protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        //{
+        //    GvEmp.PageIndex = e.NewPageIndex;
+        //    GvEmp.DataBind();
+        //}
 
         protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
@@ -191,14 +206,27 @@ namespace clms2.contractor_cell
             DropDownList Shift = GvEmp.Rows[e.RowIndex].FindControl("ddlShift") as DropDownList;
             DropDownList med_report = GvEmp.Rows[e.RowIndex].FindControl("ddlMedReport") as DropDownList;
 
-            // 'If approv.SelectedItem.Text = "Reject" Then
-            // '    GvEmp.Columns(1).Visible = False
-            // 'End If
+             //'If approv.SelectedItem.Text = "Reject" Then
+             //'    GvEmp.Columns(1).Visible = False
+             //'End If
+
+            if (approv.SelectedItem.Text=="Approved")
+            {
+                rmrks.Text = "";
+            }
+            //else if (approv.SelectedItem.Text == "Reject")
+            //{
+            //    if (rmrks.Text=="")
+            //    {
+            //        rmrks.Focus();
+            //    }
+            //}
 
             dbConnection();
 
             // ' Dim Str As String = "Update tbl_emp set security_remarks='" & rmrks.Text & "', security_approval='" & approv.SelectedValue & "' where id=" & id.Text & ""
-            string Str = "Update tbl_emp set hr_remarks='" + rmrks.Text + "',medical_report='" + med_report.SelectedValue + "', shift='" + Shift.SelectedValue + "', hr_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
+            //string Str = "Update tbl_emp set hr_remarks='" + rmrks.Text + "',medical_report='" + med_report.SelectedValue + "', shift='" + Shift.SelectedValue + "', hr_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
+            string Str = "Update tbl_emp set hr_remarks='" + rmrks.Text + "',  hr_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
 
             SqlCommand cm = new SqlCommand(Str, con);
             cm.ExecuteNonQuery();
@@ -207,6 +235,37 @@ namespace clms2.contractor_cell
             GvEmp.EditIndex = -1;
 
             BindGrid();
+
+            /////---- mail sending-------------------////
+            string reciever_mail = "subh.sparsh18@gmail.com";
+            //string reciever_mail = "Kapildevblog@gmail.com";
+            string approval = approv.SelectedValue;
+            string remarks = rmrks.Text;
+            clsMail cls_mail = new clsMail();
+            cls_mail.send_mail_Approval_Test(reciever_mail, approval, remarks);
         }
+
+        protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GvEmp.PageIndex = e.NewPageIndex;
+              // GvEmp.DataBind();
+            BindGrid();
+        }
+
+        //protected void GvEmp_RowCommand(object sender, GridViewCommandEventArgs e)
+        //{
+        //    //if (e.Row.RowType == DataControlRowType.DataRow)
+        //    //{
+
+        //    //    DropDownList ddlHrApprov = (DropDownList)e.Row.FindControl("ddlHRApproval");
+
+        //    //    RequiredFieldValidator rfv = (RequiredFieldValidator)e.Row.FindControl("ReqValHRRemarks");
+
+        //    //    if (ddlHrApprov.SelectedItem.Text == "Reject")
+        //    //    {
+        //    //        rfv.Enabled = true;
+        //    //    }
+        //    //}
+        //}
     }
 }

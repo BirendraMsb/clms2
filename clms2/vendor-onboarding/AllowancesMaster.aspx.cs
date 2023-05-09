@@ -123,6 +123,8 @@ namespace clms2.vendor_onboarding
         {
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             string query = "SELECT * FROM tbl_emp where vendor_code ='" + Session["User"].ToString() + "' and workorderno= '" + ddlWorkdOrder.SelectedItem.Text + "'  and hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved'";
+            /////string query = "SELECT * FROM tbl_attendance where  hr_approval='Approved' and dept_approval='Approved' and vendor_code ='" + Session["User"].ToString() + "' and workorder= '" + ddlWorkdOrder.SelectedItem.Text + "'";
+          
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter(query, con))

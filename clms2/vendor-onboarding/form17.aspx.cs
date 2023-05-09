@@ -60,7 +60,7 @@ namespace clms2.vendor_onboarding
                     }
                 }
             }
-            //ddlEmpCode.Items.Insert(0, new ListItem("Select", "0"));
+            ddlWorkdOrder.Items.Insert(0, new ListItem("Select", "Select"));
         }
         private void CreateEmptyTable()
         {
@@ -177,7 +177,8 @@ namespace clms2.vendor_onboarding
             //string query = "SELECT emp_code,emp_name,designation,no_of_workdone,unit_of_workdone,daily_rate_of_wages,Basic,DA,overtime," +
             //"other_case_payment,total,pf_deduction,esic_deduction,other_deduction,net_amount_paid,signature,signature,intial_contractor FROM tbl_form16 ";
             ///string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.present as unit_of_workdone,e.[basic]/8 as daily_rate_of_wages , a.Present * e.basic as Basic_wages, e.basic*0 as Dearness_Allowances ,a.monthly_ot_hrs * e.[basic]/8 as overtime ,e.allowance as other_cash_payment,(a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * e.basic ) * 12/100 as PF_Deduction , ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 as ESIC_deduction,other_deduction,((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) -( ((a.Present * e.basic ) * 12/100 ) + ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 ) as Net_Amount_Paid,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code";
-            string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.present as unit_of_workdone,e.[basic]/8 as daily_rate_of_wages , a.Present * e.basic as Basic_wages, e.basic*0 as Dearness_Allowances ,a.monthly_ot_hrs * e.[basic]/8 as overtime ,e.allowance as other_cash_payment,(a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * e.basic ) * 12/100 as PF_Deduction , ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 as ESIC_deduction,e.other_deduction, (((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) - ((a.Present * e.basic ) * 12/100 ) - ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100) - e.other_deduction  as Net_Amount_Paid,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
+            ///string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.present as unit_of_workdone,e.[basic]/8 as daily_rate_of_wages , a.Present * e.basic as Basic_wages, e.basic*0 as Dearness_Allowances ,a.monthly_ot_hrs * e.[basic]/8 as overtime ,e.allowance as other_cash_payment,(a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * e.basic ) * 12/100 as PF_Deduction , ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 as ESIC_deduction,e.other_deduction, (((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) - ((a.Present * e.basic ) * 12/100 ) - ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100) - e.other_deduction  as Net_Amount_Paid,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
+            string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.present as unit_of_workdone,e.[basic]/8 as daily_rate_of_wages , (( a.Present * (e.basic +  e.allowance)) - (a.Present * (e.basic + e.allowance )) * 12/100  - (((a.Present * e.basic)  + (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) - e.other_deduction as Basic_wages, e.basic*0 as Dearness_Allowances ,a.monthly_ot_hrs * e.[basic]/8 as overtime ,e.allowance as other_cash_payment,(( a.Present * (e.basic +  e.allowance)) - (a.Present * (e.basic + e.allowance )) * 12/100  - (((a.Present * e.basic)  + (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) - e.other_deduction  + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * (e.basic +e.allowance) ) * 12/100 as PF_Deduction , (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as ESIC_deduction,e.other_deduction, (((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) - ((a.Present * e.basic ) * 12/100 ) - ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100) - e.other_deduction  as Net_Amount_Paid,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno  and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
             
             DataTable dt1;
             using (SqlConnection con = new SqlConnection(constr))
@@ -188,9 +189,20 @@ namespace clms2.vendor_onboarding
                     {
 
                         sda.Fill(dt1);
-                        string MyString = dt1.Rows[0].ItemArray[0].ToString();
-                        //GridView2.DataSource = dt;
-                        //GridView2.DataBind();
+                        if (dt1.Rows.Count > 0)
+                        {
+                            string MyString = dt1.Rows[0].ItemArray[0].ToString();
+                            //GridView2.DataSource = dt;
+                            //GridView2.DataBind();
+                        }
+                        else
+                        {
+                            CreateEmptyTable();
+                            ////GridView2.DataSource = null;
+                            ////GridView2.DataBind();
+                            return;
+                        }
+                    
                     }
                 }
             }
@@ -315,6 +327,7 @@ namespace clms2.vendor_onboarding
 
         protected void cmdShow_Click(object sender, EventArgs e)
         {
+
             BindTableInGrid();
         }
 

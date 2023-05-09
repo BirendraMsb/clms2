@@ -126,7 +126,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -145,7 +145,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
                                             </li>
@@ -173,8 +173,9 @@
 
                                         </ul>
                                     </li>
+
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -184,12 +185,22 @@
                                             </li>
 
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="payroll_process.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="annual_bonus.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Annual Bonus
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="leave_status.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Leave Status
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="wage-slip.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -201,6 +212,18 @@
                                         </a>
                                         <ul class="dropdown-menu ">
 
+
+                                            <li>
+                                                <a class="dropdown-item" href="wages_document.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages document
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 16
@@ -213,15 +236,35 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="wages_document.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages document
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-workmen.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
                                                 </a>
                                             </li>
 
+                                            <li>
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -244,16 +287,15 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-                                            <li>
+                                            <%--   <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i> Employee Chart Report
                                                 </a>
-                                            </li>
-
+                                            </li>--%>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -330,7 +372,7 @@
                                             <%--========================================================================================--%>
                                             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical" AllowPaging="True" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnPageIndexChanging="OnPaging"
-                                                OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
+                                                OnRowUpdating="OnRowUpdating" EmptyDataText="No Approved records has been added."
                                                 Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
 

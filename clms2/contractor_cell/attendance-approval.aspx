@@ -152,6 +152,33 @@
                                            
                                         </ul>
                                     </li>
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Registor of Contractors 
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Annual Return
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                        
+                                        </ul>
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
@@ -210,7 +237,7 @@
 
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: auto;">
+                                        <div class="table-responsive" style="overflow: scroll; width:70%" >
                                             <%--========================================================================================--%>
                                             <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
                                             <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="15" ForeColor="Red"></asp:Label>
@@ -244,9 +271,9 @@
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Emp Code">
                                                         <ItemTemplate>
-                                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id") %>' Text='<%# Eval("emp_code") %>'></asp:HyperLink>
+                                                            <asp:HyperLink ID="HyperLink1" runat="server" Width="150px" NavigateUrl='<%# Eval("Id") %>' Text='<%# Eval("emp_code") %>'></asp:HyperLink>
                                                         </ItemTemplate>
-                                                        <ControlStyle Width="100px" />
+                                                        <ControlStyle Width="150px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Emp Name" SortExpression="emp_name">
@@ -254,9 +281,9 @@
                                                             <asp:TextBox ID="TextBox43" runat="server" Text='<%# Bind("emp_name") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
-                                                            <asp:Label ID="Label44" runat="server" Text='<%# Bind("emp_name") %>'></asp:Label>
+                                                            <asp:Label ID="Label44" runat="server"  Text='<%# Bind("emp_name") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                        <ControlStyle Width="100px" />
+                                                        <ControlStyle Width="200px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Department" SortExpression="department">

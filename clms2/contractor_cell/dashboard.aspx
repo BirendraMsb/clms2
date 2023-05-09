@@ -147,6 +147,33 @@
                                            
                                         </ul>
                                     </li>
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Registor of Contractors 
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Annual Return
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                        
+                                        </ul>
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
@@ -237,7 +264,9 @@
                                                     <span>
                                                         <h4>Active Work Order</h4>
                                                         <h3 class="mb-0">
-                                                            <asp:Label ID="lblActiveOrkOrder" runat="server" Text="01"></asp:Label></h3>
+                                                            <asp:Label ID="lblActiveOrkOrder" runat="server" Text="01"></asp:Label>
+
+                                                        </h3>
                                                     </span>
                                                 </div>
                                                 <div class="card-footer text-center">
@@ -253,7 +282,9 @@
                                                     </span>
                                                     <span>
                                                         <h4>Active GP</h4>
-                                                        <h3 class="mb-0">01</h3>
+                                                        <h3 class="mb-0">
+                                                              <asp:Label ID="lblActiveGP" runat="server" Text="01"></asp:Label>
+                                                        </h3>
                                                     </span>
                                                 </div>
                                                 <div class="card-footer text-center">
@@ -269,7 +300,9 @@
                                                     </span>
                                                     <span>
                                                         <h4>Pending GP</h4>
-                                                        <h3 class="mb-0">01</h3>
+                                                        <h3 class="mb-0">
+                                                            <asp:Label ID="lblPendingGP" runat="server" Text="01"></asp:Label>
+                                                        </h3>
                                                     </span>
                                                 </div>
                                                 <div class="card-footer text-center">
@@ -302,7 +335,10 @@
                                                     </span>
                                                     <span>
                                                         <h4>Total Attendance</h4>
-                                                        <h3 class="mb-0">01</h3>
+                                                        <h3 class="mb-0">
+                                                          <asp:Label ID="lblTotAttendance" runat="server" Text="01"></asp:Label>
+
+                                                        </h3>
                                                     </span>
                                                 </div>
                                                 <div class="card-footer text-center">

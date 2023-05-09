@@ -30,7 +30,8 @@ namespace clms2.contractor_cell
         public void gvInfo()
         {
             dbConnection();
-            strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code ";  // 'and b.status='A'
+            strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code, b.pano,b.gstno,b.pfno,b.esicno,b.pfdoc,b.esicdoc FROM tbl_vendor_work_order a,tbl_vendor_info b  where a.vendor_reg_code=b.vendor_reg_code";
+            ////strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code ";  // 'and b.status='A'
             //////if (txtSearch.Text == "")
             //////    strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code ";  // 'and b.status='A'
             //////else

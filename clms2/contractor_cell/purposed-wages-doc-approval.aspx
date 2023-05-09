@@ -78,7 +78,6 @@
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-
                             <div class="collapse navbar-collapse" id="navbarColor02">
                                 <ul class="navbar-nav me-auto">
                                     <li class="nav-item">
@@ -124,7 +123,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
@@ -147,9 +146,35 @@
                                            
                                         </ul>
                                     </li>
-
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Registor of Contractors 
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Annual Return
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                        
+                                        </ul>
+                                    </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>

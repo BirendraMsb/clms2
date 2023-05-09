@@ -43,8 +43,29 @@ namespace clms2.contractor_cell
             SqlDataReader r1 = cm1.ExecuteReader();
             if (r1.Read())
                 lblActiveOrkOrder.Text = r1["awo"].ToString();
-
             r1.Close();
+
+
+            strSQL = "select count(*) as ActiveGP from tbl_emp  where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved'";
+            SqlCommand cm2 = new SqlCommand(strSQL, con);
+            SqlDataReader r2 = cm2.ExecuteReader();
+            if (r2.Read())
+                lblActiveGP.Text = r2["ActiveGP"].ToString();
+            r2.Close();
+
+            strSQL = "select count(*) as PendingGP from tbl_emp  where  security_approval <>'Approved'";
+            SqlCommand cm3 = new SqlCommand(strSQL, con);
+            SqlDataReader r3 = cm3.ExecuteReader();
+            if (r3.Read())
+                lblPendingGP.Text = r3["PendingGP"].ToString();
+            r3.Close();
+
+            strSQL = "SELECT count(*) as TotAttendance FROM tbl_Attendance where  hr_approval='Approved' and dept_approval='Approved' ";
+            SqlCommand cm4 = new SqlCommand(strSQL, con);
+            SqlDataReader r4 = cm4.ExecuteReader();
+            if (r4.Read())
+                lblTotAttendance.Text = r4["TotAttendance"].ToString();
+            r4.Close();
         }
     }
 }

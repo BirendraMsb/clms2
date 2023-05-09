@@ -100,10 +100,11 @@ namespace clms2.safety_dept
             Label id = GvEmp.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
             TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_SafetyRemarks") as TextBox;
             DropDownList approv = GvEmp.Rows[e.RowIndex].FindControl("ddlSafetyApproval") as DropDownList;
-
+            DropDownList SafetyTraining = GvEmp.Rows[e.RowIndex].FindControl("ddlSefetyTraining") as DropDownList;
+            DropDownList medical_report = GvEmp.Rows[e.RowIndex].FindControl("ddlMedReport") as DropDownList;
             dbConnection();
 
-            string Str = "Update tbl_emp set safety_remarks='" + rmrks.Text + "', safety_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
+            string Str = "Update tbl_emp set  medical_report='" + medical_report.SelectedItem.Text + "' , safety_training='" + SafetyTraining.SelectedItem.Text + "',  safety_remarks='" + rmrks.Text + "', safety_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
 
             SqlCommand cm = new SqlCommand(Str, con);
             cm.ExecuteNonQuery();

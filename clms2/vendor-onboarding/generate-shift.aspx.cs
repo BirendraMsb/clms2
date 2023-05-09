@@ -23,7 +23,8 @@ namespace clms2.vendor_onboarding
             if (!this.IsPostBack)
             {
                 CreateEmptyTable();
-                this.BindGrid();
+                //this.BindGrid();
+                work_order_no();
                 Emp_Code();
                 year();
             }
@@ -44,8 +45,9 @@ namespace clms2.vendor_onboarding
         private void CreateEmptyTable()
         {
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[34] { new DataColumn("emp_code", typeof(string)),
+            dt.Columns.AddRange(new DataColumn[35] { new DataColumn("emp_code", typeof(string)),
             new DataColumn("emp_name",typeof(string)),
+            new DataColumn("department",typeof(string)),
             new DataColumn("shift",typeof(string)),
             new DataColumn("D1",typeof(string)),
             new DataColumn("D2",typeof(string)),
@@ -119,7 +121,7 @@ namespace clms2.vendor_onboarding
                 dr[32] = string.Empty;
                 dr[32] = string.Empty;
                 dr[33] = string.Empty;
-
+                dr[34] = string.Empty;
                 dt.Rows.Add(dr);
             }
 
@@ -131,7 +133,25 @@ namespace clms2.vendor_onboarding
         private void BindGrid()
         {
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "SELECT emp_code,emp_name,shift FROM tbl_emp";
+            string query = "SELECT emp_code,emp_name,department,shift FROM tbl_emp  where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved' and vendor_code = '" + Session["User"] + "' " ;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        GridView2.DataSource = dt;
+                        GridView2.DataBind();
+                    }
+                }
+            }
+        }
+
+        private void BindGrid1()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            string query = "SELECT emp_code,emp_name,department,shift FROM tbl_emp  where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved' and vendor_code = '" + Session["User"] + "' and workorderno='" + ddlWorkOrderNo.SelectedItem.Text + "' ";
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
@@ -221,6 +241,28 @@ namespace clms2.vendor_onboarding
                 }
             }
             ddlEmpCode.Items.Insert(0, new ListItem("--Select Emp code--", "0"));
+        }
+
+        private void work_order_no()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            ////string query = "SELECT * FROM tbl_emp";
+            string query = "SELECT distinct workorderno FROM tbl_emp  where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved' and vendor_code = '" + Session["User"] + "' ";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        ddlWorkOrderNo.DataSource = dt;
+                        ddlWorkOrderNo.DataTextField = "workorderno";
+                        ddlWorkOrderNo.DataValueField = "workorderno";
+                        ddlWorkOrderNo.DataBind();
+                    }
+                }
+            }
+            ddlWorkOrderNo.Items.Insert(0, new ListItem("Select", "Select"));
         }
 
         private int Auto_ID()
@@ -574,6 +616,11 @@ namespace clms2.vendor_onboarding
 
 
             }
+        }
+
+        protected void ddlWorkOrderNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindGrid1();
         }
 
        

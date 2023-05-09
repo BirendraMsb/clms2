@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-      <title>CLMS | Vendor | Dashboard</title>
+    <title>CLMS | Vendor | Dashboard</title>
     <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
@@ -87,10 +87,10 @@
                                 <span class="visually-hidden">(current)</span>
                                         </a>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
-                                           
+
                                             <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Shift Master
@@ -118,16 +118,15 @@
                                                 </a>
                                             </li>
 
-                                           <%-- <li>
+                                            <%-- <li>
                                                 <a class="dropdown-item" href="site-incharge.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Site Incharge
                                                 </a>
                                             </li>--%>
-
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -137,7 +136,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -150,7 +149,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="upload_attendance.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Upload Attendance
                                                 </a>
@@ -170,13 +169,13 @@
                                                     <i class="fa fa-angle-right me-1"></i>Manual Corrections
                                                 </a>
                                             </li>
-                                          
+
 
                                         </ul>
                                     </li>
 
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -184,25 +183,47 @@
                                                     <i class="fa fa-angle-right me-1"></i>Allowences
                                                 </a>
                                             </li>
-                                       
+
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="payroll_process.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="#">
+                                                <a class="dropdown-item" href="annual_bonus.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Annual Bonus
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="leave_status.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Leave Status
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="wage-slip.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
-                                       
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            
+
+
+                                            <li>
+                                                <a class="dropdown-item" href="wages_document.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages document
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form 16
@@ -214,16 +235,36 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form 17
                                                 </a>
                                             </li>
-                                              <li>
-                                                <a class="dropdown-item" href="wages_document.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages document
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-workmen.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
-
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -246,16 +287,15 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-                                              <li>
+                                            <%--   <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i> Employee Chart Report
                                                 </a>
-                                            </li>
-
+                                            </li>--%>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -306,11 +346,11 @@
             </tr>
             <tr>
                 <td>
-         <div class="page-wrapper">
-            <div class="page-content-tab">
-                <div class="container-fluid">
-                    <div class="row mb-2 border-bottom pb-2">
-                        <%--					<div class="col-sm-12">
+                    <div class="page-wrapper">
+                        <div class="page-content-tab">
+                            <div class="container-fluid">
+                                <div class="row mb-2 border-bottom pb-2">
+                                    <%--					<div class="col-sm-12">
 						<div class="page-title-box">
 							<div class="float-start">
 								<ol class="breadcrumb">
@@ -320,76 +360,76 @@
 							</div>
 						</div>
 					</div>--%>
-                    </div>
-                    <div class="card border-0">
-                        <div class="row mb-2">
-                            <div class="col-md-3">
-                                <div class="card shadow border">
-                                    <div class="card-body d-flex align-items-center justify-content-start">
-                                        <span>
-                                            <i class="fa fa-users fa-4x mb-2 me-4"></i>
-                                        </span>
-                                        <span>
-                                            <h4>Total Work Order</h4>
-                                            <h3 class="mb-0">
-                                                <asp:Label ID="lblRegVendor" runat="server" Text="01"></asp:Label></h3>
-                                        </span>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <a href="#">View Details</a>
-                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card shadow border">
-                                    <div class="card-body d-flex align-items-center justify-content-start">
-                                        <span>
-                                            <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
-                                        </span>
-                                        <span>
-                                            <h4>Active Gate Pass</h4>
-                                            <h3 class="mb-0">01</h3>
-                                        </span>
+                                <div class="card border-0">
+                                    <div class="row mb-2">
+                                        <div class="col-md-3">
+                                            <div class="card shadow border">
+                                                <div class="card-body d-flex align-items-center justify-content-start">
+                                                    <span>
+                                                        <i class="fa fa-users fa-4x mb-2 me-4"></i>
+                                                    </span>
+                                                    <span>
+                                                        <h4>Total Work Order</h4>
+                                                        <h3 class="mb-0">
+                                                            <asp:Label ID="lblRegVendor" runat="server" Text="01"></asp:Label></h3>
+                                                    </span>
+                                                </div>
+                                                <div class="card-footer text-center">
+                                                    <a href="#">View Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card shadow border">
+                                                <div class="card-body d-flex align-items-center justify-content-start">
+                                                    <span>
+                                                        <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
+                                                    </span>
+                                                    <span>
+                                                        <h4>Active Gate Pass</h4>
+                                                        <h3 class="mb-0">01</h3>
+                                                    </span>
+                                                </div>
+                                                <div class="card-footer text-center">
+                                                    <a href="#">View Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card shadow border">
+                                                <div class="card-body d-flex align-items-center justify-content-start">
+                                                    <span>
+                                                        <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
+                                                    </span>
+                                                    <span>
+                                                        <h4>Pending GP</h4>
+                                                        <h3 class="mb-0">01</h3>
+                                                    </span>
+                                                </div>
+                                                <div class="card-footer text-center">
+                                                    <a href="#">View Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="card shadow border">
+                                                <div class="card-body d-flex align-items-center justify-content-start">
+                                                    <span>
+                                                        <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
+                                                    </span>
+                                                    <span>
+                                                        <h4>Rejected  GP</h4>
+                                                        <h3 class="mb-0">01</h3>
+                                                    </span>
+                                                </div>
+                                                <div class="card-footer text-center">
+                                                    <a href="#">View Details</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="card-footer text-center">
-                                        <a href="#">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card shadow border">
-                                    <div class="card-body d-flex align-items-center justify-content-start">
-                                        <span>
-                                            <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
-                                        </span>
-                                        <span>
-                                            <h4>Pending GP</h4>
-                                            <h3 class="mb-0">01</h3>
-                                        </span>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <a href="#">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="card shadow border">
-                                    <div class="card-body d-flex align-items-center justify-content-start">
-                                        <span>
-                                            <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
-                                        </span>
-                                        <span>
-                                            <h4>Rejected  GP</h4>
-                                            <h3 class="mb-0">01</h3>
-                                        </span>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <a href="#">View Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <%--	<div class="row mb-4">
+                                    <%--	<div class="row mb-4">
   
 		<div class="col-md-3">
 			<div class="card shadow border">
@@ -408,10 +448,10 @@
 			</div>
 		</div>
 	</div>--%>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
                 </td>
             </tr>
             <tr>
@@ -420,7 +460,7 @@
                         <div class="container-fluid">
                             <div class="text-center small">
                                 <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
-                          
+
                             </div>
                         </div>
                     </footer>

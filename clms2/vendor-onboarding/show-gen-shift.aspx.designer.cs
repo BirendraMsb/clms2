@@ -85,13 +85,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.DropDownList ddlEmpCode;
         
         /// <summary>
-        /// txtEmpName control.
+        /// ddlWorkOrderNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEmpName;
+        protected global::System.Web.UI.WebControls.DropDownList ddlWorkOrderNo;
         
         /// <summary>
         /// ddlMonth control.

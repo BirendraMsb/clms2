@@ -40,6 +40,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
@@ -72,15 +73,20 @@
     <Content Include="admin\testChart.aspx" />
     <Content Include="admin\update-leave-register.aspx" />
     <Content Include="admin\user.aspx" />
+    <Content Include="contractor_cell\annual-return.aspx" />
     <Content Include="contractor_cell\attendance-approval.aspx" />
     <Content Include="contractor_cell\dashboard.aspx" />
+    <Content Include="contractor_cell\emp_chart_report.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-approval.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-block.aspx" />
     <Content Include="contractor_cell\purposed-wages-doc-approval.aspx" />
+    <Content Include="contractor_cell\register-of-contractor.aspx" />
     <Content Include="contractor_cell\vendor-detail.aspx" />
+    <Content Include="contractor_cell\vendor_chart.aspx" />
     <Content Include="contractor_cell\work-order-detail.aspx" />
     <Content Include="contractor_cell\work-order-details-all.aspx" />
     <Content Include="contractor_cell\work-order-entry.aspx" />
+    <Content Include="domicile_doc\SampleJPGImage_50kbmb.jpg" />
     <Content Include="dtm\css\pikaday.css" />
     <Content Include="dtm\css\site.css" />
     <Content Include="dtm\css\theme.css" />
@@ -90,8 +96,10 @@
     <Content Include="dtm\plugins\pikaday.jquery.js" />
     <Content Include="emp_pic\Image111.jpg" />
     <Content Include="esic_doc\SampleJPGImage_50kbmb.jpg" />
+    <Content Include="gatepass_section\employment_card.aspx" />
     <Content Include="gatepass_section\gp-dashboard.aspx" />
     <Content Include="gatepass_section\gp-print.aspx" />
+    <Content Include="gatepass_section\gp-print1.aspx" />
     <Content Include="gatepass_section\purposed-emp-detail.aspx" />
     <Content Include="gatepass_section\vendor-list.aspx" />
     <Content Include="images\Add_New.png" />
@@ -396,7 +404,20 @@
     <Content Include="medical_examination_doc\Medical Verification Certificate.pdf" />
     <Content Include="esic_doc\ESIC Registration.pdf" />
     <Content Include="esic_doc_for_download\ESIC Registration.pdf" />
+    <Content Include="gatepass_section\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="esic_doc_for_download\DECLARATION-FOR-ESIC.pdf" />
     <Content Include="attd_down_doc\Atted_Format.csv" />
+    <None Include="gatepass_section\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="gatepass_section\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="pf_doc_for_download\DECLARATION-FOR-EPF.pdf" />
     <None Include="Properties\PublishProfiles\DepClms2.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -2833,25 +2854,35 @@
     <Content Include="user_dept\purposed-emp-detail.aspx" />
     <Content Include="user_dept\vendor-list.aspx" />
     <Content Include="vendor-onboarding\AllowancesMaster.aspx" />
+    <Content Include="vendor-onboarding\annual_bonus.aspx" />
     <Content Include="vendor-onboarding\attendance-view.aspx" />
     <Content Include="vendor-onboarding\dashboard.aspx" />
     <Content Include="vendor-onboarding\department.aspx" />
     <Content Include="vendor-onboarding\emp_chart_report.aspx" />
     <Content Include="vendor-onboarding\emp_detail.aspx" />
+    <Content Include="vendor-onboarding\emp_offboarding.aspx" />
     <Content Include="vendor-onboarding\emp_onboarding.aspx" />
+    <Content Include="vendor-onboarding\form-V.aspx" />
     <Content Include="vendor-onboarding\form16.aspx" />
     <Content Include="vendor-onboarding\form17.aspx" />
     <Content Include="vendor-onboarding\generate-shift.aspx" />
     <Content Include="vendor-onboarding\holiday-master.aspx" />
     <Content Include="vendor-onboarding\leave-master.aspx" />
+    <Content Include="vendor-onboarding\leave_status.aspx" />
+    <Content Include="vendor-onboarding\license_certificate.aspx" />
     <Content Include="vendor-onboarding\manual-correction.aspx" />
     <Content Include="vendor-onboarding\manual-punching.aspx" />
+    <Content Include="vendor-onboarding\payroll_process.aspx" />
+    <Content Include="vendor-onboarding\register-of-fines.aspx" />
+    <Content Include="vendor-onboarding\register-of-OT.aspx" />
+    <Content Include="vendor-onboarding\register-of-workmen.aspx" />
     <Content Include="vendor-onboarding\shift-master.aspx" />
     <Content Include="vendor-onboarding\show-gen-shift.aspx" />
     <Content Include="vendor-onboarding\upload_attendance.aspx" />
     <Content Include="vendor-onboarding\user.aspx" />
     <Content Include="vendor-onboarding\vendor_detailNew.aspx" />
     <Content Include="vendor-onboarding\vendor_detail_entry.aspx" />
+    <Content Include="vendor-onboarding\wage-slip.aspx" />
     <Content Include="vendor-onboarding\wages_document.aspx" />
     <Content Include="vendor-onboarding\work-order-detail.aspx" />
     <Content Include="vendors_pic\index111.jpg" />
@@ -2961,6 +2992,14 @@
     <Compile Include="admin\user.aspx.designer.cs">
       <DependentUpon>user.aspx</DependentUpon>
     </Compile>
+    <Compile Include="clsMail.cs" />
+    <Compile Include="contractor_cell\annual-return.aspx.cs">
+      <DependentUpon>annual-return.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\annual-return.aspx.designer.cs">
+      <DependentUpon>annual-return.aspx</DependentUpon>
+    </Compile>
     <Compile Include="contractor_cell\attendance-approval.aspx.cs">
       <DependentUpon>attendance-approval.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -2974,6 +3013,13 @@
     </Compile>
     <Compile Include="contractor_cell\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\emp_chart_report.aspx.cs">
+      <DependentUpon>emp_chart_report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\emp_chart_report.aspx.designer.cs">
+      <DependentUpon>emp_chart_report.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\purposed-emp-detail-approval.aspx.cs">
       <DependentUpon>purposed-emp-detail-approval.aspx</DependentUpon>
@@ -2996,12 +3042,26 @@
     <Compile Include="contractor_cell\purposed-wages-doc-approval.aspx.designer.cs">
       <DependentUpon>purposed-wages-doc-approval.aspx</DependentUpon>
     </Compile>
+    <Compile Include="contractor_cell\register-of-contractor.aspx.cs">
+      <DependentUpon>register-of-contractor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\register-of-contractor.aspx.designer.cs">
+      <DependentUpon>register-of-contractor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="contractor_cell\vendor-detail.aspx.cs">
       <DependentUpon>vendor-detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="contractor_cell\vendor-detail.aspx.designer.cs">
       <DependentUpon>vendor-detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\vendor_chart.aspx.cs">
+      <DependentUpon>vendor_chart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\vendor_chart.aspx.designer.cs">
+      <DependentUpon>vendor_chart.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\work-order-detail.aspx.cs">
       <DependentUpon>work-order-detail.aspx</DependentUpon>
@@ -3031,6 +3091,22 @@
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="gatepass_section\DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="gatepass_section\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="gatepass_section\employment_card.aspx.cs">
+      <DependentUpon>employment_card.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gatepass_section\employment_card.aspx.designer.cs">
+      <DependentUpon>employment_card.aspx</DependentUpon>
+    </Compile>
     <Compile Include="gatepass_section\gp-dashboard.aspx.cs">
       <DependentUpon>gp-dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3044,6 +3120,13 @@
     </Compile>
     <Compile Include="gatepass_section\gp-print.aspx.designer.cs">
       <DependentUpon>gp-print.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="gatepass_section\gp-print1.aspx.cs">
+      <DependentUpon>gp-print1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="gatepass_section\gp-print1.aspx.designer.cs">
+      <DependentUpon>gp-print1.aspx</DependentUpon>
     </Compile>
     <Compile Include="gatepass_section\purposed-emp-detail.aspx.cs">
       <DependentUpon>purposed-emp-detail.aspx</DependentUpon>
@@ -3165,6 +3248,13 @@
     <Compile Include="vendor-onboarding\AllowancesMaster.aspx.designer.cs">
       <DependentUpon>AllowancesMaster.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vendor-onboarding\annual_bonus.aspx.cs">
+      <DependentUpon>annual_bonus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\annual_bonus.aspx.designer.cs">
+      <DependentUpon>annual_bonus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vendor-onboarding\attendance-view.aspx.cs">
       <DependentUpon>attendance-view.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3200,12 +3290,26 @@
     <Compile Include="vendor-onboarding\emp_detail.aspx.designer.cs">
       <DependentUpon>emp_detail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vendor-onboarding\emp_offboarding.aspx.cs">
+      <DependentUpon>emp_offboarding.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\emp_offboarding.aspx.designer.cs">
+      <DependentUpon>emp_offboarding.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vendor-onboarding\emp_onboarding.aspx.cs">
       <DependentUpon>emp_onboarding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="vendor-onboarding\emp_onboarding.aspx.designer.cs">
       <DependentUpon>emp_onboarding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\form-V.aspx.cs">
+      <DependentUpon>form-V.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\form-V.aspx.designer.cs">
+      <DependentUpon>form-V.aspx</DependentUpon>
     </Compile>
     <Compile Include="vendor-onboarding\form16.aspx.cs">
       <DependentUpon>form16.aspx</DependentUpon>
@@ -3242,6 +3346,20 @@
     <Compile Include="vendor-onboarding\leave-master.aspx.designer.cs">
       <DependentUpon>leave-master.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vendor-onboarding\leave_status.aspx.cs">
+      <DependentUpon>leave_status.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\leave_status.aspx.designer.cs">
+      <DependentUpon>leave_status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\license_certificate.aspx.cs">
+      <DependentUpon>license_certificate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\license_certificate.aspx.designer.cs">
+      <DependentUpon>license_certificate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vendor-onboarding\manual-correction.aspx.cs">
       <DependentUpon>manual-correction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3255,6 +3373,34 @@
     </Compile>
     <Compile Include="vendor-onboarding\manual-punching.aspx.designer.cs">
       <DependentUpon>manual-punching.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\payroll_process.aspx.cs">
+      <DependentUpon>payroll_process.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\payroll_process.aspx.designer.cs">
+      <DependentUpon>payroll_process.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\register-of-fines.aspx.cs">
+      <DependentUpon>register-of-fines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\register-of-fines.aspx.designer.cs">
+      <DependentUpon>register-of-fines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\register-of-OT.aspx.cs">
+      <DependentUpon>register-of-OT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\register-of-OT.aspx.designer.cs">
+      <DependentUpon>register-of-OT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\register-of-workmen.aspx.cs">
+      <DependentUpon>register-of-workmen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\register-of-workmen.aspx.designer.cs">
+      <DependentUpon>register-of-workmen.aspx</DependentUpon>
     </Compile>
     <Compile Include="vendor-onboarding\shift-master.aspx.cs">
       <DependentUpon>shift-master.aspx</DependentUpon>
@@ -3298,6 +3444,13 @@
     <Compile Include="vendor-onboarding\vendor_detail_entry.aspx.designer.cs">
       <DependentUpon>vendor_detail_entry.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vendor-onboarding\wage-slip.aspx.cs">
+      <DependentUpon>wage-slip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\wage-slip.aspx.designer.cs">
+      <DependentUpon>wage-slip.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vendor-onboarding\wages_document.aspx.cs">
       <DependentUpon>wages_document.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3316,6 +3469,9 @@
   <ItemGroup>
     <Folder Include="attd_upload_doc\" />
     <Folder Include="login\include\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gatepass_section\gp-print1-report.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

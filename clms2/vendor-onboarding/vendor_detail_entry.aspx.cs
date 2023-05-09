@@ -68,7 +68,9 @@ namespace clms2.vendor_onboarding
                         txtPhNo2.Text = r["contact_no2"].ToString();
                         txtAddress.Text = r["firm_address"].ToString();
                         txtCity.Text = r["firm_city"].ToString();
-                        txtState.Text = r["firm_state"].ToString();
+                        //string state_name = r["firm_state"].ToString();
+                        //ddlState.SelectedItem.Text = state_name;
+                        //txtState.Text = r["firm_state"].ToString();
                         txtPIN.Text = r["firm_pin"].ToString();
                         txtLicenseNo.Text = r["license_no"].ToString();
 
@@ -89,6 +91,10 @@ namespace clms2.vendor_onboarding
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblMSG.Text = "";
+            lblMSGError.Text = "";
+            lblPFfileSizeMsg.Text = "";
+
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
             if ((!IsPostBack))
                 work_order_no();
@@ -102,11 +108,19 @@ namespace clms2.vendor_onboarding
                 lblUser.Text = Session["User"].ToString();
                 if (!Page.IsPostBack)
                 {
-                    txtPFNO.Visible = false;
+                    state();
+                    pfRadio1.Checked = true;
+                    ESICRadio1.Checked = true;
+                    ////txtPFNO.Visible = false;
+                    ////txtESIC.Visible = false;
                     PFileUpload.Visible = false;
-                    txtESIC.Visible = false;
+                  
                     ESICFileUpload.Visible = false;
-
+                    lblPFfileSizeMsg.Visible = false;
+                    lblEsicfileSizeMsg.Visible = false;
+                 
+                    //LinkButton1.Visible = false;  // download pf declartion
+                    //LinkButton2.Visible = false;  //// download esic declartion
 
                     dbConnection();
                     // strSQL = "select * from tbl_vendor_info where vendor_reg_code = '" & Session("User") & "'"
@@ -158,8 +172,10 @@ namespace clms2.vendor_onboarding
             if (pfRadio1.Checked == true)
             {
                 txtPFNO.Visible = true;
-                //btnDownloadPF.Visible = false;
                 PFileUpload.Visible = false;
+                LinkButton1.Visible = false;
+                lblPFfileSizeMsg.Visible = false;
+                //btnDownloadPF.Visible = false;
                // HyperLinkPF.Visible = false;
               
             }
@@ -172,6 +188,8 @@ namespace clms2.vendor_onboarding
             {
                 txtPFNO.Visible = false;
                 PFileUpload.Visible = true;
+                LinkButton1.Visible = true;
+                lblPFfileSizeMsg.Visible = true;
                // HyperLinkPF.Visible = true;
                 //btnDownloadPF.Visible = true;
             }
@@ -184,6 +202,8 @@ namespace clms2.vendor_onboarding
             {
                 txtESIC.Visible = true;
                 ESICFileUpload.Visible = false;
+                LinkButton2.Visible = false;
+                lblEsicfileSizeMsg.Visible = false;
                 //HyperLinkESIC.Visible = false;
                 //btnDownloadEsic.Visible = false;
             }
@@ -196,6 +216,8 @@ namespace clms2.vendor_onboarding
             {
                 txtESIC.Visible = false;
                 ESICFileUpload.Visible = true;
+                LinkButton2.Visible = true;
+                lblEsicfileSizeMsg.Visible = true;
                // HyperLinkESIC.Visible = true;
                // btnDownloadEsic.Visible = false;
             }
@@ -209,6 +231,9 @@ namespace clms2.vendor_onboarding
 
         protected void cmdSave_Click(object sender, EventArgs e)
         {
+            lblMSG.Text = "";
+            lblMSGError.Text = "";
+            lblPFfileSizeMsg.Text = "";
             try
             {
                 dbConnection();
@@ -317,7 +342,9 @@ namespace clms2.vendor_onboarding
 
                 if (filename == "")
                 {
-                    imgName = "img";
+                    lblMSGError.Text = "Upload Vendor Photo";
+                    return;
+                   // imgName = "img";
                 }
                 else if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png" || fileExtension.ToLower() == ".bmp")
                 {
@@ -344,13 +371,20 @@ namespace clms2.vendor_onboarding
 
                 if (pfRadio1.Checked == true)
                 {
-                    PFileUpload1 = "img";
+                    if (txtPFNO.Text=="")
+                    {
+                        lblMSGError.Text = "Enter PF Number";
+                        return;
+                    }
+                   // PFileUpload1 = "img";
                 }
                 else if (pfRadio2.Checked == true)
                 {
                     if (PFileUpload1 == "")
                     {
-                        PFileUpload1 = "img";
+                        lblMSGError.Text = "Upload PF File";
+                        return;
+                        //PFileUpload1 = "img";
                     }
                     else
                     {
@@ -361,9 +395,9 @@ namespace clms2.vendor_onboarding
 
                         decimal size = Math.Round((System.Convert.ToDecimal(pfFileSize) / System.Convert.ToDecimal(1024)), 2);   // ' conveted to kb
 
-                        if ((size > 500))
+                        if ((size > 100))
                         {
-                            lblMSG.Text = "PF file is too big to upload , Max size is 500 KB";
+                            lblMSG.Text = "PF file is too big to upload , Max size is 100 KB";
                             return;
                         }
                         else
@@ -378,14 +412,21 @@ namespace clms2.vendor_onboarding
 
                 if ((ESICRadio1.Checked == true))
                 {
-                    ESICFileUpload1 = "img";
+                    if (txtESIC.Text == "")
+                    {
+                        lblMSGError.Text = "Enter ESIC Number";
+                        return;
+                    }
+                  //  ESICFileUpload1 = "img";
 
                 }
                 else if (ESICRadio2.Checked == true)
                 {
                         if (ESICFileUpload1 == "")
                         {
-                            ESICFileUpload1 = "img";
+                            lblMSGError.Text = "Upload ESCI File";
+                            return;
+                           // ESICFileUpload1 = "img";
                         }
                         else
                         {
@@ -412,7 +453,9 @@ namespace clms2.vendor_onboarding
 
                 if (POcopyUpload1 == "")
                 {
-                    POcopyUpload1 = "img";
+                    lblMSGError.Text = "Upload PO File";
+                    return;
+                   // POcopyUpload1 = "img";
                 }
                 else 
                 {
@@ -423,9 +466,9 @@ namespace clms2.vendor_onboarding
 
                     decimal size = Math.Round((System.Convert.ToDecimal(poFileSize) / System.Convert.ToDecimal(1024)), 2);   // ' conveted to kb
 
-                    if ((size > 500))
+                    if ((size > 100))
                     {
-                        lblMSG.Text = "PO is too big to upload , Max size is 500 KB";
+                        lblMSG.Text = "PO is too big to upload , Max size is 100 KB";
                         return;
                     }
                     else
@@ -434,8 +477,13 @@ namespace clms2.vendor_onboarding
                     }
                 }
                 /////========================================================================//////////
-                string fdt = Convert.ToDateTime(txtValidFrom.Text).ToString("dd-MM-yyyy");
-                string tdt = Convert.ToDateTime(txtValidTo.Text).ToString("dd-MM-yyyy");
+                //string fdt = Convert.ToDateTime(txtValidFrom.Text).ToString("dd-MM-yyyy");
+                //string tdt = Convert.ToDateTime(txtValidTo.Text).ToString("dd-MM-yyyy");
+                string fdt1 = txtValidFrom.Text;
+                DateTime fdt = DateTime.ParseExact(fdt1, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+
+                string tdt1 = txtValidTo.Text;
+                DateTime tdt = DateTime.ParseExact(tdt1, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 //----------------
                 ////string Str = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + txtState.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where vendor_reg_code='" + Session["User"] + "' ";
                 ////SqlCommand cmd = new SqlCommand("str",con); 
@@ -445,7 +493,7 @@ namespace clms2.vendor_onboarding
                 {
                     cmd.Connection = con;
                    
-                    cmd.CommandText = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + txtState.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";
+                    cmd.CommandText = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + ddlState.SelectedItem.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";
                     cmd.ExecuteNonQuery();
 
                     cmd.Parameters.Clear();
@@ -746,8 +794,8 @@ namespace clms2.vendor_onboarding
 
         protected void btnDownloandPF_Click(object sender, EventArgs e)
         {
-            var path = Server.MapPath("../attd_down_doc");
-            var filePath = Path.Combine(path, "Atted_Format.csv");
+            var path = Server.MapPath("../pf_doc_for_download");
+            var filePath = Path.Combine(path, "DECLARATION-FOR-EPF.pdf");
             FileInfo file = new FileInfo(filePath);
             if (file.Exists)
             {
@@ -770,8 +818,8 @@ namespace clms2.vendor_onboarding
 
         protected void btnDownloandEsic_Click(object sender, EventArgs e)
         {
-            var path = Server.MapPath("~/attd_down_doc");
-            var filePath = Path.Combine(path, "Atted_Format.csv");
+            var path = Server.MapPath("../esic_doc_for_download");
+            var filePath = Path.Combine(path, "DECLARATION-FOR-ESIC.pdf");
             FileInfo file = new FileInfo(filePath);
             if (file.Exists)
             {
@@ -790,6 +838,31 @@ namespace clms2.vendor_onboarding
                 Response.End();
             }
             Response.Write("Requested file is not available to download");
+        }
+
+        public void state()
+        {
+            // Call dbConnection()
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_state"))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Connection = con;
+                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    {
+                        DataSet ds = new DataSet();
+                        sda.Fill(ds);
+                        ddlState.DataSource = ds.Tables[0];
+                        ddlState.DataTextField = "state";
+                        ddlState.DataValueField = "state";
+                        ddlState.DataBind();
+                    }
+                }
+            }
+            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
+            ddlState.Items.Insert(0, new ListItem("Select", "Select"));
         }
       
 

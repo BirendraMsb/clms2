@@ -24,12 +24,34 @@ namespace clms2.vendor_onboarding
             {
                 //CreateEmptyTable();
                // this.BindGrid();
+                work_order_no();
                 Emp_Code();
                 year();
             }
 
         }
 
+        private void work_order_no()
+        {
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            ////string query = "SELECT * FROM tbl_emp";
+            string query = "SELECT distinct workorderno FROM tbl_emp  where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved' and vendor_code = '" + Session["User"] + "' ";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                {
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        ddlWorkOrderNo.DataSource = dt;
+                        ddlWorkOrderNo.DataTextField = "workorderno";
+                        ddlWorkOrderNo.DataValueField = "workorderno";
+                        ddlWorkOrderNo.DataBind();
+                    }
+                }
+            }
+            ddlWorkOrderNo.Items.Insert(0, new ListItem("Select", "Select"));
+        }
         protected void year()
         {
             int currYear = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
@@ -63,7 +85,7 @@ namespace clms2.vendor_onboarding
             if (month !="Select" && year !="Select")
             {
                 string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-                string query = "SELECT * FROM tbl_shfit_schedule where month= '" + month + "' and year='" + year + "' ";
+                string query = "SELECT * FROM tbl_shfit_schedule where  month= '" + month + "' and year='" + year + "' ";
                 using (SqlConnection con = new SqlConnection(constr))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
@@ -83,6 +105,7 @@ namespace clms2.vendor_onboarding
             }
           
         }
+            
 
         private void BindGrid(string empcode, string month, string year)
         {
@@ -103,25 +126,25 @@ namespace clms2.vendor_onboarding
         }
 
 
-        private void Emp_Name(string empcode)
+        private void Emp_Name()
         {
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "SELECT emp_name FROM tbl_emp where emp_code= " + empcode + "";
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
-                {
-                    using (DataTable dt = new DataTable())
-                    {
-                        sda.Fill(dt);
-                        if (dt.Rows.Count > 0)
-                        {
-                            txtEmpName.Text = dt.Rows[0][0].ToString();
-                        }
+            //string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            //string query = "SELECT emp_name FROM tbl_emp where emp_code= " + ddlEmpCode.SelectedItem.Text + "";
+            //using (SqlConnection con = new SqlConnection(constr))
+            //{
+            //    using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+            //    {
+            //        using (DataTable dt = new DataTable())
+            //        {
+            //            sda.Fill(dt);
+            //            if (dt.Rows.Count > 0)
+            //            {
+            //                txtEmpName.Text = dt.Rows[0][0].ToString();
+            //            }
 
-                    }
-                }
-            }
+            //        }
+            //    }
+            //}
         }
 
         private void Emp_Code()
@@ -160,7 +183,7 @@ namespace clms2.vendor_onboarding
             string empcode = ddlEmpCode.SelectedItem.Text;
             string month = ddlMonth.SelectedItem.Text;
             string year = ddlYear.SelectedItem.Text;
-            Emp_Name(empcode);  // sho emp_name
+           // Emp_Name();  // sho emp_name
             BindGrid(empcode, month, year);
         }
 

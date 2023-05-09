@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -53,8 +54,8 @@ namespace clms2.vendor_onboarding
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Session["User"].ToString() + "'";
-
+               // strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Session["User"].ToString() + "'";
+                strSQL = "SELECT * FROM tbl_emp";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -85,6 +86,20 @@ namespace clms2.vendor_onboarding
             //    (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
             //    //(Image)e.Row.FindControl("image1").ImageUrl = imageUrl;
             //}
+        }
+
+        protected void btnExportToExcel_Click(object sender, EventArgs e)
+        {
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ContentType = "Application/ms-excel";
+            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "AllRows"));
+            Response.Charset = "";
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            GvEmp.RenderControl(hw);
+            Response.Write(sw.ToString());
+            Response.End();
         }
     
 

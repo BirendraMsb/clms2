@@ -28,7 +28,7 @@ namespace clms2.vendor_onboarding
                 year1();
                 year2();
                 workorder();
-                per_of_bonus();
+               //// per_of_bonus();
             }
             //////txtYear.Text = DateTime.Now.ToString("yyyy");
         }
@@ -76,29 +76,29 @@ namespace clms2.vendor_onboarding
             ddlWorkdOrder.Items.Insert(0, new ListItem("Select", "Select"));
         }
 
-        private void per_of_bonus()
-        {
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+        //private void per_of_bonus()
+        //{
+        //    string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
 
-            string query = "SELECT * FROM tbl_bonus_percent ";
+        //    string query = "SELECT * FROM tbl_bonus_percent ";
           
 
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
-                {
-                    using (DataTable dt = new DataTable())
-                    {
-                        sda.Fill(dt);
-                        ddlBonusPercent.DataSource = dt;
-                        ddlBonusPercent.DataTextField = "per_of_bonus";
-                        ddlBonusPercent.DataValueField = "per_of_bonus";
-                        ddlBonusPercent.DataBind();
-                    }
-                }
-            }
-            //ddlBonusPercent.Items.Insert(0, new ListItem("Select", "Select"));
-        }
+        //    using (SqlConnection con = new SqlConnection(constr))
+        //    {
+        //        using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+        //        {
+        //            using (DataTable dt = new DataTable())
+        //            {
+        //                sda.Fill(dt);
+        //                //ddlBonusPercent.DataSource = dt;
+        //                //ddlBonusPercent.DataTextField = "per_of_bonus";
+        //                //ddlBonusPercent.DataValueField = "per_of_bonus";
+        //                //ddlBonusPercent.DataBind();
+        //            }
+        //        }
+        //    }
+        //    //ddlBonusPercent.Items.Insert(0, new ListItem("Select", "Select"));
+        //}
         private void CreateEmptyTable()
         {
             DataTable dt = new DataTable();

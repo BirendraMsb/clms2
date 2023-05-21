@@ -137,7 +137,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -145,24 +145,44 @@
                                                     <i class="fa fa-angle-right me-1"></i>Wages Document 
                                                 </a>
                                             </li>
-                                           
+
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                           <li>
                                                 <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Registor of Contractors 
+                                                    <i class="fa fa-angle-right me-1"></i>From XII
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Annual Return
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
-                                             <li>
+                                            
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
+                                                </a>
+                                            </li>
+                                          
+                                        </ul>
+                                    </li>
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
                                                 <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart Report
                                                 </a>
@@ -172,7 +192,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Chart
                                                 </a>
                                             </li>
-                                        
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -249,13 +269,23 @@
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtWONo" ErrorMessage="* Pls Enter Work Order No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group mb-3">
                                                 <label>Vendor Code</label><label class="text-danger">*</label>
                                                 <asp:TextBox ID="txtVendorRegNo" runat="server" class="form-control" MaxLength="20"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtVendorRegNo" ErrorMessage="* Pls Enter Vendor Reg. No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
+                                         <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Act Covered</label><label class="text-danger">*</label>
+                                                    <asp:DropDownList ID="ddlActCovered" runat="server" class="form-control" >
+                                                        <asp:ListItem Value="1">Shops And Establishment</asp:ListItem>
+                                                        <asp:ListItem Value="2">Factory</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="ddlActCovered" ErrorMessage="* Pls Select the Act" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                </div>
+                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
@@ -291,84 +321,84 @@
                                             </div>
                                         </div>
                                     </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-3">
-                                            <label>Type Of Contract</label><label class="text-danger">*</label>
-                                            <asp:DropDownList ID="txtTypeofContract" class="form-control" runat="server"></asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtTypeofContract" ErrorMessage="* Pls Select type of contract" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Type Of Contract</label><label class="text-danger">*</label>
+                                                <asp:DropDownList ID="txtTypeofContract" class="form-control" runat="server"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtTypeofContract" ErrorMessage="* Pls Select type of contract" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>No. of Emp</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtNoEmp" runat="server" class="form-control" MaxLength="4"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtNoEmp" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtNoEmp" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-3">
-                                            <label>No. of Emp</label><label class="text-danger">*</label>
-                                            <asp:TextBox ID="txtNoEmp" runat="server" class="form-control" MaxLength="4"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtNoEmp" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtNoEmp" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Department</label><label class="text-danger">*</label>
+                                                <asp:DropDownList ID="txtDepartment" class="form-control" runat="server"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtDepartment" ErrorMessage="* Pls Select Department" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Job Location</label><label class="text-danger">*</label>
+                                                <asp:DropDownList ID="txtJobLocation" class="form-control" runat="server"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtJobLocation" ErrorMessage="* Pls Select Job Location" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-3">
-                                            <label>Department</label><label class="text-danger">*</label>
-                                            <asp:DropDownList ID="txtDepartment" class="form-control" runat="server"></asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtDepartment" ErrorMessage="* Pls Select Department" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Vendor Name</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtVendorName" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtVendorName" ErrorMessage="* Pls Enter Vendeor Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Owner Name</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtOwnerName" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtOwnerName" ErrorMessage="* Pls Enter Owner Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-3">
-                                            <label>Job Location</label><label class="text-danger">*</label>
-                                            <asp:DropDownList ID="txtJobLocation" class="form-control" runat="server"></asp:DropDownList>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtJobLocation" ErrorMessage="* Pls Select Job Location" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>E-Mail</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtEmail" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtEMail" ErrorMessage="* Pls Enter Email" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Enter Valid Mail" ControlToValidate="txtEMail" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Contact No.</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtPhNo" runat="server" class="form-control" MaxLength="13"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtPhNo" ErrorMessage="* Pls Enter contact No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter Valid Mob No." ControlToValidate="txtPhNo" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\+?\d[\d -]{8,12}\d"></asp:RegularExpressionValidator>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-3">
-                                            <label>Vendor Name</label><label class="text-danger">*</label>
-                                            <asp:TextBox ID="txtVendorName" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtVendorName" ErrorMessage="* Pls Enter Vendeor Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-3">
-                                            <label>Owner Name</label><label class="text-danger">*</label>
-                                            <asp:TextBox ID="txtOwnerName" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtOwnerName" ErrorMessage="* Pls Enter Owner Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-3">
-                                            <label>E-Mail</label><label class="text-danger">*</label>
-                                            <asp:TextBox ID="txtEmail" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtEMail" ErrorMessage="* Pls Enter Email" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Enter Valid Mail" ControlToValidate="txtEMail" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group mb-3">
-                                            <label>Contact No.</label><label class="text-danger">*</label>
-                                            <asp:TextBox ID="txtPhNo" runat="server" class="form-control" MaxLength="13"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtPhNo" ErrorMessage="* Pls Enter contact No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Enter Valid Mob No." ControlToValidate="txtPhNo" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\+?\d[\d -]{8,12}\d"></asp:RegularExpressionValidator>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group mb-3">
-                                            <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
-                                            <asp:Button ID="BtnMail" runat="server" Text="Mail" Width="100px" class="btn btn-info" OnClick="BtnMail_Click"></asp:Button>
-                                            <asp:Button ID="cmdCancel" runat="server" Text="Cancel/Clear" class="btn btn-info" OnClick="cmdCancel_Click"></asp:Button>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-3">
+                                                <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
+                                                <asp:Button ID="BtnMail" runat="server" Text="Mail" Width="100px" class="btn btn-info" OnClick="BtnMail_Click"></asp:Button>
+                                                <asp:Button ID="cmdCancel" runat="server" Text="Cancel/Clear" class="btn btn-info" OnClick="cmdCancel_Click"></asp:Button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <hr class="my-5" />
+                                    <hr class="my-5" />
 
 
                                 </div>

@@ -35,42 +35,37 @@
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <style>
-        .nav-link
-        {
+        .nav-link {
             padding: 0.32rem 0.75rem;
         }
-        
-        .bg-dark
-        {
+
+        .bg-dark {
             background-color: #292e40 !important;
         }
-        
-        .icon-svg, .icon-svg.icon-svg-lg
-        {
+
+        .icon-svg, .icon-svg.icon-svg-lg {
             width: 3rem;
             height: 3rem;
         }
-        
-        img, svg
-        {
+
+        img, svg {
             vertical-align: middle;
         }
-        
-        svg:not(:root)
-        {
-            overflow: hidden;
-        }
+
+            svg:not(:root) {
+                overflow: hidden;
+            }
     </style>
 </head>
 <body>
-     <form id="form1" runat="server">
-    <%--<div class="loading">
+    <form id="form1" runat="server">
+        <%--<div class="loading">
             <div class="loader"></div>
         </div>--%>
-    <table class="table">
-        <tr>
-            <td>
-                <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+        <table class="table">
+            <tr>
+                <td>
+                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -193,12 +188,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -228,41 +223,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -346,296 +363,293 @@
                             </div>
                         </div>
                     </nav>
-            </td>
-        </tr>
-    </table>
-    <!--======================================================================================= -->
-    <div class="container">
-        <div class="text-center">
-            <h6 class="mb-0">
-                FORM XIII</h6>
-            <h6 class="my-0">
-                (See rule 75)</h6>
-            <h5 class="my-0">
-               Register of workmen employed by Contractor</h5>
+                </td>
+            </tr>
+        </table>
+        <!--======================================================================================= -->
+        <div class="container">
+            <div class="text-center">
+                <h6 class="mb-0">FORM XIII</h6>
+                <h6 class="my-0">(See rule 75)</h6>
+                <h5 class="my-0">Register of workmen employed by Contractor</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Contractor Name</label>
+                        <asp:TextBox ID="txtContractorName" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtContractorName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Contractor Address</label>
+                        <asp:TextBox ID="txtContractorAdd" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtContractorAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Nature of Work</label>
+                        <asp:TextBox ID="txtWorkNature" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtWorkNature" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Location of Work</label>
+                        <asp:TextBox ID="txtWorkLocation" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtWorkLocation" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Name of establishment in/under which contract is carried on</label>
+                        <asp:TextBox ID="txtEstbName" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtEstbName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Address of establishment in/under which contract is carried on</label>
+                        <asp:TextBox ID="txtEstbAdd" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtEstbAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Principal Employer Name</label>
+                        <asp:TextBox ID="txtprincEmpName" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtprincEmpName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Principal Employer Address</label>
+                        <asp:TextBox ID="txtprincEmpAdd" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtprincEmpAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+
+
+            </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Contractor Name</label>
-                    <asp:TextBox ID="txtContractorName" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtContractorName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Contractor Address</label>
-                    <asp:TextBox ID="txtContractorAdd" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtContractorAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-          
-
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Nature of Work</label>
-                    <asp:TextBox ID="txtWorkNature" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtWorkNature" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Location of Work</label>
-                    <asp:TextBox ID="txtWorkLocation" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtWorkLocation" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                       Name of establishment in/under which contract is carried on</label>
-                    <asp:TextBox ID="txtEstbName" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtEstbName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Address of establishment in/under which contract is carried on</label>
-                    <asp:TextBox ID="txtEstbAdd" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtEstbAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Principal Employer Name</label>
-                    <asp:TextBox ID="txtprincEmpName" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtprincEmpName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Principal Employer Address</label>
-                    <asp:TextBox ID="txtprincEmpAdd" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtprincEmpAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-           
-           
-
-        </div>
-    </div>
-    <!-- ===================================================================================== -->
-    <div class="container-fluid mx-0 px-0">
-        <div class="row">
-            <div class="page-wrapper">
-                <div class="">
-                    <div class="container-fluid">
-                        <div class="card-body">
-                            <div class="table-responsive" style="overflow: auto;">
-                                <%--========================================================================================--%>
-                                <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White"
-                                    BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical"
-                                    AllowPaging="True" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit"
-                                    OnPageIndexChanging="OnPaging" OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
-                                    Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <Columns>
-                                        <asp:TemplateField HeaderText="1. Sl. No">
-                                            <ItemTemplate>
-                                                <%# Container.DataItemIndex + 1 %>
-                                            </ItemTemplate>
-                                            <ItemStyle Width="30px" HorizontalAlign="Center" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="2. Name and surname of workman " ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblWorkManName" runat="server" Text='<%# Eval("vendor_code")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <%--  <EditItemTemplate>
+        <!-- ===================================================================================== -->
+        <div class="container-fluid mx-0 px-0">
+            <div class="row">
+                <div class="page-wrapper">
+                    <div class="">
+                        <div class="container-fluid">
+                            <div class="card-body">
+                                <div class="table-responsive" style="overflow: auto;">
+                                    <%--========================================================================================--%>
+                                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White"
+                                        BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical"
+                                        AllowPaging="True" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit"
+                                        OnPageIndexChanging="OnPaging" OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
+                                        Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
+                                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="1. Sl. No">
+                                                <ItemTemplate>
+                                                    <%# Container.DataItemIndex + 1 %>
+                                                </ItemTemplate>
+                                                <ItemStyle Width="30px" HorizontalAlign="Center" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="2. Name and surname of workman " ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblWorkManName" runat="server" Text='<%# Eval("vendor_code")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txtVendorCode" runat="server" Text='<%# Eval("vendor_code")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>--%>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
 
-                                          <asp:TemplateField HeaderText="3. Age and sex" ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblAgeSex" runat="server" Text='<%# Eval("vendor_code")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <%--  <EditItemTemplate>
+                                            <asp:TemplateField HeaderText="3. Age and sex" ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblAgeSex" runat="server" Text='<%# Eval("vendor_code")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txtVendorCode" runat="server" Text='<%# Eval("vendor_code")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>--%>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="4. Father's/Husband's name " ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblFaHusName" runat="server" Text='<%# Eval("workorderno")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <%--  <EditItemTemplate>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="4. Father's/Husband's name " ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblFaHusName" runat="server" Text='<%# Eval("workorderno")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txtWorkorderno" runat="server" Text='<%# Eval("workorderno")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>--%>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
-                                      
-                                        <asp:TemplateField HeaderText="5. Nature of employment/designation" ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblNatureOfEmp" runat="server" Text='<%# Eval("emp_name")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <%-- <EditItemTemplate>
-                                                            <asp:TextBox ID="txtEmpName" runat="server" Text='<%# Eval("emp_name")%>' Width="140"></asp:TextBox>
-                                                        </EditItemTemplate>--%>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="6. Permanent homeaddress of workman (village and Tehsil/Talukaand District)" ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblPermAddr" runat="server" Text='<%# Eval("emp_name")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <%-- <EditItemTemplate>
-                                                            <asp:TextBox ID="txtEmpName" runat="server" Text='<%# Eval("emp_name")%>' Width="140"></asp:TextBox>
-                                                        </EditItemTemplate>--%>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="7. Local address" ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblLocalAddr" runat="server" Text='<%# Eval("skill_category")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <%--  <EditItemTemplate>
+                                            <asp:TemplateField HeaderText="5. Nature of employment/designation" ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblNatureOfEmp" runat="server" Text='<%# Eval("emp_name")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <%-- <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEmpName" runat="server" Text='<%# Eval("emp_name")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="6. Permanent homeaddress of workman (village and Tehsil/Talukaand District)" ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblPermAddr" runat="server" Text='<%# Eval("emp_name")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <%-- <EditItemTemplate>
+                                                            <asp:TextBox ID="txtEmpName" runat="server" Text='<%# Eval("emp_name")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="7. Local address" ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblLocalAddr" runat="server" Text='<%# Eval("skill_category")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txtSkillCategory" runat="server" Text='<%# Eval("skill_category")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>--%>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="8. Date ofcommencement ofemployment" ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblDtStartEmp" runat="server" Text='<%# Eval("basic")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="9. Signature Or thumb Impressionof workman" ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblSigThumb" runat="server" Text='<%# Eval("allowance")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
-                                        <asp:TemplateField HeaderText="10. Date of termination of employment" ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblDtTermination" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="8. Date ofcommencement ofemployment" ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblDtStartEmp" runat="server" Text='<%# Eval("basic")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="9. Signature Or thumb Impressionof workman" ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblSigThumb" runat="server" Text='<%# Eval("allowance")%>'></asp:Label>
+                                                </ItemTemplate>
 
-                                        <asp:TemplateField HeaderText="11. Reasons for termination" ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblReasonTermn" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="10. Date of termination of employment" ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblDtTermination" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
 
-                                         <asp:TemplateField HeaderText="12. Remarks" ItemStyle-Width="150">
-                                            <ItemTemplate>
-                                                <asp:Label ID="lblRemarks" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
-                                            </ItemTemplate>
-                                            <ItemStyle Width="150px" />
-                                        </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="11. Reasons for termination" ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblReasonTermn" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
+
+                                            <asp:TemplateField HeaderText="12. Remarks" ItemStyle-Width="150">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblRemarks" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
 
 
-                                        <asp:CommandField ButtonType="Link" HeaderText="Action" ShowEditButton="true" ItemStyle-Width="150">
-                                            <ItemStyle Width="150px" />
-                                        </asp:CommandField>
-                                    </Columns>
-                                    <AlternatingRowStyle BackColor="#FFFFFF" />
-                                    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                    <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True"
-                                        ForeColor="White" />
-                                    <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
-                                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#000065" />
-                                </asp:GridView>
-                                <%--========================================================================================--%>
+                                            <asp:CommandField ButtonType="Link" HeaderText="Action" ShowEditButton="true" ItemStyle-Width="150">
+                                                <ItemStyle Width="150px" />
+                                            </asp:CommandField>
+                                        </Columns>
+                                        <AlternatingRowStyle BackColor="#FFFFFF" />
+                                        <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                        <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True"
+                                            ForeColor="White" />
+                                        <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                        <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
+                                        <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
+                                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                        <SortedAscendingHeaderStyle BackColor="#0000A9" />
+                                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                        <SortedDescendingHeaderStyle BackColor="#000065" />
+                                    </asp:GridView>
+                                    <%--========================================================================================--%>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid mx-0 px-0">
-        <div class="row">
-            <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
-                        <div class="container-fluid">
-                            <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
+        <div class="container-fluid mx-0 px-0">
+            <div class="row">
+                <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
+                    <div class="container-fluid">
+                        <div class="text-center small">
+                            <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
 
-                            </div>
                         </div>
-                    </footer>
-            </td>
+                    </div>
+                </footer>
+                </td>
+            </div>
         </div>
-    </div>
-    <%--<div class="alert alert-success animated fadeInUp">
+        <%--<div class="alert alert-success animated fadeInUp">
             Logged out Successfully
         </div>--%>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
-    <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
-        defer></script>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <script type="text/jscript" defer>
-        $(window).on("load", function () {
-            $('.loading').fadeOut(1000);
-            tool_tip();
-            $('a[href="#"]').on("click", function (e) {
-                e.preventDefault ? e.preventDefault() :
-                e.returnValue = false
-            });
-            $(".alert").fadeTo(5000, 500).slideUp(500, function () {
-                $(".alert").slideUp(500);
-            });
-            function tool_tip() {
-                $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
-            }
-            function fademeout() {
-                $(".loading").fadeOut(1000);
-            }
-            $(document).ajaxSend(function () {
-                fademeout();
-            });
-            $(document).ajaxComplete(function () {
+        <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
+        <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
+            defer></script>
+        <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+        <script type="text/jscript" defer>
+            $(window).on("load", function () {
+                $('.loading').fadeOut(1000);
                 tool_tip();
+                $('a[href="#"]').on("click", function (e) {
+                    e.preventDefault ? e.preventDefault() :
+                    e.returnValue = false
+                });
+                $(".alert").fadeTo(5000, 500).slideUp(500, function () {
+                    $(".alert").slideUp(500);
+                });
+                function tool_tip() {
+                    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+                }
+                function fademeout() {
+                    $(".loading").fadeOut(1000);
+                }
+                $(document).ajaxSend(function () {
+                    fademeout();
+                });
+                $(document).ajaxComplete(function () {
+                    tool_tip();
+                });
             });
-        });
-    </script>
+        </script>
     </form>
 </body>
 </html>

@@ -35,53 +35,46 @@
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <style>
-        .nav-link
-        {
+        .nav-link {
             padding: 0.32rem 0.75rem;
         }
-        
-        .bg-dark
-        {
+
+        .bg-dark {
             background-color: #292e40 !important;
         }
-        
-        .icon-svg, .icon-svg.icon-svg-lg
-        {
+
+        .icon-svg, .icon-svg.icon-svg-lg {
             width: 3rem;
             height: 3rem;
         }
-        
-        img, svg
-        {
+
+        img, svg {
             vertical-align: middle;
         }
-        
-        svg:not(:root)
-        {
-            overflow: hidden;
-        }
-        
-        
-        .boxDec
-        {
+
+            svg:not(:root) {
+                overflow: hidden;
+            }
+
+
+        .boxDec {
             border: 1px solid #000;
         }
-        
-        td:nth-child(2)
-        {
+
+        td:nth-child(2) {
             width: 5rem;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <%--<div class="loading">
+        <%--<div class="loading">
             <div class="loader"></div>
         </div>--%>
-    <table class="table">
-        <tr>
-            <td>
-                <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+        <table class="table">
+            <tr>
+                <td>
+                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -204,12 +197,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -239,41 +232,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -357,477 +372,484 @@
                             </div>
                         </div>
                     </nav>
-            </td>
-        </tr>
-    </table>
-    <!--======================================================================================= -->
-    <div class="container">
-        <div class="text-center">
-            <h6 class="mb-0">
-                FORM XXIV</h6>
-            <h6 class="my-0">
-                [See rule 82 (1)]</h6>
-            <h5 class="my-0">
-                Return to be sent by the Contractor to the Licensing Officer</h5>
-        </div>
-        <div style="float:right">Half-year ending </div>
-        <div class="row">
-        <p><b> 1. </b></p>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Contractor Name</label>
-                    <asp:TextBox ID="txtContractorName" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtContractorName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
+                </td>
+            </tr>
+        </table>
+        <!--======================================================================================= -->
+        <div class="container">
+            <div class="text-center">
+                <h6 class="mb-0">FORM XXIV</h6>
+                <h6 class="my-0">[See rule 82 (1)]</h6>
+                <h5 class="my-0">Return to be sent by the Contractor to the Licensing Officer</h5>
             </div>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Contractor Address</label>
-                    <asp:TextBox ID="txtContractorAdd" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtContractorAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+            <div style="float: right">Half-year ending </div>
+            <div class="row">
+                <p><b>1. </b></p>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Contractor Name</label>
+                        <asp:TextBox ID="txtContractorName" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtContractorName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
                 </div>
-            </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Contractor Address</label>
+                        <asp:TextBox ID="txtContractorAdd" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtContractorAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
 
-            <p><b> 2. </b></p>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Name of establishment
-                    </label>
-                    <asp:TextBox ID="txtestbName" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtestbName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Address of establishment
-                    </label>
-                    <asp:TextBox ID="txtestbAddr" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtestbAddr" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-      
-            <p><b> 3. </b></p>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Principal Employer Name</label>
-                    <asp:TextBox ID="txtprincEmpName" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtprincEmpName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        Principal Employer Address</label>
-                    <asp:TextBox ID="txtprincEmpAdd" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtprincEmpAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <p><b>4. Duration of contract :</b></p>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        From</label>
-                    <asp:TextBox ID="txtDurationFrom" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtDurationFrom" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                        TO </label>
-                    <asp:TextBox ID="txtDurationTo" runat="server" class="form-control m-b-0 m-t-0"
-                        placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtDurationTo" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <p><b>5. Number of days during the half-year on which</b></p>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                      (a) The establishment of the principal employer had worked 
-                    </label>
-                    <asp:TextBox ID="txtNumDaysEstWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNumDaysEstWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                       (b) The contractor's establishment had worked
-                    </label>
-                    <asp:TextBox ID="txtNumDaysContrWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNumDaysContrWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <p><b>6. Maximum number of contract labour employed on any day during the half year</b></p>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                        Men</label>
-                    <asp:TextBox ID="txtNoDaysMenEmployed" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNoDaysMenEmployed" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Women</label>
-                    <asp:TextBox ID="txtNoDaysWomenEmployed" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNoDaysWomenEmployed" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Children</label>
-                    <asp:TextBox ID="txtNoDaysChildEmployed" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNoDaysChildEmployed" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Total</label>
-                    <asp:TextBox ID="txtNoDayTotal" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNoDayTotal" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-
-           <p><b> 7.</b></p>
-             <div class="col-md-4">
-                <div class="form-group mb-3">
-                    <label>
-                       (I) Daily hours of work and spread-over </label>
-                    <asp:TextBox ID="txtDailyWorkDay" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtDailyWorkDay" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-5">
-                <div class="form-group mb-3">
-                    <label style="font-size:14px">
-                      (II) (a) Whether weekly holidays observed and on what day </label>
-                    <asp:TextBox ID="txtWeeklyHoliday" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtWeeklyHoliday" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       (b) If so, whether it was paid for </label>
-                    <asp:TextBox ID="txtHolydayType" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtHolydayType" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="form-group mb-3">
-                    <label>
-                       (III) Number of man-hours of overtime worked </label>
-                    <asp:TextBox ID="txtNoManHrs" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNoManHrs" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-
-            <p><b>8. Number of man days worked by:</b></p>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                        Men</label>
-                    <asp:TextBox ID="txtNoDaysMenWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNoDaysMenWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Women</label>
-                    <asp:TextBox ID="txtNoDaysWomenWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNoDaysWomenWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Children</label>
-                    <asp:TextBox ID="txtNoDaysChildWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNoDaysChildWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Total</label>
-                    <asp:TextBox ID="txtNoWorkDayTotal" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtNoWorkDayTotal" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-
-            <p><b>9. Amount of wages paid:</b></p>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                        Men</label>
-                    <asp:TextBox ID="txtWagesPaidMan" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtWagesPaidMan" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Women</label>
-                    <asp:TextBox ID="txtWagesPaidWomen" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtWagesPaidWomen" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Children</label>
-                    <asp:TextBox ID="txtWagesPaidChildren" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtWagesPaidChildren" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Total</label>
-                    <asp:TextBox ID="txtWagesPaidTotal" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator26" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtWagesPaidTotal" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-
-             <p><b>10. Amount of deduction from wages, if any</b></p>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                        Men</label>
-                    <asp:TextBox ID="txtAmtDedWagesMan" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator27" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtAmtDedWagesMan" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Women</label>
-                    <asp:TextBox ID="txtAmtWagesDedWomen" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator28" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtAmtWagesDedWomen" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Children</label>
-                    <asp:TextBox ID="txtAmtWagesDedChildren" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtAmtWagesDedChildren" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="form-group mb-3">
-                    <label>
-                       Total</label>
-                    <asp:TextBox ID="txtAmtWagesDedTotal" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtAmtWagesDedTotal" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-             <p><b>11. Whether the following have been provided </b></p>
-            <div class="col-md-2">
-                <div class="form-group mb-3">
-                    <label>
-                        (I) Canteen </label>
-                    <asp:TextBox ID="txtCanteen" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtCanteen" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group mb-3">
-                    <label>
-                      (II) Rest-rooms </label>
-                    <asp:TextBox ID="txtRestRoom" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator32" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtRestRoom" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group mb-3">
-                    <label>
-                       (III) Drinking water </label>
-                    <asp:TextBox ID="txtDrinkingWater" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator33" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtDrinkingWater" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group mb-3">
-                    <label>
-                       (IV) Crèche </label>
-                    <asp:TextBox ID="txtCreche" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator34" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtCreche" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <div class="form-group mb-3">
-                    <label>
-                       (v) First-aid  </label>
-                    <asp:TextBox ID="txtFirstAid" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator35" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtFirstAid" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
-            </div>
-
-            <p><b>(if the answer is 'yes' state briefly standards provided)</b></p>
-
-             <div class="col-md-6">
-             <div class="col-md-12">
-              <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                       Place</label>
-                    <asp:TextBox ID="txtPlace" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator36" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtPlace" ValidationGroup="Reg"></asp:RequiredFieldValidator>
-                </div>
+                <p><b>2. </b></p>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Name of establishment
+                        </label>
+                        <asp:TextBox ID="txtestbName" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtestbName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
                 </div>
 
                 <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>
-                       Date</label>
-                    <asp:TextBox ID="txtDate" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator37" runat="server" SetFocusOnError="true"
-                        ControlToValidate="txtDate" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    <div class="form-group mb-3">
+                        <label>
+                            Address of establishment
+                        </label>
+                        <asp:TextBox ID="txtestbAddr" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtestbAddr" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
                 </div>
+
+                <p><b>3. </b></p>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Principal Employer Name</label>
+                        <asp:TextBox ID="txtprincEmpName" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtprincEmpName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            Principal Employer Address</label>
+                        <asp:TextBox ID="txtprincEmpAdd" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtprincEmpAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                <p><b>4. Duration of contract :</b></p>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            From</label>
+                        <asp:TextBox ID="txtDurationFrom" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtDurationFrom" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            TO
+                        </label>
+                        <asp:TextBox ID="txtDurationTo" runat="server" class="form-control m-b-0 m-t-0"
+                            placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtDurationTo" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                <p><b>5. Number of days during the half-year on which</b></p>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            (a) The establishment of the principal employer had worked 
+                        </label>
+                        <asp:TextBox ID="txtNumDaysEstWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNumDaysEstWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label>
+                            (b) The contractor's establishment had worked
+                        </label>
+                        <asp:TextBox ID="txtNumDaysContrWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNumDaysContrWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                <p><b>6. Maximum number of contract labour employed on any day during the half year</b></p>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Men</label>
+                        <asp:TextBox ID="txtNoDaysMenEmployed" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNoDaysMenEmployed" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Women</label>
+                        <asp:TextBox ID="txtNoDaysWomenEmployed" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNoDaysWomenEmployed" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Children</label>
+                        <asp:TextBox ID="txtNoDaysChildEmployed" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNoDaysChildEmployed" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Total</label>
+                        <asp:TextBox ID="txtNoDayTotal" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNoDayTotal" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+
+                <p><b>7.</b></p>
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label>
+                            (I) Daily hours of work and spread-over
+                        </label>
+                        <asp:TextBox ID="txtDailyWorkDay" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtDailyWorkDay" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group mb-3">
+                        <label style="font-size: 14px">
+                            (II) (a) Whether weekly holidays observed and on what day
+                        </label>
+                        <asp:TextBox ID="txtWeeklyHoliday" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtWeeklyHoliday" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            (b) If so, whether it was paid for
+                        </label>
+                        <asp:TextBox ID="txtHolydayType" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtHolydayType" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label>
+                            (III) Number of man-hours of overtime worked
+                        </label>
+                        <asp:TextBox ID="txtNoManHrs" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNoManHrs" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+
+                <p><b>8. Number of man days worked by:</b></p>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Men</label>
+                        <asp:TextBox ID="txtNoDaysMenWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNoDaysMenWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Women</label>
+                        <asp:TextBox ID="txtNoDaysWomenWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNoDaysWomenWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Children</label>
+                        <asp:TextBox ID="txtNoDaysChildWorked" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNoDaysChildWorked" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Total</label>
+                        <asp:TextBox ID="txtNoWorkDayTotal" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtNoWorkDayTotal" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+
+                <p><b>9. Amount of wages paid:</b></p>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Men</label>
+                        <asp:TextBox ID="txtWagesPaidMan" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator23" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtWagesPaidMan" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Women</label>
+                        <asp:TextBox ID="txtWagesPaidWomen" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator24" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtWagesPaidWomen" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Children</label>
+                        <asp:TextBox ID="txtWagesPaidChildren" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator25" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtWagesPaidChildren" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Total</label>
+                        <asp:TextBox ID="txtWagesPaidTotal" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator26" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtWagesPaidTotal" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+
+                <p><b>10. Amount of deduction from wages, if any</b></p>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Men</label>
+                        <asp:TextBox ID="txtAmtDedWagesMan" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator27" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtAmtDedWagesMan" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Women</label>
+                        <asp:TextBox ID="txtAmtWagesDedWomen" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator28" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtAmtWagesDedWomen" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Children</label>
+                        <asp:TextBox ID="txtAmtWagesDedChildren" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator29" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtAmtWagesDedChildren" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group mb-3">
+                        <label>
+                            Total</label>
+                        <asp:TextBox ID="txtAmtWagesDedTotal" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator30" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtAmtWagesDedTotal" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                <p><b>11. Whether the following have been provided </b></p>
+                <div class="col-md-2">
+                    <div class="form-group mb-3">
+                        <label>
+                            (I) Canteen
+                        </label>
+                        <asp:TextBox ID="txtCanteen" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator31" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtCanteen" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group mb-3">
+                        <label>
+                            (II) Rest-rooms
+                        </label>
+                        <asp:TextBox ID="txtRestRoom" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator32" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtRestRoom" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group mb-3">
+                        <label>
+                            (III) Drinking water
+                        </label>
+                        <asp:TextBox ID="txtDrinkingWater" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator33" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtDrinkingWater" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group mb-3">
+                        <label>
+                            (IV) Crèche
+                        </label>
+                        <asp:TextBox ID="txtCreche" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator34" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtCreche" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="form-group mb-3">
+                        <label>
+                            (v) First-aid 
+                        </label>
+                        <asp:TextBox ID="txtFirstAid" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator35" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtFirstAid" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                    </div>
+                </div>
+
+                <p><b>(if the answer is 'yes' state briefly standards provided)</b></p>
+
+                <div class="col-md-6">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label>
+                                    Place</label>
+                                <asp:TextBox ID="txtPlace" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator36" runat="server" SetFocusOnError="true"
+                                    ControlToValidate="txtPlace" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label>
+                                    Date</label>
+                                <asp:TextBox ID="txtDate" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator37" runat="server" SetFocusOnError="true"
+                                    ControlToValidate="txtDate" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6"></div>
+
+
+
+
             </div>
-            </div>
-            <div class="col-md-6"></div>
-
-
-
-
         </div>
-    </div>
-    <!-- ===================================================================================== -->
-    <div class="container-fluid mx-0 px-0">
-        <div class="row">
-            <div class="page-wrapper">
-                <div class="">
-                    <div class="container-fluid">
-                        <div class="card-body">
-                            <div class="table-responsive" style="overflow: auto;">
-                                <%--========================================================================================--%>
-                                <%--  <p>gridview</p>--%>
-                                <%--========================================================================================--%>
+        <!-- ===================================================================================== -->
+        <div class="container-fluid mx-0 px-0">
+            <div class="row">
+                <div class="page-wrapper">
+                    <div class="">
+                        <div class="container-fluid">
+                            <div class="card-body">
+                                <div class="table-responsive" style="overflow: auto;">
+                                    <%--========================================================================================--%>
+                                    <%--  <p>gridview</p>--%>
+                                    <%--========================================================================================--%>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid mx-0 px-0">
-        <div class="row">
-            <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
-                        <div class="container-fluid">
-                            <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
+        <div class="container-fluid mx-0 px-0">
+            <div class="row">
+                <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
+                    <div class="container-fluid">
+                        <div class="text-center small">
+                            <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
 
-                            </div>
                         </div>
-                    </footer>
-            </td>
+                    </div>
+                </footer>
+                </td>
+            </div>
         </div>
-    </div>
-    <%--<div class="alert alert-success animated fadeInUp">
+        <%--<div class="alert alert-success animated fadeInUp">
             Logged out Successfully
         </div>--%>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
-    <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
-        defer></script>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <script type="text/jscript" defer>
-        $(window).on("load", function () {
-            $('.loading').fadeOut(1000);
-            tool_tip();
-            $('a[href="#"]').on("click", function (e) {
-                e.preventDefault ? e.preventDefault() :
-                e.returnValue = false
-            });
-            $(".alert").fadeTo(5000, 500).slideUp(500, function () {
-                $(".alert").slideUp(500);
-            });
-            function tool_tip() {
-                $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
-            }
-            function fademeout() {
-                $(".loading").fadeOut(1000);
-            }
-            $(document).ajaxSend(function () {
-                fademeout();
-            });
-            $(document).ajaxComplete(function () {
+        <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
+        <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
+            defer></script>
+        <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+        <script type="text/jscript" defer>
+            $(window).on("load", function () {
+                $('.loading').fadeOut(1000);
                 tool_tip();
+                $('a[href="#"]').on("click", function (e) {
+                    e.preventDefault ? e.preventDefault() :
+                    e.returnValue = false
+                });
+                $(".alert").fadeTo(5000, 500).slideUp(500, function () {
+                    $(".alert").slideUp(500);
+                });
+                function tool_tip() {
+                    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+                }
+                function fademeout() {
+                    $(".loading").fadeOut(1000);
+                }
+                $(document).ajaxSend(function () {
+                    fademeout();
+                });
+                $(document).ajaxComplete(function () {
+                    tool_tip();
+                });
             });
-        });
-    </script>
+        </script>
     </form>
 </body>
 </html>

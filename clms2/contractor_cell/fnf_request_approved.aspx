@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="manual-punching.aspx.cs" Inherits="clms2.vendor_onboarding.manual_punching" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fnf_request_approved.aspx.cs" Inherits="clms2.contractor_cell.fnf_request_approved" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,7 @@
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
-    <%--<link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />--%>
+    <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/bootstrap.min.css" />
@@ -61,9 +61,6 @@
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
-        <%-- <div class="loading">
-            <div class="loader"></div>
-        </div>--%>
         <table class="table">
             <tr>
                 <td>
@@ -80,7 +77,6 @@
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-
                             <div class="collapse navbar-collapse" id="navbarColor02">
                                 <ul class="navbar-nav me-auto">
                                     <li class="nav-item">
@@ -89,180 +85,82 @@
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Work Order <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="work-order-entry.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>New Work Order
+                                                </a>
+                                            </li>
 
                                             <li>
-                                                <a class="dropdown-item" href="shift-master.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Shift Master
+                                                <a class="dropdown-item" href="work-order-details-all.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>View work order
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="leave-master.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Leave Master
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="holiday-master.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Holiday Master
+                                                <a class="dropdown-item" href="work-order-detail.aspx?vl=awo">
+                                                    <i class="fa fa-angle-right me-1"></i>Pending Work Order
                                                 </a>
                                             </li>
 
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendor Registration <span class="fa fa-angle-down ms-1"></span></a>
-                                        <ul class="dropdown-menu ">
-                                            <li>
-                                                <a class="dropdown-item" href="vendor_detail_entry.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Vendor Update
-                                                </a>
-                                            </li>
-
-                                            <%-- <li>
-                                                <a class="dropdown-item" href="site-incharge.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Site Incharge
-                                                </a>
-                                            </li>--%>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="emp_onboarding.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Emp Detail Entry
+                                                <a class="dropdown-item" href="../contractor_cell/purposed-emp-detail-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Emp Approval
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/purposed-emp-detail-block.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Emp Blocking
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
-                                        <ul class="dropdown-menu ">
-                                            <li>
-                                                <a class="dropdown-item" href="show-gen-shift.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Generate Shift
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="shift-master.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Update Leave Register
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="upload_attendance.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Upload Attendance
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="attendance-view.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Attendance View
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="manual-punching.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Manual Punching
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="manual-correction.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Manual Corrections
-                                                </a>
-                                            </li>
-
-
-                                        </ul>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                <a class="dropdown-item" href="../contractor_cell/attendance-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Approval
                                                 </a>
                                             </li>
-
-                                            <li>
-                                                <a class="dropdown-item" href="payroll_process.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Payroll Process
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="annual_bonus.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Annual Bonus
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="leave_status.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Leave Status
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="wage-slip.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Pay Slip
-                                                </a>
-                                            </li>
-
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-
-
                                             <li>
-                                                <a class="dropdown-item" href="wages_document.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages document
+                                                <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
                                                 </a>
                                             </li>
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                              <li>
-                                                <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
+                                             <li>
+                                                <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>From XII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
                                             
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
-                                                </a>
-                                            </li>
-                                          
-                                            <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
-                                                </a>
-                                            </li>
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -270,62 +168,34 @@
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="fnf_request.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                <a class="dropdown-item" href="fnf_request_approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="gratuity.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
-                                                </a>
-                                            </li>
+                                         
                                         </ul>
                                     </li>
-                                    <li class="nav-item dropdown">
+                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="work-order-detail.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Work Order Detail
+                                                <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="emp_detail.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Emp Detail
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Chart
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item" href="vendor_detailNew.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Vendor Detail
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fa fa-angle-right me-1"></i>GP Detail
-                                                </a>
-                                            </li>
-                                            <%--   <li>
-                                                <a class="dropdown-item" href="emp_chart_report.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
-                                                </a>
-                                            </li>--%>
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
-                                                <a class="dropdown-item" href="vendor_detail.aspx">
-                                                    <i class="fa fa-user me-1"></i>My Account
-                                                </a>
-                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="../login/new-password.aspx">
                                                     <i class="fa fa-lock me-1"></i>Change Password
@@ -374,43 +244,94 @@
                             <div class="container-fluid">
                                 <br />
                                 <div class="card shadow border">
-                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Manual Punch Entries</div>
+                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Full and Final Request Approval</div>
                                     <div class="card-body">
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <div class="row">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-6">
                                                 <div class="form-group mb-3">
-                                                    <label>Date</label>
-                                                    <asp:TextBox ID="txtdate1" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <%-- <asp:Button ID="cmdSubmit" runat="server" Text="Submit" Width="150px" class="btn btn-info"  ></asp:Button>--%>
+                                                    <%-- <asp:Button ID="btnBulkInsert" runat="server" Text="Insert" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>--%>
                                                 </div>
                                             </div>
-                                            <%--   <div class="col-md-2">
+                                        </div>
+                                        <div class="row" style="width: 1000px">
+                                            <%--<div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>To Date</label>
-                                                    <asp:TextBox ID="txtToDate" runat="server" class="form-control" MaxLength="50" TextMode="Date"></asp:TextBox>
+                                                    <label>Vendor code</label>
+                                                    <asp:DropDownList ID="ddlVendorCode" class="form-control" runat="server" Visible="false" MaxLength="50" AutoPostBack="true" OnSelectedIndexChanged="ddlVendorCode_SelectedIndexChanged">
+                                                        <asp:ListItem>Select</asp:ListItem>
+                                                    </asp:DropDownList>
                                                 </div>
                                             </div>--%>
+                                            <%--<div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Work Order</label>
+                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="false" MaxLength="50" AutoPostBack="True" OnSelectedIndexChanged="ddlWorkdOrder_SelectedIndexChanged">
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>--%>
+                                            <%--      <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Month</label>
+                                                    <asp:DropDownList ID="ddlMonth" runat="server" class="form-control" AutoPostBack="true" Width="150px" MaxLength="150" >
+                                                     
+                                                        <asp:ListItem Value="1">Jan</asp:ListItem>
+                                                        <asp:ListItem Value="2">Feb</asp:ListItem>
+                                                        <asp:ListItem Value="3">Mar</asp:ListItem>
+                                                        <asp:ListItem Value="4">Apr</asp:ListItem>
+                                                        <asp:ListItem Value="5">May</asp:ListItem>
+                                                        <asp:ListItem Value="6">Jun</asp:ListItem>
+                                                        <asp:ListItem Value="7">Jul</asp:ListItem>
+                                                        <asp:ListItem Value="8">Aug</asp:ListItem>
+                                                        <asp:ListItem Value="9">Sep</asp:ListItem>
+                                                        <asp:ListItem Value="10">Oct</asp:ListItem>
+                                                        <asp:ListItem Value="11">Nov</asp:ListItem>
+                                                        <asp:ListItem Value="12">Dec</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>--%>
+                                            <%--      <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Year</label>
+                                                    <asp:DropDownList ID="ddlYear" runat="server" class="form-control" Width="150px" MaxLength="50"></asp:DropDownList>
+                                                </div>
+                                            </div>--%>
+
+
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label></label>
-                                                    <asp:Button ID="cmdSave" runat="server" Text="Punch" class="btn btn-info form-control" OnClick="cmdSave_Click"></asp:Button>
-                                                    <%--  <asp:Button ID="cmdShow" runat="server" Text="Show Shift" class="btn btn-info"></asp:Button>--%>
+                                                    <%-- <label>Emloyee Name</label>--%>
+                                                    <asp:TextBox ID="txtEmpName" runat="server" class="form-control" Visible="false" MaxLength="50"></asp:TextBox>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                          <%--  <asp:GridView ID="GridView1" runat="server" CellPadding="4" Width="25%" ForeColor="#333333" GridLines="None">
+                                                <AlternatingRowStyle BackColor="White" />
+                                                <EditRowStyle BackColor="#2461BF" />
+                                                <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
+                                                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle ForeColor="White" HorizontalAlign="Center" BackColor="#2461BF" />
+                                                <RowStyle BackColor="#EFF3FB" />
+                                                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                            </asp:GridView>--%>
                                         </div>
                                         <hr class="my-5" />
                                         <br />
                                         <br />
                                         <%--========================================================================================--%>
                                         <div>
-                                            <div class="table-responsive" style="overflow: scroll; width: 100%">
+                                            <div class="table-responsive" style="overflow: auto;">
                                                 <%-- <div class="table-responsive" style="width:50%;">--%>
                                                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                    GridLines="Vertical" AllowPaging="True" PageSize="5" DataKeyNames="emp_code" EmptyDataText="No records has been added."
-                                                    Class="table table-bordered nowrap w-25" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
+                                                    GridLines="Vertical" AllowPaging="false" PageSize="5" DataKeyNames="id" EmptyDataText="No records has been added."
+                                                    Class="table table-bordered nowrap w-70" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging" OnRowCancelingEdit="GridView2_RowCancelingEdit" OnRowDataBound="GridView2_RowDataBound" OnRowEditing="GridView2_RowEditing" OnRowUpdating="GridView2_RowUpdating">
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                     <Columns>
                                                         <asp:TemplateField HeaderText="Sl. No">
@@ -419,36 +340,79 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="30px" HorizontalAlign="Center" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Emp Code" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Work Order" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
+                                                                <asp:Label ID="work_order" runat="server" Text='<%# Eval("work_order") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="150px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Vendor Code" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="vendor_code" runat="server" Text='<%# Eval("vendor_code") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                          
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Emmployee Name" ItemStyle-Width="200px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                            <ItemStyle Width="50px" />
+                                                        
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Shift" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Department" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="shift" runat="server" Text='<%# Eval("shift") %>'></asp:Label>
+                                                                <asp:Label ID="department" runat="server" Text='<%# Eval("department") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                       
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Last Working Day" ItemStyle-Width="150px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="last_working_day" runat="server" Text='<%# Eval("last_working_day") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="In Time" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Date of Request" ItemStyle-Width="150px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="in_time" runat="server" TextMode="Time"></asp:TextBox>
+                                                                <asp:Label ID="date_of_request" runat="server" Text='<%# Eval("date_of_request") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Out Time" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Reason For Separation" ItemStyle-Width="100px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="out_time" runat="server" TextMode="Time"></asp:TextBox>
+                                                                <asp:Label ID="reason_for_separation" runat="server" Text='<%# Eval("reason_for_separation") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                            <ItemStyle Width="50px" />
+                                                         
                                                         </asp:TemplateField>
+                                                       
+                                                      
+                                                        <asp:TemplateField HeaderText="Approval By HR" ItemStyle-Width="150px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="hr_approval" runat="server" Text='<%#Eval("hr_approval") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <EditItemTemplate>
+                                                                <asp:DropDownList ID="ddlHRApproval" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlHRApproval_SelectedIndexChanged">
+                                                                    <asp:ListItem Value="Approved">Approved</asp:ListItem>
+                                                                    <asp:ListItem Value="Reject">Reject</asp:ListItem>
+                                                                </asp:DropDownList>
+                                                            </EditItemTemplate>
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="HR Remarks" Visible="false" ItemStyle-Width="100px" >
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="hr_remarks" runat="server" Text='<%#Eval("hr_remarks") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <EditItemTemplate>
+                                                                <asp:TextBox ID="hr_remarks" runat="server" Text='<%#Eval("hr_remarks")%>'></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="ReqValHRRemarks" runat="server" Enabled="false" ControlToValidate="hr_remarks" ErrorMessage="Remarks" ForeColor="Red"></asp:RequiredFieldValidator>
+                                                            </EditItemTemplate>
+                                                        </asp:TemplateField>
+                                                      <%--  <asp:TemplateField HeaderText="Action" ItemStyle-Width="100px">
+                                                            <ItemTemplate>
+                                                                <asp:Button ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" />
+                                                            </ItemTemplate>
+                                                            <EditItemTemplate>
+                                                                <asp:Label ID="id" runat="server" Text='<%#Eval("id") %>' Visible="false"></asp:Label>
+                                                                <asp:Button ID="btn_Update" runat="server" Text="OK" CommandName="Update" />
+                                                            </EditItemTemplate>
+                                                        </asp:TemplateField>--%>
 
                                                     </Columns>
                                                     <AlternatingRowStyle BackColor="#FFFFFF" />
@@ -471,7 +435,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
                                                     <asp:Label ID="lblError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                                    <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label>
+                                                    <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Large" ForeColor="blue" Font-Bold="True"></asp:Label>
                                                     <asp:Label ID="lblMsgError" runat="server" ForeColor="#CC0000" Font-Bold="True"></asp:Label>
                                                 </div>
                                             </div>
@@ -533,36 +497,8 @@
             });
         </script>
 
-        <link rel="stylesheet" href="../dtm/css/pikaday.css" />
-        <script src="../dtm/date_fns.min.js" type="text/jscript"></script>
-        <script src="../dtm/pikaday.js" type="text/jscript"></script>
-
-        <script type="text/jscript">
-            new Pikaday(
-             {
-                 field: document.getElementById('txtdate1'),
-                 toString: function (date, format) {
-                     return dateFns.format(date, format);
-                 },
-                 parse: function (dateString, format) {
-                     return dateFns.parse(dateString);
-                 },
-                 onSelect: function (selectedDate) {
-                     // not necessary, just showing off
-                     if (dateFns.isValid(selectedDate)) {
-                         var p = document.createElement('p');
-                         p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
-                         document.getElementById('selected').appendChild(p);
-                     }
-                 }
-             });
-        </script>
-        <script type="text/jscript">
-            $(window).on("load", function () {
-                $('#GvWod').DataTable({ responsive: true });
-            });
-        </script>
 
     </form>
 </body>
+
 </html>

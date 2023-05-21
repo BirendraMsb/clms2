@@ -222,41 +222,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                             <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -423,8 +445,10 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                     <label>Bonus(%}</label>
-                                                    <asp:DropDownList ID="ddlBonusPercent" runat="server" class="form-control" Width="150px" MaxLength="50"></asp:DropDownList>
+                                                     <label>Bonus(%}</label><label class="text-danger">*</label>
+                                                    <asp:TextBox ID="txtBonusPercent" runat="server" class="form-control" Width="300px" ></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter Bonus in %" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                    <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter Value between 8.33% to 20%" ForeColor="Red" MinimumValue="8.33" MaximumValue="20" width="300px" SetFocusOnError="true" Type="Double"></asp:RangeValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -452,7 +476,7 @@
                                                 <%-- <div class="table-responsive" style="width:50%;">--%>
                                                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                     GridLines="Vertical" AllowPaging="false" PageSize="5" DataKeyNames="emp_code" EmptyDataText="No records has been added."
-                                                    Class="table table-bordered nowrap w-25" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
+                                                    Class="table table-bordered nowrap w-50" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                     <Columns>
                                                         <asp:TemplateField HeaderText="Sl. No">
@@ -469,21 +493,21 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Name of Workman" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
+                                                                <asp:Label ID="emp_name" runat="server" Width="200px" Text='<%# Eval("emp_name") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Designation/Nature of workdone" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Designation/ Nature of workdone" ItemStyle-Width="100px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="designation" runat="server" Text='<%# Eval("designation") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                            <ItemStyle Width="50px" />
+                                                            <%--<ItemStyle Width="50px" />--%>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="No of days work done" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="No of days work done" ItemStyle-Width="100px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="no_of_workdone" runat="server" Text='<%# Eval("no_of_workdone") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                            <ItemStyle Width="50px" />
+                                                            <%--<ItemStyle Width="50px" />--%>
                                                         </asp:TemplateField>
                                                      <%--   <asp:TemplateField HeaderText="Units of Work done" ItemStyle-Width="50px">
                                                             <ItemTemplate>
@@ -497,7 +521,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>--%>
-                                                        <asp:TemplateField HeaderText="Basic" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Basic Earning" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="Basic" runat="server" Text='<%# Eval("Basic") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -545,12 +569,12 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>--%>
-                                                        <asp:TemplateField HeaderText="Total Basic" ItemStyle-Width="50px">
+                                                  <%--      <asp:TemplateField HeaderText="Total Basic" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="wage" runat="server" Text='<%# Eval("wage") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
                                                         <asp:TemplateField HeaderText="Bonus % Amt" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="wage" runat="server" Text='<%# Eval("wage") %>'></asp:Label>

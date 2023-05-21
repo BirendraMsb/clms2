@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="manual-punching.aspx.cs" Inherits="clms2.vendor_onboarding.manual_punching" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gratuity.aspx.cs" Inherits="clms2.vendor_onboarding.gratuity" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,7 @@
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
-    <%--<link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />--%>
+    <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/bootstrap.min.css" />
@@ -61,13 +61,10 @@
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
-        <%-- <div class="loading">
-            <div class="loader"></div>
-        </div>--%>
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                     <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -225,7 +222,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
@@ -263,27 +260,28 @@
                                                     <i class="fa fa-angle-right me-1"></i> Form XXIV
                                                 </a>
                                             </li>
+           
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
-                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                           <li>
+                                               <a class="dropdown-item" href="fnf_request.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Full and Final Request
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                               </a>
+                                           </li>
+                                          <li>
+                                               <a class="dropdown-item" href="fnf_settlement.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
-                                                </a>
-                                            </li>
-                                            <li>
+                                               </a>
+                                           </li>
+                                          <li>
                                                 <a class="dropdown-item" href="gratuity.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
-                                            </li>
+                                           </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -374,43 +372,85 @@
                             <div class="container-fluid">
                                 <br />
                                 <div class="card shadow border">
-                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Manual Punch Entries</div>
+                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Gratuity </div>
                                     <div class="card-body">
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <div class="row">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-6">
                                                 <div class="form-group mb-3">
-                                                    <label>Date</label>
-                                                    <asp:TextBox ID="txtdate1" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                  <%--  <asp:Button ID="cmdSubmit" runat="server" Text="Submit" Width="150px" class="btn btn-info"></asp:Button>--%>
+                                                    <%-- <asp:Button ID="btnBulkInsert" runat="server" Text="Insert" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>--%>
                                                 </div>
                                             </div>
-                                            <%--   <div class="col-md-2">
+                                        </div>
+                                        <div class="row" >
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>To Date</label>
-                                                    <asp:TextBox ID="txtToDate" runat="server" class="form-control" MaxLength="50" TextMode="Date"></asp:TextBox>
+                                                    <label>Work Order</label>
+                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50" AutoPostBack="True" OnSelectedIndexChanged="ddlWorkdOrder_SelectedIndexChanged">
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+                                            <%--      <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Month</label>
+                                                    <asp:DropDownList ID="ddlMonth" runat="server" class="form-control" AutoPostBack="true" Width="150px" MaxLength="150" >
+                                                        <asp:ListItem Value="1">Jan</asp:ListItem>
+                                                        <asp:ListItem Value="2">Feb</asp:ListItem>
+                                                        <asp:ListItem Value="3">Mar</asp:ListItem>
+                                                        <asp:ListItem Value="4">Apr</asp:ListItem>
+                                                        <asp:ListItem Value="5">May</asp:ListItem>
+                                                        <asp:ListItem Value="6">Jun</asp:ListItem>
+                                                        <asp:ListItem Value="7">Jul</asp:ListItem>
+                                                        <asp:ListItem Value="8">Aug</asp:ListItem>
+                                                        <asp:ListItem Value="9">Sep</asp:ListItem>
+                                                        <asp:ListItem Value="10">Oct</asp:ListItem>
+                                                        <asp:ListItem Value="11">Nov</asp:ListItem>
+                                                        <asp:ListItem Value="12">Dec</asp:ListItem>
+                                                    </asp:DropDownList>
                                                 </div>
                                             </div>--%>
+                                            <%--      <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Year</label>
+                                                    <asp:DropDownList ID="ddlYear" runat="server" class="form-control" Width="150px" MaxLength="50"></asp:DropDownList>
+                                                </div>
+                                            </div>--%>
+
+
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label></label>
-                                                    <asp:Button ID="cmdSave" runat="server" Text="Punch" class="btn btn-info form-control" OnClick="cmdSave_Click"></asp:Button>
-                                                    <%--  <asp:Button ID="cmdShow" runat="server" Text="Show Shift" class="btn btn-info"></asp:Button>--%>
+                                                    <%-- <label>Emloyee Name</label>--%>
+                                                    <asp:TextBox ID="txtEmpName" runat="server" class="form-control" Visible="false" MaxLength="50"></asp:TextBox>
                                                 </div>
                                             </div>
+                                        </div>
+                                        <div class="row">
+                                            <asp:GridView ID="GridView1" runat="server" CellPadding="4" Width="25%" ForeColor="#333333" GridLines="None">
+                                                <AlternatingRowStyle BackColor="White" />
+                                                <EditRowStyle BackColor="#2461BF" />
+                                                <FooterStyle BackColor="#507CD1" ForeColor="White" Font-Bold="True" />
+                                                <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                <PagerStyle ForeColor="White" HorizontalAlign="Center" BackColor="#2461BF" />
+                                                <RowStyle BackColor="#EFF3FB" />
+                                                <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
+                                                <SortedAscendingCellStyle BackColor="#F5F7FB" />
+                                                <SortedAscendingHeaderStyle BackColor="#6D95E1" />
+                                                <SortedDescendingCellStyle BackColor="#E9EBEF" />
+                                                <SortedDescendingHeaderStyle BackColor="#4870BE" />
+                                            </asp:GridView>
                                         </div>
                                         <hr class="my-5" />
                                         <br />
                                         <br />
                                         <%--========================================================================================--%>
                                         <div>
-                                            <div class="table-responsive" style="overflow: scroll; width: 100%">
+                                            <div class="table-responsive" style="overflow: auto;">
                                                 <%-- <div class="table-responsive" style="width:50%;">--%>
                                                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                    GridLines="Vertical" AllowPaging="True" PageSize="5" DataKeyNames="emp_code" EmptyDataText="No records has been added."
-                                                    Class="table table-bordered nowrap w-25" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
+                                                    GridLines="Vertical" AllowPaging="false" PageSize="5" DataKeyNames="id" EmptyDataText="No records has been added."
+                                                    Class="table table-bordered nowrap w-30" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                     <Columns>
                                                         <asp:TemplateField HeaderText="Sl. No">
@@ -419,33 +459,58 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="30px" HorizontalAlign="Center" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Emp Code" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Work Order" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="work_order" runat="server" Text='<%# Eval("work_order") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Sl.No in Resister of Workman" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                            <ItemStyle Width="150px" />
+                                                            <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Name of Workman" ItemStyle-Width="100px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
+                                                                <asp:Label ID="employee_name" runat="server" Text='<%# Eval("employee_name") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="100px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Deparment" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="department" runat="server" Text='<%# Eval("department") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Shift" ItemStyle-Width="50px">
+                                                       
+                                                        <asp:TemplateField HeaderText="Date of Joining" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="shift" runat="server" Text='<%# Eval("shift") %>'></asp:Label>
+                                                                <asp:Label ID="date_of_joining" runat="server" Text='<%# Eval("date_of_joining") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="In Time" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Last Working Day" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="in_time" runat="server" TextMode="Time"></asp:TextBox>
+                                                                <asp:Label ID="last_working_day" runat="server" Text='<%# Eval("last_working_day") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Out Time" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Year of Service" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:TextBox ID="out_time" runat="server" TextMode="Time"></asp:TextBox>
+                                                                <asp:Label ID="year_of_service" runat="server" Text='<%# Eval("year_of_service") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Last Drawn Basic" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="last_month_salary" runat="server" Text='<%# Eval("last_month_salary") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="Gratuity" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="pay_of_gratuity" runat="server" Text='<%# Eval("pay_of_gratuity") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
@@ -471,7 +536,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
                                                     <asp:Label ID="lblError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                                    <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label>
+                                                    <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Large" ForeColor="blue" Font-Bold="True"></asp:Label>
                                                     <asp:Label ID="lblMsgError" runat="server" ForeColor="#CC0000" Font-Bold="True"></asp:Label>
                                                 </div>
                                             </div>
@@ -533,36 +598,8 @@
             });
         </script>
 
-        <link rel="stylesheet" href="../dtm/css/pikaday.css" />
-        <script src="../dtm/date_fns.min.js" type="text/jscript"></script>
-        <script src="../dtm/pikaday.js" type="text/jscript"></script>
-
-        <script type="text/jscript">
-            new Pikaday(
-             {
-                 field: document.getElementById('txtdate1'),
-                 toString: function (date, format) {
-                     return dateFns.format(date, format);
-                 },
-                 parse: function (dateString, format) {
-                     return dateFns.parse(dateString);
-                 },
-                 onSelect: function (selectedDate) {
-                     // not necessary, just showing off
-                     if (dateFns.isValid(selectedDate)) {
-                         var p = document.createElement('p');
-                         p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
-                         document.getElementById('selected').appendChild(p);
-                     }
-                 }
-             });
-        </script>
-        <script type="text/jscript">
-            $(window).on("load", function () {
-                $('#GvWod').DataTable({ responsive: true });
-            });
-        </script>
 
     </form>
 </body>
+
 </html>

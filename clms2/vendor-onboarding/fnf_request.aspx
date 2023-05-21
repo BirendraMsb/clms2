@@ -1,37 +1,36 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="manual-punching.aspx.cs" Inherits="clms2.vendor_onboarding.manual_punching" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fnf_request.aspx.cs" Inherits="clms2.vendor_onboarding.fnf_request" %>
 
 <!DOCTYPE html>
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
     <title></title>
-
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
-    <%--<link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />--%>
-    <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
-    <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
-    <link rel="stylesheet" href="~/public/newfront/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/public/newfront/datatables/datatables.min.css" />
-    <link rel="stylesheet" href="~/public/newfront/assets/css/icons.min.css" />
-    <link rel="stylesheet" href="~/public/newfront/assets/css/app.min.css" />
-    <link rel="stylesheet" href="~/public/common/css/commoncss.min.css" />
-    <link rel="apple-touch-icon" sizes="57x57" href="~/public/common/icons/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="~/public/common/icons/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="~/public/common/icons/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="~/public/common/icons/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="~/public/common/icons/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="~/public/common/icons/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="~/public/common/icons/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="~/public/common/icons/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="~/public/common/icons/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="~/public/common/icons/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="~/public/common/icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="~/public/common/icons/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="~/public/common/icons/favicon-16x16.png" />
+    <%-- <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />--%>
+    <link rel="icon" href="../public/common/icons/favicon.ico" type="icon/png" />
+    <link rel="stylesheet" href="../public/newfront/jquery-ui/jquery-ui.min.css" />
+    <link rel="stylesheet" href="../public/newfront/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../public/newfront/datatables/datatables.min.css" />
+    <link rel="stylesheet" href="../public/newfront/assets/css/icons.min.css" />
+    <link rel="stylesheet" href="../public/newfront/assets/css/app.min.css" />
+    <link rel="stylesheet" href="../public/common/css/commoncss.min.css" />
+    <link rel="apple-touch-icon" sizes="57x57" href="../public/common/icons/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="../public/common/icons/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="../public/common/icons/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../public/common/icons/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="../public/common/icons/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="../public/common/icons/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="../public/common/icons/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="../public/common/icons/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="../public/common/icons/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="../public/common/icons/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="../public/common/icons/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="../public/common/icons/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../public/common/icons/favicon-16x16.png" />
 
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
@@ -61,9 +60,11 @@
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
-        <%-- <div class="loading">
+        <div class="loading">
             <div class="loader"></div>
-        </div>--%>
+        </div>
+        <%--==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==--%>
+        <%--==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==--%>
         <table class="table">
             <tr>
                 <td>
@@ -225,7 +226,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                              <li>
+                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
@@ -372,115 +373,103 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-                                <br />
-                                <div class="card shadow border">
-                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Manual Punch Entries</div>
-                                    <div class="card-body">
-                                        <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
-                                        <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
-                                        <div class="row">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>Date</label>
-                                                    <asp:TextBox ID="txtdate1" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <%--   <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>To Date</label>
-                                                    <asp:TextBox ID="txtToDate" runat="server" class="form-control" MaxLength="50" TextMode="Date"></asp:TextBox>
-                                                </div>
-                                            </div>--%>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label></label>
-                                                    <asp:Button ID="cmdSave" runat="server" Text="Punch" class="btn btn-info form-control" OnClick="cmdSave_Click"></asp:Button>
-                                                    <%--  <asp:Button ID="cmdShow" runat="server" Text="Show Shift" class="btn btn-info"></asp:Button>--%>
-                                                </div>
+                            </div>
+                            <br />
+                            <div class="card shadow border">
+                                <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Full and Final Request</div>
+                                <div class="card-body">
+                                    <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
+                             <%--       <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>--%>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-3">
+                                                <asp:Label ID="lblMsgError" runat="server" Text="" Font-Size="Larger" ForeColor="Red" Font-Bold="True"></asp:Label><br />
+                                                <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label><br />
+                                             <%--   <asp:Label ID="lblMsgMail" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label>--%>
                                             </div>
                                         </div>
-                                        <hr class="my-5" />
-                                        <br />
-                                        <br />
-                                        <%--========================================================================================--%>
-                                        <div>
-                                            <div class="table-responsive" style="overflow: scroll; width: 100%">
-                                                <%-- <div class="table-responsive" style="width:50%;">--%>
-                                                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                    GridLines="Vertical" AllowPaging="True" PageSize="5" DataKeyNames="emp_code" EmptyDataText="No records has been added."
-                                                    Class="table table-bordered nowrap w-25" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
-                                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                                    <Columns>
-                                                        <asp:TemplateField HeaderText="Sl. No">
-                                                            <ItemTemplate>
-                                                                <%# Container.DataItemIndex + 1 %>
-                                                            </ItemTemplate>
-                                                            <ItemStyle Width="30px" HorizontalAlign="Center" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Emp Code" ItemStyle-Width="50px">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
-                                                            </ItemTemplate>
-                                                            <ItemStyle Width="150px" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="50px">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
-                                                            </ItemTemplate>
-                                                            <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Shift" ItemStyle-Width="50px">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="shift" runat="server" Text='<%# Eval("shift") %>'></asp:Label>
-                                                            </ItemTemplate>
-                                                            <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="In Time" ItemStyle-Width="50px">
-                                                            <ItemTemplate>
-                                                                <asp:TextBox ID="in_time" runat="server" TextMode="Time"></asp:TextBox>
-                                                            </ItemTemplate>
-                                                            <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Out Time" ItemStyle-Width="50px">
-                                                            <ItemTemplate>
-                                                                <asp:TextBox ID="out_time" runat="server" TextMode="Time"></asp:TextBox>
-                                                            </ItemTemplate>
-                                                            <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>
-
-                                                    </Columns>
-                                                    <AlternatingRowStyle BackColor="#FFFFFF" />
-                                                    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                                    <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                                    <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                                    <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
-                                                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
-                                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                                    <SortedDescendingHeaderStyle BackColor="#000065" />
-                                                </asp:GridView>
-                                            </div>
-                                        </div>
-
-                                        <%--========================================================================================--%>
-                                        <hr class="my-5" />
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                    <asp:Label ID="lblError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                                    <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label>
-                                                    <asp:Label ID="lblMsgError" runat="server" ForeColor="#CC0000" Font-Bold="True"></asp:Label>
-                                                </div>
-                                            </div>
-                                        </div>
-
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Work Order</label><label class="text-danger">*</label>
+                                                <asp:DropDownList ID="ddlWorkOrder" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlWorkOrder" ErrorMessage="* Pls Select Work Order"   ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Employee Code</label><label class="text-danger">*</label>
+                                                <asp:DropDownList ID="ddlEmpCode" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlEmpCode_SelectedIndexChanged"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="ddlEmpCode" ErrorMessage="* Select Emp Code" ForeColor="#CC3300" InitialValue="Select"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Vendor Code</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtVendorCode" ErrorMessage="* Pls Enter Vendor code" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Employee Name</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtEmpName" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtEmpName" ErrorMessage="* Pls Enter Employee Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Department</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtDeptment" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+                                               <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtDept" ErrorMessage="* Pls Enter Deparment" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>--%>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Last Working Day/Month</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtLastWorkinDay" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtLastWorkinDay" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtLastWorkinDay" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Date of Request</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtDateOfRequest" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtDateOfRequest" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtDateOfRequest" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Reason for Separation</label><label class="text-danger">*</label>
+                                                <asp:DropDownList ID="ddlReasonforSep" runat="server" class="form-control"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="ddlReasonforSep" ErrorMessage="* Select Reason for Sepearation" ForeColor="#CC3300" InitialValue="Select"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-3">
+                                                <asp:Button ID="cmdSave" runat="server" Text="Submit" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
+                                                <asp:Button ID="cmdCancel" runat="server" Text="Cancel/Clear" class="btn btn-info"></asp:Button>
+                                                <%-- <asp:Button ID="BtnMail" runat="server" Text="Mail" Width="100px" class="btn btn-info" ></asp:Button>--%>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="my-5" />
+
+
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </td>
             </tr>
@@ -489,24 +478,25 @@
                     <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
                         <div class="container-fluid">
                             <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
-
-                                <%--<div class="text-light d-none d-sm-inline-block float-end">
-				 <a href="https://shitij.in">Kshitij Info Solutions</a>
-			</div>--%>
+                                <div class="text-light ">
+                                    &copy; 2022 | GreenHRM Solutions | All Rights Reserved                               <%--<div class="text-light d-none d-sm-inline-block float-end">
+				                     <a href="https://shitij.in">Kshitij Info Solutions</a>
+			                    </div>--%>
+                                </div>
                             </div>
-                        </div>
                     </footer>
                 </td>
             </tr>
         </table>
-        <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
-        <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
+        <%--==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==--%>
+        <%--	<div class="alert alert-success animated fadeInUp">
+		Logged out Successfully	</div>--%>
+        <script type="text/jscript" src="../public/newfront/js/jquery.min.js"></script>
+        <script type="text/jscript" src="../public/newfront/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/jscript" src="../public/newfront/assets/js/app.js"></script>
+        <script type="text/jscript" src="../public/newfront/datatables/datatables.min.js"></script>
+        <script type="text/jscript" src="../public/newfront/js/jquery.validate.min.js"></script>
+        <%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
         <script type="text/jscript" defer>
             $(window).on("load", function () {
                 $('.loading').fadeOut(1000);
@@ -532,37 +522,68 @@
                 });
             });
         </script>
-
-        <link rel="stylesheet" href="../dtm/css/pikaday.css" />
-        <script src="../dtm/date_fns.min.js" type="text/jscript"></script>
-        <script src="../dtm/pikaday.js" type="text/jscript"></script>
-
-        <script type="text/jscript">
-            new Pikaday(
-             {
-                 field: document.getElementById('txtdate1'),
-                 toString: function (date, format) {
-                     return dateFns.format(date, format);
-                 },
-                 parse: function (dateString, format) {
-                     return dateFns.parse(dateString);
-                 },
-                 onSelect: function (selectedDate) {
-                     // not necessary, just showing off
-                     if (dateFns.isValid(selectedDate)) {
-                         var p = document.createElement('p');
-                         p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
-                         document.getElementById('selected').appendChild(p);
-                     }
-                 }
-             });
-        </script>
-        <script type="text/jscript">
-            $(window).on("load", function () {
-                $('#GvWod').DataTable({ responsive: true });
-            });
-        </script>
-
     </form>
+
+    <link rel="stylesheet" href="../dtm/css/pikaday.css" />
+    <script src="../dtm/date_fns.min.js" type="text/jscript"></script>
+    <script src="../dtm/pikaday.js" type="text/jscript"></script>
+    <script type="text/jscript">
+        new Pikaday(
+        {
+            field: document.getElementById('txtLastWorkinDay'),
+            toString: function (date, format) {
+                return dateFns.format(date, format);
+            },
+            parse: function (dateString, format) {
+                return dateFns.parse(dateString);
+            },
+            onSelect: function (selectedDate) {
+                // not necessary, just showing off
+                if (dateFns.isValid(selectedDate)) {
+                    var p = document.createElement('p');
+                    p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
+                    document.getElementById('selected').appendChild(p);
+                }
+            }
+        });
+        //    ========================================================
+        //new Pikaday(
+        //{
+        //    field: document.getElementById('txtValidTo'),
+        //    toString: function (date, format) {
+        //        return dateFns.format(date, format);
+        //    },
+        //    parse: function (dateString, format) {
+        //        return dateFns.parse(dateString);
+        //    },
+        //    onSelect: function (selectedDate) {
+        //        // not necessary, just showing off
+        //        if (dateFns.isValid(selectedDate)) {
+        //            var p = document.createElement('p');
+        //            p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
+        //            document.getElementById('selected').appendChild(p);
+        //        }
+        //    }
+        //}); 
+    </script>
+   
+    <%-- <script type="text/jscript">
+         $(function() {
+             $('[id*=txtLastWorkinDay]').datepicker ({
+                 changeMonth: false,
+                 changeYear: false,
+                 format: "dd-MM-yyyy",
+                language: "tr"	
+         });
+
+         });
+      </script>--%>
+    
+    <script type="text/jscript">
+        $(window).on("load", function () {
+            $('#GvWod').DataTable({ responsive: true });
+        });
+    </script>
+ 
 </body>
 </html>

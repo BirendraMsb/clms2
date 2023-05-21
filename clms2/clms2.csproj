@@ -77,6 +77,8 @@
     <Content Include="contractor_cell\attendance-approval.aspx" />
     <Content Include="contractor_cell\dashboard.aspx" />
     <Content Include="contractor_cell\emp_chart_report.aspx" />
+    <Content Include="contractor_cell\fnf_request_approval.aspx" />
+    <Content Include="contractor_cell\fnf_request_approved.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-approval.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-block.aspx" />
     <Content Include="contractor_cell\purposed-wages-doc-approval.aspx" />
@@ -2860,12 +2862,14 @@
     <Content Include="vendor-onboarding\department.aspx" />
     <Content Include="vendor-onboarding\emp_chart_report.aspx" />
     <Content Include="vendor-onboarding\emp_detail.aspx" />
-    <Content Include="vendor-onboarding\emp_offboarding.aspx" />
     <Content Include="vendor-onboarding\emp_onboarding.aspx" />
+    <Content Include="vendor-onboarding\fnf_request.aspx" />
+    <Content Include="vendor-onboarding\fnf_settlement.aspx" />
     <Content Include="vendor-onboarding\form-V.aspx" />
     <Content Include="vendor-onboarding\form16.aspx" />
     <Content Include="vendor-onboarding\form17.aspx" />
     <Content Include="vendor-onboarding\generate-shift.aspx" />
+    <Content Include="vendor-onboarding\gratuity.aspx" />
     <Content Include="vendor-onboarding\holiday-master.aspx" />
     <Content Include="vendor-onboarding\leave-master.aspx" />
     <Content Include="vendor-onboarding\leave_status.aspx" />
@@ -3020,6 +3024,20 @@
     </Compile>
     <Compile Include="contractor_cell\emp_chart_report.aspx.designer.cs">
       <DependentUpon>emp_chart_report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\fnf_request_approval.aspx.cs">
+      <DependentUpon>fnf_request_approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\fnf_request_approval.aspx.designer.cs">
+      <DependentUpon>fnf_request_approval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\fnf_request_approved.aspx.cs">
+      <DependentUpon>fnf_request_approved.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\fnf_request_approved.aspx.designer.cs">
+      <DependentUpon>fnf_request_approved.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\purposed-emp-detail-approval.aspx.cs">
       <DependentUpon>purposed-emp-detail-approval.aspx</DependentUpon>
@@ -3290,19 +3308,26 @@
     <Compile Include="vendor-onboarding\emp_detail.aspx.designer.cs">
       <DependentUpon>emp_detail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="vendor-onboarding\emp_offboarding.aspx.cs">
-      <DependentUpon>emp_offboarding.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="vendor-onboarding\emp_offboarding.aspx.designer.cs">
-      <DependentUpon>emp_offboarding.aspx</DependentUpon>
-    </Compile>
     <Compile Include="vendor-onboarding\emp_onboarding.aspx.cs">
       <DependentUpon>emp_onboarding.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="vendor-onboarding\emp_onboarding.aspx.designer.cs">
       <DependentUpon>emp_onboarding.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\fnf_request.aspx.cs">
+      <DependentUpon>fnf_request.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\fnf_request.aspx.designer.cs">
+      <DependentUpon>fnf_request.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\fnf_settlement.aspx.cs">
+      <DependentUpon>fnf_settlement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\fnf_settlement.aspx.designer.cs">
+      <DependentUpon>fnf_settlement.aspx</DependentUpon>
     </Compile>
     <Compile Include="vendor-onboarding\form-V.aspx.cs">
       <DependentUpon>form-V.aspx</DependentUpon>
@@ -3331,6 +3356,13 @@
     </Compile>
     <Compile Include="vendor-onboarding\generate-shift.aspx.designer.cs">
       <DependentUpon>generate-shift.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\gratuity.aspx.cs">
+      <DependentUpon>gratuity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\gratuity.aspx.designer.cs">
+      <DependentUpon>gratuity.aspx</DependentUpon>
     </Compile>
     <Compile Include="vendor-onboarding\holiday-master.aspx.cs">
       <DependentUpon>holiday-master.aspx</DependentUpon>

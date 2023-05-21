@@ -191,12 +191,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -226,41 +226,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -357,9 +379,9 @@
                                     <div class="card-body">
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
-                                           <%--========================================================================================--%>
+                                        <%--========================================================================================--%>
                                         <div class="table-responsive" style="overflow: auto;">
-                                               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                                            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical" AllowPaging="True" DataKeyNames="shiftcode" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit" OnPageIndexChanging="OnPaging"
                                                 OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
                                                 Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True" OnRowDeleting="GridView1_RowDeleting" OnRowDataBound="GridView1_RowDataBound">
@@ -375,7 +397,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblShiftName" runat="server" Text='<%# Eval("ShiftName")%>'></asp:Label>
                                                         </ItemTemplate>
-                                                          <EditItemTemplate>
+                                                        <EditItemTemplate>
                                                             <asp:TextBox ID="txtShiftName" runat="server" Text='<%# Eval("ShiftName")%>' Width="140"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtShiftName" ErrorMessage="* Pls Enter Shift Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
@@ -385,7 +407,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblInTime" runat="server" Text='<%# Eval("InTime","{0:HH:mm:ss}")%>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <EditItemTemplate>
+                                                        <EditItemTemplate>
                                                             <asp:TextBox ID="txtInTime" runat="server" Text='<%# Eval("InTime","{0:HH:mm:ss}")%>' Width="140"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtInTime" ErrorMessage="* Pls Enter In Time" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
@@ -395,18 +417,18 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblOutTime" runat="server" Text='<%# Eval("OutTime","{0:HH:mm:ss}")%>'></asp:Label>
                                                         </ItemTemplate>
-                                                          <EditItemTemplate>
+                                                        <EditItemTemplate>
                                                             <asp:TextBox ID="txtOutTime" runat="server" Text='<%# Eval("OutTime","{0:HH:mm:ss}")%>' Width="140"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtOutTime" ErrorMessage="* Pls Enter Out Time" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
-                                                  
+
                                                     <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true"
                                                         ItemStyle-Width="150" HeaderText="Action" CausesValidation="False">
                                                         <ItemStyle Width="150px" />
                                                     </asp:CommandField>
-                                                  
+
                                                 </Columns>
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -419,7 +441,7 @@
                                                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                                                 <SortedDescendingHeaderStyle BackColor="#000065" />
                                             </asp:GridView>
-                                               <%--========================================================================================--%>
+                                            <%--========================================================================================--%>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-2">
@@ -436,7 +458,7 @@
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtOutTime" ErrorMessage="* Pls in Time." ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
-                                             <div class="col-md-2">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Out Time</label>
                                                     <asp:TextBox ID="txtOutTime" class="form-control" TextMode="Time" runat="server" AutoPostBack="True" OnTextChanged="txtOutTime_TextChanged"></asp:TextBox>
@@ -450,27 +472,27 @@
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtOutTime" ErrorMessage="* Pls Enter Working Hrs" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
-                                             <div class="col-md-2">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                      <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                         <ContentTemplate>
                                                             <label>Week Off</label>
-                                                          <asp:DropDownList ID="ddlWeekOff1" class="form-control" runat="server">
-                                                              <asp:ListItem>Select</asp:ListItem>
-                                                              <asp:ListItem>Sunday</asp:ListItem>
-                                                              <asp:ListItem>MondayTuesday</asp:ListItem>
-                                                              <asp:ListItem>Wednesday</asp:ListItem>
-                                                              <asp:ListItem>Thursday</asp:ListItem>
-                                                              <asp:ListItem>Friday</asp:ListItem>
-                                                              <asp:ListItem>Saturday</asp:ListItem>
-                                                              <asp:ListItem></asp:ListItem>
-                                                          </asp:DropDownList>
-                                                          <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlWeekOff1" ErrorMessage="* Pls Select Week Off." InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                       </ContentTemplate>
+                                                            <asp:DropDownList ID="ddlWeekOff1" class="form-control" runat="server">
+                                                                <asp:ListItem>Select</asp:ListItem>
+                                                                <asp:ListItem>Sunday</asp:ListItem>
+                                                                <asp:ListItem>MondayTuesday</asp:ListItem>
+                                                                <asp:ListItem>Wednesday</asp:ListItem>
+                                                                <asp:ListItem>Thursday</asp:ListItem>
+                                                                <asp:ListItem>Friday</asp:ListItem>
+                                                                <asp:ListItem>Saturday</asp:ListItem>
+                                                                <asp:ListItem></asp:ListItem>
+                                                            </asp:DropDownList>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlWeekOff1" ErrorMessage="* Pls Select Week Off." InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
                                                     </asp:UpdatePanel>
                                                 </div>
                                             </div>
-                                           <%--  <div class="col-md-2">
+                                            <%--  <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                         <ContentTemplate>
@@ -486,14 +508,14 @@
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label></label>
-                                                    <asp:Button ID="cmdSave" runat="server"  Text="Save"  class="btn btn-info form-control" OnClick="cmdSave_Click"></asp:Button>
-                                                  <%--  <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-info"></asp:Button>--%>
+                                                    <asp:Button ID="cmdSave" runat="server" Text="Save" class="btn btn-info form-control" OnClick="cmdSave_Click"></asp:Button>
+                                                    <%--  <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-info"></asp:Button>--%>
                                                 </div>
                                             </div>
 
                                         </div>
-                                      
-                                           <div class="row">
+
+                                        <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
                                                     <asp:Label ID="lblError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
@@ -501,7 +523,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                         <hr class="my-5" />
+                                        <hr class="my-5" />
                                     </div>
                                 </div>
                             </div>

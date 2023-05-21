@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-     <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
+    <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         name="viewport" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
@@ -35,49 +35,42 @@
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <style>
-        .nav-link
-        {
+        .nav-link {
             padding: 0.32rem 0.75rem;
         }
-        
-        .bg-dark
-        {
+
+        .bg-dark {
             background-color: #292e40 !important;
         }
-        
-        .icon-svg, .icon-svg.icon-svg-lg
-        {
+
+        .icon-svg, .icon-svg.icon-svg-lg {
             width: 3rem;
             height: 3rem;
         }
-        
-        img, svg
-        {
+
+        img, svg {
             vertical-align: middle;
         }
-        
-        svg:not(:root)
-        {
-            overflow: hidden;
-        }
-        
-        
-        .boxDec
-        {
+
+            svg:not(:root) {
+                overflow: hidden;
+            }
+
+
+        .boxDec {
             border: 1px solid #000;
         }
- 
     </style>
 </head>
 <body>
-   <form id="form1" runat="server">
-    <%--<div class="loading">
+    <form id="form1" runat="server">
+        <%--<div class="loading">
             <div class="loader"></div>
         </div>--%>
-    <table class="table">
-        <tr>
-            <td>
-                <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+        <table class="table">
+            <tr>
+                <td>
+                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -200,12 +193,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -235,41 +228,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -353,121 +368,130 @@
                             </div>
                         </div>
                     </nav>
-            </td>
-        </tr>
-    </table>
-    <!--======================================================================================= -->
-    <div class="container">
-        <div class="text-center">
-            <h6 class="mb-0">
-                FORM V</h6>
-            <h6 class="my-0">
-                [See Rule 12(2)]</h6>
-            <h5 class="my-0">
-                Form of Certificate by Principal Employer</h5>
-        </div>
-       
-        <div class="row">
+                </td>
+            </tr>
+        </table>
+        <!--======================================================================================= -->
+        <div class="container">
+            <div class="text-center">
+                <h6 class="mb-0">FORM V</h6>
+                <h6 class="my-0">[See Rule 12(2)]</h6>
+                <h5 class="my-0">Form of Certificate by Principal Employer</h5>
+            </div>
 
-        <p class="text-justify">Certified thet I have engaged the applicant 
-            <b><asp:Label ID="lblApplicantName" runat="server" Text="............................................"></asp:Label></b> as
+            <div class="row">
+
+                <p class="text-justify">
+                    Certified thet I have engaged the applicant 
+            <b>
+                <asp:Label ID="lblApplicantName" runat="server" Text="............................................"></asp:Label></b> as
 
 
 a contractor in my establishment. I undertake to be bound by all the provisions of the
 contract labour(Regulation and Abolition) Act, 1970 and the contract Labour
 (Regulation and Abolition) Madhy Pradesh Rules 1973, in so far as theprivisions are
 applicable to me respect of the employment ofcontract labour by the applicant in my
-establishment</p>
+establishment
+                </p>
+            </div>
+
+
+
+
+
+            <div class="row  d-flex">
+                <div class="col-md-8">
+                    Date:
+                    <asp:Label ID="lblDate2" runat="server" Text="..............."></asp:Label>
+                    <br />
+
+                    Place:
+                    <asp:Label ID="lblPlace" runat="server" Text="..............."></asp:Label>
+                </div>
+
+                <div class="col-md-4">
+                    <p>...............................................</p>
+                    Signature of the principal employer
+                </div>
+            </div>
         </div>
- 
 
 
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <!-- ===================================================================================== -->
+        <div class="container-fluid mx-0 px-0">
+            <div class="row">
+                <div class="page-wrapper">
+                    <div class="">
+                        <div class="container-fluid">
+                            <div class="card-body">
+                                <div class="table-responsive" style="overflow: auto;">
+                                    <%--========================================================================================--%>
 
-      
-        <div class="row  d-flex">
-         <div class="col-md-8">
-          Date: <asp:Label ID="lblDate2" runat="server" Text="..............."></asp:Label> <br/>
-
-          Place: <asp:Label ID="lblPlace" runat="server" Text="..............."></asp:Label>
-        </div>
-
-         <div class="col-md-4">
-          <p>...............................................</p>
-        Signature of the principal employer
-        </div> 
-    </div>
-    </div>
-   
-
-    <br/><br/><br/><br/><br/><br/><br/>
-    <!-- ===================================================================================== -->
-    <div class="container-fluid mx-0 px-0">
-        <div class="row">
-            <div class="page-wrapper">
-                <div class="">
-                    <div class="container-fluid">
-                        <div class="card-body">
-                            <div class="table-responsive" style="overflow: auto;">
-                                <%--========================================================================================--%>
-                               
-                                <%--========================================================================================--%>
+                                    <%--========================================================================================--%>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid mx-0 px-0">
-        <div class="row">
-            <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
-                        <div class="container-fluid">
-                            <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
+        <div class="container-fluid mx-0 px-0">
+            <div class="row">
+                <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
+                    <div class="container-fluid">
+                        <div class="text-center small">
+                            <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
 
-                            </div>
                         </div>
-                    </footer>
-            </td>
+                    </div>
+                </footer>
+                </td>
+            </div>
         </div>
-    </div>
-    <%--<div class="alert alert-success animated fadeInUp">
+        <%--<div class="alert alert-success animated fadeInUp">
             Logged out Successfully
         </div>--%>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
-    <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
-        defer></script>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <script type="text/jscript" defer>
-        $(window).on("load", function () {
-            $('.loading').fadeOut(1000);
-            tool_tip();
-            $('a[href="#"]').on("click", function (e) {
-                e.preventDefault ? e.preventDefault() :
-                e.returnValue = false
-            });
-            $(".alert").fadeTo(5000, 500).slideUp(500, function () {
-                $(".alert").slideUp(500);
-            });
-            function tool_tip() {
-                $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
-            }
-            function fademeout() {
-                $(".loading").fadeOut(1000);
-            }
-            $(document).ajaxSend(function () {
-                fademeout();
-            });
-            $(document).ajaxComplete(function () {
+        <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
+        <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
+            defer></script>
+        <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+        <script type="text/jscript" defer>
+            $(window).on("load", function () {
+                $('.loading').fadeOut(1000);
                 tool_tip();
+                $('a[href="#"]').on("click", function (e) {
+                    e.preventDefault ? e.preventDefault() :
+                    e.returnValue = false
+                });
+                $(".alert").fadeTo(5000, 500).slideUp(500, function () {
+                    $(".alert").slideUp(500);
+                });
+                function tool_tip() {
+                    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+                }
+                function fademeout() {
+                    $(".loading").fadeOut(1000);
+                }
+                $(document).ajaxSend(function () {
+                    fademeout();
+                });
+                $(document).ajaxComplete(function () {
+                    tool_tip();
+                });
             });
-        });
-    </script>
+        </script>
     </form>
 </body>
 </html>

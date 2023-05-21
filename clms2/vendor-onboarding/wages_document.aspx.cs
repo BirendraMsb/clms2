@@ -28,7 +28,7 @@ namespace clms2.vendor_onboarding
 
             if (!IsPostBack)
             {
-               // workorder();
+               //// workorder();
                 txtVendorCode.Text = usrnm;
                 month();
                 year();
@@ -99,26 +99,26 @@ namespace clms2.vendor_onboarding
             //ddlEmpCode.Items.Insert(0, new ListItem("Select", "0"));
         }
 
-        private void workorder()
-        {
-            //string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            //string query = "SELECT distinct(a.workorder),vendor_code FROM tbl_Attendance a,tbl_vendor_info v where vendor_code ='" + Session["User"].ToString() + "' ";
-            //using (SqlConnection con = new SqlConnection(constr))
-            //{
-            //    using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
-            //    {
-            //        using (DataTable dt = new DataTable())
-            //        {
-            //            sda.Fill(dt);
-            //            ddlWorkdOrder.DataSource = dt;
-            //            ddlWorkdOrder.DataTextField = "workorder";
-            //            ddlWorkdOrder.DataValueField = "workorder";
-            //            ddlWorkdOrder.DataBind();
-            //        }
-            //    }
-            //}
-            ////ddlEmpCode.Items.Insert(0, new ListItem("Select", "0"));
-        }
+        //private void workorder()
+        //{
+        //    string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+        //    string query = "SELECT distinct(a.workorder),vendor_code FROM tbl_Attendance a,tbl_vendor_info v where vendor_code ='" + Session["User"].ToString() + "' ";
+        //    using (SqlConnection con = new SqlConnection(constr))
+        //    {
+        //        using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+        //        {
+        //            using (DataTable dt = new DataTable())
+        //            {
+        //                sda.Fill(dt);
+        //                ddlWorkdOrder.DataSource = dt;
+        //                ddlWorkdOrder.DataTextField = "workorder";
+        //                ddlWorkdOrder.DataValueField = "workorder";
+        //                ddlWorkdOrder.DataBind();
+        //            }
+        //        }
+        //    }
+        //    ddlWorkdOrder.Items.Insert(0, new ListItem("Select", "0"));
+        //}
 
         protected void cmdSave_Click(object sender, EventArgs e)
         {

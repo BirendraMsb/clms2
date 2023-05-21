@@ -192,12 +192,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -227,41 +227,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -571,9 +593,9 @@
                                                    </div>
                                                </div>--%>
                                         </div>
-                                 
+
                                         <div class="row">
-                                           <div class="col-md-4">
+                                            <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label for="txtDOB">DOB</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtDOB" runat="server" class="form-control"></asp:TextBox>
@@ -722,17 +744,17 @@
                                                     <label for="DomFileUpload" class="col-sm-2 control-label">Domicile Certificate</label>
                                                     <asp:FileUpload ID="DomFileUpload" runat="server"></asp:FileUpload>
                                                     <label class="text-danger">File size should not be more than 100 KB</label>
-                                                  <%--  <asp:Label  ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>--%>
-                                                    
+                                                    <%--  <asp:Label  ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>--%>
+
                                                     <%-- <label>Domicile Description</label>--%>
                                                     <%-- <asp:TextBox ID="txtDomDesc" runat="server" class="form-control" placeholder="Descriotion" TextMode="MultiLine"></asp:TextBox>--%>
                                                     <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator33" runat="server" ControlToValidate="txtDomDesc" ErrorMessage="* Pls Enter Domicile Desc " ForeColor="#CC0000"></asp:RequiredFieldValidator>--%>
                                                 </div>
                                             </div>
                                         </div>
-                                               <%--========================================================================================--%>
+                                        <%--========================================================================================--%>
                                         <div class="row">
-                                          
+
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -748,8 +770,8 @@
                                                             <asp:TextBox ID="txtPFNO" runat="server" class="form-control"></asp:TextBox>
                                                             <asp:FileUpload ID="PFileUpload" runat="server"></asp:FileUpload><br />
                                                             <asp:Label ID="lblPFfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
-                                                        
-                                                           
+
+
                                                             <%--   <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download PF declaration form here.....</asp:HyperLink>--%>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
@@ -768,15 +790,15 @@
                                                             <br />
                                                             <asp:TextBox ID="txtESIC" runat="server" class="form-control"></asp:TextBox>
                                                             <asp:FileUpload ID="ESICFileUpload" runat="server"></asp:FileUpload><br />
-                                                             <asp:Label ID="lblEsicfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
-                                                          <%--  <asp:Label ID="lblEsicUploadSizeMsg" >File size should not be more than 100 KB</asp:Label>--%>
-                                                            
+                                                            <asp:Label ID="lblEsicfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                                            <%--  <asp:Label ID="lblEsicUploadSizeMsg" >File size should not be more than 100 KB</asp:Label>--%>
+
                                                             <%--  <asp:HyperLink ID="HyperLinkESIC" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.patelconsultancy.in/esic-forms-download.html">Download ESIC declaration form here.....</asp:HyperLink>--%>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
                                                 </div>
                                             </div>
-                                           
+
                                         </div>
                                         <%--========================================================================================--%>
                                         <div class="row">
@@ -784,7 +806,7 @@
                                                 <div class="form-group mb-3">
                                                     <label for="PVFileUpload" class="col-sm-2 control-label">Police Verification</label><label class="text-danger">*</label>
                                                     <asp:FileUpload ID="PVFileUpload" runat="server"></asp:FileUpload>
-                                                     <label class="text-danger">File size should not be more than 100 KB</label>
+                                                    <label class="text-danger">File size should not be more than 100 KB</label>
                                                 </div>
                                             </div>
 
@@ -833,7 +855,7 @@
                                                 <div class="form-group mb-3">
                                                     <label for="FileUpload1" class="col-sm-3 control-label">Employee Photo</label><label class="text-danger">*</label>
                                                     <asp:FileUpload ID="FileUpload1" runat="server" onchange="document.getElementById('imgEmp').src=window.URL.createObjectURL(this.files[0])"></asp:FileUpload>
-                                                     <label class="text-danger">Image size should not be more than 20 KB</label>
+                                                    <label class="text-danger">Image size should not be more than 20 KB</label>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">

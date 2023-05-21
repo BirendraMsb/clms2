@@ -190,12 +190,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -225,41 +225,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -364,66 +386,72 @@
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <div class="row">
-                                           <div class="col-md-4">
+                                          <%--  <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>Vendor Code</label>
-                                                     <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" ></asp:TextBox>
-                                                    <%--<asp:DropDownList ID="ddlWorkdOrder" runat="server" class="form-control"></asp:DropDownList>--%>
+                                                    <label>Work Order</label>
+                                                    <asp:DropDownList ID="ddlWorkdOrder" runat="server" class="form-control"></asp:DropDownList>
+                                                </div>
+                                            </div>--%>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <label>Vendor Code</label><label class="text-danger">*</label>
+                                                    <asp:TextBox ID="txtVendorCode" runat="server" class="form-control"></asp:TextBox>
+                                                  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtVendorCode" ErrorMessage="* Pls Enter Vendor Code" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                  
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>Month</label>
-                                                      <asp:DropDownList ID="ddlMonth" runat="server" class="form-control" AutoPostBack="true" MaxLength="150">
-                                                       <%-- <asp:ListItem>Select</asp:ListItem>--%>
-                                                       <%-- <asp:ListItem Value="1">Jan</asp:ListItem>
-                                                        <asp:ListItem Value="2">Feb</asp:ListItem>
-                                                        <asp:ListItem Value="3">Mar</asp:ListItem>
-                                                        <asp:ListItem Value="4">Apr</asp:ListItem>
-                                                        <asp:ListItem Value="5">May</asp:ListItem>
-                                                        <asp:ListItem Value="6">Jun</asp:ListItem>
-                                                        <asp:ListItem Value="7">Jul</asp:ListItem>
-                                                        <asp:ListItem Value="8">Aug</asp:ListItem>
-                                                        <asp:ListItem Value="9">Sep</asp:ListItem>
-                                                        <asp:ListItem Value="10">Oct</asp:ListItem>
-                                                        <asp:ListItem Value="11">Nov</asp:ListItem>
-                                                        <asp:ListItem Value="12">Dec</asp:ListItem>--%>
+                                                    <label>Month</label><label class="text-danger">*</label>
+                                                    <asp:DropDownList ID="ddlMonth" runat="server" class="form-control" AutoPostBack="true" MaxLength="150">
+                                                        <%-- <asp:ListItem>Select</asp:ListItem>--%>
+                                                         <%--<asp:ListItem Value="1">Jan</asp:ListItem>--%>
                                                     </asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlMonth" ErrorMessage="* Select Month" ForeColor="#CC3300" InitialValue="Select"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>Year</label>
-                                                     <asp:DropDownList ID="ddlYear" runat="server" class="form-control"  MaxLength="50"></asp:DropDownList>
+                                                    <label>Year</label><label class="text-danger">*</label>
+                                                    <asp:DropDownList ID="ddlYear" runat="server" class="form-control" MaxLength="50"></asp:DropDownList>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlYear" ErrorMessage="* Select Year" ForeColor="#CC3300" InitialValue="Select"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
-                                        
+
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>Total Valid GP</label>
+                                                    <label>Total Valid GP</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtTotValidGP" runat="server" class="form-control" TextMode="SingleLine"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtTotValidGP" ErrorMessage="* Pls Enter Total Valid GP" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtTotValidGP" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>No of Emp Paid</label>
+                                                    <label>No of Emp Paid</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtNoOfEmpPaid" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtNoOfEmpPaid" ErrorMessage="* Pls Enter No of Emp Paid" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtNoOfEmpPaid" runat="server" ErrorMessage="Only Numbers  Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>Man Days</label>
+                                                    <label>Man Days</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtManDays" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtManDays" ErrorMessage="* Pls Enter Man Days" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtManDays" runat="server" ErrorMessage="Only Numbers  Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>Gross Wages Paid</label>
+                                                    <label>Gross Wages Paid</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtGrossWagesPaid" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtGrossWagesPaid" ErrorMessage="* Pls Enter Gross Wages Paid" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="txtGrossWagesPaid" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -431,86 +459,108 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>PF Amount Deposited</label>
+                                                    <label>PF Amount Deposited</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtPFAmountDeposited" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtPFAmountDeposited" ErrorMessage="* Pls Enter PF Amount Deposited" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtPFAmountDeposited" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>PF Challan Number</label>
+                                                    <label>PF Challan Number</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtPFChallanNo" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtPFChallanNo" ErrorMessage="* Pls Enter PF Challan Number" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                   <%-- <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtPFChallanNo" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>--%>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>PF Challan Date</label>
+                                                    <label>PF Challan Date</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtPFChallanDate" runat="server" class="form-control" MaxLength="6"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtPFChallanDate" ErrorMessage="* Pls Enter PF Challan Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtPFChallanDate" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
-                                              <div class="col-md-4">
+                                            <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>ESI Amount Deposited</label>
+                                                    <label>ESI Amount Deposited</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtEsiAmtDeposited" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtEsiAmtDeposited" ErrorMessage="* Pls Enter ESI Amount Deposited" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtEsiAmtDeposited" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>ESI Challan Number.</label>
+                                                    <label>ESI Challan Number.</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtEsiChallanNo" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtEsiChallanNo" ErrorMessage="* Pls Enter ESI Challan Number" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <%-- <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtAnnualBonusPrevYear" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>--%>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>ESI Challan Date</label>
+                                                    <label>ESI Challan Date</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtEsiChallanDate" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtEsiChallanDate" ErrorMessage="* Pls Enter ESI Challan Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtEsiChallanDate" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                         </div>
-                                     
+
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>ESI Contribution (In No)</label>
+                                                    <label>ESI Contribution (In No)</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtEsiContribution" runat="server" class="form-control"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtEsiContribution" ErrorMessage="* Pls Enter ESI Contribution" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator11" ControlToValidate="txtEsiContribution" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>PF Contricution (In No)</label>
+                                                    <label>PF Contricution (In No)</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtPFContribution" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtPFContribution" ErrorMessage="* Pls Enter PF Contricution" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator12" ControlToValidate="txtPFContribution" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
                                                 </div>
                                             </div>
                                         </div>
-                                       <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label>PF Challan [PDF] </label><br />
-                                                <asp:FileUpload ID="PFChallanUpload" runat="server"></asp:FileUpload>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label>PF Challan [PDF] </label>
+                                                    <br />
+                                                    <asp:FileUpload ID="PFChallanUpload" runat="server"></asp:FileUpload>
+                                                     <asp:Label ID="lblPFfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                                </div>
                                             </div>
                                         </div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label>ESIC Challan [PDF] </label><br />
-                                                <asp:FileUpload ID="EsicChallanUpload" runat="server"></asp:FileUpload>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label>ESIC Challan [PDF] </label>
+                                                    <br />
+                                                    <asp:FileUpload ID="EsicChallanUpload" runat="server"></asp:FileUpload>
+                                                    <asp:Label ID="lblESICfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                                </div>
                                             </div>
                                         </div>
-                                      </div>
-                                      <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label>Bank Statement [PDF] </label><br />
-                                                <asp:FileUpload ID="BankStatementUpload" runat="server"></asp:FileUpload>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <label>Bank Statement [PDF] </label>
+                                                    <br />
+                                                    <asp:FileUpload ID="BankStatementUpload" runat="server"></asp:FileUpload>
+                                                    <asp:Label ID="lblBansStatementfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                                </div>
                                             </div>
                                         </div>
-                                      </div>
-                                   
 
-                                      <hr class="my-3"/>
-                                     <div class="row">
+
+                                        <hr class="my-3" />
+                                        <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
                                                     <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
@@ -559,7 +609,7 @@
         <script type="text/jscript" src="../public/newfront/assets/js/app.js" defer></script>
         <script type="text/jscript" src="../public/newfront/datatables/datatables.min.js" defer></script>
         <script type="text/jscript" src="../public/newfront/js/jquery.validate.min.js"></script>
-      <%--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
+        <%--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
 
         <script type="text/jscript" defer>
             $(window).on("load", function () {

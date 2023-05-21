@@ -72,20 +72,20 @@ namespace clms2.vendor_onboarding
             dt.Columns.AddRange(new DataColumn[17] { new DataColumn("emp_code", typeof(string)),
             new DataColumn("emp_name",typeof(string)),
             new DataColumn("designation",typeof(string)),
-            new DataColumn("no_of_workdone",typeof(string)),
-            new DataColumn("unit_of_workdone",typeof(string)),
-            new DataColumn("daily_rate_of_wages",typeof(string)),
-            new DataColumn("Basic",typeof(string)),
-            new DataColumn("DA",typeof(string)),
-            new DataColumn("overtime",typeof(string)),
-            new DataColumn("other_case_payment",typeof(string)),
-            new DataColumn("total",typeof(string)),
-            new DataColumn("pf_deduction",typeof(string)),
-            new DataColumn("esic_deduction",typeof(string)),
+            new DataColumn("no_of_days_workdone",typeof(string)),
+            new DataColumn("ot_hrs",typeof(string)),
+            new DataColumn("daily_Basic",typeof(string)),
+            new DataColumn("daily_other_allowance",typeof(string)),
+            new DataColumn("basic_earnings",typeof(string)),
+            new DataColumn("other_allowance_earnings",typeof(string)),
+            new DataColumn("ot_earnings",typeof(string)),
+            new DataColumn("total_earnings",typeof(string)),
+            new DataColumn("pf_contribution",typeof(string)),
+            new DataColumn("esic",typeof(string)),
             new DataColumn("other_deduction",typeof(string)),
-            new DataColumn("wage",typeof(string)),
+            new DataColumn("total_deduction",typeof(string)),
+            new DataColumn("total_payable",typeof(string)),
             new DataColumn("signature",typeof(string)),
-            new DataColumn("intial_contractor",typeof(string)),
            
             });
 
@@ -127,8 +127,8 @@ namespace clms2.vendor_onboarding
                     //  string MyString = dt_emp.Rows[i].ItemArray[j].ToString();
 
                     // dr[j] = dt_emp.Rows[i].ItemArray[j].ToString();
-                    dr[1] = string.Empty;
                     dr[0] = string.Empty;
+                    dr[1] = string.Empty;
                     dr[2] = string.Empty;
                     dr[3] = string.Empty;
                     dr[4] = string.Empty;
@@ -157,20 +157,20 @@ namespace clms2.vendor_onboarding
             dt.Columns.AddRange(new DataColumn[17] { new DataColumn("emp_code", typeof(string)),
             new DataColumn("emp_name",typeof(string)),
             new DataColumn("designation",typeof(string)),
-            new DataColumn("no_of_workdone",typeof(string)),
-            new DataColumn("unit_of_workdone",typeof(string)),
-            new DataColumn("daily_rate_of_wages",typeof(string)),
-            new DataColumn("Basic",typeof(string)),
-            new DataColumn("DA",typeof(string)),
-            new DataColumn("overtime",typeof(string)),
-            new DataColumn("other_case_payment",typeof(string)),
-            new DataColumn("total",typeof(string)),
-            new DataColumn("pf_deduction",typeof(string)),
-            new DataColumn("esic_deduction",typeof(string)),
+            new DataColumn("no_of_days_workdone",typeof(string)),
+            new DataColumn("ot_hrs",typeof(string)),
+            new DataColumn("daily_Basic",typeof(string)),
+            new DataColumn("daily_other_allowance",typeof(string)),
+            new DataColumn("basic_earnings",typeof(string)),
+            new DataColumn("other_allowance_earnings",typeof(string)),
+            new DataColumn("ot_earnings",typeof(string)),
+            new DataColumn("total_earnings",typeof(string)),
+            new DataColumn("pf_contribution",typeof(string)),
+            new DataColumn("esic",typeof(string)),
             new DataColumn("other_deduction",typeof(string)),
-            new DataColumn("wage",typeof(string)),
+            new DataColumn("total_deduction",typeof(string)),
+            new DataColumn("total_payable",typeof(string)),
             new DataColumn("signature",typeof(string)),
-            new DataColumn("intial_contractor",typeof(string)),
            
             });
 
@@ -182,7 +182,20 @@ namespace clms2.vendor_onboarding
             //"other_case_payment,total,pf_deduction,esic_deduction,other_deduction,net_amount_paid,signature,signature,intial_contractor FROM tbl_form16 ";
             ///string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.present as unit_of_workdone,e.[basic]/8 as daily_rate_of_wages , a.Present * e.basic as Basic_wages, e.basic*0 as Dearness_Allowances ,a.monthly_ot_hrs * e.[basic]/8 as overtime ,e.allowance as other_cash_payment,(a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * e.basic ) * 12/100 as PF_Deduction , ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 as ESIC_deduction,other_deduction,((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) -( ((a.Present * e.basic ) * 12/100 ) + ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 ) as Net_Amount_Paid,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code";
            //// string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.present as unit_of_workdone,e.[basic]/8 as daily_rate_of_wages , a.Present * e.basic as Basic_wages, e.basic*0 as Dearness_Allowances ,a.monthly_ot_hrs * e.[basic]/8 as overtime ,e.allowance as other_cash_payment,(a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * e.basic ) * 12/100 as PF_Deduction , ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100 as ESIC_deduction,e.other_deduction, (((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) - ((a.Present * e.basic ) * 12/100 ) - ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100) - e.other_deduction  as Net_Amount_Paid,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
-            string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.present as unit_of_workdone,e.[basic]/8 as daily_rate_of_wages , e.basic, e.basic*0 as Dearness_Allowances ,a.monthly_ot_hrs * e.[basic]/8 as overtime ,e.allowance as other_cash_payment,(a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * (e.basic +e.allowance) ) * 12/100 as PF_Deduction , (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as ESIC_deduction,e.other_deduction, (( a.Present * (e.basic +  e.allowance)) - (a.Present * (e.basic + e.allowance )) * 12/100  - (((a.Present * e.basic)  + (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) - e.other_deduction  as wage,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved' and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
+          ///  a.monthly_ot_hrs * e.[basic]/8 as ot_earning ,e.allowance as other_cash_payment,(a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance as Total , (a.Present * (e.basic +e.allowance) ) * 12/100 as PF_Deduction , (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as ESIC_deduction,e.other_deduction, (( a.Present * (e.basic +  e.allowance)) - (a.Present * (e.basic + e.allowance )) * 12/100  - (((a.Present * e.basic)  + (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) - e.other_deduction  as wage,a.sign,a.initial_contr_or_rep  from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved' and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
+          ///  --------------------------------------------------------------------------------------------------//
+            /// (e.basic*a.present + e.allowance * a.present) as basic_earnings
+            ///  a.monthly_ot_hrs * e.[basic]/8 as ot_earning
+            ///  e.allowance *0 as other_allowance_earnings
+            ///  Total Earning = basic_earnings + other_allowance_earnings + ot_earning
+            ///  (e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0) as total_earnings 
+            ///  (a.Present * (e.basic +e.allowance) ) * 12/100 as PF_Deduction
+            ///  (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as ESIC_deduction
+            ///  Total Deduction = Pf contribution + ESIC + Other deduction 
+            ///  (((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction) as total_duduction
+            ///  Total Payable = Total Earning - Total deduction
+            ///  (((e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0)) - ((((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction))) as total_payable
+            string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.monthly_ot_hrs as ot_hrs, e.basic as daily_basic, e.allowance as daily_other_allowance,(e.basic*a.present + e.allowance * a.present) as basic_earnings , e.allowance *0 as other_allowance_earnings, a.monthly_ot_hrs * e.[basic]/8 as ot_earning ,(e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0) as total_earnings, (a.Present * (e.basic +e.allowance) ) * 12/100 as PF_Deduction , (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as ESIC_deduction,e.other_deduction, (((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction) as total_duduction,(((e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0)) - ((((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction))) as total_payable,a.sign from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved' and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
 
            DataTable dt1;
             using (SqlConnection con = new SqlConnection(constr))

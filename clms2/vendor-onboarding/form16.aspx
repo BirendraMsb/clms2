@@ -187,12 +187,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -222,41 +222,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                           <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -357,15 +379,15 @@
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
                                                     <asp:Button ID="cmdShow" runat="server" Text="Show" Width="150px" class="btn btn-info" OnClick="cmdShow_Click"></asp:Button>
-                                                   <%-- <asp:Button ID="btnBulkInsert" runat="server" Text="Insert" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>--%>
+                                                    <%-- <asp:Button ID="btnBulkInsert" runat="server" Text="Insert" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>--%>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row" style="width: 1000px">
-                                           <div class="col-md-2">
+                                            <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Work Order</label>
-                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50" >
+                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50">
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -373,7 +395,7 @@
                                                 <div class="form-group mb-3">
                                                     <label>Month</label>
                                                     <asp:DropDownList ID="ddlMonth" runat="server" class="form-control" AutoPostBack="true" Width="150px" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
-                                                       <%-- <asp:ListItem>Select</asp:ListItem>--%>
+                                                        <%-- <asp:ListItem>Select</asp:ListItem>--%>
                                                         <asp:ListItem Value="1">Jan</asp:ListItem>
                                                         <asp:ListItem Value="2">Feb</asp:ListItem>
                                                         <asp:ListItem Value="3">Mar</asp:ListItem>
@@ -395,7 +417,7 @@
                                                     <asp:DropDownList ID="ddlYear" runat="server" class="form-control" Width="150px" MaxLength="50"></asp:DropDownList>
                                                 </div>
                                             </div>
-                                       
+
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <%-- <label>Emloyee Name</label>--%>
@@ -403,7 +425,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" >
+                                        <div class="row">
                                             <asp:GridView ID="GridView1" runat="server" CellPadding="4" Width="25%" ForeColor="#333333" GridLines="None">
                                                 <AlternatingRowStyle BackColor="White" />
                                                 <EditRowStyle BackColor="#2461BF" />
@@ -423,7 +445,7 @@
                                         <br />
                                         <%--========================================================================================--%>
                                         <div>
-                                            <div class="table-responsive" style="overflow: auto; ">
+                                            <div class="table-responsive" style="overflow: auto;">
                                                 <%-- <div class="table-responsive" style="width:50%;">--%>
                                                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                     GridLines="Vertical" AllowPaging="false" PageSize="10" DataKeyNames="emp_code" EmptyDataText="No records has been added."
@@ -436,7 +458,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="30px" HorizontalAlign="Center" />
                                                         </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Vendor Code" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Vendor Code" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="vendor_code" runat="server" Text='<%# Eval("vendor_code") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -452,7 +474,7 @@
                                                             <ItemTemplate>
                                                                 <asp:Label ID="emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                           <ControlStyle Width="100px" />
+                                                            <ControlStyle Width="100px" />
                                                             <ItemStyle Width="150px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="50px">
@@ -475,19 +497,19 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="Year" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Year" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="year1" runat="server" Text='<%# Eval("year1") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                     <%--   <asp:TemplateField HeaderText="Date" ItemStyle-Width="100px">
+                                                        <%--   <asp:TemplateField HeaderText="Date" ItemStyle-Width="100px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="date" runat="server" Width="100px" Text='<%# Eval("date","{0:dd-MM-yyyy}") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="100px" />
                                                         </asp:TemplateField>--%>
-                                                    <%--     <asp:TemplateField HeaderText="In Time" ItemStyle-Width="100px">
+                                                        <%--     <asp:TemplateField HeaderText="In Time" ItemStyle-Width="100px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="in_time" runat="server" Width="100px" Text='<%# Eval("in_time","{0:HH:mm:ss}") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -505,13 +527,13 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                       <asp:TemplateField HeaderText="2" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="2" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="D2" runat="server" Text='<%# Eval("D2") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="3" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="3" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="D3" runat="server" Text='<%# Eval("D3") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -685,7 +707,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                     <%--   <asp:TemplateField HeaderText="HR Approval" ItemStyle-Width="50px">
+                                                        <%--   <asp:TemplateField HeaderText="HR Approval" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="hr_approval" runat="server" Text='<%# Eval("hr_approval") %>'></asp:Label>
                                                             </ItemTemplate>

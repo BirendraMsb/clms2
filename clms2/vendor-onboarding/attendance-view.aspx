@@ -60,7 +60,7 @@
         .gridview-container {
             overflow: auto;
             width: 1000px; /* set your desired width here */
-          }       
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -68,7 +68,7 @@
         <%--<div class="loading">
             <div class="loader"></div>
         </div>--%>
-        <table class="table" >
+        <table class="table">
             <tr>
                 <td>
                     <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
@@ -194,12 +194,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -229,41 +229,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -351,7 +373,7 @@
             </tr>
             <tr>
                 <td>
-                    <div class="page-wrapper" >
+                    <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
 
@@ -361,14 +383,14 @@
                                         <span>Attendance Details</span>
 
                                     </div>
-                                    <div class="card-body" >
-                                        <div class="table-responsive" style="overflow:scroll;width:80%">
+                                    <div class="card-body">
+                                        <div class="table-responsive" style="overflow: scroll; width: 80%">
                                             <%--========================================================================================--%>
-                                            <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server"  OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
                                             <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="15" ForeColor="Red"></asp:Label>
                                             <asp:Label ID="lblVendorName" runat="server" Text="" Font-Size="15" ForeColor="Blue"></asp:Label>
 
-                                            <asp:GridView ID="GvAttn" runat="server"  CssClass="gridview-container" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                                            <asp:GridView ID="GvAttn" runat="server" CssClass="gridview-container" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical" AllowPaging="false" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvAttn_PageIndexChanging" OnRowCancelingEdit="GvAttn_RowCancelingEdit" OnRowEditing="GvAttn_RowEditing" OnRowUpdating="GvAttn_RowUpdating">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                 <Columns>
@@ -379,10 +401,10 @@
                                                         <ItemStyle Width="30px" HorizontalAlign="Center" />
                                                     </asp:TemplateField>
 
-                                                      <asp:TemplateField HeaderText="Vendor Code" SortExpression="vendor_code">
-                                                        <EditItemTemplate>
+                                                    <asp:TemplateField HeaderText="Vendor Code" SortExpression="vendor_code">
+                                                       <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="txt_vendor_code" runat="server" Text='<%# Bind("vendor_code") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_vendor_code" runat="server" Text='<%# Bind("vendor_code") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -390,11 +412,12 @@
                                                         <ItemStyle Width="10px" Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Emp Code">
-                                                        <EditItemTemplate>
+                                                    <%--    <EditItemTemplate>
                                                             <asp:TextBox ID="txt_emp_code" runat="server" Text='<%# Bind("emp_code") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
-                                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id") %>' Text='<%# Eval("emp_code") %>'></asp:HyperLink>
+                                                            <asp:Label ID="lbl_emp_code" runat="server" Text='<%# Bind("emp_code") %>'></asp:Label>
+                                                           <%-- <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id") %>' Text='<%# Eval("emp_code") %>'></asp:HyperLink>--%>
                                                         </ItemTemplate>
                                                         <ControlStyle Width="150px" />
                                                         <ItemStyle Wrap="False" />
@@ -420,9 +443,9 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Year" SortExpression="year1">
-                                                        <EditItemTemplate>
+                                                      <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txt_year1" runat="server" Text='<%# Bind("year1") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_year1" runat="server" Text='<%# Bind("year1") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -430,9 +453,9 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Month" SortExpression="month1">
-                                                        <EditItemTemplate>
+                                                      <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txt_month1" runat="server" Text='<%# Bind("month1") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_month1" runat="server" Text='<%# Bind("month1") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -576,7 +599,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d14" runat="server" Text='<%# Bind("d14") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D15" SortExpression="d15">
@@ -586,7 +609,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d15" runat="server" Text='<%# Bind("d15") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D16" SortExpression="d16">
@@ -616,7 +639,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d18" runat="server" Text='<%# Bind("d18") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D19" SortExpression="d19">
@@ -626,7 +649,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d19" runat="server" Text='<%# Bind("d19") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D20" SortExpression="d20">
@@ -636,7 +659,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d20" runat="server" Text='<%# Bind("d20") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D21" SortExpression="d21">
@@ -646,7 +669,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d21" runat="server" Text='<%# Bind("d21") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D22" SortExpression="d22">
@@ -656,7 +679,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d22" runat="server" Text='<%# Bind("d22") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D23" SortExpression="d23">
@@ -666,7 +689,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d23" runat="server" Text='<%# Bind("d23") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D24" SortExpression="d24">
@@ -676,7 +699,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d24" runat="server" Text='<%# Bind("d24") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D25" SortExpression="d25">
@@ -686,7 +709,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d25" runat="server" Text='<%# Bind("d25") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D26" SortExpression="d26">
@@ -696,7 +719,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d26" runat="server" Text='<%# Bind("d26") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D27" SortExpression="d27">
@@ -706,7 +729,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d27" runat="server" Text='<%# Bind("d27") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D28" SortExpression="d28">
@@ -716,7 +739,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d28" runat="server" Text='<%# Bind("d28") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D29" SortExpression="d29">
@@ -726,7 +749,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d29" runat="server" Text='<%# Bind("d29") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D30" SortExpression="d30">
@@ -736,7 +759,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d30" runat="server" Text='<%# Bind("d30") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D31" SortExpression="d31">
@@ -746,13 +769,13 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_d31" runat="server" Text='<%# Bind("d31") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Present" SortExpression="Present">
-                                                        <EditItemTemplate>
+                                                       <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="txt_Present" runat="server" Text='<%# Bind("Present") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Present" runat="server" Text='<%# Bind("Present") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -760,16 +783,16 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Absent" SortExpression="Absent">
-                                                        <EditItemTemplate>
+                                                        <%--<EditItemTemplate>
                                                             <asp:TextBox ID="txt_Absent" runat="server" Text='<%# Bind("Absent") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Absent" runat="server" Text='<%# Bind("Absent") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <ControlStyle Width="50px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Tot. Working Day" SortExpression="tot_working_day">
+                                               <%--     <asp:TemplateField HeaderText="Tot. Working Day" SortExpression="tot_working_day">
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txt_tot_working_day" runat="server" Text='<%# Bind("tot_working_day") %>'></asp:TextBox>
                                                         </EditItemTemplate>
@@ -778,11 +801,11 @@
                                                         </ItemTemplate>
                                                         <ControlStyle Width="50px" />
                                                         <ItemStyle Wrap="False" />
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
                                                     <asp:TemplateField HeaderText="Tot. Leave" SortExpression="tot_leave">
-                                                        <EditItemTemplate>
+                                                        <%--<EditItemTemplate>
                                                             <asp:TextBox ID="txt_tot_leave" runat="server" Text='<%# Bind("tot_leave") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_tot_leave" runat="server" Text='<%# Bind("tot_leave") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -790,9 +813,9 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Tot. HL" SortExpression="tot_holidays">
-                                                        <EditItemTemplate>
+                                                       <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="txt_tot_holidays" runat="server" Text='<%# Bind("tot_holidays") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_tot_holidays" runat="server" Text='<%# Bind("tot_holidays") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -800,9 +823,9 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Tot. Week off" SortExpression="tot_week_off">
-                                                        <EditItemTemplate>
+                                                       <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="txt_tot_week_off" runat="server" Text='<%# Bind("tot_week_off") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_tot_week_off" runat="server" Text='<%# Bind("tot_week_off") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -810,9 +833,9 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Working Hrs" SortExpression="daily_working_hrs">
-                                                        <EditItemTemplate>
-                                                            <asp:TextBox ID="txt_daily_working_hrs" runat="server" Text='<%# Bind("daily_working_hrs") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                      <%--  <EditItemTemplate>
+                                                            <asp:TextBox ID="txt_daily_working_hrs" runat="server"  Text='<%# Bind("daily_working_hrs") %>'></asp:TextBox>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_daily_working_hrs" runat="server" Text='<%# Bind("daily_working_hrs") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -820,9 +843,9 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Monthly Working Hrs" SortExpression="monthly_work_hrs">
-                                                        <EditItemTemplate>
+                                                        <%--<EditItemTemplate>
                                                             <asp:TextBox ID="txt_monthly_work_hrs" runat="server" Text='<%# Bind("monthly_work_hrs") %>'></asp:TextBox>
-                                                        </EditItemTemplate>
+                                                        </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_monthly_work_hrs" runat="server" Text='<%# Bind("monthly_work_hrs") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -840,7 +863,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
 
-                                                  <%--  <asp:TemplateField HeaderText="Action By Dept">
+                                                    <%--  <asp:TemplateField HeaderText="Action By Dept">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_DeptApproval" runat="server" Text='<%#Eval("dept_approval") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -851,7 +874,7 @@
                                                             </asp:DropDownList>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>--%>
-                                                <%--    <asp:TemplateField HeaderText="Dept Remarks" Visible="true">
+                                                    <%--    <asp:TemplateField HeaderText="Dept Remarks" Visible="true">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_DeptRemarks" runat="server" Text='<%#Eval("dept_remarks") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -869,10 +892,10 @@
                                                             <%--<asp:Button ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel" />--%>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
-                                                 
-                                                 
 
-                                                 <%--   <asp:BoundField DataField="vendor_code" HeaderText="Vendor Code" SortExpression="vendor_code" ItemStyle-Wrap="false"></asp:BoundField>
+
+
+                                                    <%--   <asp:BoundField DataField="vendor_code" HeaderText="Vendor Code" SortExpression="vendor_code" ItemStyle-Wrap="false"></asp:BoundField>
                                                     <asp:BoundField DataField="workorder" HeaderText="Work Order" SortExpression="workorder" ItemStyle-Wrap="false"></asp:BoundField>
                                                     <asp:HyperLinkField DataTextField="emp_code" DataNavigateUrlFields="Id" HeaderText="Emp Code" ItemStyle-Wrap="false" />
                                                     <asp:BoundField DataField="emp_name" HeaderText="Emp Name" SortExpression="workorder" ItemStyle-Wrap="false"></asp:BoundField>
@@ -920,8 +943,6 @@
                                                      <asp:BoundField DataField="daily_working_hrs" HeaderText="Working Hrs" SortExpression="daily_working_hrs" ItemStyle-Wrap="false" />
                                                      <asp:BoundField DataField="monthly_work_hrs" HeaderText="Monthly Working Hrs" SortExpression="monthly_work_hrs" ItemStyle-Wrap="false" />
                                                      <asp:BoundField DataField="monthly_ot_hrs" HeaderText="Monthly OT Hrs" SortExpression="monthly_ot_hrs" ItemStyle-Wrap="false" />--%>
-                                  
-
                                                 </Columns>
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
@@ -941,13 +962,12 @@
                                 </div>
                             </div>
                             <%--<h6 style="text-align: right; color: green">Present=18 | Absent=8  | WO=4</h6>--%>
-
                         </div>
                     </div>
                 </td>
             </tr>
             <tr>
-              <%--  <td>
+                <%--  <td>
                     <asp:LinkButton ID="btnDownload" class="form-control" runat="server" OnClick="btnDownload_Click">Download Format</asp:LinkButton>
                 </td>--%>
             </tr>
@@ -972,7 +992,7 @@
         <script type="text/jscript" src="../public/newfront/assets/js/app.js" defer></script>
         <script type="text/jscript" src="../public/newfront/datatables/datatables.min.js" defer></script>
         <script type="text/jscript" src="../public/newfront/js/jquery.validate.min.js"></script>
-       <%-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
+        <%-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
 
         <script type="text/jscript" defer>
             $(window).on("load", function () {
@@ -999,12 +1019,11 @@
                 });
             });
         </script>
-       <%--   <script type="text/jscript">
+        <%--   <script type="text/jscript">
               $(window).on("load", function () {
                   $('#GvAttn').DataTable({ responsive: true });
               });
         </script>--%>
-
     </form>
 </body>
 </html>

@@ -191,12 +191,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -226,41 +226,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -375,9 +397,9 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
-                                                      <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandPF_Click" CausesValidation="False">download PF Declaration</asp:LinkButton>
-                                                        <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandEsic_Click" CausesValidation="False">download ESIC Declaration</asp:LinkButton><br />
-                                                <%--    <asp:UpdatePanel ID="UpdatePane4" runat="server">
+                                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandPF_Click" CausesValidation="False">download PF Declaration</asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandEsic_Click" CausesValidation="False">download ESIC Declaration</asp:LinkButton><br />
+                                                    <%--    <asp:UpdatePanel ID="UpdatePane4" runat="server">
                                                        <ContentTemplate>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>--%>
@@ -400,6 +422,7 @@
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtVendorCode" ErrorMessage="* Pls Enter Vendor Reg. No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
+                                           
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
@@ -448,8 +471,8 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <label>State</label><label class="text-danger">*</label>
-                                                     <asp:DropDownList ID="ddlState" runat="server" class="form-control" ></asp:DropDownList>
-                                                   <%-- <asp:TextBox ID="txtState" runat="server" class="form-control" MaxLength="50"></asp:TextBox>--%>
+                                                    <asp:DropDownList ID="ddlState" runat="server" class="form-control"></asp:DropDownList>
+                                                    <%-- <asp:TextBox ID="txtState" runat="server" class="form-control" MaxLength="50"></asp:TextBox>--%>
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="ddlState" ErrorMessage="* Pls Select State" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
@@ -540,16 +563,16 @@
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
-                                                        <contenttemplate>
+                                                        <ContentTemplate>
                                                             <label>ESIC No.</label><label class="text-danger">*</label>
                                                             <asp:RadioButton ID="ESICRadio1" runat="server" Text="Y" AutoPostBack="true" GroupName="ESIC" OnCheckedChanged="ESICRadio1_CheckedChanged" />
                                                             <asp:RadioButton ID="ESICRadio2" runat="server" Text="N" AutoPostBack="true" GroupName="ESIC" OnCheckedChanged="ESICRadio2_CheckedChanged" />
                                                             <br />
                                                             <asp:TextBox ID="txtESIC" runat="server" class="form-control"></asp:TextBox>
                                                             <asp:FileUpload ID="ESICFileUpload" runat="server"></asp:FileUpload><br />
-                                                             <asp:Label ID="lblEsicfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                                            <asp:Label ID="lblEsicfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
                                                             <%--  <asp:HyperLink ID="HyperLinkESIC" runat="server" Visible="False" style="color:red" NavigateUrl="https://www.patelconsultancy.in/esic-forms-download.html">Download ESIC declaration form here.....</asp:HyperLink>--%>
-                                                      </contenttemplate>
+                                                        </ContentTemplate>
                                                     </asp:UpdatePanel>
                                                 </div>
                                             </div>

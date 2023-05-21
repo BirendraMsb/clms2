@@ -111,10 +111,16 @@ namespace clms2.vendor_onboarding
 
                 Gvrecords.DataSource = dt;
                 Gvrecords.DataBind();
-
                 btnAddToDb.Enabled = true;
 
-               
+                ////compare grid data with database and find duplciate record ------------------------/////
+  
+                   
+
+
+
+
+
 
             }
             catch (Exception ex)
@@ -127,12 +133,87 @@ namespace clms2.vendor_onboarding
 
         protected void btnAddToDb_Click(object sender, EventArgs e)
         {
+
+            #region compare grid data with tbl_atteandance and find duplciate record and exit
+            SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["const"].ConnectionString);
+            string query1 = "select * from tbl_attendance";
+            SqlCommand cmd1 = new SqlCommand(query1);
+            SqlDataAdapter da1 = new SqlDataAdapter(cmd1.CommandText, con1);
+            DataTable dt1 = new DataTable();
+            da1.Fill(dt1);
+
+            int RowCount = dt1.Rows.Count;
+
+            for (int i = 0; i < RowCount; i++)
+            {
+                foreach (GridViewRow g1 in Gvrecords.Rows)
+                {
+                    //int present = 0;
+                    //int absent = 0;
+                    //int tot_holidays = 0;
+                    //int tot_leave = 0;
+                    //int tot_week_off = 0;
+                    //int tot_working_day = 0;
+
+                    string emp_code = (g1.FindControl("lblemp_code") as Label).Text;
+                    string vendor_code = (g1.FindControl("lblvendor_code") as Label).Text;
+                    string workorder = (g1.FindControl("lblworkorder") as Label).Text;
+                    string emp_name = (g1.FindControl("lblemp_name") as Label).Text;
+                    string department = (g1.FindControl("lbldepartment") as Label).Text;
+                    string year1 = (g1.FindControl("lblyear1") as Label).Text;
+                    string month1 = (g1.FindControl("lblmonth1") as Label).Text;
+
+                    ////Label1.Text = ((TextBox)Gvrecords.FindControl("lblemp_code")).Text;
+                    //// Label2.Text = dt1.Rows[i]["emp_code"].ToString();
+                    string emp_code_att = dt1.Rows[i]["emp_code"].ToString();
+                    string vendor_code_att = dt1.Rows[i]["vendor_code"].ToString();
+                    string workorder_att = dt1.Rows[i]["workorder"].ToString();
+                    string year_att = dt1.Rows[i]["year1"].ToString();
+                    string month_att = dt1.Rows[i]["month1"].ToString();
+                    if (emp_code == emp_code_att && vendor_code == vendor_code_att && workorder == workorder_att && year1 == year_att && month1 == month_att)
+                    {
+                        string message = "Emp code=" + emp_code + ",Vendor Code=" + vendor_code + ",Workorder=" + workorder + ",Emp Name=" + emp_name + ",Year=" + year1 + ",Month1=" + month1 + "" ;
+                        message += " This record already Exists . Pls Correct it and Upload it again";
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append("<script type = 'text/javascript'>");
+                        sb.Append("window.onload=function(){");
+                        sb.Append("alert('");
+                        sb.Append(message);
+                        sb.Append("')};");
+                        sb.Append("</script>");
+
+                        ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+                        return;
+                    }
+                    else
+                    {
+                        //string message = "Successfully saved";
+
+                        //System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        //sb.Append("<script type = 'text/javascript'>");
+                        //sb.Append("window.onload=function(){");
+                        //sb.Append("alert('");
+                        //sb.Append(message);
+                        //sb.Append("')};");
+                        //sb.Append("</script>");
+
+                        //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+                    }
+                }
+
+
+            } // end of for loop
+
+            #endregion
+
+
             con.Open();
             tran = con.BeginTransaction();
             cmd.Transaction = tran;
             string slno = null;
             try
             {
+
                 foreach (GridViewRow g1 in Gvrecords.Rows)
                 {
                     int present = 0;
@@ -149,7 +230,8 @@ namespace clms2.vendor_onboarding
                     string department = (g1.FindControl("lbldepartment") as Label).Text;
                     string year1 = (g1.FindControl("lblyear1") as Label).Text;
                     string month1 = (g1.FindControl("lblmonth1") as Label).Text;
-                   
+
+                  
                     string d1 = (g1.FindControl("lbld1") as Label).Text;
                     if (d1 != "")
                     {
@@ -550,7 +632,6 @@ namespace clms2.vendor_onboarding
                         {
                             tot_week_off += 1;
                         }
-
                     }
                  
                     string d17 = (g1.FindControl("lbld17") as Label).Text;
@@ -935,12 +1016,12 @@ namespace clms2.vendor_onboarding
                     }
  
                     string daily_working_hrs = (g1.FindControl("lbldaily_working_hrs") as Label).Text;
-                    string monthly_work_hrs = (g1.FindControl("lblmonthly_work_hrs") as Label).Text;
+                    double monthly_work_hrs1 = present * Convert.ToDouble(daily_working_hrs);
+                    string monthly_work_hrs = monthly_work_hrs1.ToString();
+                    ////string monthly_work_hrs = (g1.FindControl("lblmonthly_work_hrs") as Label).Text;
                     string monthly_ot_hrs = (g1.FindControl("lblmonthly_ot_hrs") as Label).Text;
 
                     tot_working_day = present + absent;
-
-
 
                     string query = "insert into tbl_attendance(emp_code,vendor_code,workorder,emp_name,department,year1,month1,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,daily_working_hrs,monthly_work_hrs,monthly_ot_hrs,Absent,Present,tot_holidays,tot_leave,tot_week_off,tot_working_day) values('" + emp_code + "','" + vendor_code + "','" + workorder + "','" + emp_name + "','" + department + "'," + year1 + " ," + month1 + " , '" + d1 + "' ,'" + d2 + "' ,'" + d3 + "' ,'" + d4 + "'   ,'" + d5 + "' ,'" + d6 + "'   ,'" + d7 + "'    ,'" + d8 + "'      ,'" + d9 + "' ,'" + d10 + "','" + d11 + "' ,'" + d12 + "' ,'" + d13 + "' ,'" + d14 + "'   ,'" + d15 + "' ,'" + d16 + "'   ,'" + d17 + "'    ,'" + d18 + "','" + d19 + "' ,'" + d20 + "','" + d21 + "' ,'" + d22 + "' ,'" + d23 + "' ,'" + d24 + "'   ,'" + d25 + "' ,'" + d26 + "' ,'" + d27 + "' ,'" + d28 + "' ,'" + d29 + "' ,'" + d30 + "','" + d31 + "','" + daily_working_hrs + "','" + monthly_work_hrs + "','" + monthly_ot_hrs + "','" + absent + "','" + present + "','" + tot_holidays + "' ,'" + tot_leave + "','" + tot_week_off + "','" + tot_working_day + "')";
                     //cmd.CommandText = "insert into Members values ('" + g1.Cells[0].Text + "','" + g1.Cells[1].Text + "','" + g1.Cells[2].Text + "','" + g1.Cells[3].Text + "')";  
@@ -954,8 +1035,8 @@ namespace clms2.vendor_onboarding
             catch (Exception ex)
             {
                 tran.Rollback();
-                lblMessage.Text = "Error Occured  near Sr. No. = " + slno + "<br />";
-                lblMessage.Text += "No Data Is Inserted. <br />";
+                lblMsgError.Text = "Error Occured  near Sr. No. = " + slno + "<br />";
+                lblMsgError.Text += "No Data Is Inserted. <br />";
                 //lblMessage.Text += ex.Message;  
             }
             finally

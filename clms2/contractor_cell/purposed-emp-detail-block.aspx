@@ -149,17 +149,36 @@
                                         <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Registor of Contractors 
+                                                    <i class="fa fa-angle-right me-1"></i>From XII
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Annual Return
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
-                                             <li>
+                                         
+                                        
+                                        </ul>
+                                    </li>
+                                      <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                           <li>
+                                               <a class="dropdown-item" href="fnf_request_approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
+                                               </a>
+                                           </li>
+                                         </ul>
+                                    </li>
+                                     <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
                                                 <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart Report
                                                 </a>
@@ -169,7 +188,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Chart
                                                 </a>
                                             </li>
-                                        
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">

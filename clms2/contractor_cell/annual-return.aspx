@@ -35,47 +35,41 @@
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <style>
-        .nav-link
-        {
+        .nav-link {
             padding: 0.32rem 0.75rem;
         }
-        
-        .bg-dark
-        {
+
+        .bg-dark {
             background-color: #292e40 !important;
         }
-        
-        .icon-svg, .icon-svg.icon-svg-lg
-        {
+
+        .icon-svg, .icon-svg.icon-svg-lg {
             width: 3rem;
             height: 3rem;
         }
-        
-        img, svg
-        {
+
+        img, svg {
             vertical-align: middle;
         }
-        
-        svg:not(:root)
-        {
-            overflow: hidden;
-        }
-        
-        .table tr td
-        {
-            width:10rem;
+
+            svg:not(:root) {
+                overflow: hidden;
+            }
+
+        .table tr td {
+            width: 10rem;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <%--<div class="loading">
+        <%--<div class="loading">
             <div class="loader"></div>
         </div>--%>
-    <table class="table">
-        <tr>
-            <td>
-                <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+        <table class="table">
+            <tr>
+                <td>
+                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -145,7 +139,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -153,24 +147,44 @@
                                                     <i class="fa fa-angle-right me-1"></i>Wages Document 
                                                 </a>
                                             </li>
-                                           
+
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Registor of Contractors 
+                                                    <i class="fa fa-angle-right me-1"></i>From XII
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Annual Return
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
-                                             <li>
+
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
                                                 <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart Report
                                                 </a>
@@ -180,7 +194,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Chart
                                                 </a>
                                             </li>
-                                        
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -226,253 +240,234 @@
                             </div>
                         </div>
                     </nav>
-            </td>
-        </tr>
-    </table>
-    <!--======================================================================================= -->
-    <div class="container">
-        <div class="text-center">
-            <h6 class="mb-0">
-                FORM XXV</h6>
-            <h6 class="my-0">
-                [Sece rule 82(2)]</h6>
-            <h5 class="my-0">
-                Annual Return of Principal Employer to be sent to the Registering Officer
+                </td>
+            </tr>
+        </table>
+        <!--======================================================================================= -->
+        <div class="container">
+            <div class="text-center">
+                <h6 class="mb-0">FORM XXV</h6>
+                <h6 class="my-0">[Sece rule 82(2)]</h6>
+                <h5 class="my-0">Annual Return of Principal Employer to be sent to the Registering Officer
                 <br />
-                Return for the year ending 31 December ............
-            </h5>
-        </div>
-        <div class="row">
-            <table class="table responsive table-striped table-bordered">
-                <tbody>
-                    <tr>
-                        <td>
-                            1. Full Name and address of the Principal Employer
-                        </td>
-                        <td>
-                            <asp:Label ID="lblPrincipalEmpNameAddr" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            2. Name of Estiblishment :
-                        </td>
-                        <td>
-                            <asp:Label ID="lblNameOfEstbl" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            (a) District:
-                        </td>
-                        <td>
-                            <asp:Label ID="lblDistrict" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            (b) Postal Address:
-                        </td>
-                        <td>
-                            <asp:Label ID="lblPostalAddr" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            (b) Nature of Operations / industry / Work carried on
-                        </td>
-                        <td>
-                            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            3. Full Name of the Manager or person responsible for supervision and control of
+                    Return for the year ending 31 December ............
+                </h5>
+            </div>
+            <div class="row">
+                <table class="table responsive table-striped table-bordered">
+                    <tbody>
+                        <tr>
+                            <td>1. Full Name and address of the Principal Employer
+                            </td>
+                            <td>
+                                <asp:Label ID="lblPrincipalEmpNameAddr" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2. Name of Estiblishment :
+                            </td>
+                            <td>
+                                <asp:Label ID="lblNameOfEstbl" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>(a) District:
+                            </td>
+                            <td>
+                                <asp:Label ID="lblDistrict" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>(b) Postal Address:
+                            </td>
+                            <td>
+                                <asp:Label ID="lblPostalAddr" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>(b) Nature of Operations / industry / Work carried on
+                            </td>
+                            <td>
+                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3. Full Name of the Manager or person responsible for supervision and control of
                             the establishment:
-                        </td>
-                        <td>
-                            <asp:Label ID="lblNameRespSuerv" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            4. Maximum Number of workman employed as contract labour on any day during the year:
-                        </td>
-                        <td>
-                            <asp:Label ID="lblMaxNumWorkman" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            5. Total number of days during the year on which contract labour was employed:
-                        </td>
-                        <td>
-                            <asp:Label ID="lbltotNumDaysEmployed" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            6. Total number of man days worked by contract labour during the year:
-                        </td>
-                        <td>
-                            <asp:Label ID="lblNumDaysLbrWorked" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            7. Maximum Number of workmen employed directly on any day during the year:
-                        </td>
-                        <td>
-                            <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            8. Total Number of days during the year on which directly employed labour was employed:
-                        </td>
-                        <td>
-                            <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            9. Total Number of man days worked by directly employed workmen:
-                        </td>
-                        <td>
-                            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            10. Nature of work on which contract labour was employed:
-                        </td>
-                        <td>
-                            <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            11. Amount of Security deposits made by contractor(Give contractor wise):
-                        </td>
-                        <td>
-                            <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            12. Amount of Security deposits forfeited together with the names of contractor,
+                            </td>
+                            <td>
+                                <asp:Label ID="lblNameRespSuerv" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4. Maximum Number of workman employed as contract labour on any day during the year:
+                            </td>
+                            <td>
+                                <asp:Label ID="lblMaxNumWorkman" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>5. Total number of days during the year on which contract labour was employed:
+                            </td>
+                            <td>
+                                <asp:Label ID="lbltotNumDaysEmployed" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>6. Total number of man days worked by contract labour during the year:
+                            </td>
+                            <td>
+                                <asp:Label ID="lblNumDaysLbrWorked" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>7. Maximum Number of workmen employed directly on any day during the year:
+                            </td>
+                            <td>
+                                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>8. Total Number of days during the year on which directly employed labour was employed:
+                            </td>
+                            <td>
+                                <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>9. Total Number of man days worked by directly employed workmen:
+                            </td>
+                            <td>
+                                <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>10. Nature of work on which contract labour was employed:
+                            </td>
+                            <td>
+                                <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>11. Amount of Security deposits made by contractor(Give contractor wise):
+                            </td>
+                            <td>
+                                <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>12. Amount of Security deposits forfeited together with the names of contractor,
                             if any:
-                        </td>
-                        <td>
-                            <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
-                    <tr width="50%">
-                        <td>
-                            13. Whether there is any change in the management of the establishment its location<br/>
-                            or any other particulars furnished to registering Officer in the form of application <br/>
-                            for registration at the time of registration, If so, from what date? : <br/>
-                        </td>
-                        <td>
-                            <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
-                        </td>
-                    </tr>
+                            </td>
+                            <td>
+                                <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
+                        <tr width="50%">
+                            <td>13. Whether there is any change in the management of the establishment its location<br />
+                                or any other particulars furnished to registering Officer in the form of application
+                                <br />
+                                for registration at the time of registration, If so, from what date? :
+                                <br />
+                            </td>
+                            <td>
+                                <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                            </td>
+                        </tr>
 
-                    <tr width="50%">
-                        <td>
-                           Place : <asp:Label ID="lblPlace" runat="server" Text=""></asp:Label><br/>
-                        </td>
-                        <td>
-                            Principal Employer: <asp:Label ID="lblPrincEmp" runat="server" Text=""></asp:Label>
-                        </td>
-                    </tr>
+                        <tr width="50%">
+                            <td>Place :
+                                <asp:Label ID="lblPlace" runat="server" Text=""></asp:Label><br />
+                            </td>
+                            <td>Principal Employer:
+                                <asp:Label ID="lblPrincEmp" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
 
-                    <tr width="50%">
-                        <td>
-                          Date : <asp:Label ID="lblDate2" runat="server" Text=""></asp:Label><br/>
-                        </td>
-                        <td>
-                           
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                        <tr width="50%">
+                            <td>Date :
+                                <asp:Label ID="lblDate2" runat="server" Text=""></asp:Label><br />
+                            </td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <!-- ===================================================================================== -->
-    <div class="container-fluid mx-0 px-0">
-        <div class="row">
-            <div class="page-wrapper">
-                <div class="">
-                    <div class="container-fluid">
-                        <div class="card-body">
-                            <div class="table-responsive" style="overflow: auto;">
-                                <%--========================================================================================--%>
-                               
-                                <%--========================================================================================--%>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <!-- ===================================================================================== -->
+        <div class="container-fluid mx-0 px-0">
+            <div class="row">
+                <div class="page-wrapper">
+                    <div class="">
+                        <div class="container-fluid">
+                            <div class="card-body">
+                                <div class="table-responsive" style="overflow: auto;">
+                                    <%--========================================================================================--%>
+
+                                    <%--========================================================================================--%>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container-fluid mx-0 px-0">
-        <div class="row">
-            <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
-                        <div class="container-fluid">
-                            <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
+        <div class="container-fluid mx-0 px-0">
+            <div class="row">
+                <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
+                    <div class="container-fluid">
+                        <div class="text-center small">
+                            <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
 
-                            </div>
                         </div>
-                    </footer>
-            </td>
+                    </div>
+                </footer>
+                </td>
+            </div>
         </div>
-    </div>
-    <%--<div class="alert alert-success animated fadeInUp">
+        <%--<div class="alert alert-success animated fadeInUp">
             Logged out Successfully
         </div>--%>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
-    <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
-        defer></script>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <script type="text/jscript" defer>
-        $(window).on("load", function () {
-            $('.loading').fadeOut(1000);
-            tool_tip();
-            $('a[href="#"]').on("click", function (e) {
-                e.preventDefault ? e.preventDefault() :
-                e.returnValue = false
-            });
-            $(".alert").fadeTo(5000, 500).slideUp(500, function () {
-                $(".alert").slideUp(500);
-            });
-            function tool_tip() {
-                $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
-            }
-            function fademeout() {
-                $(".loading").fadeOut(1000);
-            }
-            $(document).ajaxSend(function () {
-                fademeout();
-            });
-            $(document).ajaxComplete(function () {
+        <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
+        <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
+            defer></script>
+        <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+        <script type="text/jscript" defer>
+            $(window).on("load", function () {
+                $('.loading').fadeOut(1000);
                 tool_tip();
+                $('a[href="#"]').on("click", function (e) {
+                    e.preventDefault ? e.preventDefault() :
+                    e.returnValue = false
+                });
+                $(".alert").fadeTo(5000, 500).slideUp(500, function () {
+                    $(".alert").slideUp(500);
+                });
+                function tool_tip() {
+                    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+                }
+                function fademeout() {
+                    $(".loading").fadeOut(1000);
+                }
+                $(document).ajaxSend(function () {
+                    fademeout();
+                });
+                $(document).ajaxComplete(function () {
+                    tool_tip();
+                });
             });
-        });
-    </script>
+        </script>
     </form>
 </body>
 </html>

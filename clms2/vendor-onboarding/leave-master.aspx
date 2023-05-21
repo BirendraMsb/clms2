@@ -188,12 +188,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -223,41 +223,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -383,7 +405,7 @@
                                                             <asp:Label ID="lblLeaveType" runat="server" Text='<%# Eval("leave_type")%>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                           <%-- <asp:DropDownList ID="txtLeaveType" runat="server" Width="140"></asp:DropDownList>--%>
+                                                            <%-- <asp:DropDownList ID="txtLeaveType" runat="server" Width="140"></asp:DropDownList>--%>
                                                             <asp:TextBox ID="txtLeaveType" runat="server" Text='<%# Eval("leave_type")%>' Width="140"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtLeaveType" ErrorMessage="* Pls Select Leave Type" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
@@ -400,12 +422,12 @@
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
 
-                                                       <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true"
+                                                    <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true"
                                                         ItemStyle-Width="150" HeaderText="Action" CausesValidation="False">
                                                         <ItemStyle Width="150px" />
                                                     </asp:CommandField>
 
-                                                <%--    <asp:TemplateField ShowHeader="False" ItemStyle-Width="150">
+                                                    <%--    <asp:TemplateField ShowHeader="False" ItemStyle-Width="150">
                                                          <ItemTemplate>
                                                             <asp:LinkButton ID="LinkButton3" runat="server" CausesValidation="False"
                                                                 CommandName="Edit" Text="Edit"></asp:LinkButton>
@@ -419,7 +441,6 @@
                                                                 CommandName="Cancel" Text="Cancel"></asp:LinkButton>
                                                         </EditItemTemplate>
                                                    </asp:TemplateField>--%>
-                                                   
                                                 </Columns>
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />

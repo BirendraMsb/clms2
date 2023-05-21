@@ -1,19 +1,16 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="manual-correction.aspx.cs" Inherits="clms2.vendor_onboarding.manual_correction" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fnf_settlement.aspx.cs" Inherits="clms2.vendor_onboarding.fnf_settlement" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
-    <title>CLMS | Admin | Dashboard</title>
-
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
-    <%--<link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />--%>
-
-    <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
+    <%-- <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />--%>
+    <link rel="icon" href="../public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="../public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="../public/newfront/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../public/newfront/datatables/datatables.min.css" />
@@ -33,8 +30,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../public/common/icons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="../public/common/icons/favicon-96x96.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../public/common/icons/favicon-16x16.png" />
-    <script src="../js/Jquery-3.3.1.js"></script>
-
 
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
@@ -61,27 +56,14 @@
                 overflow: hidden;
             }
     </style>
-
-    <script>
-        var checked = true;
-        $(function () {
-            var MainGridView = $('#GridView2');
-            $('#GridView2_chkHeader').click(
-                function (evt) {
-                    MainGridView.find("input[type='checkbox']").prop('checked', checked);
-                    checked = !checked;
-                }
-            );
-        });
-    </script>
-
-
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
-        <%--   <div class="loading">
+        <div class="loading">
             <div class="loader"></div>
-        </div>--%>
+        </div>
+        <%--==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==--%>
+        <%--==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==--%>
         <table class="table">
             <tr>
                 <td>
@@ -243,7 +225,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
@@ -390,136 +372,191 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-                                <br />
-                                <div class="card shadow border">
-                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Manual Punch Correction</div>
-                                    <div class="card-body">
-                                        <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
-                                        <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
-                                        <div class="row">
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>From Date</label>
-                                                    <asp:TextBox ID="txtdate1" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                                </div>
+                            </div>
+                            <br />
+                            <div class="card shadow border">
+                                <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Full and Final Settlement</div>
+                                <div class="card-body">
+                                    <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
+                                   <%-- <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>--%>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-3">
+                                                <asp:Label ID="lblMsgError" runat="server" Text="" Font-Size="Larger" ForeColor="Red" Font-Bold="True"></asp:Label><br />
+                                                <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label><br />
+                                             <%--   <asp:Label ID="lblMsgMail" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label>--%>
                                             </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>To Date</label>
-                                                    <asp:TextBox ID="txtdate2" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label></label>
-                                                    <asp:Button ID="cmdShow" runat="server" Text="Show Punch" class="btn btn-info form-control"></asp:Button>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label></label>
-                                                    <asp:Button ID="cmdUpdate" runat="server" Text="Update" class="btn btn-info form-control" OnClick="cmdUpdate_Click"></asp:Button>
-                                                </div>
-                                            </div>
-
-                                            <hr class="my-5" />
-                                            <br />
-                                            <br />
-                                            <%--========================================================================================--%>
-                                            <div>
-                                                <div class="table-responsive" style="overflow: auto;">
-                                                    <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                        GridLines="Vertical" AllowPaging="false" PageSize="5" DataKeyNames="id" EmptyDataText="No records has been added."
-                                                        Class="table table-bordered nowrap w-25" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
-                                                        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                                        <Columns>
-
-                                                            <asp:TemplateField>
-                                                                <HeaderTemplate>
-                                                                    <asp:CheckBox ID="chkHeader" runat="server" />
-                                                                </HeaderTemplate>
-                                                                <ItemTemplate>
-                                                                    <asp:CheckBox ID="chkRow" runat="server" />
-                                                                </ItemTemplate>
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="ID" Visible="false" ItemStyle-Width="50px">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="id" runat="server" Visible="false" Text='<%# Eval("id") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                                <ItemStyle Width="50px" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Sl. No" ItemStyle-Width="150px">
-                                                                <ItemTemplate>
-                                                                    <%# Container.DataItemIndex + 1 %>
-                                                                </ItemTemplate>
-                                                                <ItemStyle Width="50px" HorizontalAlign="Center" />
-                                                            </asp:TemplateField>
-
-                                                            <asp:TemplateField HeaderText="Emp Code" ItemStyle-Width="150px">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="emp_code" runat="server" Width="100px" Text='<%# Eval("emp_code") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                                <ItemStyle Width="150px" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Emp Name" ItemStyle-Width="150px">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="emp_name" runat="server" Width="100px" Text='<%# Eval("emp_name") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                                <ItemStyle Width="150px" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Date" ItemStyle-Width="150px">
-                                                                <ItemTemplate>
-                                                                    <asp:Label ID="date" runat="server" Width="100px" Text='<%# Eval("date","{0:dd-MM-yyyy}") %>'></asp:Label>
-                                                                </ItemTemplate>
-                                                                <ItemStyle Width="150px" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="In Time" ItemStyle-Width="150px">
-                                                                <ItemTemplate>
-                                                                    <asp:TextBox ID="in_time" runat="server" TextMode="Time" Text='<%# Eval("in_time","{0:HH:mm:ss}") %>'></asp:TextBox>
-                                                                </ItemTemplate>
-                                                                <ItemStyle Width="150px" />
-                                                            </asp:TemplateField>
-                                                            <asp:TemplateField HeaderText="Out Time" ItemStyle-Width="150px">
-                                                                <ItemTemplate>
-                                                                    <asp:TextBox ID="out_time" runat="server" TextMode="Time" Text='<%# Eval("out_time","{0:HH:mm:ss}") %>'></asp:TextBox>
-                                                                </ItemTemplate>
-                                                                <ItemStyle Width="150px" />
-                                                            </asp:TemplateField>
-
-                                                        </Columns>
-                                                        <AlternatingRowStyle BackColor="#FFFFFF" />
-                                                        <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                                        <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                                        <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                                        <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
-                                                        <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
-                                                        <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                                        <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                                                        <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                                        <SortedDescendingHeaderStyle BackColor="#000065" />
-                                                    </asp:GridView>
-                                                </div>
-                                            </div>
-
-                                            <%--========================================================================================--%>
-                                            <hr class="my-5" />
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="form-group mb-3">
-                                                        <asp:Label ID="lblError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                                        <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label>
-                                                        <asp:Label ID="lblMsgError" runat="server" ForeColor="#CC0000" Font-Bold="True"></asp:Label>
-                                                    </div>
-                                                </div>
-                                            </div>
-
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Work Order</label><label class="text-danger">*</label>
+                                                <asp:DropDownList ID="ddlWorkOrder" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlWorkOrder" ErrorMessage="* Pls Select Work Order" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Employee Code</label><label class="text-danger">*</label>
+                                                <asp:DropDownList ID="ddlEmpCode" runat="server" class="form-control" AutoPostBack="True" OnSelectedIndexChanged="ddlEmpCode_SelectedIndexChanged"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlEmpCode" ErrorMessage="* Select Emp Code" ForeColor="#CC3300" InitialValue="Select"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Principal Employer</label><label class="text-danger">*</label>
+                                                <asp:DropDownList ID="ddlPrincipalEmployer" runat="server" class="form-control" MaxLength="50"></asp:DropDownList>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlPrincipalEmployer" ErrorMessage="* Pls Select Principal Employer" InitialValue="Select" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Establishment(Vendor)</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtEstVendor" runat="server" class="form-control" MaxLength="50" ReadOnly="true"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtEstVendor" ErrorMessage="* Pls Enter Establishment(Vendor)" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Vendor Code</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" MaxLength="50" ReadOnly="true"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtVendorCode" ErrorMessage="* Pls Enter Vendor Reg. No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Employee Name</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtEmpName" runat="server" class="form-control" MaxLength="50" ReadOnly="true"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtEmpName" ErrorMessage="* Pls Enter Employee Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Gate Pass No.</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtGatePassNo" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtGatePassNo" ErrorMessage="* Pls Enter Gate Pass no" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                       <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Department</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtDepartment" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtDepartment" ErrorMessage="* Pls Enter Department" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                       <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Date of Joining</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtDateOfJoining" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtDateOfJoining" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtDateOfJoining" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Last Working Day</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtLastWorkingDay" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtLastWorkingDay" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtLastWorkingDay" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Year of Service</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtYearOfService" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtYearOfService" ErrorMessage="* Pls Enter Year of Service" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator10" ControlToValidate="txtYearOfService" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Payments of Annual Bonus(Previous Year)</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtAnnualBonusPrevYear" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtAnnualBonusPrevYear" ErrorMessage="* Select Payments of Annual Bonus(Previous Year)" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtAnnualBonusPrevYear" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Payments of Annual Bonus(Current Year)</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtAnnualBonusCurrYear" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtAnnualBonusCurrYear" ErrorMessage="* Enter Payments of Annual Bonus(Current Year)" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="txtAnnualBonusCurrYear" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Payments of Leave</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtPayOfLeave" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtPayOfLeave" ErrorMessage="* Enter Payment of Leave" ForeColor="#CC3300" InitialValue="Select"></asp:RequiredFieldValidator>
+                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtPayOfLeave" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Payments of Gratuity</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtPayOfGratuity" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtPayOfGratuity" ErrorMessage="* Enter Grautuity" ForeColor="#CC3300" InitialValue="Select"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtPayOfGratuity" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Notice Periaod of Payment(in days)</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtNoticePeriodOfPay" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtNoticePeriodOfPay" ErrorMessage="* Enter Notice Period of Payment" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtNoticePeriodOfPay" runat="server" ErrorMessage="Only Numbers" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Last Month Salary</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtLastMonthSalary" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator16" runat="server" ControlToValidate="txtLastMonthSalary" ErrorMessage="* Enter Last Monther Salary" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                  <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtLastMonthSalary" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                     </div>
+                                    <div class="row">
+                                       <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Advance Deduction (if Any)</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtAdvDeduction" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtAdvDeduction" ErrorMessage="* Enter Advance Deduction" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtAdvDeduction" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-3">
+                                                <asp:Button ID="cmdSave" runat="server" Text="Submit" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
+                                                <asp:Button ID="cmdCancel" runat="server" Text="Cancel/Clear" class="btn btn-info" OnClick="cmdCancel_Click"></asp:Button>
+                                                <%-- <asp:Button ID="BtnMail" runat="server" Text="Mail" Width="100px" class="btn btn-info" ></asp:Button>--%>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="my-5" />
+
+
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    </div>
                 </td>
             </tr>
             <tr>
@@ -527,24 +564,25 @@
                     <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
                         <div class="container-fluid">
                             <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
-
-                                <%--<div class="text-light d-none d-sm-inline-block float-end">
-				 <a href="https://shitij.in">Kshitij Info Solutions</a>
-			</div>--%>
+                                <div class="text-light ">
+                                    &copy; 2022 | GreenHRM Solutions | All Rights Reserved                               <%--<div class="text-light d-none d-sm-inline-block float-end">
+				                     <a href="https://shitij.in">Kshitij Info Solutions</a>
+			                    </div>--%>
+                                </div>
                             </div>
-                        </div>
                     </footer>
                 </td>
             </tr>
         </table>
-        <%-- <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
-        <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>--%>
-        <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js" defer></script>
-        <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-
+        <%--==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==11==--%>
+        <%--	<div class="alert alert-success animated fadeInUp">
+		Logged out Successfully	</div>--%>
+        <script type="text/jscript" src="../public/newfront/js/jquery.min.js"></script>
+        <script type="text/jscript" src="../public/newfront/jquery-ui/jquery-ui.min.js"></script>
+        <script type="text/jscript" src="../public/newfront/assets/js/app.js"></script>
+        <script type="text/jscript" src="../public/newfront/datatables/datatables.min.js"></script>
+        <script type="text/jscript" src="../public/newfront/js/jquery.validate.min.js"></script>
+        <%--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
         <script type="text/jscript" defer>
             $(window).on("load", function () {
                 $('.loading').fadeOut(1000);
@@ -570,60 +608,58 @@
                 });
             });
         </script>
+    </form>
 
-        <link rel="stylesheet" href="../dtm/css/pikaday.css" />
-        <script src="../dtm/date_fns.min.js" type="text/jscript"></script>
-        <script src="../dtm/pikaday.js" type="text/jscript"></script>
-
-        <script type="text/jscript">
-            new Pikaday(
-            {
-                field: document.getElementById('txtdate1'),
-                toString: function (date, format) {
-                    return dateFns.format(date, format);
-                },
-                parse: function (dateString, format) {
-                    return dateFns.parse(dateString);
-                },
-                onSelect: function (selectedDate) {
-                    // not necessary, just showing off
-                    if (dateFns.isValid(selectedDate)) {
-                        var p = document.createElement('p');
-                        p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
-                        document.getElementById('selected').appendChild(p);
-                    }
+    <link rel="stylesheet" href="../dtm/css/pikaday.css" />
+    <script src="../dtm/date_fns.min.js" type="text/jscript"></script>
+    <script src="../dtm/pikaday.js" type="text/jscript"></script>
+    <script type="text/jscript">
+        new Pikaday(
+        {
+            field: document.getElementById('txtDateOfJoining'),
+            toString: function (date, format) {
+                return dateFns.format(date, format);
+            },
+            parse: function (dateString, format) {
+                return dateFns.parse(dateString);
+            },
+            onSelect: function (selectedDate) {
+                // not necessary, just showing off
+                if (dateFns.isValid(selectedDate)) {
+                    var p = document.createElement('p');
+                    p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
+                    document.getElementById('selected').appendChild(p);
                 }
-            });
-
-            ///-------------------------------------------------/////
-
-            new Pikaday(
-             {
-                 field: document.getElementById('txtdate2'),
-                 toString: function (date, format) {
-                     return dateFns.format(date, format);
-                 },
-                 parse: function (dateString, format) {
-                     return dateFns.parse(dateString);
-                 },
-                 onSelect: function (selectedDate) {
-                     // not necessary, just showing off
-                     if (dateFns.isValid(selectedDate)) {
-                         var p = document.createElement('p');
-                         p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
-                         document.getElementById('selected').appendChild(p);
-                     }
-                 }
-             });
+            }
+        });
 
         </script>
+        //    ========================================================
 
-
-        <%--  <script type="text/jscript">
-            $(window).on("load", function () {
-                $('#GridView2').DataTable({ responsive: true });
-            });
-        </script>--%>
-    </form>
+       <script type="text/jscript">
+        new Pikaday(
+        {
+            field: document.getElementById('txtLastWorkingDay'),
+            toString: function (date, format) {
+                return dateFns.format(date, format);
+            },
+            parse: function (dateString, format) {
+                return dateFns.parse(dateString);
+            },
+            onSelect: function (selectedDate) {
+                // not necessary, just showing off
+                if (dateFns.isValid(selectedDate)) {
+                    var p = document.createElement('p');
+                    p.innerText = dateFns.distanceInWordsToNow(selectedDate, { addSuffix: true });
+                    document.getElementById('selected').appendChild(p);
+                }
+            }
+        });
+    </script>
+    <script type="text/jscript">
+        $(window).on("load", function () {
+            $('#GvWod').DataTable({ responsive: true });
+        });
+    </script>
 </body>
 </html>

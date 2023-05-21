@@ -35,50 +35,43 @@
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <style>
-        .nav-link
-        {
+        .nav-link {
             padding: 0.32rem 0.75rem;
         }
-        
-        .bg-dark
-        {
+
+        .bg-dark {
             background-color: #292e40 !important;
         }
-        
-        .icon-svg, .icon-svg.icon-svg-lg
-        {
+
+        .icon-svg, .icon-svg.icon-svg-lg {
             width: 3rem;
             height: 3rem;
         }
-        
-        img, svg
-        {
+
+        img, svg {
             vertical-align: middle;
         }
-        
-        svg:not(:root)
-        {
-            overflow: hidden;
-        }
-        
-        
-        .boxDec
-        {
+
+            svg:not(:root) {
+                overflow: hidden;
+            }
+
+
+        .boxDec {
             border: 1px solid #000;
         }
-        
-        td:nth-child(2)
-        {
+
+        td:nth-child(2) {
             width: 5rem;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-    <table class="table">
-        <tr>
-            <td>
-                <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+        <table class="table">
+            <tr>
+                <td>
+                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -201,12 +194,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -236,41 +229,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -354,143 +369,107 @@
                             </div>
                         </div>
                     </nav>
-            </td>
-        </tr>
-    </table>
-    <div class="container">
+                </td>
+            </tr>
+        </table>
+        <div class="container">
             <div class="text-center">
-                <h6 class="mb-0">
-                    FORM XIX</h6>
-                <h6 class="my-0">
-                    1[See rule 78 (1) (b)]</h6>
-                <h5 class="my-0">
-                    Wage Slip</h5>
+                <h6 class="mb-0">FORM XIX</h6>
+                <h6 class="my-0">1[See rule 78 (1) (b)]</h6>
+                <h5 class="my-0">Wage Slip</h5>
             </div>
-        <div class=" my-0 py-0 boxDec ">
-            <table>
-                <tr>
-                    <td class="px-4">
-                        Name and address of contractor
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        :
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        Name of the workman
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        :
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        Nature and location of work
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        :
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        Month & Year
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        :
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        1. Number of days worked
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        :
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        2. Number of units worked in case of piece rate workers
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        : NA
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        3. Rate of daily wages/piece rate
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        : Rs.500/-per day
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        4. Amount of overtime wages
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        : Rs.100/-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        5. Gross wages payable a
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        : Rs.10,000/-
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        6. Deductions, If any
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        : Rs.500/-per day
-                    </td>
-                </tr>
-                <tr>
-                    <td class="px-4">
-                        7. Net amount of wages paid
-                    </td>
-                    <td>
-                    </td>
-                    <td>
-                        : Rs.9,500/-
-                    </td>
-                </tr>
-                <tr>
-                    <table style="border-top:1px solid #000; width:100%;" class="mx-0; px-0">
-                       <tr style="padding:0">  
-                       <td class="px-4 pt-2">Initials of the Contractor or his representative. </td>
-                      
-                       </tr>
-                    </table>
-                    
-                </tr>
-                <br />
-                <br />
-            </table>
-            <%--<div class="d-flex">
+            <div class=" my-0 py-0 boxDec ">
+                <table>
+                    <tr>
+                        <td class="px-4">Name and address of contractor
+                        </td>
+                        <td></td>
+                        <td>:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">Name of the workman
+                        </td>
+                        <td></td>
+                        <td>:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">Nature and location of work
+                        </td>
+                        <td></td>
+                        <td>:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">Month & Year
+                        </td>
+                        <td></td>
+                        <td>:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">1. Number of days worked
+                        </td>
+                        <td></td>
+                        <td>:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">2. Number of units worked in case of piece rate workers
+                        </td>
+                        <td></td>
+                        <td>: NA
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">3. Rate of daily wages/piece rate
+                        </td>
+                        <td></td>
+                        <td>: Rs.500/-per day
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">4. Amount of overtime wages
+                        </td>
+                        <td></td>
+                        <td>: Rs.100/-
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">5. Gross wages payable a
+                        </td>
+                        <td></td>
+                        <td>: Rs.10,000/-
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">6. Deductions, If any
+                        </td>
+                        <td></td>
+                        <td>: Rs.500/-per day
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="px-4">7. Net amount of wages paid
+                        </td>
+                        <td></td>
+                        <td>: Rs.9,500/-
+                        </td>
+                    </tr>
+                    <tr>
+                        <table style="border-top: 1px solid #000; width: 100%;" class="mx-0; px-0">
+                            <tr style="padding: 0">
+                                <td class="px-4 pt-2">Initials of the Contractor or his representative. </td>
+
+                            </tr>
+                        </table>
+
+                    </tr>
+                    <br />
+                    <br />
+                </table>
+                <%--<div class="d-flex">
                     <div class="col-md-6">
                         <p>Name and address of contractor</p>
                     </div>
@@ -588,11 +567,11 @@
                         <asp:Label ID="Label7" runat="server" Text="Label">: </asp:Label>
                     </div>
                 </div>--%>
+            </div>
         </div>
-    </div>
-    <div class="container-fluid mx-0 px-0">
-        <div class="row">
-            <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
+        <div class="container-fluid mx-0 px-0">
+            <div class="row">
+                <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
                     <div class="container-fluid">
                         <div class="text-center small">
                             <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
@@ -600,46 +579,46 @@
                         </div>
                     </div>
                 </footer>
-            </td>
+                </td>
+            </div>
         </div>
-    </div>
-    <%--<div class="alert alert-success animated fadeInUp">
+        <%--<div class="alert alert-success animated fadeInUp">
             Logged out Successfully
         </div>--%>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
-    <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
-    <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
-        defer></script>
-    <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <script type="text/jscript" defer>
-        $(window).on("load", function () {
-            $('.loading').fadeOut(1000);
-            tool_tip();
-            $('a[href="#"]').on("click", function (e) {
-                e.preventDefault ? e.preventDefault() :
-                        e.returnValue = false
-            });
-            $(".alert").fadeTo(5000, 500).slideUp(500, function () {
-                $(".alert").slideUp(500);
-            });
-            function tool_tip() {
-                $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
-            }
-            function fademeout() {
-                $(".loading").fadeOut(1000);
-            }
-            $(document).ajaxSend(function () {
-                fademeout();
-            });
-            $(document).ajaxComplete(function () {
+        <script type="text/jscript" src="~/public/newfront/js/jquery.min.js"></script>
+        <script type="text/jscript" src="~/public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/assets/js/app.js" defer></script>
+        <script type="text/jscript" src="~/public/newfront/datatables/datatables.min.js"
+            defer></script>
+        <script type="text/jscript" src="~/public/newfront/js/jquery.validate.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+        <script type="text/jscript" defer>
+            $(window).on("load", function () {
+                $('.loading').fadeOut(1000);
                 tool_tip();
+                $('a[href="#"]').on("click", function (e) {
+                    e.preventDefault ? e.preventDefault() :
+                            e.returnValue = false
+                });
+                $(".alert").fadeTo(5000, 500).slideUp(500, function () {
+                    $(".alert").slideUp(500);
+                });
+                function tool_tip() {
+                    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
+                }
+                function fademeout() {
+                    $(".loading").fadeOut(1000);
+                }
+                $(document).ajaxSend(function () {
+                    fademeout();
+                });
+                $(document).ajaxComplete(function () {
+                    tool_tip();
+                });
             });
-        });
-    </script>
+        </script>
     </form>
 </body>
 </html>

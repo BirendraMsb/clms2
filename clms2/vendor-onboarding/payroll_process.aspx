@@ -187,12 +187,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -222,41 +222,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -349,14 +371,14 @@
                             <div class="container-fluid">
                                 <br />
                                 <div class="card shadow border">
-                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Form XVII </div>
+                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Payroll Process </div>
                                     <div class="card-body">
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
-                                                    <asp:Button ID="cmdProcess" runat="server" Text="Process" Width="150px" class="btn btn-info" OnClick="cmdProcess_Click" ></asp:Button>
+                                                    <asp:Button ID="cmdProcess" runat="server" Text="Process" Width="150px" class="btn btn-info" OnClick="cmdProcess_Click"></asp:Button>
                                                     <%-- <asp:Button ID="btnBulkInsert" runat="server" Text="Insert" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>--%>
                                                 </div>
                                             </div>
@@ -365,7 +387,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Work Order</label>
-                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50" >
+                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50">
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -428,7 +450,7 @@
                                                 <%-- <div class="table-responsive" style="width:50%;">--%>
                                                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                     GridLines="Vertical" AllowPaging="false" PageSize="5" DataKeyNames="emp_code" EmptyDataText="No records has been added."
-                                                    Class="table table-bordered nowrap w-25" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
+                                                    Class="table table-bordered nowrap w-80" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GridView2_PageIndexChanging">
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                     <Columns>
                                                         <asp:TemplateField HeaderText="Sl. No">
@@ -443,11 +465,11 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="150px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Name of Workman" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Name of Workman" ItemStyle-Width="150px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                            <ItemStyle Width="50px" />
+                                                            <ItemStyle Width="150px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Designation/Nature of workdone" ItemStyle-Width="50px">
                                                             <ItemTemplate>
@@ -457,61 +479,80 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="No of days work done" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="no_of_workdone" runat="server" Text='<%# Eval("no_of_workdone") %>'></asp:Label>
+                                                                <asp:Label ID="no_of_days_workdone" runat="server" Text='<%# Eval("no_of_days_workdone") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                     <%--   <asp:TemplateField HeaderText="Units of Work done" ItemStyle-Width="50px">
+                                                        <%--   <asp:TemplateField HeaderText="Units of Work done" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="unit_of_workdone" runat="server" Text='<%# Eval("unit_of_workdone") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>--%>
-                                                        <asp:TemplateField HeaderText="Daily-rate of wages/Hour" ItemStyle-Width="50px">
+                                                    <%--    <asp:TemplateField HeaderText="Daily-rate of wages/Hour" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="daily_rate_of_wages" runat="server" Text='<%# Eval("daily_rate_of_wages") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Basic" ItemStyle-Width="50px">
+                                                        </asp:TemplateField>--%>
+                                                       <asp:TemplateField HeaderText="OT Hrs." ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="Basic" runat="server" Text='<%# Eval("Basic") %>'></asp:Label>
+                                                                <asp:Label ID="ot_hrs" runat="server" Text='<%# Eval("ot_hrs") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                    <%--    <asp:TemplateField HeaderText="Dearness Allowances" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Daily Basic Wages" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="daily_Basic" runat="server" Text='<%# Eval("daily_Basic") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                        <%--    <asp:TemplateField HeaderText="Dearness Allowances" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="DA" runat="server" Text='<%# Eval("DA") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>--%>
-                                                        <asp:TemplateField HeaderText="Overtime" ItemStyle-Width="50px">
+                                                     
+                                                        <asp:TemplateField HeaderText="Daily other Allowance" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="overtime" runat="server" Text='<%# Eval("overtime") %>'></asp:Label>
+                                                                <asp:Label ID="daily_other_allowance" runat="server" Text='<%# Eval("daily_other_allowance") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Allowance" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Basic Earnings" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="other_case_payment" runat="server" Text='<%# Eval("other_case_payment") %>'></asp:Label>
+                                                                <asp:Label ID="basic_earnings" runat="server" Text='<%# Eval("basic_earnings") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                     <%--   <asp:TemplateField HeaderText="Total" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Other Allowance Earnings" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="total" runat="server" Text='<%# Eval("total") %>'></asp:Label>
+                                                                <asp:Label ID="other_allowance_earnings" runat="server" Text='<%# Eval("other_allowance_earnings") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>--%>
-                                                        <asp:TemplateField HeaderText="PF" ItemStyle-Width="50px">
+                                                        </asp:TemplateField>
+                                                         <asp:TemplateField HeaderText="OT Earnings" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="pf_deduction" runat="server" Text='<%# Eval("pf_deduction") %>'></asp:Label>
+                                                                <asp:Label ID="ot_earnings" runat="server" Text='<%# Eval("ot_earnings") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                           <asp:TemplateField HeaderText="Total Earnings" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="total_earnings" runat="server" Text='<%# Eval("total_earnings") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="PF Contribution" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="pf_contribution" runat="server" Text='<%# Eval("pf_contribution") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="ESIC" ItemStyle-Width="50px">
                                                             <ItemTemplate>
-                                                                <asp:Label ID="esic_deduction" runat="server" Text='<%# Eval("esic_deduction") %>'></asp:Label>
+                                                                <asp:Label ID="esic" runat="server" Text='<%# Eval("esic") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
@@ -521,25 +562,36 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Wage" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Total Deductions" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="total_deduction" runat="server" Text='<%# Eval("total_deduction") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                       <asp:TemplateField HeaderText="Total Payable" ItemStyle-Width="50px">
+                                                            <ItemTemplate>
+                                                                <asp:Label ID="total_payable" runat="server" Text='<%# Eval("total_payable") %>'></asp:Label>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="50px" />
+                                                        </asp:TemplateField>
+                                                      <%--  <asp:TemplateField HeaderText="Wage" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="wage" runat="server" Text='<%# Eval("wage") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>
-                                                <%--        <asp:TemplateField HeaderText="Signature" ItemStyle-Width="50px">
+                                                        </asp:TemplateField>--%>
+                                                        <asp:TemplateField HeaderText="Signature" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="signature" runat="server" Text='<%# Eval("signature") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
-                                                        </asp:TemplateField>--%>
-                                                    <%--    <asp:TemplateField HeaderText="Intial Contracotr or his representive" ItemStyle-Width="50px">
+                                                        </asp:TemplateField>
+                                                        <%--    <asp:TemplateField HeaderText="Intial Contracotr or his representive" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="intial_contractor" runat="server" Text='<%# Eval("intial_contractor") %>'></asp:Label>
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>--%>
-
                                                     </Columns>
                                                     <AlternatingRowStyle BackColor="#FFFFFF" />
                                                     <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />

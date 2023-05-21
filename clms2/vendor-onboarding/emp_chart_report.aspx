@@ -190,12 +190,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -225,41 +225,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -370,7 +392,7 @@
                                                     <asp:Chart ID="Chart1" BorderlineColor="Black" BorderlineDashStyle="Solid"
                                                         Visible="true" ImageType="Png" runat="server" Height="400px" Width="400px" PaletteCustomColors="128, 255, 128; 255, 128, 0">
                                                         <Titles>
-                                                            <asp:Title TextStyle="Frame"> 
+                                                            <asp:Title TextStyle="Frame">
                                                             </asp:Title>
                                                         </Titles>
                                                         <Legends>
@@ -424,7 +446,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <h4>Caste Wise Employee Report </h4>
-                                                     <asp:Chart ID="Chart2" BorderlineColor="Black" BorderlineDashStyle="Solid"
+                                                    <asp:Chart ID="Chart2" BorderlineColor="Black" BorderlineDashStyle="Solid"
                                                         Visible="true" ImageType="Png" runat="server" Height="400px" Width="400px" PaletteCustomColors="128, 255, 128; 255, 128, 0">
                                                         <Titles>
                                                             <asp:Title TextStyle="Frame">
@@ -447,7 +469,7 @@
                                                     </asp:Chart>
 
 
-                                                 <%--   <asp:Chart ID="Chart2" runat="server">
+                                                    <%--   <asp:Chart ID="Chart2" runat="server">
                                                         <Series>
                                                             <asp:Series Name="Series2"></asp:Series>
                                                         </Series>
@@ -459,14 +481,13 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                 
                                                 </div>
                                             </div>
 
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <h4>Gender Wise Employee Report </h4>
-                                                       <asp:Chart ID="Chart3" BorderlineColor="Black" BorderlineDashStyle="Solid"
+                                                    <asp:Chart ID="Chart3" BorderlineColor="Black" BorderlineDashStyle="Solid"
                                                         Visible="true" ImageType="Png" runat="server" Height="400px" Width="400px" PaletteCustomColors="128, 255, 128; 255, 128, 0">
                                                         <Titles>
                                                             <asp:Title TextStyle="Frame">
@@ -487,7 +508,7 @@
                                                             </asp:ChartArea>
                                                         </ChartAreas>
                                                     </asp:Chart>
-                                                  <%--  <asp:Chart ID="Chart3" runat="server">
+                                                    <%--  <asp:Chart ID="Chart3" runat="server">
                                                         <Series>
                                                             <asp:Series Name="Series3"></asp:Series>
                                                         </Series>
@@ -499,19 +520,18 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                 
                                                 </div>
                                             </div>
 
                                         </div>
-                                   <div class="row">
+                                        <div class="row">
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <h4>State Wise Employee Report </h4>
                                                     <asp:Chart ID="Chart4" BorderlineColor="Black" BorderlineDashStyle="Solid"
                                                         Visible="true" ImageType="Png" runat="server" Height="400px" Width="400px" PaletteCustomColors="128, 255, 128; 255, 128, 0">
                                                         <Titles>
-                                                            <asp:Title TextStyle="Frame"> 
+                                                            <asp:Title TextStyle="Frame">
                                                             </asp:Title>
                                                         </Titles>
                                                         <Legends>
@@ -530,7 +550,7 @@
                                                         </ChartAreas>
                                                     </asp:Chart>
 
-                                                   <%-- <asp:Chart ID="Chart1" runat="server">
+                                                    <%-- <asp:Chart ID="Chart1" runat="server">
                                                         <Series>
                                                             <asp:Series Name="Series1"></asp:Series>
                                                         </Series>
@@ -542,13 +562,12 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                 
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <h4>Education Wise Employee Report </h4>
-                                                     <asp:Chart ID="Chart5" BorderlineColor="Black" BorderlineDashStyle="Solid"
+                                                    <asp:Chart ID="Chart5" BorderlineColor="Black" BorderlineDashStyle="Solid"
                                                         Visible="true" ImageType="Png" runat="server" Height="400px" Width="400px" PaletteCustomColors="128, 255, 128; 255, 128, 0">
                                                         <Titles>
                                                             <asp:Title TextStyle="Frame">
@@ -571,7 +590,7 @@
                                                     </asp:Chart>
 
 
-                                                 <%--   <asp:Chart ID="Chart2" runat="server">
+                                                    <%--   <asp:Chart ID="Chart2" runat="server">
                                                         <Series>
                                                             <asp:Series Name="Series2"></asp:Series>
                                                         </Series>
@@ -583,14 +602,13 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                 
                                                 </div>
                                             </div>
 
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <h4>Skill Wise Employee Report </h4>
-                                                       <asp:Chart ID="Chart6" BorderlineColor="Black" BorderlineDashStyle="Solid"
+                                                    <asp:Chart ID="Chart6" BorderlineColor="Black" BorderlineDashStyle="Solid"
                                                         Visible="true" ImageType="Png" runat="server" Height="400px" Width="400px" PaletteCustomColors="128, 255, 128; 255, 128, 0">
                                                         <Titles>
                                                             <asp:Title TextStyle="Frame">
@@ -611,7 +629,7 @@
                                                             </asp:ChartArea>
                                                         </ChartAreas>
                                                     </asp:Chart>
-                                                  <%--  <asp:Chart ID="Chart3" runat="server">
+                                                    <%--  <asp:Chart ID="Chart3" runat="server">
                                                         <Series>
                                                             <asp:Series Name="Series3"></asp:Series>
                                                         </Series>
@@ -623,7 +641,6 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                 
                                                 </div>
                                             </div>
 

@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-      <title>CLMS | Vendor | Details</title>
+    <title>CLMS | Vendor | Details</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
     <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
-     <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
+    <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/bootstrap.min.css" />
@@ -61,7 +61,7 @@
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
-       <%-- <div class="loading">
+        <%-- <div class="loading">
             <div class="loader"></div>
         </div>--%>
         <table class="table">
@@ -190,12 +190,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Payroll Process
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="annual_bonus.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Annual Bonus
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="leave_status.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Leave Status
                                                 </a>
@@ -225,41 +225,63 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                             <li>
                                                 <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 16
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
                                             </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form 17
+                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>License Certificate
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of OT
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Fine
+                                                <a class="dropdown-item" href="form-V.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form V
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Register of Workmen
+                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
                                                 </a>
                                             </li>
-
                                             <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
+                                                <a class="dropdown-item" href="register-of-fines.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
+                                                </a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a class="dropdown-item" href="register-of-OT.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
+                                                </a>
+                                            </li>
+                                          
+                                            <li>
+                                                <a class="dropdown-item" href="license_certificate.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="gratuity.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
                                             </li>
                                         </ul>
@@ -346,120 +368,120 @@
                 </td>
             </tr>
             <tr>
-           <td>
-            <div class="page-wrapper">
-            <div class="page-content-tab">
-                <div class="container-fluid">
-                    <br />
-                    <div class="card shadow border">
-                        <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
-                            <span>Vendor Detail</span>
-                            <span><a href="emp_onboarding.aspx" class="text-white">Add New</a></span>
-                        </div>
-                        <div class="card-body">
-                            <div>
-                               <div class="table-responsive" style="overflow: scroll;width:80%">
-                                <%--========================================================================================--%>
-                                <asp:GridView ID="GvEmp" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                    GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered " ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowDataBound="GvEmp_RowDataBound" OnSelectedIndexChanged="GvEmp_SelectedIndexChanged">
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                    <Columns>
-                                        <asp:TemplateField HeaderText="Sl. No">
-                                            <ItemTemplate>
-                                                <%# Container.DataItemIndex + 1 %>
-                                            </ItemTemplate>
-                                            <ItemStyle Width="30px" HorizontalAlign="Center" />
-                                        </asp:TemplateField>
-                                        
-                                        <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor Code" SortExpression="vendor_reg_code" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="work_worder" HeaderText="Work Order No" SortExpression="work_worder" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="vendor_name" HeaderText="Vendor Name" SortExpression="vendor_name" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:TemplateField HeaderText="Photo">
-                                            <ItemTemplate>
-                                                <asp:Image ID="image1" runat="server" Width="80px" Height="100px" ImageUrl='<%# Eval("img_file","../vendors_pic/{0}") %>' />
-                                            </ItemTemplate>
-                                            <ItemStyle Height="50px" Width="50px" />
-                                        </asp:TemplateField>
-                                        <asp:BoundField DataField="vendor_owner_name" HeaderText="Owner Name" SortExpression="vendor_owner_name" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" ItemStyle-Wrap="false" />
-                                        <asp:BoundField DataField="contact_no1" HeaderText="Contact No. 1" SortExpression="contact_no1" ItemStyle-HorizontalAlign="Center" ItemStyle-Wrap="false">
-                                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
-                                        </asp:BoundField>
+                <td>
+                    <div class="page-wrapper">
+                        <div class="page-content-tab">
+                            <div class="container-fluid">
+                                <br />
+                                <div class="card shadow border">
+                                    <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
+                                        <span>Vendor Detail</span>
+                                        <span><a href="emp_onboarding.aspx" class="text-white">Add New</a></span>
+                                    </div>
+                                    <div class="card-body">
+                                        <div>
+                                            <div class="table-responsive" style="overflow: scroll; width: 80%">
+                                                <%--========================================================================================--%>
+                                                <asp:GridView ID="GvEmp" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                                                    GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered " ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowDataBound="GvEmp_RowDataBound" OnSelectedIndexChanged="GvEmp_SelectedIndexChanged">
+                                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                                                    <Columns>
+                                                        <asp:TemplateField HeaderText="Sl. No">
+                                                            <ItemTemplate>
+                                                                <%# Container.DataItemIndex + 1 %>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Width="30px" HorizontalAlign="Center" />
+                                                        </asp:TemplateField>
 
-                                        <asp:BoundField DataField="contact_no2" HeaderText="Contact No2" SortExpression="contact_no2" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="firm_address" HeaderText="Address" SortExpression="firm_address" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="firm_city" HeaderText="City" SortExpression="firm_city" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="firm_state" HeaderText="State" SortExpression="[firm_state]" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor Code" SortExpression="vendor_reg_code" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="work_worder" HeaderText="Work Order No" SortExpression="work_worder" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="vendor_name" HeaderText="Vendor Name" SortExpression="vendor_name" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:TemplateField HeaderText="Photo">
+                                                            <ItemTemplate>
+                                                                <asp:Image ID="image1" runat="server" Width="80px" Height="100px" ImageUrl='<%# Eval("img_file","../vendors_pic/{0}") %>' />
+                                                            </ItemTemplate>
+                                                            <ItemStyle Height="50px" Width="50px" />
+                                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="vendor_owner_name" HeaderText="Owner Name" SortExpression="vendor_owner_name" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" ItemStyle-Wrap="false" />
+                                                        <asp:BoundField DataField="contact_no1" HeaderText="Contact No. 1" SortExpression="contact_no1" ItemStyle-HorizontalAlign="Center" ItemStyle-Wrap="false">
+                                                            <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                                                        </asp:BoundField>
 
-                                        <asp:BoundField DataField="firm_pin" HeaderText="PIN" SortExpression="firm_pin" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="license_no" HeaderText="License No" SortExpression="license_no" DataFormatString="{0:d}" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="valid_to" HeaderText="Valid To" SortExpression="valid_to" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="pfno" HeaderText="PF No." SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="workers_authorised" HeaderText="Authorised Workers" SortExpression="workers_authorised" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="contact_no2" HeaderText="Contact No2" SortExpression="contact_no2" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="firm_address" HeaderText="Address" SortExpression="firm_address" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="firm_city" HeaderText="City" SortExpression="firm_city" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="firm_state" HeaderText="State" SortExpression="[firm_state]" ItemStyle-Wrap="false"></asp:BoundField>
 
-                                        <asp:BoundField DataField="pfno" HeaderText="PF No" SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="esicno" HeaderText="ESIC No" SortExpression="esicno" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="firm_pin" HeaderText="PIN" SortExpression="firm_pin" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="license_no" HeaderText="License No" SortExpression="license_no" DataFormatString="{0:d}" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="valid_to" HeaderText="Valid To" SortExpression="valid_to" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="pfno" HeaderText="PF No." SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="workers_authorised" HeaderText="Authorised Workers" SortExpression="workers_authorised" ItemStyle-Wrap="false"></asp:BoundField>
 
-                                        <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="pfno" HeaderText="PF No" SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="esicno" HeaderText="ESIC No" SortExpression="esicno" ItemStyle-Wrap="false"></asp:BoundField>
 
-                                        <asp:TemplateField HeaderText="PF Doc" ItemStyle-Wrap="True">
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pfdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pfdoc", "../pf_doc/{0}")%>'></asp:HyperLink>
-                                                <%--   <asp:Image ID="pvimage1" runat="server" Width="80px" Height="100px"/>--%>
-                                            </ItemTemplate>
-                                            <ItemStyle Height="50px" Width="50px" />
-                                        </asp:TemplateField>
+                                                        <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" ItemStyle-Wrap="false"></asp:BoundField>
 
-                                        <asp:TemplateField HeaderText="ESIC Doc" ItemStyle-Wrap="True">
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink2" runat="server" Target="_blank" Text='<%# Bind("esicdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.esicdoc", "../esic_doc/{0}")%>'></asp:HyperLink>
-                                                <%-- <asp:Image ID="mvimage1" runat="server"  Width="80px" Height="100px"/>--%>
-                                            </ItemTemplate>
-                                            <ItemStyle Height="50px" Width="50px" />
-                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="PF Doc" ItemStyle-Wrap="True">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pfdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pfdoc", "../pf_doc/{0}")%>'></asp:HyperLink>
+                                                                <%--   <asp:Image ID="pvimage1" runat="server" Width="80px" Height="100px"/>--%>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Height="50px" Width="50px" />
+                                                        </asp:TemplateField>
 
-                                        <asp:TemplateField HeaderText="PO Copy" ItemStyle-Wrap="True">
-                                            <ItemTemplate>
-                                                <asp:HyperLink ID="HyperLink3" runat="server" Target="_blank" Text='<%# Bind("pocopy")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pocopy", "../po_doc/{0}")%>'></asp:HyperLink>
-                                                <%-- <asp:Image ID="mvimage1" runat="server" Width="80px" Height="100px"/>--%>
-                                            </ItemTemplate>
-                                            <ItemStyle Height="50px" Width="50px" />
-                                        </asp:TemplateField>
+                                                        <asp:TemplateField HeaderText="ESIC Doc" ItemStyle-Wrap="True">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="HyperLink2" runat="server" Target="_blank" Text='<%# Bind("esicdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.esicdoc", "../esic_doc/{0}")%>'></asp:HyperLink>
+                                                                <%-- <asp:Image ID="mvimage1" runat="server"  Width="80px" Height="100px"/>--%>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Height="50px" Width="50px" />
+                                                        </asp:TemplateField>
 
-                                        <asp:BoundField DataField="pano" HeaderText="PAN" SortExpression="pano" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="gstno" HeaderText="GST" SortExpression="gstno" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="work_worder" HeaderText="Work Order No" SortExpression="work_worder" ItemStyle-Wrap="false"></asp:BoundField>
-                                        <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor No" SortExpression="vendor_reg_code" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:TemplateField HeaderText="PO Copy" ItemStyle-Wrap="True">
+                                                            <ItemTemplate>
+                                                                <asp:HyperLink ID="HyperLink3" runat="server" Target="_blank" Text='<%# Bind("pocopy")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pocopy", "../po_doc/{0}")%>'></asp:HyperLink>
+                                                                <%-- <asp:Image ID="mvimage1" runat="server" Width="80px" Height="100px"/>--%>
+                                                            </ItemTemplate>
+                                                            <ItemStyle Height="50px" Width="50px" />
+                                                        </asp:TemplateField>
 
-                                        <asp:CommandField ShowSelectButton="True" ButtonType="Image" SelectImageUrl="../images/select.png" HeaderText="Select">
-                                            <ControlStyle Height="25px" Width="25px" />
-                                        </asp:CommandField>
+                                                        <asp:BoundField DataField="pano" HeaderText="PAN" SortExpression="pano" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="gstno" HeaderText="GST" SortExpression="gstno" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="work_worder" HeaderText="Work Order No" SortExpression="work_worder" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor No" SortExpression="vendor_reg_code" ItemStyle-Wrap="false"></asp:BoundField>
 
-                                    </Columns>
-                                    <AlternatingRowStyle BackColor="#FFFFFF" />
-                                    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                    <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
-                                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#000065" />
-                                </asp:GridView>
-                                <div id="dialog" style="display: none">
+                                                        <asp:CommandField ShowSelectButton="True" ButtonType="Image" SelectImageUrl="../images/select.png" HeaderText="Select">
+                                                            <ControlStyle Height="25px" Width="25px" />
+                                                        </asp:CommandField>
+
+                                                    </Columns>
+                                                    <AlternatingRowStyle BackColor="#FFFFFF" />
+                                                    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+                                                    <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
+                                                    <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                    <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
+                                                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
+                                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                                                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
+                                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                                                    <SortedDescendingHeaderStyle BackColor="#000065" />
+                                                </asp:GridView>
+                                                <div id="dialog" style="display: none">
+                                                </div>
+                                                <%--========================================================================================--%>
+                                                <asp:Label ID="lblID" runat="server" Text="" Visible="false"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <%--========================================================================================--%>
-                                <asp:Label ID="lblID" runat="server" Text="" Visible="false"></asp:Label>
-                            </div>
                             </div>
                         </div>
-
                     </div>
-                </div>
-            </div>
-        </div>
                 </td>
             </tr>
             <tr>
@@ -468,7 +490,7 @@
                         <div class="container-fluid">
                             <div class="text-center small">
                                 <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
-                          
+
                             </div>
                         </div>
                     </footer>
@@ -508,12 +530,12 @@
                 });
             });
         </script>
-          <script type="text/jscript">
-              $(window).on("load", function () {
-                  $('#GvWod').DataTable({ responsive: true });
-              });
+        <script type="text/jscript">
+            $(window).on("load", function () {
+                $('#GvWod').DataTable({ responsive: true });
+            });
         </script>
-        
+
         <!--Image zooming jquery fucntion for any html image element -->
         <script type="text/javascript">
             $(function () {

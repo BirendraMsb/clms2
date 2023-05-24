@@ -217,9 +217,9 @@ namespace clms2.contractor_cell
             {
                 var idd = txtID.Text;
 
-                string Str = "insert into tbl_vendor_work_order(id, " + "vendor_reg_code, " + "work_worder, " + "valid_from, " + "valid_to, " + "nature_of_work, " + "type_of_contract, " + "department, " + "job_location, " + "status,work_description)";
+                string Str = "insert into tbl_vendor_work_order(id, " + "vendor_reg_code, " + "work_worder, " + "valid_from, " + "valid_to, " + "nature_of_work, " + "type_of_contract, " + "department, " + "job_location, " + "status,work_description,act_covered)";
 
-                Str = Str + " values(" + idd + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtWONo.Text + "', " + "'" + txtValidFrom.Text + "', " + "'" + txtValidTo.Text + "', " + "'" + txtNatureofWork.Text + "', " + "'" + txtTypeofContract.Text + "', " + "'" + txtDepartment.Text + "', " + "'" + txtJobLocation.Text + "', " + "'N','" + txtDescription.Text + "')";
+                Str = Str + " values(" + idd + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtWONo.Text + "', " + "'" + txtValidFrom.Text + "', " + "'" + txtValidTo.Text + "', " + "'" + txtNatureofWork.Text + "', " + "'" + txtTypeofContract.Text + "', " + "'" + txtDepartment.Text + "', " + "'" + txtJobLocation.Text + "', " + "'N','" + txtDescription.Text + "','" + ddlActCovered.SelectedItem.Text + "')";
 
                 SqlCommand cm = new SqlCommand(Str, con);
                 cm.ExecuteNonQuery();
@@ -264,7 +264,9 @@ namespace clms2.contractor_cell
                 using (SqlConnection con = new SqlConnection(constr))
                 {
                     con.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_info Where email= '" + txtEmail.Text.Trim() + "' and work_worder='" + txtWONo.Text.Trim() + "'", con);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_info Where  work_worder='" + txtWONo.Text.Trim() + "'", con);
+                   // SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_user Where email= '" + txtEmail.Text.Trim() + "'", con);
+                    //SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_vendor_info Where email= '" + txtEmail.Text.Trim() + "' and work_worder='" + txtWONo.Text.Trim() + "'", con);
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     da.Fill(ds);
                     con.Close();
@@ -276,8 +278,10 @@ namespace clms2.contractor_cell
                     System.Net.Mail.MailMessage Msg = new System.Net.Mail.MailMessage();
                     // Sender e-mail address.
                     //Msg.From = new MailAddress(txtEmail.Text);
-                    from = "bkbirendramca@outlook.com";
-                    pass = "bkp@1971";
+                    //from = "bkbirendramca@outlook.com";
+                    //pass = "bkp@1971";
+                    from = "birendra@electrowebsolution.com";
+                    pass = "clms@1980";
                     Msg.From = new MailAddress(from,"GREENHRM SOLUTION");
 
                    // Msg.From = new MailAddress(txtEmail.Text); 
@@ -289,11 +293,13 @@ namespace clms2.contractor_cell
                     Msg.IsBodyHtml = true;
                     // your remote SMTP server IP.
                     SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "smtp-mail.outlook.com";
+                    smtp.Host = "mail.electrowebsolution.com";
+                    //smtp.Host = "smtp-mail.outlook.com";
                     // smtp.Host = "smtp.mail.yahoo.com";  //Require secure site
                     //smtp.Host = "smtp.gmail.com";   //Require secure site
-                    smtp.Port = 587;
-                    smtp.EnableSsl = true;
+                    //smtp.Port = 587;
+                    smtp.Port = 25;
+                    smtp.EnableSsl = false;
                     smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                     smtp.Credentials = new System.Net.NetworkCredential(from, pass);
                     smtp.Send(Msg);
@@ -301,14 +307,14 @@ namespace clms2.contractor_cell
                     lblMsgError.Text = "";
                     lblMsgMail.Text = "";
  
-                    lblMsgMail.Text = "Your Password Details Sent to your mail";
+                    lblMsgMail.Text = "Your password details sent to your mail";
                     // Clear the textbox valuess
                     // txtEmail.Text = "";
                 }
                 else
                 {
 
-                    lblMsgError.Text = "The Email you entered does not exists.";
+                    lblMsgError.Text = "The Email you entered does not exists. Prees Mail button after saving the record";
                 }
             }
             catch (Exception ex)

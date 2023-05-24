@@ -170,10 +170,15 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="fnf_request_approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>FPending Full and Final Request
+                                                    <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
                                                 </a>
                                             </li>
-                                        
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approved.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Approved Full and Final Request
+                                                </a>
+                                            </li>
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -182,12 +187,35 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Bar Chart
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Bar Chart
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mail <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/mail_sending_form.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Mail
                                                 </a>
                                             </li>
 
@@ -197,6 +225,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+
                                             <li>
                                                 <a class="dropdown-item" href="../login/new-password.aspx">
                                                     <i class="fa fa-lock me-1"></i>Change Password
@@ -277,7 +306,7 @@
                                             </ItemTemplate>
                                             <ItemStyle Width="10px" />
                                         </asp:TemplateField>--%>
-                                                  
+
                                                     <asp:TemplateField HeaderText="Vendor Code" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_vendor_code" runat="server" Text='<%#Eval("vendor_code") %>'></asp:Label>
@@ -290,7 +319,7 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                 <%--   <asp:TemplateField HeaderText="Photo">
+                                                    <%--   <asp:TemplateField HeaderText="Photo">
                                                         <ItemTemplate>
                                                             <asp:Image ID="image1" runat="server" Width="80px" Height="100px" ImageUrl='<%# Eval("img_file","../emp_pic/{0}") %>' />
                                                         </ItemTemplate>
@@ -362,7 +391,7 @@
                                                             <asp:Label ID="lbl_pf_Challan_Date" runat="server" Text='<%#Eval("escic") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                         <asp:TemplateField HeaderText="ESI Amt Deposited" ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="ESI Amt Deposited" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_EsiAmt" runat="server" Text='<%#Eval("pfno") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -401,13 +430,13 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                     <asp:TemplateField HeaderText="Bank Statemnt PDF">
+                                                    <asp:TemplateField HeaderText="Bank Statemnt PDF">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="HyperLink2" runat="server" Target="_blank" Text='<%# Bind("medical_examination") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.medical_examination", "../medical_examination_doc/{0}") %>'></asp:HyperLink>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                <%--    <asp:TemplateField HeaderText="Medical Report" ItemStyle-Wrap="false">
+                                                    <%--    <asp:TemplateField HeaderText="Medical Report" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_medical_report" runat="server" Text='<%#Eval("medical_report")%>'> </asp:Label>
                                                         </ItemTemplate>
@@ -446,7 +475,7 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>--%>
 
-<%--                                                    <asp:TemplateField HeaderText="Shift">
+                                                    <%--                                                    <asp:TemplateField HeaderText="Shift">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Shift" runat="server" Text='<%#Eval("shift")%>'></asp:Label>
                                                         </ItemTemplate>
@@ -471,7 +500,7 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                               <%--     <asp:TemplateField HeaderText="Action By HR">
+                                                    <%--     <asp:TemplateField HeaderText="Action By HR">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_HRApproval" runat="server" Text='<%#Eval("hr_approval") %>'></asp:Label>
                                                         </ItemTemplate>

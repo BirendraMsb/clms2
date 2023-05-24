@@ -19,8 +19,10 @@ namespace clms2
                 System.Net.Mail.MailMessage Msg = new System.Net.Mail.MailMessage();
                 // Sender e-mail address.
                 //Msg.From = new MailAddress(txtEmail.Text);
-                from = "bkbirendramca@outlook.com";
-                pass = "bkp@1971";
+                //from = "bkbirendramca@outlook.com";
+                //pass = "bkp@1971";
+                from = "birendra@electrowebsolution.com";
+                pass = "clms@1980";
                 Msg.From = new MailAddress(from, "GREENHRM SOLUTION");
 
                 // Msg.From = new MailAddress(txtEmail.Text); 
@@ -33,11 +35,14 @@ namespace clms2
                 Msg.IsBodyHtml = true;
                 // your remote SMTP server IP.
                 SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp-mail.outlook.com";
+                smtp.Host = "mail.electrowebsolution.com";
+                //smtp.Host = "smtp-mail.outlook.com";
                 // smtp.Host = "smtp.mail.yahoo.com";  //Require secure site
                 //smtp.Host = "smtp.gmail.com";   //Require secure site
-                smtp.Port = 587;
-                smtp.EnableSsl = true;
+                //smtp.Port = 587;
+                //smtp.EnableSsl = true;
+                smtp.Port = 25;
+                smtp.EnableSsl = false;
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Credentials = new System.Net.NetworkCredential(from, pass);
                 smtp.Send(Msg);

@@ -75,37 +75,37 @@ namespace clms2.contractor_cell
             }
         }
 
-        //private void GvEmp_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
-        //{
-        //    GvEmp.EditIndex = e.NewEditIndex;
-        //    BindGrid();
-        //}
+        ////private void GvEmp_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
+        ////{
+        ////    GvEmp.EditIndex = e.NewEditIndex;
+        ////    BindGrid();
+        ////}
 
-        //private void GvEmp_RowUpdating(object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
-        //{
-        //    Label id = GvEmp.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
-        //    TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_HRRemarks") as TextBox;
-        //    approv = GvEmp.Rows[e.RowIndex].FindControl("ddlHRApproval") as DropDownList;
-        //    DropDownList Shift = GvEmp.Rows[e.RowIndex].FindControl("ddlShift") as DropDownList;
-        //    DropDownList med_report = GvEmp.Rows[e.RowIndex].FindControl("ddlMedReport") as DropDownList;
+        ////private void GvEmp_RowUpdating(object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
+        ////{
+        ////    Label id = GvEmp.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
+        ////    TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_HRRemarks") as TextBox;
+        ////    approv = GvEmp.Rows[e.RowIndex].FindControl("ddlHRApproval") as DropDownList;
+        ////    DropDownList Shift = GvEmp.Rows[e.RowIndex].FindControl("ddlShift") as DropDownList;
+        ////    DropDownList med_report = GvEmp.Rows[e.RowIndex].FindControl("ddlMedReport") as DropDownList;
 
-        //    // 'If approv.SelectedItem.Text = "Reject" Then
-        //    // '    GvEmp.Columns(1).Visible = False
-        //    // 'End If
+        ////    // 'If approv.SelectedItem.Text = "Reject" Then
+        ////    // '    GvEmp.Columns(1).Visible = False
+        ////    // 'End If
 
-        //    dbConnection();
+        ////    dbConnection();
 
-        //    // ' Dim Str As String = "Update tbl_emp set security_remarks='" & rmrks.Text & "', security_approval='" & approv.SelectedValue & "' where id=" & id.Text & ""
-        //    string Str = "Update tbl_emp set hr_remarks='" + rmrks.Text + "',medical_report='" + med_report.SelectedValue + "', shift='" + Shift.SelectedValue + "', hr_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
+        ////    // ' Dim Str As String = "Update tbl_emp set security_remarks='" & rmrks.Text & "', security_approval='" & approv.SelectedValue & "' where id=" & id.Text & ""
+        ////    string Str = "Update tbl_emp set hr_remarks='" + rmrks.Text + "',medical_report='" + med_report.SelectedValue + "', shift='" + Shift.SelectedValue + "', hr_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
 
-        //    SqlCommand cm = new SqlCommand(Str, con);
-        //    cm.ExecuteNonQuery();
+        ////    SqlCommand cm = new SqlCommand(Str, con);
+        ////    cm.ExecuteNonQuery();
 
-        //    con.Close();
-        //    GvEmp.EditIndex = -1;
+        ////    con.Close();
+        ////    GvEmp.EditIndex = -1;
 
-        //    BindGrid();
-        //}
+        ////    BindGrid();
+        ////}
 
         private void ToggleCheckState(bool checkState)
         {
@@ -237,7 +237,7 @@ namespace clms2.contractor_cell
             BindGrid();
 
             /////---- mail sending-------------------////
-            string reciever_mail = "subh.sparsh18@gmail.com";
+            string reciever_mail = "bkbirendramca@gmail.com";
             //string reciever_mail = "Kapildevblog@gmail.com";
             string approval = approv.SelectedValue;
             string remarks = rmrks.Text;

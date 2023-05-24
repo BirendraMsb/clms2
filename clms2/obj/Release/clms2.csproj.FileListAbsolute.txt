@@ -3,3 +3,6 @@ D:\Visual_Studio_2013_Projects\clms2\clms2\bin\clms2.dll
 D:\Visual_Studio_2013_Projects\clms2\clms2\bin\clms2.pdb
 D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Release\clms2.dll
 D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Release\clms2.pdb
+D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Release\clms2.csprojResolveAssemblyReference.cache
+D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Release\RdlCompile.cache
+D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Release\RdlCompile.compiled

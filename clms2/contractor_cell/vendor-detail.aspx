@@ -159,23 +159,27 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
-                                         
+
 
                                         </ul>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                           <li>
-                                               <a class="dropdown-item" href="fnf_request_approval.aspx">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
-                                               </a>
-                                           </li>
-                                     
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approved.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Approved Full and Final Request
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">

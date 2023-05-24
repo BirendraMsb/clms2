@@ -161,10 +161,10 @@ namespace clms2.gatepass_section
             Label id = GvEmp.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
             TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_SectRemarks") as TextBox;
             DropDownList approv = GvEmp.Rows[e.RowIndex].FindControl("ddlSecApproval") as DropDownList;
-
+            string doj = DateTime.Now.ToString("dd-MM-yyyy");
             dbConnection();
 
-            string Str = "Update tbl_emp set security_remarks='" + rmrks.Text + "', security_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
+            string Str = "Update tbl_emp set security_remarks='" + rmrks.Text + "', security_approval='" + approv.SelectedValue + "',date_of_joining = '" + doj + "' where id=" + id.Text + "";
 
             SqlCommand cm = new SqlCommand(Str, con);
             cm.ExecuteNonQuery();

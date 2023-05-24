@@ -95,6 +95,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>Emp Approval
                                                 </a>
                                             </li>
+                                              <li>
+                                                 <a class="dropdown-item" href="employment_card.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employment Card
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -102,6 +107,11 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="gp-print.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>GP Show
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="gp-print1.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>GP Print
                                                 </a>
                                             </li>

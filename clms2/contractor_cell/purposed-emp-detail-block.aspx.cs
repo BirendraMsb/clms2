@@ -114,23 +114,10 @@ namespace clms2.contractor_cell
 
 
 
-        protected void ddlHRApproval_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DropDownList list = (DropDownList)sender;
-            string str = list.SelectedValue;
-            if (str == "TB")
-            {
-                GvEmp.Columns[15].Visible = false;
-                GvEmp.Columns[16].Visible = true;
-                GvEmp.Columns[17].Visible = true;
-            }
-            else if (str == "PB")
-            {
-                GvEmp.Columns[15].Visible = true;
-                GvEmp.Columns[16].Visible = false;
-                GvEmp.Columns[17].Visible = false;
-            }
-        }
+        //protected void ddlHRApproval_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+            
+        //}
 
         protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -147,15 +134,15 @@ namespace clms2.contractor_cell
         protected void GvEmp_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             /// show column'''
-            GvEmp.Columns[16].Visible = true;  // start date
-            GvEmp.Columns[17].Visible = true;  // end date 
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                //DataRowView dr = (DataRowView)e.Row.DataItem;
-                //string imageUrl = "data:image/png;base64," + Convert.ToBase64String((byte[])dr["ImageData"]);
-                //(e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
+            //GvEmp.Columns[17].Visible = true;  // start date
+            //GvEmp.Columns[17].Visible = true;  // end date 
+            //if (e.Row.RowType == DataControlRowType.DataRow)
+            //{
+            //    //DataRowView dr = (DataRowView)e.Row.DataItem;
+            //    //string imageUrl = "data:image/png;base64," + Convert.ToBase64String((byte[])dr["ImageData"]);
+            //    //(e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
                
-            }
+            //}
         }
 
         protected void GvEmp_RowEditing(object sender, GridViewEditEventArgs e)
@@ -167,8 +154,8 @@ namespace clms2.contractor_cell
         protected void GvEmp_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             Label id = GvEmp.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
-            TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_HRRemarks") as TextBox;
-            DropDownList approv = GvEmp.Rows[e.RowIndex].FindControl("ddlHRApproval") as DropDownList;
+            TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_HRRemOfBlocking") as TextBox;
+            DropDownList approv = GvEmp.Rows[e.RowIndex].FindControl("ddlBlockingByHR") as DropDownList;
             TextBox start_date = GvEmp.Rows[e.RowIndex].FindControl("txtStartDate") as TextBox;
             TextBox end_date = GvEmp.Rows[e.RowIndex].FindControl("txtEndDate") as TextBox;
 
@@ -176,7 +163,7 @@ namespace clms2.contractor_cell
 
 
             // ' Dim Str As String = "Update tbl_emp set security_remarks='" & rmrks.Text & "', security_approval='" & approv.SelectedValue & "' where id=" & id.Text & ""
-            string Str = "Update tbl_emp set hr_remarks='" + rmrks.Text + "',StartDate='" + start_date.Text + "', EndDate='" + end_date.Text + "', hr_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
+            string Str = "Update tbl_emp set hr_rem_of_blocking='" + rmrks.Text + "',start_date_of_blocking='" + start_date.Text + "', end_date_of_blocking='" + end_date.Text + "', blocking_by_hr='" + approv.SelectedItem.Text + "' where id=" + id.Text + "";
 
             SqlCommand cm = new SqlCommand(Str, con);
             cm.ExecuteNonQuery();
@@ -186,6 +173,33 @@ namespace clms2.contractor_cell
 
             BindGrid();
 
+
+        }
+
+        //protected void ddlHRBlocking_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+ 
+        //}
+
+        protected void ddlBlockingByHR_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList list = (DropDownList)sender;
+            string str = list.SelectedValue;
+            if (str == "TB")
+            {
+                //// remarkofblocking - col17 
+                //// StartDate -col18
+                ////EndDate - col19
+                GvEmp.Columns[17].Visible = false;
+                GvEmp.Columns[18].Visible = true;
+                GvEmp.Columns[19].Visible = true;
+            }
+            else if (str == "PB")
+            {
+                GvEmp.Columns[17].Visible = true;
+                GvEmp.Columns[18].Visible = false;
+                GvEmp.Columns[19].Visible = false;
+            }
 
         }
     }

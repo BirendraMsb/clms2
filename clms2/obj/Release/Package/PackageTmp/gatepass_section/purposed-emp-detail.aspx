@@ -94,13 +94,23 @@
                                                     <i class="fa fa-angle-right me-1"></i>Emp Approval
                                                 </a>
                                             </li>
+                                              <li>
+                                                 <a class="dropdown-item" href="employment_card.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employment Card
+                                                </a>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gate Pass <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                           <li>
                                                 <a class="dropdown-item" href="gp-print.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>GP Show
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="gp-print1.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>GP Print
                                                 </a>
                                             </li>
@@ -267,16 +277,16 @@
                                                                 <asp:Label ID="lbl_aadhar_no" runat="server" Text='<%#Eval("aadhar_no") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="PF No." ItemStyle-Wrap="false">
+                                                    <%--    <asp:TemplateField HeaderText="PF No." ItemStyle-Wrap="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lbl_pfno" runat="server" Text='<%#Eval("pfno") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="ESIC NO" ItemStyle-Wrap="false">
+                                                        </asp:TemplateField>--%>
+                                                     <%--   <asp:TemplateField HeaderText="ESIC NO" ItemStyle-Wrap="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lbl_escic" runat="server" Text='<%#Eval("escic") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
                                                         <%--          <asp:TemplateField HeaderText="Educational" ItemStyle-Wrap="false">  
                     <ItemTemplate>  
                         <asp:Label ID="lbl_Educational" runat="server" Text='<%#Eval("education") %>'></asp:Label>  
@@ -295,13 +305,13 @@
                                                         </asp:TemplateField>
 
 
-                                                        <asp:TemplateField HeaderText="Medical Examination Certificate">
+                                                       <%-- <asp:TemplateField HeaderText="Medical Examination Certificate">
                                                             <ItemTemplate>
                                                                 <asp:HyperLink ID="HyperLink2" runat="server" Target="_blank" Text='<%# Bind("medical_examination") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.medical_examination", "../medical_examination_doc/{0}") %>'></asp:HyperLink>
                                                             </ItemTemplate>
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
 
-                                                        <asp:TemplateField HeaderText="Medical Report" ItemStyle-Wrap="false">
+                                              <%--          <asp:TemplateField HeaderText="Medical Report" ItemStyle-Wrap="false">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="lbl_medical_examination" runat="server" Text='<%#Eval("medical_report")%>'></asp:Label>
                                                             </ItemTemplate>
@@ -311,7 +321,7 @@
                                                                 <asp:ListItem Value="Unfit">Unfit</asp:ListItem>
                                                             </asp:DropDownList>
                                                         </EditItemTemplate>
-                                                        </asp:TemplateField>
+                                                        </asp:TemplateField>--%>
 
                                                         <%--       <asp:TemplateField HeaderText="Bank Name" ItemStyle-Wrap="false">  
                     <ItemTemplate>  
@@ -338,7 +348,7 @@
                                                 <asp:Label ID="lbl_ecpn_ph_no" runat="server" Text='<%#Eval("ecpn_ph_no") %>'></asp:Label>
                                             </ItemTemplate>
                                         </asp:TemplateField>--%>
-                                                  <asp:TemplateField HeaderText="Shift">
+                                             <%--     <asp:TemplateField HeaderText="Shift">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Shift" runat="server" Text='<%#Eval("shift")%>'></asp:Label>
                                                         </ItemTemplate>
@@ -350,7 +360,7 @@
                                                                 <asp:ListItem Value="General">General</asp:ListItem>
                                                             </asp:DropDownList>
                                                         </EditItemTemplate>
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
 
                                                         <asp:TemplateField HeaderText="Action By Dept">
                                                             <ItemTemplate>

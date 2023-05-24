@@ -175,7 +175,12 @@
                                                     <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
                                                 </a>
                                             </li>
-                                        
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approved.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Approved Full and Final Request
+                                                </a>
+                                            </li>
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -184,12 +189,35 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Bar Chart
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Bar Chart
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mail <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/mail_sending_form.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Mail
                                                 </a>
                                             </li>
 
@@ -199,6 +227,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+
                                             <li>
                                                 <a class="dropdown-item" href="../login/new-password.aspx">
                                                     <i class="fa fa-lock me-1"></i>Change Password
@@ -262,8 +291,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <h4>Dept Wise Employee Report </h4>
-                                                    <asp:Chart ID="Chart1" BorderlineColor="Black" BorderlineDashStyle="Solid"
-                                                        Visible="true" ImageType="Png" runat="server" Height="400px" Width="400px" PaletteCustomColors="128, 255, 128; 255, 128, 0">
+                                                    <asp:Chart ID="Chart1" BorderlineColor="Black" BorderlineDashStyle="Solid" runat="server" Height="400px" Width="400px" PaletteCustomColors="128, 255, 128; 255, 128, 0">
                                                         <Titles>
                                                             <asp:Title TextStyle="Frame">
                                                             </asp:Title>

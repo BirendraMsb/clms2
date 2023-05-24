@@ -141,7 +141,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -149,11 +149,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>Wages Document 
                                                 </a>
                                             </li>
-                                           
+
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -166,34 +166,62 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
-                                     
-                                        
+
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                           <li>
-                                               <a class="dropdown-item" href="fnf_request_approval.aspx">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
-                                               </a>
-                                           </li>
-                                  
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approved.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Approved Full and Final Request
+                                                </a>
+                                            </li>
+
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Bar Chart
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Bar Chart
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mail <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/mail_sending_form.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Mail
                                                 </a>
                                             </li>
 
@@ -203,6 +231,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+
                                             <li>
                                                 <a class="dropdown-item" href="../login/new-password.aspx">
                                                     <i class="fa fa-lock me-1"></i>Change Password
@@ -257,7 +286,7 @@
 
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: scroll; width:70%" >
+                                        <div class="table-responsive" style="overflow: scroll; width: 70%">
                                             <%--========================================================================================--%>
                                             <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
                                             <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="15" ForeColor="Red"></asp:Label>
@@ -280,7 +309,7 @@
 
                                                     <%--    <asp:BoundField DataField="workorder" HeaderText="Work Order" SortExpression="workorder" ItemStyle-Wrap="false"></asp:BoundField>--%>
                                                     <asp:TemplateField HeaderText="Vendor Code" SortExpression="vendor_code">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("vendor_code") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -297,17 +326,17 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Emp Name" SortExpression="emp_name">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox43" runat="server" Text='<%# Bind("emp_name") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
-                                                            <asp:Label ID="Label44" runat="server"  Text='<%# Bind("emp_name") %>'></asp:Label>
+                                                            <asp:Label ID="Label44" runat="server" Text='<%# Bind("emp_name") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <ControlStyle Width="200px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Department" SortExpression="department">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox43" runat="server" Text='<%# Bind("emp_name") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -317,7 +346,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Year" SortExpression="year1">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("year1") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -327,7 +356,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Month" SortExpression="month1">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("month1") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -337,7 +366,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D1" SortExpression="d1">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("d1") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -347,7 +376,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D2" SortExpression="d2">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("d2") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -377,7 +406,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D5" SortExpression="d5">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("d5") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -387,7 +416,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D6" SortExpression="d6">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox8" runat="server" Text='<%# Bind("d6") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -397,7 +426,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D7" SortExpression="d7">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox9" runat="server" Text='<%# Bind("d7") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -407,7 +436,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D8" SortExpression="d8">
-                                                     <%--   <EditItemTemplate>
+                                                        <%--   <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox10" runat="server" Text='<%# Bind("d8") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -417,7 +446,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D9" SortExpression="d9">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox11" runat="server" Text='<%# Bind("d9") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -447,7 +476,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D12" SortExpression="d12">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox14" runat="server" Text='<%# Bind("d12") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -457,7 +486,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D13" SortExpression="d13">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox15" runat="server" Text='<%# Bind("d13") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -473,7 +502,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label17" runat="server" Text='<%# Bind("d14") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D15" SortExpression="d15">
@@ -483,11 +512,11 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label18" runat="server" Text='<%# Bind("d15") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D16" SortExpression="d16">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox18" runat="server" Text='<%# Bind("d16") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -497,7 +526,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D17" SortExpression="d17">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox19" runat="server" Text='<%# Bind("d17") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -507,147 +536,147 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D18" SortExpression="d18">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox20" runat="server" Text='<%# Bind("d18") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label21" runat="server" Text='<%# Bind("d18") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D19" SortExpression="d19">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox21" runat="server" Text='<%# Bind("d19") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label22" runat="server" Text='<%# Bind("d19") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D20" SortExpression="d20">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox22" runat="server" Text='<%# Bind("d20") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label23" runat="server" Text='<%# Bind("d20") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D21" SortExpression="d21">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox23" runat="server" Text='<%# Bind("d21") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label24" runat="server" Text='<%# Bind("d21") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D22" SortExpression="d22">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox24" runat="server" Text='<%# Bind("d22") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label25" runat="server" Text='<%# Bind("d22") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D23" SortExpression="d23">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox25" runat="server" Text='<%# Bind("d23") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label26" runat="server" Text='<%# Bind("d23") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D24" SortExpression="d24">
-                                                     <%--   <EditItemTemplate>
+                                                        <%--   <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox26" runat="server" Text='<%# Bind("d24") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label27" runat="server" Text='<%# Bind("d24") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D25" SortExpression="d25">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox27" runat="server" Text='<%# Bind("d25") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label28" runat="server" Text='<%# Bind("d25") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D26" SortExpression="d26">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox28" runat="server" Text='<%# Bind("d26") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label29" runat="server" Text='<%# Bind("d26") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D27" SortExpression="d27">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox29" runat="server" Text='<%# Bind("d27") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label30" runat="server" Text='<%# Bind("d27") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D28" SortExpression="d28">
-                                                     <%--   <EditItemTemplate>
+                                                        <%--   <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox30" runat="server" Text='<%# Bind("d28") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label31" runat="server" Text='<%# Bind("d28") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D29" SortExpression="d29">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox31" runat="server" Text='<%# Bind("d29") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label32" runat="server" Text='<%# Bind("d29") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D30" SortExpression="d30">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox32" runat="server" Text='<%# Bind("d30") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label33" runat="server" Text='<%# Bind("d30") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="D31" SortExpression="d31">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox33" runat="server" Text='<%# Bind("d31") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
                                                             <asp:Label ID="Label34" runat="server" Text='<%# Bind("d31") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <ControlStyle Width="30px" />
+                                                        <ControlStyle Width="30px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Present" SortExpression="Present">
-                                                    <%--    <EditItemTemplate>
+                                                        <%--    <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox34" runat="server" Text='<%# Bind("Present") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -657,7 +686,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Absent" SortExpression="Absent">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox35" runat="server" Text='<%# Bind("Absent") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -667,7 +696,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Tot. Working Day" SortExpression="tot_working_day">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox36" runat="server" Text='<%# Bind("tot_working_day") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -677,7 +706,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Tot. Leave" SortExpression="tot_leave">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox37" runat="server" Text='<%# Bind("tot_leave") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -687,7 +716,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Tot. HL" SortExpression="tot_holidays">
-                                                      <%--  <EditItemTemplate>
+                                                        <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox38" runat="server" Text='<%# Bind("tot_holidays") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -697,7 +726,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Tot. Week off" SortExpression="tot_week_off">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox39" runat="server" Text='<%# Bind("tot_week_off") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -707,7 +736,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Working Hrs" SortExpression="daily_working_hrs">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox40" runat="server" Text='<%# Bind("daily_working_hrs") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -717,7 +746,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Monthly Working Hrs" SortExpression="monthly_work_hrs">
-                                                    <%--    <EditItemTemplate>
+                                                        <%--    <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox41" runat="server" Text='<%# Bind("monthly_work_hrs") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -727,7 +756,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Monthly OT Hrs" SortExpression="monthly_ot_hrs">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox42" runat="server" Text='<%# Bind("monthly_ot_hrs") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -838,7 +867,7 @@
                 });
             });
         </script>
-       <%-- <script type="text/jscript">
+        <%-- <script type="text/jscript">
             $(window).on("load", function () {
                 $('#GvAttn').DataTable({ responsive: true });
             });

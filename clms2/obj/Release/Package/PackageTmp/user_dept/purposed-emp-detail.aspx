@@ -84,18 +84,26 @@
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Employee <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="vendor-list.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Employee Approval
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Approval
                                                 </a>
                                             </li>
-
-
                                         </ul>
                                     </li>
-
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../user_dept/attendance-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Approval
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
 
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
@@ -153,7 +161,8 @@
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
                                         <span>Employee Detail</span>
                                         <div>
-                                            <asp:Label ID="lblMsg" runat="server" ForeColor="Red" Font-Size="X-Large" Text=""></asp:Label></div>
+                                            <asp:Label ID="lblMsg" runat="server" ForeColor="Red" Font-Size="X-Large" Text=""></asp:Label>
+                                        </div>
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
@@ -321,7 +330,7 @@
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_DeptRemarks" runat="server" Text='<%#Eval("dept_remarks") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <EditItemTemplate>
+                                                        <EditItemTemplate>
                                                             <asp:TextBox ID="txtDept_remarks" runat="server" Text='<%#Eval("dept_remarks") %>'></asp:TextBox>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
@@ -344,7 +353,7 @@
                                                         <EditItemTemplate>
                                                             <asp:Label ID="lbl_id" runat="server" Text='<%#Eval("id") %>' Visible="false"></asp:Label>
                                                             <asp:Button ID="btn_Update" runat="server" Text="OK" CommandName="Update" />
-                                                           <%-- <asp:Button ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel" />--%>
+                                                            <%-- <asp:Button ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel" />--%>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
 

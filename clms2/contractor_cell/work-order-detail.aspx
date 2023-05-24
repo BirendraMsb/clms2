@@ -61,7 +61,7 @@
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
-          <div class="loading">
+        <div class="loading">
             <div class="loader"></div>
         </div>
         <table class="table">
@@ -137,7 +137,7 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
@@ -145,14 +145,14 @@
                                                     <i class="fa fa-angle-right me-1"></i>Wages Document 
                                                 </a>
                                             </li>
-                                           
+
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"  data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                           <li>
+                                            <li>
                                                 <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>From XII
                                                 </a>
@@ -162,33 +162,62 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
-                                         
-                                        
+
+
                                         </ul>
                                     </li>
-                                      <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                           <li>
-                                               <a class="dropdown-item" href="fnf_request_approval.aspx">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
-                                               </a>
-                                           </li>
-                                         </ul>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approved.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Approved Full and Final Request
+                                                </a>
+                                            </li>
+
+                                        </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Bar Chart
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Bar Chart
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mail <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/mail_sending_form.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Mail
                                                 </a>
                                             </li>
 
@@ -198,6 +227,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+
                                             <li>
                                                 <a class="dropdown-item" href="../login/new-password.aspx">
                                                     <i class="fa fa-lock me-1"></i>Change Password
@@ -252,7 +282,7 @@
                                     </div>
                                     <div class="card-body">
                                         <div class="table-responsive" style="overflow: auto;">
-                                         <%--   <p style="text-align: center">
+                                            <%--   <p style="text-align: center">
                                                 <asp:Label ID="lblSearch" Visible="false" runat="server" Text="Work Order No"></asp:Label>
                                                 <asp:TextBox ID="txtSearch" Visible="false" runat="server" OnTextChanged="btnSearch_Click"></asp:TextBox>
                                                 <asp:Button ID="btnSearch" Visible="false" runat="server" Text="Search" OnClick="btnSearch_Click" /><br />
@@ -260,7 +290,7 @@
                                             <asp:GridView ID="GvWod" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999"
                                                 BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id"
-                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvWod_PageIndexChanging" OnRowDataBound="GvWod_RowDataBound" >
+                                                Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvWod_PageIndexChanging" OnRowDataBound="GvWod_RowDataBound">
 
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                 <Columns>
@@ -278,14 +308,14 @@
                                                     <asp:HyperLinkField DataTextField="work_worder" DataNavigateUrlFields="vendor_reg_code"
                                                         DataNavigateUrlFormatString="vendor-detail.aspx?Id={0}"
                                                         HeaderText="Work order No" ItemStyle-Wrap="false" />
-                                                     <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor Code" SortExpression="vendor_reg_code"></asp:BoundField>
+                                                    <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor Code" SortExpression="vendor_reg_code"></asp:BoundField>
                                                     <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from">
                                                         <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </asp:BoundField>
 
                                                     <asp:BoundField DataField="valid_to" HeaderText="Valid To" ControlStyle-ForeColor="#ffffff" SortExpression="valid_from" />
 
-                                                   
+
                                                     <asp:BoundField DataField="vendor_name" HeaderText="Vendor Name" SortExpression="vendor_name"></asp:BoundField>
 
                                                     <asp:BoundField DataField="nature_of_work" HeaderText="Nature Of Work" SortExpression="nature_of_work"></asp:BoundField>
@@ -293,10 +323,10 @@
                                                     <asp:BoundField DataField="type_of_contract" HeaderText="Type Of Contract" SortExpression="type_of_contract"></asp:BoundField>
                                                     <asp:BoundField DataField="department" HeaderText="Department" SortExpression="department"></asp:BoundField>
 
-                                                     <asp:BoundField DataField="pano" HeaderText="PAN No." SortExpression="pano"></asp:BoundField>
-                                                     <asp:BoundField DataField="gstno" HeaderText="GST No." SortExpression="gstno"></asp:BoundField>
-                                                     <asp:BoundField DataField="pfno" HeaderText="PF No." SortExpression="pfno"></asp:BoundField>
-                                                     <asp:BoundField DataField="esicno" HeaderText="ESIC No." SortExpression="esicno"></asp:BoundField>
+                                                    <asp:BoundField DataField="pano" HeaderText="PAN No." SortExpression="pano"></asp:BoundField>
+                                                    <asp:BoundField DataField="gstno" HeaderText="GST No." SortExpression="gstno"></asp:BoundField>
+                                                    <asp:BoundField DataField="pfno" HeaderText="PF No." SortExpression="pfno"></asp:BoundField>
+                                                    <asp:BoundField DataField="esicno" HeaderText="ESIC No." SortExpression="esicno"></asp:BoundField>
 
                                                     <asp:BoundField DataField="job_location" HeaderText="Job Location" SortExpression="job_location"></asp:BoundField>
                                                     <%--<asp:BoundField DataField="status" HeaderText="Status" SortExpression="status"></asp:BoundField>--%>
@@ -345,7 +375,7 @@
         <script type="text/jscript" src="../public/newfront/assets/js/app.js" defer></script>
         <script type="text/jscript" src="../public/newfront/datatables/datatables.min.js" defer></script>
         <script type="text/jscript" src="../public/newfront/js/jquery.validate.min.js"></script>
-       <%-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
+        <%-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
 
         <script type="text/jscript" defer>
             $(window).on("load", function () {
@@ -373,9 +403,9 @@
             });
         </script>
         <script type="text/jscript">
-             $(window).on("load", function () {
-             $('#GvWod').DataTable({ responsive: true });
-             });
+            $(window).on("load", function () {
+                $('#GvWod').DataTable({ responsive: true });
+            });
         </script>
 
     </form>

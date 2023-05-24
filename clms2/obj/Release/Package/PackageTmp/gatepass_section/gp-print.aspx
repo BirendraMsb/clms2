@@ -92,14 +92,24 @@
                                                 <a class="dropdown-item" href="vendor-list.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Emp Approval
                                                 </a>
+                                             </li>
+                                              <li>
+                                                 <a class="dropdown-item" href="employment_card.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employment Card
+                                                </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Gate Pass <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
-                                            <li>
+                                              <li>
                                                 <a class="dropdown-item" href="gp-print.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>GP Show
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="gp-print1.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>GP Print
                                                 </a>
                                             </li>

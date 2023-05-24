@@ -77,7 +77,6 @@
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-
                             <div class="collapse navbar-collapse" id="navbarColor02">
                                 <ul class="navbar-nav me-auto">
                                     <li class="nav-item">
@@ -123,7 +122,80 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/attendance-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Approval
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                </a>
+                                            </li>
 
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>From XII
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXV
+                                                </a>
+                                            </li>
+
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approved.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Approved Full and Final Request
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
@@ -241,7 +313,7 @@
                                                     </asp:BoundField>--%>
 
                                                     <asp:TemplateField HeaderText="License No." SortExpression="license_no">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("license_no") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -259,7 +331,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Valid To" SortExpression="valid_to">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("valid_to") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -277,7 +349,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="PF NO" SortExpression="pfno">
-                                                       <%-- <EditItemTemplate>
+                                                        <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("pfno") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                         <ItemTemplate>
@@ -313,19 +385,26 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="Action">
+                                                    <asp:TemplateField HeaderText="Approval By HR">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Approval" runat="server" Text='<%# Eval("status") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:DropDownList ID="ddlApproval" runat="server">
+                                                            <asp:DropDownList ID="ddlApproval" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlApproval_SelectedIndexChanged">
                                                                 <asp:ListItem Value="A">Approved</asp:ListItem>
                                                                 <asp:ListItem Value="R">Reject</asp:ListItem>
                                                             </asp:DropDownList>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
-
-                                                    <asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="HR Remarks" Visible="false">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_HRRemarks" runat="server" Text='<%#Eval("hr_remarks") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:TextBox ID="txt_HRRemarks" runat="server" Text='<%#Eval("hr_remarks")%>'></asp:TextBox>
+                                                        </EditItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Action">
                                                         <ItemTemplate>
                                                             <asp:Button ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" class="btn btn-primary" />
                                                         </ItemTemplate>

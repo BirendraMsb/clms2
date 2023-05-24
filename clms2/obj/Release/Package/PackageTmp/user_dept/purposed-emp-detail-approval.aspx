@@ -87,18 +87,26 @@
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Employee <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="vendor-list.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Employee Approval
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Approval
                                                 </a>
                                             </li>
-
-
                                         </ul>
                                     </li>
-
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../user_dept/attendance-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Approval
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
 
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
@@ -243,11 +251,11 @@
                         <asp:Label ID="lbl_emp_cast" runat="server" Text='<%#Eval("emp_cast") %>'></asp:Label>  
                     </ItemTemplate>  
                 </asp:TemplateField>--%>
-                                                    <asp:TemplateField HeaderText="Blood Grp" ItemStyle-Wrap="false">
+                                                <%--    <asp:TemplateField HeaderText="Blood Grp" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_blood_grp" runat="server" Text='<%#Eval("blood_grp") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
                                                     <%--          <asp:TemplateField HeaderText="Nationality" ItemStyle-Wrap="false">  
                     <ItemTemplate>  
                         <asp:Label ID="lbl_nationality" runat="server" Text='<%#Eval("nationality") %>'></asp:Label>  
@@ -258,41 +266,59 @@
                                                             <asp:Label ID="lbl_aadhar_no" runat="server" Text='<%#Eval("aadhar_no") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="PF No." ItemStyle-Wrap="false">
+                                                 <%--   <asp:TemplateField HeaderText="PF No." ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_pfno" runat="server" Text='<%#Eval("pfno") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="ESIC NO" ItemStyle-Wrap="false">
+                                                    </asp:TemplateField>--%>
+                                               <%--     <asp:TemplateField HeaderText="ESIC NO" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_escic" runat="server" Text='<%#Eval("escic") %>'></asp:Label>
                                                         </ItemTemplate>
+                                                    </asp:TemplateField>--%>
+                                                    <asp:TemplateField HeaderText="Education" ItemStyle-Wrap="false">  
+                                                        <ItemTemplate>  
+                                                            <asp:Label ID="lbl_Educational" runat="server" Text='<%#Eval("education") %>'></asp:Label>  
+                                                        </ItemTemplate>  
+                                                    </asp:TemplateField> 
+                                                     <asp:TemplateField HeaderText="Skill Category" ItemStyle-Wrap="false">  
+                                                        <ItemTemplate>  
+                                                            <asp:Label ID="lbl_Skill_Category" runat="server" Text='<%#Eval("Skill_Category") %>'></asp:Label>  
+                                                        </ItemTemplate>  
+                                                    </asp:TemplateField> 
+                                                    <asp:TemplateField HeaderText="Trade" ItemStyle-Wrap="false">  
+                                                        <ItemTemplate>  
+                                                            <asp:Label ID="lbl_trade" runat="server" Text='<%#Eval("trade") %>'></asp:Label>  
+                                                        </ItemTemplate>  
                                                     </asp:TemplateField>
-                                                    <%--          <asp:TemplateField HeaderText="Educational" ItemStyle-Wrap="false">  
-                    <ItemTemplate>  
-                        <asp:Label ID="lbl_Educational" runat="server" Text='<%#Eval("education") %>'></asp:Label>  
-                    </ItemTemplate>  
-                </asp:TemplateField> --%>
+                                                    <asp:TemplateField HeaderText="Experience" ItemStyle-Wrap="false">  
+                                                        <ItemTemplate>  
+                                                            <asp:Label ID="lbl_experience" runat="server" Text='<%#Eval("experience") %>'></asp:Label>  
+                                                        </ItemTemplate>  
+                                                    </asp:TemplateField>
+
+
+
                                                     <%--                 <asp:TemplateField HeaderText="Police Verification" ItemStyle-Wrap="false">  
                     <ItemTemplate>  
                         <asp:Label ID="lbl_police_verification" runat="server" Text='<%#Eval("police_verification") %>'></asp:Label>  
                     </ItemTemplate>  
                 </asp:TemplateField>--%>
 
-                                                    <asp:TemplateField HeaderText="Police Verification Certificate">
+                                                    <%--<asp:TemplateField HeaderText="Police Verification Certificate">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("police_verification") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.police_verification", "../police_verification_doc/{0}") %>'></asp:HyperLink>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
 
 
-                                                    <asp:TemplateField HeaderText="Medical Examination Certificate">
+                                                   <%-- <asp:TemplateField HeaderText="Medical Examination Certificate">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="HyperLink2" runat="server" Target="_blank" Text='<%# Bind("medical_examination") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.medical_examination", "../medical_examination_doc/{0}") %>'></asp:HyperLink>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
 
-                                                    <asp:TemplateField HeaderText="Medical Report" ItemStyle-Wrap="false">
+                                              <%--      <asp:TemplateField HeaderText="Medical Report" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_medical_report" runat="server" Text='<%#Eval("medical_report")%>'> </asp:Label>
                                                         </ItemTemplate>
@@ -302,7 +328,7 @@
                                                                 <asp:ListItem Value="Unfit">Unfit</asp:ListItem>
                                                             </asp:DropDownList>
                                                         </EditItemTemplate>
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
 
                                                     <%--       <asp:TemplateField HeaderText="Bank Name" ItemStyle-Wrap="false">  
                     <ItemTemplate>  
@@ -331,7 +357,7 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>--%>
 
-                                                    <asp:TemplateField HeaderText="Shift">
+                                              <%--      <asp:TemplateField HeaderText="Shift">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Shift" runat="server" Text='<%#Eval("shift")%>'></asp:Label>
                                                         </ItemTemplate>
@@ -343,13 +369,13 @@
                                                                 <asp:ListItem Value="General">General</asp:ListItem>
                                                             </asp:DropDownList>
                                                         </EditItemTemplate>
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
 
                                                     <asp:TemplateField HeaderText="Action By Dept">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_DeptApproval" runat="server" Text='<%#Eval("dept_approval") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                         <EditItemTemplate>
+                                                        <EditItemTemplate>
                                                             <asp:DropDownList ID="ddlDeptApproval" runat="server" AutoPostBack="false">
                                                                 <asp:ListItem Value="Approved">Approved</asp:ListItem>
                                                                 <asp:ListItem Value="Reject">Reject</asp:ListItem>
@@ -365,20 +391,19 @@
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="Action By HR">
+                                                 <%--   <asp:TemplateField HeaderText="Action By HR">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_HRApproval" runat="server" Text='<%#Eval("hr_approval") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                      
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="HR Remarks" Visible="false">
+                                                    </asp:TemplateField>--%>
+                                               <%--     <asp:TemplateField HeaderText="HR Remarks" Visible="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_HRRemarks" runat="server" Text='<%#Eval("hr_remarks") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txt_HRRemarks" runat="server" Text='<%#Eval("hr_remarks")%>'></asp:TextBox>
                                                         </EditItemTemplate>
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
 
                                                     <%--   <asp:TemplateField HeaderText="Action By Safety">
                                             <ItemTemplate>
@@ -391,16 +416,16 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>--%>
 
-                                                    <asp:TemplateField HeaderText="Action By Security">
+                                                 <%--   <asp:TemplateField HeaderText="Action By Security">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Secpproval" runat="server" Text='<%#Eval("security_approval") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Security Remarks" visible="false" ItemStyle-Wrap="false">
+                                                    </asp:TemplateField>--%>
+<%--                                                    <asp:TemplateField HeaderText="Security Remarks" Visible="false" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_SecRemarks" runat="server" Text='<%#Eval("security_remarks") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                    </asp:TemplateField>
+                                                    </asp:TemplateField>--%>
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
                                                             <asp:Button ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" />

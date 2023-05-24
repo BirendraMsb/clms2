@@ -76,14 +76,17 @@
     <Content Include="contractor_cell\annual-return.aspx" />
     <Content Include="contractor_cell\attendance-approval.aspx" />
     <Content Include="contractor_cell\dashboard.aspx" />
+    <Content Include="contractor_cell\emp_bar_chart.aspx" />
     <Content Include="contractor_cell\emp_chart_report.aspx" />
     <Content Include="contractor_cell\fnf_request_approval.aspx" />
     <Content Include="contractor_cell\fnf_request_approved.aspx" />
+    <Content Include="contractor_cell\mail_sending_form.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-approval.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-block.aspx" />
     <Content Include="contractor_cell\purposed-wages-doc-approval.aspx" />
     <Content Include="contractor_cell\register-of-contractor.aspx" />
     <Content Include="contractor_cell\vendor-detail.aspx" />
+    <Content Include="contractor_cell\vendor_bar_chart.aspx" />
     <Content Include="contractor_cell\vendor_chart.aspx" />
     <Content Include="contractor_cell\work-order-detail.aspx" />
     <Content Include="contractor_cell\work-order-details-all.aspx" />
@@ -97,6 +100,15 @@
     <Content Include="dtm\pikaday.js" />
     <Content Include="dtm\plugins\pikaday.jquery.js" />
     <Content Include="emp_pic\Image111.jpg" />
+    <Content Include="emp_pic\images.jpg" />
+    <Content Include="emp_pic\images10.jpg" />
+    <Content Include="emp_pic\images3.jpg" />
+    <Content Include="emp_pic\images4.jpg" />
+    <Content Include="emp_pic\images6.jpg" />
+    <Content Include="emp_pic\images7.jpg" />
+    <Content Include="emp_pic\images9.jpg" />
+    <Content Include="emp_pic\index.jpg" />
+    <Content Include="emp_pic\index1.jpg" />
     <Content Include="esic_doc\SampleJPGImage_50kbmb.jpg" />
     <Content Include="gatepass_section\employment_card.aspx" />
     <Content Include="gatepass_section\gp-dashboard.aspx" />
@@ -411,6 +423,15 @@
     </Content>
     <Content Include="esic_doc_for_download\DECLARATION-FOR-ESIC.pdf" />
     <Content Include="attd_down_doc\Atted_Format.csv" />
+    <Content Include="attd_upload_doc\Attendance.csv" />
+    <Content Include="attd_upload_doc\Attendance1.csv" />
+    <Content Include="attd_upload_doc\Attendance_V1.csv" />
+    <Content Include="attd_upload_doc\Attendance_V2 - Copy.csv" />
+    <Content Include="attd_upload_doc\Attendance_V2.csv" />
+    <Content Include="attd_upload_doc\Attendance_VCode111111.csv" />
+    <Content Include="attd_upload_doc\Attendance_VCode222222.csv" />
+    <Content Include="domicile_doc\Domicile.pdf" />
+    <Content Include="esic_doc\EPF Registration.pdf" />
     <None Include="gatepass_section\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -420,7 +441,15 @@
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
     <Content Include="pf_doc_for_download\DECLARATION-FOR-EPF.pdf" />
+    <Content Include="po_doc\EPF Registration.pdf" />
+    <Content Include="po_doc\ESIC Registration.pdf" />
+    <Content Include="po_doc\Police Verification Certificate.pdf" />
+    <Content Include="police_verification_doc\EPF Registration.pdf" />
+    <Content Include="police_verification_doc\Medical Verification Certificate.pdf" />
     <None Include="Properties\PublishProfiles\DepClms2.pubxml" />
+    <Content Include="wages_doc_uplouad\bank_doc\Purchase order.pdf" />
+    <Content Include="wages_doc_uplouad\esic_doc\ESIC Registration.pdf" />
+    <Content Include="wages_doc_uplouad\pf_doc\EPF Registration.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2889,6 +2918,14 @@
     <Content Include="vendor-onboarding\wage-slip.aspx" />
     <Content Include="vendor-onboarding\wages_document.aspx" />
     <Content Include="vendor-onboarding\work-order-detail.aspx" />
+    <Content Include="vendors_pic\images.jpg" />
+    <Content Include="vendors_pic\images2.jpg" />
+    <Content Include="vendors_pic\images3.jpg" />
+    <Content Include="vendors_pic\images4.jpg" />
+    <Content Include="vendors_pic\images5.jpg" />
+    <Content Include="vendors_pic\images6.jpg" />
+    <Content Include="vendors_pic\index.jpg" />
+    <Content Include="vendors_pic\index1.jpg" />
     <Content Include="vendors_pic\index111.jpg" />
     <Content Include="wages_doc_uplouad\bank_doc\SampleJPGImage_50kbmb.jpg" />
     <Content Include="wages_doc_uplouad\esic_doc\SampleJPGImage_50kbmb.jpg" />
@@ -3018,6 +3055,13 @@
     <Compile Include="contractor_cell\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="contractor_cell\emp_bar_chart.aspx.cs">
+      <DependentUpon>emp_bar_chart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\emp_bar_chart.aspx.designer.cs">
+      <DependentUpon>emp_bar_chart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="contractor_cell\emp_chart_report.aspx.cs">
       <DependentUpon>emp_chart_report.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3038,6 +3082,13 @@
     </Compile>
     <Compile Include="contractor_cell\fnf_request_approved.aspx.designer.cs">
       <DependentUpon>fnf_request_approved.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\mail_sending_form.aspx.cs">
+      <DependentUpon>mail_sending_form.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\mail_sending_form.aspx.designer.cs">
+      <DependentUpon>mail_sending_form.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\purposed-emp-detail-approval.aspx.cs">
       <DependentUpon>purposed-emp-detail-approval.aspx</DependentUpon>
@@ -3073,6 +3124,13 @@
     </Compile>
     <Compile Include="contractor_cell\vendor-detail.aspx.designer.cs">
       <DependentUpon>vendor-detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\vendor_bar_chart.aspx.cs">
+      <DependentUpon>vendor_bar_chart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\vendor_bar_chart.aspx.designer.cs">
+      <DependentUpon>vendor_bar_chart.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\vendor_chart.aspx.cs">
       <DependentUpon>vendor_chart.aspx</DependentUpon>
@@ -3499,7 +3557,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="attd_upload_doc\" />
     <Folder Include="login\include\" />
   </ItemGroup>
   <ItemGroup>

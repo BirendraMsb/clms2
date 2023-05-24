@@ -152,7 +152,7 @@ namespace clms2.vendor_onboarding
             using (SqlConnection con = new SqlConnection(constr))
             {
 
-                using (SqlCommand cmd = new SqlCommand("select v.vendor_name,v.vendor_reg_code,f.emp_name,f.emp_code,f.department,f.last_working_day from tbl_full_final_request f,tbl_vendor_info v where  f.vendor_code=v.vendor_reg_code and f.work_order = v.work_worder and f.emp_code ='" + ddlEmpCode.SelectedItem.Text + "'"))
+                using (SqlCommand cmd = new SqlCommand("select v.vendor_name,v.vendor_reg_code,f.emp_name,f.emp_code,f.department,f.last_working_day,e.date_of_joining from tbl_full_final_request f,tbl_vendor_info v,tbl_emp e where  f.vendor_code=v.vendor_reg_code and f.work_order = v.work_worder and f.emp_code = e.emp_code and f.emp_code ='" + ddlEmpCode.SelectedItem.Text + "'"))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -166,6 +166,7 @@ namespace clms2.vendor_onboarding
                         txtGatePassNo.Text = r["emp_code"].ToString();
                         txtDepartment.Text = r["department"].ToString();
                         txtLastWorkingDay.Text = r["last_working_day"].ToString();
+                        txtDateOfJoining.Text = r["date_of_joining"].ToString();
                     }
 
                     con.Close();

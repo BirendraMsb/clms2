@@ -149,7 +149,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>From XII
                                                 </a>
@@ -159,7 +159,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
-                                            
+
 
                                         </ul>
                                     </li>
@@ -172,21 +172,49 @@
                                                     <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
                                                 </a>
                                             </li>
-                                         
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request_approved.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Approved Full and Final Request
+                                                </a>
+                                            </li>
+
                                         </ul>
                                     </li>
-                                     <li class="nav-item dropdown">
+                                    <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart
+                                                </a>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/emp_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Bar Chart
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/vendor_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Bar Chart
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mail <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/mail_sending_form.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Mail
                                                 </a>
                                             </li>
 
@@ -196,6 +224,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+
                                             <li>
                                                 <a class="dropdown-item" href="../login/new-password.aspx">
                                                     <i class="fa fa-lock me-1"></i>Change Password
@@ -259,7 +288,7 @@
                                         <div class="row" style="width: 1000px">
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                 <%--   <label>Vendor code</label>--%>
+                                                    <%--   <label>Vendor code</label>--%>
                                                     <asp:DropDownList ID="ddlVendorCode" class="form-control" runat="server" Visible="false" MaxLength="50" AutoPostBack="true" OnSelectedIndexChanged="ddlVendorCode_SelectedIndexChanged">
                                                         <asp:ListItem>Select</asp:ListItem>
                                                     </asp:DropDownList>
@@ -350,19 +379,19 @@
                                                             <ItemTemplate>
                                                                 <asp:Label ID="vendor_code" runat="server" Text='<%# Eval("vendor_code") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                          
+
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Emmployee Name" ItemStyle-Width="200px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                        
+
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Department" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="department" runat="server" Text='<%# Eval("department") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                       
+
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Last Working Day" ItemStyle-Width="150px">
                                                             <ItemTemplate>
@@ -380,10 +409,10 @@
                                                             <ItemTemplate>
                                                                 <asp:Label ID="reason_for_separation" runat="server" Text='<%# Eval("reason_for_separation") %>'></asp:Label>
                                                             </ItemTemplate>
-                                                         
+
                                                         </asp:TemplateField>
-                                                       
-                                                      
+
+
                                                         <asp:TemplateField HeaderText="Approval By HR" ItemStyle-Width="150px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="hr_approval" runat="server" Text='<%#Eval("hr_approval") %>'></asp:Label>
@@ -395,7 +424,7 @@
                                                                 </asp:DropDownList>
                                                             </EditItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="HR Remarks" Visible="false" ItemStyle-Width="100px" >
+                                                        <asp:TemplateField HeaderText="HR Remarks" Visible="false" ItemStyle-Width="100px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="hr_remarks" runat="server" Text='<%#Eval("hr_remarks") %>'></asp:Label>
                                                             </ItemTemplate>

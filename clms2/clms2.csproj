@@ -447,6 +447,7 @@
     <Content Include="police_verification_doc\EPF Registration.pdf" />
     <Content Include="police_verification_doc\Medical Verification Certificate.pdf" />
     <None Include="Properties\PublishProfiles\DepClms2.pubxml" />
+    <Content Include="TempImageFiles\temp.txt" />
     <Content Include="wages_doc_uplouad\bank_doc\Purchase order.pdf" />
     <Content Include="wages_doc_uplouad\esic_doc\ESIC Registration.pdf" />
     <Content Include="wages_doc_uplouad\pf_doc\EPF Registration.pdf" />

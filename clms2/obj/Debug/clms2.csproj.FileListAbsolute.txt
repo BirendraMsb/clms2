@@ -7,8 +7,7 @@ D:\Visual_Studio_2013_Projects\Demo\clms2\clms2\obj\Debug\clms2.pdb
 D:\Visual_Studio_2013_Projects\clms2\clms2\bin\clms2.dll.config
 D:\Visual_Studio_2013_Projects\clms2\clms2\bin\clms2.dll
 D:\Visual_Studio_2013_Projects\clms2\clms2\bin\clms2.pdb
-D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\clms2.dll
-D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\clms2.pdb
-D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\clms2.csprojResolveAssemblyReference.cache
 D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\RdlCompile.cache
 D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\RdlCompile.compiled
+D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\clms2.dll
+D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\clms2.pdb

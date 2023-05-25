@@ -188,23 +188,23 @@
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="../contractor_cell/emp_chart_report.aspx">
+                                                <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
                                                 </a>
                                             </li>
 
                                             <li>
-                                                <a class="dropdown-item" href="../contractor_cell/emp_bar_chart.aspx">
+                                                <a class="dropdown-item" href="emp_bar_chart.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Bar Chart
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="../contractor_cell/vendor_chart.aspx">
+                                                <a class="dropdown-item" href="vendor_chart.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Chart
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="../contractor_cell/vendor_bar_chart.aspx">
+                                                <a class="dropdown-item" href="vendor_bar_chart.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Bar Chart
                                                 </a>
                                             </li>
@@ -216,7 +216,7 @@
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="../contractor_cell/mail_sending_form.aspx">
+                                                <a class="dropdown-item" href="mail_sending_form.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Mail
                                                 </a>
                                             </li>

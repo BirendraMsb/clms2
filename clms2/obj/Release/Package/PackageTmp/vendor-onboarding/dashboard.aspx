@@ -250,40 +250,40 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXI
                                                 </a>
                                             </li>
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="register-of-OT.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XXIII
                                                 </a>
                                             </li>
-                                          
+
                                             <li>
                                                 <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIV
                                                 </a>
                                             </li>
-           
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                           <li>
-                                               <a class="dropdown-item" href="fnf_request.aspx">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Full and Final Request
-                                               </a>
-                                           </li>
-                                          <li>
-                                               <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
-                                               </a>
-                                           </li>
-                                          <li>
+                                                </a>
+                                            </li>
+                                            <li>
                                                 <a class="dropdown-item" href="gratuity.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
-                                           </li>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -310,11 +310,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>GP Detail
                                                 </a>
                                             </li>
-                                            <%--   <li>
+                                            <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart Report
                                                 </a>
-                                            </li>--%>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">

@@ -281,7 +281,7 @@
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: auto;">
+                                        <div class="table-responsive" style="overflow: scroll;">
                                             <%--   <p style="text-align: center">
                                                 <asp:Label ID="lblSearch" Visible="false" runat="server" Text="Work Order No"></asp:Label>
                                                 <asp:TextBox ID="txtSearch" Visible="false" runat="server" OnTextChanged="btnSearch_Click"></asp:TextBox>

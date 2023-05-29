@@ -39,8 +39,10 @@ namespace clms2.contractor_cell
             if (!Page.IsPostBack)
             {
                 BindGrid();
+              
+                strSQL = "SELECT * FROM tbl_emp where dept_approval='Approved'";
+                //strSQL = "SELECT * FROM tbl_emp";
                 // 'strSQL = "SELECT * FROM tbl_empwhere vendor_code='" & Request.QueryString("Id") & "'"
-                strSQL = "SELECT * FROM tbl_emp";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -59,7 +61,8 @@ namespace clms2.contractor_cell
 
                 // '''''''''''''''''''''''''''''''''''''''''''
                 // ' strSQL = "SELECT * FROM tbl_emp where vendor_code='" & Request.QueryString("Id") & "'"
-                strSQL = "SELECT * FROM tbl_emp ";
+                //strSQL = "SELECT * FROM tbl_emp ";
+                strSQL = "SELECT * FROM tbl_emp where dept_approval='Approved'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -122,7 +125,8 @@ namespace clms2.contractor_cell
         protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GvEmp.PageIndex = e.NewPageIndex;
-              GvEmp.DataBind();
+            BindGrid();
+             // GvEmp.DataBind();
         }
 
         protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)

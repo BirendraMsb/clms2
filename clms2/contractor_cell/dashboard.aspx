@@ -6,11 +6,12 @@
 <head runat="server">
 
     <title>CLMS | Contractor's Cell | Dashboard</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
-    <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
+    <link href="../public/common/css/bootswatchTheme.css" rel="stylesheet" />
     <link rel="icon" href="../public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="../public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="../public/newfront/assets/css/bootstrap.min.css" />
@@ -453,11 +454,11 @@
                 });
             });
         </script>
-        <script type="text/jscript">
+      <%--  <script type="text/jscript">
             $(window).on("load", function () {
                 $('#GvWod').DataTable({ responsive: true });
             });
-        </script>
+        </script>--%>
 
     </form>
 </body>

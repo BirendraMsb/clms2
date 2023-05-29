@@ -28,7 +28,8 @@ namespace clms2.user_dept
         {
             string usrnm = Session["User"].ToString();
             lblUser.Text = usrnm;
-            // lblUser1.Text = usrnm
+            lblDate.Text = DateTime.Today.ToString("dd-MMM-yyyy");
+         
 
             dbConnection();
 

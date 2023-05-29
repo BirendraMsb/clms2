@@ -75,6 +75,7 @@
     <Content Include="admin\user.aspx" />
     <Content Include="contractor_cell\annual-return.aspx" />
     <Content Include="contractor_cell\attendance-approval.aspx" />
+    <Content Include="contractor_cell\cc_dashboard.aspx" />
     <Content Include="contractor_cell\dashboard.aspx" />
     <Content Include="contractor_cell\emp_bar_chart.aspx" />
     <Content Include="contractor_cell\emp_chart_report.aspx" />
@@ -446,11 +447,11 @@
     <Content Include="po_doc\Police Verification Certificate.pdf" />
     <Content Include="police_verification_doc\EPF Registration.pdf" />
     <Content Include="police_verification_doc\Medical Verification Certificate.pdf" />
-    <None Include="Properties\PublishProfiles\DepClms2.pubxml" />
     <Content Include="TempImageFiles\temp.txt" />
     <Content Include="wages_doc_uplouad\bank_doc\Purchase order.pdf" />
     <Content Include="wages_doc_uplouad\esic_doc\ESIC Registration.pdf" />
     <Content Include="wages_doc_uplouad\pf_doc\EPF Registration.pdf" />
+    <None Include="Properties\PublishProfiles\clms2.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3048,6 +3049,13 @@
     </Compile>
     <Compile Include="contractor_cell\attendance-approval.aspx.designer.cs">
       <DependentUpon>attendance-approval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\cc_dashboard.aspx.cs">
+      <DependentUpon>cc_dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\cc_dashboard.aspx.designer.cs">
+      <DependentUpon>cc_dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\dashboard.aspx.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>

@@ -26,7 +26,8 @@ namespace clms2.user_dept
         {
             string usrnm = Session["User"].ToString();
             lblUser.Text = usrnm;
-            // lblUser1.Text = usrnm
+            lblDate.Text = DateTime.Today.ToString("dd-MMM-yyyy");
+           
 
             dbConnection();
 
@@ -116,7 +117,8 @@ namespace clms2.user_dept
         protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GvEmp.PageIndex = e.NewPageIndex;
-            GvEmp.DataBind();
+            //GvEmp.DataBind();
+            BindGrid();
         }
     }
 }

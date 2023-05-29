@@ -54,7 +54,7 @@ namespace clms2.vendor_onboarding
             using (SqlConnection con = new SqlConnection(constr))
             {
                 ////using (SqlCommand cmd = new SqlCommand("select a.email,a.contact_no1,b.valid_from,b.valid_to,a.workers_authorised from tbl_vendor_info a,tbl_vendor_work_order b where a.work_worder = b.work_worder and b.work_worder= '" + ddlWorkOrder.SelectedItem.Text + "' and a.vendor_reg_code=" + Session["User"] + " "))
-                using (SqlCommand cmd = new SqlCommand("select a.email,a.contact_no1,a.contact_no2,a.firm_address,a.firm_city,a.firm_state,a.firm_pin,a.license_no, b.valid_from,b.valid_to,a.workers_authorised,a.img_file,a.pfno,a.esicno,a.pano,gstno from tbl_vendor_info a,tbl_vendor_work_order b where a.work_worder = b.work_worder and b.work_worder= '" + ddlWorkOrder.SelectedItem.Text + "' and a.vendor_reg_code=" + Session["User"] + " "))
+                using (SqlCommand cmd = new SqlCommand("select a.email,a.contact_no1,a.contact_no2,a.firm_address,a.firm_city,a.firm_state,a.firm_pin,a.license_no, b.valid_from,b.valid_to,a.un_skilled,a.semi_skilled ,a.skilled,a.high_skilled,a.workers_authorised,a.img_file,a.pfno,a.esicno,a.pano,gstno from tbl_vendor_info a,tbl_vendor_work_order b where a.work_worder = b.work_worder and b.work_worder= '" + ddlWorkOrder.SelectedItem.Text + "' and a.vendor_reg_code=" + Session["User"] + " "))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -76,6 +76,11 @@ namespace clms2.vendor_onboarding
 
                         txtValidFrom.Text = r["valid_from"].ToString();
                         txtValidTo.Text = r["valid_to"].ToString();
+
+                        txtUnskilled.Text = r["un_skilled"].ToString();
+                        txtSemiSkilled.Text = r["semi_skilled"].ToString();
+                        txtSkilled.Text = r["skilled"].ToString();
+                        txtHighSkilled.Text = r["high_skilled"].ToString();
                         txtWAuthorised.Text = r["workers_authorised"].ToString();
 
                         txtPFNO.Text = r["pfno"].ToString();

@@ -208,13 +208,60 @@ namespace clms2.contractor_cell
             return y;
         }
 
+        protected bool check_dup_rec()
+        {  // tbl_vendor_work_order
+
+            bool result = false;
+
+            string StrSql = "Select * from tbl_vendor_work_order where work_worder='" + txtWONo.Text + "'";
+            SqlCommand cmd = new SqlCommand(StrSql, con);
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+            SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {
+                string wo = "";
+                if ((dr.Read()))
+                {
+                  
+                    if ((dr["work_worder"] != DBNull.Value))
+                    {
+                         wo = dr["work_worder"].ToString();
+                        if (wo.ToString() == txtWONo.Text)
+                        {
+                           
+                            result = true;
+                        }
+                    }
+                }
+               
+            }
+            catch (Exception ex)
+            {
+            }
+            dr.Close();
+
+            return result;
+
+
+        }
         protected void cmdSave_Click(object sender, EventArgs e)
         {
+            string result = check_dup_rec().ToString();
+            if (result == "True")
+            {
+                lblMsgError.Text = "Work order no " + txtWONo.Text + " already exist. ";
+                return;
+            }
+               
+
+
             dbConnection();
             AutoID();
             Auto_ID();
             try
             {
+
                 var idd = txtID.Text;
 
                 string Str = "insert into tbl_vendor_work_order(id, " + "vendor_reg_code, " + "work_worder, " + "valid_from, " + "valid_to, " + "nature_of_work, " + "type_of_contract, " + "department, " + "job_location, " + "status,work_description,act_covered)";
@@ -224,9 +271,9 @@ namespace clms2.contractor_cell
                 SqlCommand cm = new SqlCommand(Str, con);
                 cm.ExecuteNonQuery();
                 // ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-                string Str1 = "insert into tbl_vendor_info(id,  " + "vendor_reg_code, " + "vendor_name, " + "vendor_owner_name, " + "email, " + "contact_no1,contact_no2, " + "firm_address,firm_city, " + "firm_state,firm_pin,license_no, " + "valid_from,valid_to, " + "workers_authorised, " + "pfno,esicno,pwd,img_file,status,work_worder)";
+                string Str1 = "insert into tbl_vendor_info(id,  " + "vendor_reg_code, " + "vendor_name, " + "vendor_owner_name, " + "email, " + "contact_no1,contact_no2, " + "firm_address,firm_city, " + "firm_state,firm_pin,license_no, " + "valid_from,valid_to, " + "workers_authorised, " + "pfno,esicno,pwd,img_file,status,work_worder,un_skilled,semi_skilled,skilled,high_skilled)";
 
-                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEmail.Text + "', " + "'" + txtPhNo.Text + "', " + "'', " + "'', " + "'', " + "'', " + "'', " + "' ', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'', " + "'', " + "'123@123', " + "'-', " + "'N','" + txtWONo.Text + "')";
+                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEmail.Text + "', " + "'" + txtPhNo.Text + "', " + "'', " + "'', " + "'', " + "'', " + "'', " + "' ', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'', " + "'', " + "'123@123', " + "'-', " + "'N','" + txtWONo.Text + "'," + txtUnskilled.Text + "," + txtSemiSkilled.Text + "," + txtSkilled.Text + "," + txtHighSkilled.Text + ")";
 
                 SqlCommand cm1 = new SqlCommand(Str1, con);
                 cm1.ExecuteNonQuery();

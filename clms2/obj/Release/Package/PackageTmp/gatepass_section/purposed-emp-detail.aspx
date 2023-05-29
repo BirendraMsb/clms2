@@ -106,12 +106,12 @@
                                         <ul class="dropdown-menu ">
                                            <li>
                                                 <a class="dropdown-item" href="gp-print.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>GP Show
+                                                    <i class="fa fa-angle-right me-1"></i>Gate Pass Show
                                                 </a>
                                             </li>
                                              <li>
                                                 <a class="dropdown-item" href="gp-print1.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>GP Print
+                                                    <i class="fa fa-angle-right me-1"></i>Gate Pass Print
                                                 </a>
                                             </li>
                                         </ul>

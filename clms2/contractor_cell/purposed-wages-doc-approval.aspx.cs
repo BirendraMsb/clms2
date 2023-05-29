@@ -35,8 +35,9 @@ namespace clms2.contractor_cell
             if (!Page.IsPostBack)
             {
                 BindGrid();
-                // 'strSQL = "SELECT * FROM tbl_empwhere vendor_code='" & Request.QueryString("Id") & "'"
-                strSQL = "SELECT * FROM tbl_emp";   // 'where hr_approval<>'Reject'
+                // 'strSQL = "SELECT * FROM tbl_emp where vendor_code='" & Request.QueryString("Id") & "'"
+               // strSQL = "SELECT * FROM tbl_emp";   // 'where hr_approval<>'Reject'
+                strSQL = "SELECT * FROM tbl_wages_document";   // 'where hr_approval<>'Reject'
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -53,8 +54,9 @@ namespace clms2.contractor_cell
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
+                strSQL = "SELECT * FROM tbl_wages_document"; 
                 // ' strSQL = "SELECT * FROM tbl_emp where vendor_code='" & Request.QueryString("Id") & "'"
-                strSQL = "SELECT * FROM tbl_emp ";
+                //strSQL = "SELECT * FROM tbl_emp ";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);

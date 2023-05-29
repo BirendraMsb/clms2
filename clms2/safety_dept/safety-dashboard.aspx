@@ -6,7 +6,7 @@
 <head id="Head1" runat="server">
     <title>CLMS | Safety Department | Dashboard</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
-    <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
+  <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
 <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
  
 <link rel="icon" href="../public/common/icons/favicon.ico" type="icon/png" />

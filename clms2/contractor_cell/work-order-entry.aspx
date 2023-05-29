@@ -360,13 +360,48 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
-                                                <label>No. of Emp</label><label class="text-danger">*</label>
-                                                <asp:TextBox ID="txtNoEmp" runat="server" class="form-control" MaxLength="4"></asp:TextBox>
+                                                <label>UN-Skilled</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtUnskilled" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtUnskilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtUnskilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Semi-Skilled</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtSemiSkilled" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtSemiSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtSemiSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Skilled</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtSkilled" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                       <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>High Skilled</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtHighSkilled" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtHighSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtHighSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Total Employee</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtNoEmp" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtNoEmp" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtNoEmp" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>
                                     </div>
+                              
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
@@ -428,12 +463,10 @@
                                         </div>
                                     </div>
                                     <hr class="my-5" />
-
-
+                                </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </div>
                 </td>
             </tr>

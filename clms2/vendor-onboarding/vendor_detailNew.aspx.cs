@@ -49,8 +49,8 @@ namespace clms2.vendor_onboarding
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_vendor_info";  
-               //// strSQL = "SELECT * FROM tbl_vendor_info where vendor_reg_code='" + Session["User"].ToString() + "'";
+               ///// strSQL = "SELECT * FROM tbl_vendor_info";  
+                 strSQL = "SELECT * FROM tbl_vendor_info where vendor_reg_code='" + Session["User"].ToString() + "'";
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();

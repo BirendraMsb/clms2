@@ -145,11 +145,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
-                                            <li>
+                                        <%--    <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
-                                            </li>
+                                            </li>--%>
                                             <li>
                                                 <a class="dropdown-item" href="upload_attendance.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Upload Attendance
@@ -307,7 +307,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="#">
-                                                    <i class="fa fa-angle-right me-1"></i>GP Detail
+                                                    <i class="fa fa-angle-right me-1"></i>Gate Pass Detail
                                                 </a>
                                             </li>
                                             <%--   <li>
@@ -422,7 +422,7 @@
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>Total Valid GP</label><label class="text-danger">*</label>
+                                                    <label>Total Valid Gate Pass</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtTotValidGP" runat="server" class="form-control" TextMode="SingleLine"></asp:TextBox>
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtTotValidGP" ErrorMessage="* Pls Enter Total Valid GP" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtTotValidGP" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
@@ -520,7 +520,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>PF Contricution (In No)</label><label class="text-danger">*</label>
+                                                    <label>PF Contribution (In No)</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtPFContribution" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtPFContribution" ErrorMessage="* Pls Enter PF Contricution" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                     <asp:RegularExpressionValidator ID="RegularExpressionValidator12" ControlToValidate="txtPFContribution" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>

@@ -396,6 +396,65 @@ namespace clms2.contractor_cell
 
         }
 
+        protected void txtUnskilled_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnskilled.Text == "")
+                txtUnskilled.Text = "0";
+            if (txtSemiSkilled.Text == "")
+                txtSemiSkilled.Text = "0";
+            if (txtSkilled.Text == "")
+                txtSkilled.Text = "0";
+            if (txtHighSkilled.Text == "")
+                txtHighSkilled.Text = "0";
+
+            txtNoEmp.Text = (Convert.ToInt32(txtUnskilled.Text) + Convert.ToInt32(txtSemiSkilled.Text) + Convert.ToInt32(txtSkilled.Text) + Convert.ToInt32(txtHighSkilled.Text)).ToString();
+        }
+
+        protected void txtSemiSkilled_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnskilled.Text == "")
+                txtUnskilled.Text = "0";
+            if (txtSemiSkilled.Text == "")
+                txtSemiSkilled.Text = "0";
+            if (txtSkilled.Text == "")
+                txtSkilled.Text = "0";
+            if (txtHighSkilled.Text == "")
+                txtHighSkilled.Text = "0";
+
+            txtNoEmp.Text = (Convert.ToInt32(txtUnskilled.Text) + Convert.ToInt32(txtSemiSkilled.Text) + Convert.ToInt32(txtSkilled.Text) + Convert.ToInt32(txtHighSkilled.Text)).ToString();
+
+        }
+
+        protected void txtSkilled_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnskilled.Text == "")
+                txtUnskilled.Text = "0";
+            if (txtSemiSkilled.Text == "")
+                txtSemiSkilled.Text = "0";
+            if (txtSkilled.Text == "")
+                txtSkilled.Text = "0";
+            if (txtHighSkilled.Text == "")
+                txtHighSkilled.Text = "0";
+
+            txtNoEmp.Text = (Convert.ToInt32(txtUnskilled.Text) + Convert.ToInt32(txtSemiSkilled.Text) + Convert.ToInt32(txtSkilled.Text) + Convert.ToInt32(txtHighSkilled.Text)).ToString();
+
+        }
+
+        protected void txtHighSkilled_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnskilled.Text == "")
+                txtUnskilled.Text = "0";
+            if (txtSemiSkilled.Text == "")
+                txtSemiSkilled.Text = "0";
+            if (txtSkilled.Text == "")
+                txtSkilled.Text = "0";
+            if (txtHighSkilled.Text == "")
+                txtHighSkilled.Text = "0";
+
+            txtNoEmp.Text = (Convert.ToInt32(txtUnskilled.Text) + Convert.ToInt32(txtSemiSkilled.Text) + Convert.ToInt32(txtSkilled.Text) + Convert.ToInt32(txtHighSkilled.Text)).ToString();
+
+        }
+
 
 
 

@@ -286,14 +286,14 @@
                 <table class="table responsive table-striped table-bordered">
                     <tbody>
                         <tr>
-                            <td>1. Full Name and address of the Principal Employer
+                            <td>Full Name and address of the Principal Employer
                             </td>
                             <td>
                                 <asp:Label ID="lblPrincipalEmpNameAddr" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>2. Name of Estiblishment :
+                            <td>Name of Estiblishment :
                             </td>
                             <td>
                                 <asp:Label ID="lblNameOfEstbl" runat="server" Text="Label"></asp:Label>
@@ -321,7 +321,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>3. Full Name of the Manager or person responsible for supervision and control of
+                            <td>Full Name of the Manager or person responsible for supervision and control of
                             the establishment:
                             </td>
                             <td>
@@ -329,63 +329,63 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>4. Maximum Number of workman employed as contract labour on any day during the year:
+                            <td>Maximum Number of workman employed as contract labour on any day during the year:
                             </td>
                             <td>
                                 <asp:Label ID="lblMaxNumWorkman" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>5. Total number of days during the year on which contract labour was employed:
+                            <td>Total number of days during the year on which contract labour was employed:
                             </td>
                             <td>
                                 <asp:Label ID="lbltotNumDaysEmployed" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>6. Total number of man days worked by contract labour during the year:
+                            <td>Total number of man days worked by contract labour during the year:
                             </td>
                             <td>
                                 <asp:Label ID="lblNumDaysLbrWorked" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>7. Maximum Number of workmen employed directly on any day during the year:
+                            <td>Maximum Number of workmen employed directly on any day during the year:
                             </td>
                             <td>
                                 <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>8. Total Number of days during the year on which directly employed labour was employed:
+                            <td>Total Number of days during the year on which directly employed labour was employed:
                             </td>
                             <td>
                                 <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>9. Total Number of man days worked by directly employed workmen:
+                            <td>Total Number of man days worked by directly employed workmen:
                             </td>
                             <td>
                                 <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>10. Nature of work on which contract labour was employed:
+                            <td>Nature of work on which contract labour was employed:
                             </td>
                             <td>
                                 <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>11. Amount of Security deposits made by contractor(Give contractor wise):
+                            <td>Amount of Security deposits made by contractor(Give contractor wise):
                             </td>
                             <td>
                                 <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
                             </td>
                         </tr>
                         <tr>
-                            <td>12. Amount of Security deposits forfeited together with the names of contractor,
+                            <td>Amount of Security deposits forfeited together with the names of contractor,
                             if any:
                             </td>
                             <td>
@@ -393,7 +393,7 @@
                             </td>
                         </tr>
                         <tr width="50%">
-                            <td>13. Whether there is any change in the management of the establishment its location<br />
+                            <td>Whether there is any change in the management of the establishment its location<br />
                                 or any other particulars furnished to registering Officer in the form of application
                                 <br />
                                 for registration at the time of registration, If so, from what date? :

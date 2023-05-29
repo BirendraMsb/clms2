@@ -325,7 +325,7 @@
 
                                                     <asp:BoundField DataField="pano" HeaderText="PAN No." SortExpression="pano"></asp:BoundField>
                                                     <asp:BoundField DataField="gstno" HeaderText="GST No." SortExpression="gstno"></asp:BoundField>
-                                                    <asp:BoundField DataField="pfno" HeaderText="PF No." SortExpression="pfno"></asp:BoundField>
+                                                    <asp:BoundField DataField="pfno" HeaderText="UAN No." SortExpression="pfno"></asp:BoundField>
                                                     <asp:BoundField DataField="esicno" HeaderText="ESIC No." SortExpression="esicno"></asp:BoundField>
 
                                                     <asp:BoundField DataField="job_location" HeaderText="Job Location" SortExpression="job_location"></asp:BoundField>

@@ -143,5 +143,10 @@ namespace clms2.vendor_onboarding
         {
 
         }
+
+        protected void ddlWorkdOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -124,7 +124,7 @@ namespace clms2.vendor_onboarding
                     lblPFfileSizeMsg.Visible = false;
                     lblEsicfileSizeMsg.Visible = false;
                  
-                    //LinkButton1.Visible = false;  // download pf declartion
+                    //LinkButton1.Visible = false;  // download UAN declartion
                     //LinkButton2.Visible = false;  //// download esic declartion
 
                     dbConnection();
@@ -378,7 +378,7 @@ namespace clms2.vendor_onboarding
                 {
                     if (txtPFNO.Text=="")
                     {
-                        lblMSGError.Text = "Enter PF Number";
+                        lblMSGError.Text = "Enter UAN Number";
                         return;
                     }
                    // PFileUpload1 = "img";
@@ -387,7 +387,7 @@ namespace clms2.vendor_onboarding
                 {
                     if (PFileUpload1 == "")
                     {
-                        lblMSGError.Text = "Upload PF File";
+                        lblMSGError.Text = "Upload UAN File";
                         return;
                         //PFileUpload1 = "img";
                     }
@@ -402,7 +402,7 @@ namespace clms2.vendor_onboarding
 
                         if ((size > 100))
                         {
-                            lblMSG.Text = "PF file is too big to upload , Max size is 100 KB";
+                            lblMSG.Text = "UAN file is too big to upload , Max size is 100 KB";
                             return;
                         }
                         else
@@ -497,8 +497,8 @@ namespace clms2.vendor_onboarding
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
-                   
-                    cmd.CommandText = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + ddlState.SelectedItem.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";
+
+                    cmd.CommandText = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + ddlState.SelectedItem.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "un_skilled='" + txtUnskilled.Text + "'," + "semi_skilled='" + txtSemiSkilled.Text + "'," + "skilled='" + txtSkilled.Text + "'," + "high_skilled='" + txtHighSkilled.Text + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";
                     cmd.ExecuteNonQuery();
 
                     cmd.Parameters.Clear();
@@ -640,7 +640,7 @@ namespace clms2.vendor_onboarding
                         }
                     }
                     // '''''''''--------------------------------------------------'''''''
-                    // '''----- NOT SELECTED  PF and ESIC DOC THEN--update only vendor image '''''''''''
+                    // '''----- NOT SELECTED  UAN and ESIC DOC THEN--update only vendor image '''''''''''
                     if ((pfRadio1.Checked == true & ESICRadio1.Checked == true))
                     {
                         PFileUpload1 = "img";
@@ -662,7 +662,7 @@ namespace clms2.vendor_onboarding
                         lblMSG.Text = "Data updated successfully";
                     }
                     // ===============================================================================     
-                    // '''----if  SELECTED  PF and ESIC DOC  THEN--update  image '''''''''''
+                    // '''----if  SELECTED  UAN and ESIC DOC  THEN--update  image '''''''''''
 
                     if ((pfRadio2.Checked == true & ESICRadio2.Checked == true))
                     {
@@ -868,6 +868,65 @@ namespace clms2.vendor_onboarding
             }
             /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
             ddlState.Items.Insert(0, new ListItem("Select", "Select"));
+        }
+
+        protected void txtUnskilled_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnskilled.Text == "")
+                txtUnskilled.Text = "0";
+            if (txtSemiSkilled.Text == "")
+                txtSemiSkilled.Text = "0";
+            if (txtSkilled.Text == "")
+                txtSkilled.Text = "0";
+            if (txtHighSkilled.Text == "")
+                txtHighSkilled.Text = "0";
+
+            txtWAuthorised.Text = (Convert.ToInt32(txtUnskilled.Text) + Convert.ToInt32(txtSemiSkilled.Text) + Convert.ToInt32(txtSkilled.Text) + Convert.ToInt32(txtHighSkilled.Text)).ToString();
+        }
+
+        protected void txtSemiSkilled_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnskilled.Text == "")
+                txtUnskilled.Text = "0";
+            if (txtSemiSkilled.Text == "")
+                txtSemiSkilled.Text = "0";
+            if (txtSkilled.Text == "")
+                txtSkilled.Text = "0";
+            if (txtHighSkilled.Text == "")
+                txtHighSkilled.Text = "0";
+
+            txtWAuthorised.Text = (Convert.ToInt32(txtUnskilled.Text) + Convert.ToInt32(txtSemiSkilled.Text) + Convert.ToInt32(txtSkilled.Text) + Convert.ToInt32(txtHighSkilled.Text)).ToString();
+
+        }
+
+        protected void txtSkilled_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnskilled.Text == "")
+                txtUnskilled.Text = "0";
+            if (txtSemiSkilled.Text == "")
+                txtSemiSkilled.Text = "0";
+            if (txtSkilled.Text == "")
+                txtSkilled.Text = "0";
+            if (txtHighSkilled.Text == "")
+                txtHighSkilled.Text = "0";
+
+            txtWAuthorised.Text = (Convert.ToInt32(txtUnskilled.Text) + Convert.ToInt32(txtSemiSkilled.Text) + Convert.ToInt32(txtSkilled.Text) + Convert.ToInt32(txtHighSkilled.Text)).ToString();
+
+        }
+
+        protected void txtHighSkilled_TextChanged(object sender, EventArgs e)
+        {
+            if (txtUnskilled.Text == "")
+                txtUnskilled.Text = "0";
+            if (txtSemiSkilled.Text == "")
+                txtSemiSkilled.Text = "0";
+            if (txtSkilled.Text == "")
+                txtSkilled.Text = "0";
+            if (txtHighSkilled.Text == "")
+                txtHighSkilled.Text = "0";
+
+            txtWAuthorised.Text = (Convert.ToInt32(txtUnskilled.Text) + Convert.ToInt32(txtSemiSkilled.Text) + Convert.ToInt32(txtSkilled.Text) + Convert.ToInt32(txtHighSkilled.Text)).ToString();
+
         }
       
 

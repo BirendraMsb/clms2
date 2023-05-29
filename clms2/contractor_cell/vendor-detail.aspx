@@ -373,7 +373,7 @@
                                                         </ItemTemplate>
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="PF NO" SortExpression="pfno">
+                                                    <asp:TemplateField HeaderText="UAN NO" SortExpression="pfno">
                                                         <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("pfno") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
@@ -392,7 +392,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="PF Document">
+                                                    <asp:TemplateField HeaderText="UAN Document">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pfdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pfdoc", "../pf_doc/{0}")%>'></asp:HyperLink>
                                                         </ItemTemplate>

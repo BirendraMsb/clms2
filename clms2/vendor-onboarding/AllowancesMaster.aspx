@@ -180,7 +180,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -468,7 +468,7 @@
                                                         </EditItemTemplate>
                                                         <ItemStyle Width="150px" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Other Deductions" ItemStyle-Width="150">
+                                                    <asp:TemplateField HeaderText="Other Deduction(monthly)" ItemStyle-Width="150">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblOtherDeduction" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
                                                         </ItemTemplate>

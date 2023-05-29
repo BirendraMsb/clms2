@@ -181,7 +181,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -417,15 +417,15 @@
                                                         <asp:BoundField DataField="license_no" HeaderText="License No" SortExpression="license_no" DataFormatString="{0:d}" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="valid_to" HeaderText="Valid To" SortExpression="valid_to" ItemStyle-Wrap="false"></asp:BoundField>
-                                                        <asp:BoundField DataField="pfno" HeaderText="PF No." SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="pfno" HeaderText="UAN No." SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="workers_authorised" HeaderText="Authorised Workers" SortExpression="workers_authorised" ItemStyle-Wrap="false"></asp:BoundField>
 
-                                                        <asp:BoundField DataField="pfno" HeaderText="PF No" SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="pfno" HeaderText="UAN No" SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="esicno" HeaderText="ESIC No" SortExpression="esicno" ItemStyle-Wrap="false"></asp:BoundField>
 
                                                         <asp:BoundField DataField="status" HeaderText="Status" SortExpression="status" ItemStyle-Wrap="false"></asp:BoundField>
 
-                                                        <asp:TemplateField HeaderText="PF Doc" ItemStyle-Wrap="True">
+                                                        <asp:TemplateField HeaderText="UAN Doc" ItemStyle-Wrap="True">
                                                             <ItemTemplate>
                                                                 <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pfdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pfdoc", "../pf_doc/{0}")%>'></asp:HyperLink>
                                                                 <%--   <asp:Image ID="pvimage1" runat="server" Width="80px" Height="100px"/>--%>

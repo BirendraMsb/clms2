@@ -725,7 +725,7 @@ namespace clms2.vendor_onboarding
         //if ((PVFileUpload.PostedFile.FileName != "" & MVFileUpload.PostedFile.FileName != ""))
         //{
 
-        //    // 0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-PF File-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0
+        //    // 0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-UAN File-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0
 
 
 
@@ -1092,7 +1092,7 @@ namespace clms2.vendor_onboarding
             //if ((PVFileUpload.PostedFile.FileName != "" & MVFileUpload.PostedFile.FileName != ""))
             //{
 
-                // 0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-PF File-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0
+                // 0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-UAN File-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0
                 ////check DOB
                 if ((txtDOB.Text != string.Empty))
                 {
@@ -1136,7 +1136,7 @@ namespace clms2.vendor_onboarding
                     }
                     else
                     {
-                        lblMSGError.Text = "Upload PF File";
+                        lblMSGError.Text = "Upload UAN File";
                         return;
                     }
                 }
@@ -1145,7 +1145,7 @@ namespace clms2.vendor_onboarding
                 {
                     if (txtPFNO.Text=="")
                     {
-                        lblMSGError.Text = "Enter PF Number";
+                        lblMSGError.Text = "Enter UAN Number";
                         return;
                     }
                 }

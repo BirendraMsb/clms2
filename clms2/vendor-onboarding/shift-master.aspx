@@ -182,7 +182,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 

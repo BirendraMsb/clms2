@@ -178,7 +178,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -544,7 +544,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="PF Contribution" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="UAN Contribution" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="pf_contribution" runat="server" Text='<%# Eval("pf_contribution") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -556,7 +556,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Other Deductions" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Other Deductions(monthly)" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="other_deduction" runat="server" Text='<%# Eval("other_deduction") %>'></asp:Label>
                                                             </ItemTemplate>

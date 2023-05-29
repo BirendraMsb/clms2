@@ -152,7 +152,7 @@ namespace clms2.vendor_onboarding
                     }
                     else
                     {
-                        lblMSGError.Text = "Select PF PDF";
+                        lblMSGError.Text = "Select UAN PDF";
                         return;
                     }
 

@@ -178,7 +178,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -387,7 +387,7 @@
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Work Order</label>
-                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50">
+                                                    <asp:DropDownList ID="ddlWorkdOrder" class="form-control" runat="server" Visible="True" MaxLength="50" OnSelectedIndexChanged="ddlWorkdOrder_SelectedIndexChanged">
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -554,7 +554,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>--%>
-                                                        <%--   <asp:TemplateField HeaderText="PF" ItemStyle-Width="50px">
+                                                        <%--   <asp:TemplateField HeaderText="UAN" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="pf_deduction" runat="server" Text='<%# Eval("pf_deduction") %>'></asp:Label>
                                                             </ItemTemplate>

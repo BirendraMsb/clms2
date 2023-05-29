@@ -395,7 +395,7 @@
 
 <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="PF No." ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="UAN No." ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_pfno" runat="server" Text='<%#Eval("pfno") %>'></asp:Label>
                                                         </ItemTemplate>

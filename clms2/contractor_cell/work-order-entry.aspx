@@ -59,6 +59,7 @@
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div class="loading">
             <div class="loader"></div>
         </div>
@@ -360,44 +361,67 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
-                                                <label>UN-Skilled</label><label class="text-danger">*</label>
-                                                <asp:TextBox ID="txtUnskilled" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtUnskilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtUnskilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                        <ContentTemplate>
+                                                                <label>UN-Skilled</label><label class="text-danger">*</label>
+                                                                <asp:TextBox ID="txtUnskilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" OnTextChanged="txtUnskilled_TextChanged"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtUnskilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtUnskilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                              
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
-                                                <label>Semi-Skilled</label><label class="text-danger">*</label>
-                                                <asp:TextBox ID="txtSemiSkilled" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtSemiSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtSemiSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
-                                            </div>
+                                                   <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                                        <ContentTemplate>
+                                                                <label>Semi-Skilled</label><label class="text-danger">*</label>
+                                                                <asp:TextBox ID="txtSemiSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" OnTextChanged="txtSemiSkilled_TextChanged"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtSemiSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtSemiSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                           </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
-                                                <label>Skilled</label><label class="text-danger">*</label>
-                                                <asp:TextBox ID="txtSkilled" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                  <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                                    <ContentTemplate>
+                                                            <label>Skilled</label><label class="text-danger">*</label>
+                                                            <asp:TextBox ID="txtSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" OnTextChanged="txtSkilled_TextChanged"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                    </ContentTemplate>
+                                                  </asp:UpdatePanel>
+                                              
                                             </div>
                                         </div>
                                        <div class="col-md-2">
                                             <div class="form-group mb-3">
                                                 <label>High Skilled</label><label class="text-danger">*</label>
-                                                <asp:TextBox ID="txtHighSkilled" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtHighSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtHighSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                                                    <ContentTemplate>
+                                                                <asp:TextBox ID="txtHighSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" OnTextChanged="txtHighSkilled_TextChanged"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtHighSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtHighSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                           
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
-                                                <label>Total Employee</label><label class="text-danger">*</label>
-                                                <asp:TextBox ID="txtNoEmp" runat="server" Visible="true" class="form-control" MaxLength="4"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtNoEmp" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtNoEmp" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                                    <ContentTemplate>
+                                                            <label>Total Employee</label><label class="text-danger">*</label>
+                                                            <asp:TextBox ID="txtNoEmp" runat="server" Visible="true" ReadOnly="true" class="form-control" MaxLength="4"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtNoEmp" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtNoEmp" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
                                             </div>
                                         </div>
                                     </div>

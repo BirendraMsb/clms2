@@ -261,19 +261,23 @@ namespace clms2.contractor_cell
             Auto_ID();
             try
             {
+                ////Import  NOT --  here in this form status saving as blank  in vendor-> vendor_detail_entry status will be update to P - Pneding 
+                /////////////and in Contractor cell Pending record will  Approved status will A- and Rejected then status updated to R , Rejected record will
+                //////////// again come to vendor-> vendor_detail_entry and after updated status will be upated to P - Pending and it will go to contracot cell
+                //////////// word_order_details pending grid
 
                 var idd = txtID.Text;
 
                 string Str = "insert into tbl_vendor_work_order(id, " + "vendor_reg_code, " + "work_worder, " + "valid_from, " + "valid_to, " + "nature_of_work, " + "type_of_contract, " + "department, " + "job_location, " + "status,work_description,act_covered)";
 
-                Str = Str + " values(" + idd + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtWONo.Text + "', " + "'" + txtValidFrom.Text + "', " + "'" + txtValidTo.Text + "', " + "'" + txtNatureofWork.Text + "', " + "'" + txtTypeofContract.Text + "', " + "'" + txtDepartment.Text + "', " + "'" + txtJobLocation.Text + "', " + "'N','" + txtDescription.Text + "','" + ddlActCovered.SelectedItem.Text + "')";
+                Str = Str + " values(" + idd + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtWONo.Text + "', " + "'" + txtValidFrom.Text + "', " + "'" + txtValidTo.Text + "', " + "'" + txtNatureofWork.Text + "', " + "'" + txtTypeofContract.Text + "', " + "'" + txtDepartment.Text + "', " + "'" + txtJobLocation.Text + "', " + "' ','" + txtDescription.Text + "','" + ddlActCovered.SelectedItem.Text + "')";  // Status P- Pending ,A -Approved , R - Rejected
 
                 SqlCommand cm = new SqlCommand(Str, con);
                 cm.ExecuteNonQuery();
                 // ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
                 string Str1 = "insert into tbl_vendor_info(id,  " + "vendor_reg_code, " + "vendor_name, " + "vendor_owner_name, " + "email, " + "contact_no1,contact_no2, " + "firm_address,firm_city, " + "firm_state,firm_pin,license_no, " + "valid_from,valid_to, " + "workers_authorised, " + "pfno,esicno,pwd,img_file,status,work_worder,un_skilled,semi_skilled,skilled,high_skilled)";
 
-                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEmail.Text + "', " + "'" + txtPhNo.Text + "', " + "'', " + "'', " + "'', " + "'', " + "'', " + "' ', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'', " + "'', " + "'123@123', " + "'-', " + "'N','" + txtWONo.Text + "'," + txtUnskilled.Text + "," + txtSemiSkilled.Text + "," + txtSkilled.Text + "," + txtHighSkilled.Text + ")";
+                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEmail.Text + "', " + "'" + txtPhNo.Text + "', " + "'', " + "'', " + "'', " + "'', " + "'', " + "' ', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'', " + "'', " + "'123@123', " + "'-', " + "' ','" + txtWONo.Text + "'," + txtUnskilled.Text + "," + txtSemiSkilled.Text + "," + txtSkilled.Text + "," + txtHighSkilled.Text + ")";// Status P- Pending ,A -Approved , R - Rejected
 
                 SqlCommand cm1 = new SqlCommand(Str1, con);
                 cm1.ExecuteNonQuery();

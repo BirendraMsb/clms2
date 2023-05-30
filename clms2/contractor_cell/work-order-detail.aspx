@@ -95,7 +95,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-
+                                             <li>
+                                                <a class="dropdown-item" href="work-order-detail-Rej.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Rejected Work order
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="work-order-details-all.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>View work order
@@ -277,7 +281,7 @@
                                 <br />
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
-                                        <span>Work Order Status</span>
+                                        <span>Work Order Status ( Pending ) </span>
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
@@ -402,11 +406,11 @@
                 });
             });
         </script>
-        <script type="text/jscript">
+    <%--    <script type="text/jscript">
             $(window).on("load", function () {
                 $('#GvWod').DataTable({ responsive: true });
             });
-        </script>
+        </script>--%>
 
     </form>
 </body>

@@ -89,6 +89,7 @@
     <Content Include="contractor_cell\vendor-detail.aspx" />
     <Content Include="contractor_cell\vendor_bar_chart.aspx" />
     <Content Include="contractor_cell\vendor_chart.aspx" />
+    <Content Include="contractor_cell\work-order-detail-Rej.aspx" />
     <Content Include="contractor_cell\work-order-detail.aspx" />
     <Content Include="contractor_cell\work-order-details-all.aspx" />
     <Content Include="contractor_cell\work-order-entry.aspx" />
@@ -3147,6 +3148,13 @@
     </Compile>
     <Compile Include="contractor_cell\vendor_chart.aspx.designer.cs">
       <DependentUpon>vendor_chart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\work-order-detail-Rej.aspx.cs">
+      <DependentUpon>work-order-detail-Rej.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\work-order-detail-Rej.aspx.designer.cs">
+      <DependentUpon>work-order-detail-Rej.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\work-order-detail.aspx.cs">
       <DependentUpon>work-order-detail.aspx</DependentUpon>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="work-order-details-all.aspx.cs" Inherits="clms2.contractor_cell.work_order_details_all" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="work-order-detail-Rej.aspx.cs" Inherits="clms2.contractor_cell.work_order_detail_Rej" %>
 
 <!DOCTYPE html>
 
@@ -285,7 +285,7 @@
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: scroll;">
+                                        <div class="table-responsive" style="overflow: auto;">
                                             <%-- <p style="text-align: center">
                                                 <asp:Label ID="lblSearch" runat="server" Text="Work Order No"></asp:Label>
                                                 <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>

@@ -34,10 +34,11 @@ namespace clms2.contractor_cell
 
             // '''''''''''''''''''''''''''''''''''''''''''
             if (!Page.IsPostBack)
-            {
+            {  
+
                 BindGrid();
                 string vregno = Request.QueryString["id"];
-                strSQL = "SELECT * FROM tbl_vendor_info where status<>'A' and vendor_reg_code='" + vregno + "'";
+                strSQL = "SELECT * FROM tbl_vendor_info where status = 'P' and vendor_reg_code='" + vregno + "'";  //P for Pending A for Aproved AND R for Reject
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -58,7 +59,8 @@ namespace clms2.contractor_cell
 
                 // '''''''''''''''''''''''''''''''''''''''''''
                 string vregno = Request.QueryString["id"];
-                strSQL = "SELECT * FROM tbl_vendor_info where status<>'A' and vendor_reg_code='" + vregno + "'";
+                strSQL = "SELECT * FROM tbl_vendor_info where status ='P'  and vendor_reg_code='" + vregno + "'";  //P for Pending A for Aproved AND R for Reject
+               //// strSQL = "SELECT * FROM tbl_vendor_info where status<>'A' and vendor_reg_code='" + vregno + "'";
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -92,7 +94,7 @@ namespace clms2.contractor_cell
 
         protected void GvVendor_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            if (DataBinder.Eval(e.Row.DataItem, "status") == "N")
+            if (DataBinder.Eval(e.Row.DataItem, "status") == "P")
                 e.Row.BackColor = System.Drawing.Color.LightPink;
 
             if (e.Row.RowType == DataControlRowType.DataRow)
@@ -120,7 +122,7 @@ namespace clms2.contractor_cell
             SqlCommand cm = new SqlCommand(Str, con);
             cm.ExecuteNonQuery();
 
-            string Str1 = "Update tbl_vendor_work_order set status='" + approv.SelectedValue + "' where vendor_reg_code=" + id.Text + "";
+            string Str1 = "Update tbl_vendor_work_order set status='" + approv.SelectedValue + "'  where vendor_reg_code=" + id.Text + "";
             SqlCommand cm1 = new SqlCommand(Str1, con);
             cm1.ExecuteNonQuery();
 
@@ -142,12 +144,33 @@ namespace clms2.contractor_cell
 
         protected void ddlApproval_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList list = (DropDownList)sender;
-            string str = list.SelectedValue;
-            if (str == "R")
+            DropDownList ddl_hr_approv = (DropDownList)sender;
+            string str = ddl_hr_approv.SelectedItem.Text;
+            if (str == "Reject")
                 GvVendor.Columns[14].Visible = true;
             else
                 GvVendor.Columns[14].Visible = false;
+
+            //// CheckBox chkbox = sender as CheckBox;
+            GridViewRow currentRow = ddl_hr_approv.NamingContainer as GridViewRow;
+            RequiredFieldValidator rfv = GvVendor.Rows[currentRow.RowIndex]
+                                               .FindControl("ReqValHRRemarks") as RequiredFieldValidator;
+            if (ddl_hr_approv.SelectedItem.Text == "Reject")
+            {
+                rfv.Enabled = true;
+            }
+            else
+            {
+                rfv.Enabled = false;
+            }
+
+            ////DropDownList list = (DropDownList)sender;
+            ////string str = list.SelectedValue;
+            ////if (str == "R")
+            ////    GvVendor.Columns[14].Visible = true;
+            ////else
+            ////    GvVendor.Columns[14].Visible = false;
+
         }
 
     }

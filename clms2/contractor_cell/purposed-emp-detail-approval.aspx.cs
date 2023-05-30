@@ -75,37 +75,7 @@ namespace clms2.contractor_cell
             }
         }
 
-        ////private void GvEmp_RowEditing(object sender, System.Web.UI.WebControls.GridViewEditEventArgs e)
-        ////{
-        ////    GvEmp.EditIndex = e.NewEditIndex;
-        ////    BindGrid();
-        ////}
-
-        ////private void GvEmp_RowUpdating(object sender, System.Web.UI.WebControls.GridViewUpdateEventArgs e)
-        ////{
-        ////    Label id = GvEmp.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
-        ////    TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_HRRemarks") as TextBox;
-        ////    approv = GvEmp.Rows[e.RowIndex].FindControl("ddlHRApproval") as DropDownList;
-        ////    DropDownList Shift = GvEmp.Rows[e.RowIndex].FindControl("ddlShift") as DropDownList;
-        ////    DropDownList med_report = GvEmp.Rows[e.RowIndex].FindControl("ddlMedReport") as DropDownList;
-
-        ////    // 'If approv.SelectedItem.Text = "Reject" Then
-        ////    // '    GvEmp.Columns(1).Visible = False
-        ////    // 'End If
-
-        ////    dbConnection();
-
-        ////    // ' Dim Str As String = "Update tbl_emp set security_remarks='" & rmrks.Text & "', security_approval='" & approv.SelectedValue & "' where id=" & id.Text & ""
-        ////    string Str = "Update tbl_emp set hr_remarks='" + rmrks.Text + "',medical_report='" + med_report.SelectedValue + "', shift='" + Shift.SelectedValue + "', hr_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
-
-        ////    SqlCommand cm = new SqlCommand(Str, con);
-        ////    cm.ExecuteNonQuery();
-
-        ////    con.Close();
-        ////    GvEmp.EditIndex = -1;
-
-        ////    BindGrid();
-        ////}
+     
 
         private void ToggleCheckState(bool checkState)
         {
@@ -158,16 +128,7 @@ namespace clms2.contractor_cell
                
         }
 
-        //protected void GvEmp_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.DataRow)
-        //    {
-        //        DataRowView dr = (DataRowView)e.Row.DataItem;
-        //        string imageUrl = "data:image/png;base64," + Convert.ToBase64String((byte[])dr["ImageData"]);
-        //        (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
-              
-        //    }
-        //}
+   
 
         //protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         //{
@@ -206,21 +167,21 @@ namespace clms2.contractor_cell
             DropDownList Shift = GvEmp.Rows[e.RowIndex].FindControl("ddlShift") as DropDownList;
             DropDownList med_report = GvEmp.Rows[e.RowIndex].FindControl("ddlMedReport") as DropDownList;
 
-             //'If approv.SelectedItem.Text = "Reject" Then
-             //'    GvEmp.Columns(1).Visible = False
-             //'End If
+             ////'If approv.SelectedItem.Text = "Reject" Then
+             ////'    GvEmp.Columns(1).Visible = False
+             ////'End If
 
             if (approv.SelectedItem.Text=="Approved")
             {
                 rmrks.Text = "";
             }
-            //else if (approv.SelectedItem.Text == "Reject")
-            //{
-            //    if (rmrks.Text=="")
-            //    {
-            //        rmrks.Focus();
-            //    }
-            //}
+            ////else if (approv.SelectedItem.Text == "Reject")
+            ////{
+            ////    if (rmrks.Text=="")
+            ////    {
+            ////        rmrks.Focus();
+            ////    }
+            ////}
 
             dbConnection();
 
@@ -252,20 +213,6 @@ namespace clms2.contractor_cell
             BindGrid();
         }
 
-        //protected void GvEmp_RowCommand(object sender, GridViewCommandEventArgs e)
-        //{
-        //    //if (e.Row.RowType == DataControlRowType.DataRow)
-        //    //{
-
-        //    //    DropDownList ddlHrApprov = (DropDownList)e.Row.FindControl("ddlHRApproval");
-
-        //    //    RequiredFieldValidator rfv = (RequiredFieldValidator)e.Row.FindControl("ReqValHRRemarks");
-
-        //    //    if (ddlHrApprov.SelectedItem.Text == "Reject")
-        //    //    {
-        //    //        rfv.Enabled = true;
-        //    //    }
-        //    //}
-        //}
+     
     }
 }

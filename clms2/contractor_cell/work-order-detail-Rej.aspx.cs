@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace clms2.contractor_cell
 {
-    public partial class work_order_details_all : System.Web.UI.Page
+    public partial class work_order_detail_Rej : System.Web.UI.Page
     {
         public string strSQL;
         private static string Conn = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
@@ -20,13 +20,19 @@ namespace clms2.contractor_cell
             if (con.State == ConnectionState.Closed)
                 con.Open();
         }
-
-      
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string usrnm = Session["User"].ToString();
+            lblUser.Text = usrnm;
+            // lblUser1.Text = usrnm
+            lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
+            gvInfo();
+        }
 
         public void gvInfo()
         {
             dbConnection();
-            strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code, b.pano,b.gstno,b.pfno,b.esicno,b.pfdoc,b.esicdoc FROM tbl_vendor_work_order a,tbl_vendor_info b  where a.vendor_reg_code=b.vendor_reg_code and b.status='A'";
+            strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code, b.pano,b.gstno,b.pfno,b.esicno,b.pfdoc,b.esicdoc FROM tbl_vendor_work_order a,tbl_vendor_info b  where a.vendor_reg_code=b.vendor_reg_code and b.status='R'";
             ////strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code ";  // 'and b.status='A'
             //////if (txtSearch.Text == "")
             //////    strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code ";  // 'and b.status='A'
@@ -40,27 +46,6 @@ namespace clms2.contractor_cell
             GvWod.DataSource = dt;
             GvWod.DataBind();
             GvWod.HeaderRow.TableSection = TableRowSection.TableHeader;
-        }
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            string usrnm = Session["User"].ToString();
-            lblUser.Text = usrnm;
-            // lblUser1.Text = usrnm
-            lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
-            gvInfo();
-
-        }
-    
-
-        protected void btnSearch_Click(object sender, EventArgs e)
-        {
-            gvInfo();
-        }
-
-        protected void GvWod_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            GvWod.PageIndex = e.NewPageIndex;
-            GvWod.DataBind();
         }
 
         protected void GvWod_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -82,9 +67,12 @@ namespace clms2.contractor_cell
                     e.Row.BackColor = System.Drawing.Color.LightBlue;
                 }
             }
-
         }
 
-
+        protected void GvWod_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GvWod.PageIndex = e.NewPageIndex;
+            GvWod.DataBind();
+        }
     }
 }

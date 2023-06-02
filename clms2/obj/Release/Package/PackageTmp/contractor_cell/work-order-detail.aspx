@@ -95,7 +95,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-
+                                             <li>
+                                                <a class="dropdown-item" href="work-order-detail-Rej.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Rejected Work order
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="work-order-details-all.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>View work order
@@ -140,6 +144,11 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages Document 
@@ -277,11 +286,11 @@
                                 <br />
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
-                                        <span>Work Order Status</span>
+                                        <span>Work Order Status ( Pending ) </span>
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: auto;">
+                                        <div class="table-responsive" style="overflow: scroll;">
                                             <%--   <p style="text-align: center">
                                                 <asp:Label ID="lblSearch" Visible="false" runat="server" Text="Work Order No"></asp:Label>
                                                 <asp:TextBox ID="txtSearch" Visible="false" runat="server" OnTextChanged="btnSearch_Click"></asp:TextBox>
@@ -325,7 +334,7 @@
 
                                                     <asp:BoundField DataField="pano" HeaderText="PAN No." SortExpression="pano"></asp:BoundField>
                                                     <asp:BoundField DataField="gstno" HeaderText="GST No." SortExpression="gstno"></asp:BoundField>
-                                                    <asp:BoundField DataField="pfno" HeaderText="PF No." SortExpression="pfno"></asp:BoundField>
+                                                    <asp:BoundField DataField="pfno" HeaderText="UAN No." SortExpression="pfno"></asp:BoundField>
                                                     <asp:BoundField DataField="esicno" HeaderText="ESIC No." SortExpression="esicno"></asp:BoundField>
 
                                                     <asp:BoundField DataField="job_location" HeaderText="Job Location" SortExpression="job_location"></asp:BoundField>
@@ -402,11 +411,11 @@
                 });
             });
         </script>
-        <script type="text/jscript">
+    <%--    <script type="text/jscript">
             $(window).on("load", function () {
                 $('#GvWod').DataTable({ responsive: true });
             });
-        </script>
+        </script>--%>
 
     </form>
 </body>

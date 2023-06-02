@@ -183,7 +183,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -203,7 +203,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="wage-slip.aspx">
+                                                <a class="dropdown-item" href="wage-slip-new.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -215,7 +215,11 @@
                                         </a>
                                         <ul class="dropdown-menu ">
 
-
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
@@ -379,7 +383,7 @@
                                         <div class="page-title-box">
                                             <div class="float-start">
                                                 <%-- <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#"><font color="red">Download PF Declaration form here...</font></a></li>
+                                        <li class="breadcrumb-item"><a href="#"><font color="red">Download UAN Declaration form here...</font></a></li>
                                         <li class="breadcrumb-item active"><a href="#"><font color="red">Download ESIC declaration form here...</font></a></li>
                                     </ol>--%>
                                             </div>
@@ -399,9 +403,9 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
-                                                    <asp:LinkButton ID="pfLinkButton1" runat="server" CssClass="btn btn-primary" CausesValidation="False" OnClick="pfLinkButton1_Click">download PF Declaration</asp:LinkButton>
+                                                    <asp:LinkButton ID="pfLinkButton1" runat="server" CssClass="btn btn-primary" CausesValidation="False" OnClick="pfLinkButton1_Click">download UAN Declaration</asp:LinkButton>
                                                     <asp:LinkButton ID="esicLinkButton2" runat="server" CssClass="btn btn-primary" CausesValidation="False" OnClick="esicLinkButton2_Click">download ESIC Declaration</asp:LinkButton><br />
-                                                    <label class="text-danger">NB:  PF/ESI download are mandotory for company not having PF registration/ESIC registration</label>
+                                                    <label class="text-danger">NB:  UAN/ESI download are mandotory for company not having UAN registration/ESIC registration</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -759,8 +763,8 @@
                                                 <div class="form-group mb-3">
                                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                         <ContentTemplate>
-                                                            <%--<label for="PFNO">PF No.</label><label class="text-danger">*</label>--%>
-                                                            <label for="PFRadioButtonList1">PF No.</label><label class="text-danger">*</label>
+                                                            <%--<label for="PFNO">UAN No.</label><label class="text-danger">*</label>--%>
+                                                            <label for="PFRadioButtonList1">UAN No.</label><label class="text-danger">*</label>
                                                             <asp:RadioButtonList ID="PFRadioButtonList1" runat="server" RepeatDirection="Horizontal" AutoPostBack="True" OnSelectedIndexChanged="PFRadioButtonList1_SelectedIndexChanged">
                                                                 <asp:ListItem Value="Y">Y</asp:ListItem>
                                                                 <asp:ListItem Value="N">N</asp:ListItem>
@@ -772,7 +776,7 @@
                                                             <asp:Label ID="lblPFfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
 
 
-                                                            <%--   <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download PF declaration form here.....</asp:HyperLink>--%>
+                                                            <%--   <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" Style="color: red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download UAN declaration form here.....</asp:HyperLink>--%>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
                                                 </div>

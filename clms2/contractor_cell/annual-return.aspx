@@ -147,6 +147,11 @@
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
+                                            <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages Document 
                                                 </a>

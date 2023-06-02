@@ -92,7 +92,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-
+                                             <li>
+                                                <a class="dropdown-item" href="work-order-detail-Rej.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Rejected Work order
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="work-order-details-all.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>View work order
@@ -137,6 +141,11 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages Document 
@@ -373,7 +382,7 @@
                                                         </ItemTemplate>
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="PF NO" SortExpression="pfno">
+                                                    <asp:TemplateField HeaderText="UAN NO" SortExpression="pfno">
                                                         <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("pfno") %>'></asp:TextBox>
                                                         </EditItemTemplate>--%>
@@ -392,7 +401,7 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="PF Document">
+                                                    <asp:TemplateField HeaderText="UAN Document">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pfdoc")%>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pfdoc", "../pf_doc/{0}")%>'></asp:HyperLink>
                                                         </ItemTemplate>
@@ -410,15 +419,17 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="Approval By HR">
+                                                    <asp:TemplateField HeaderText="Status">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Approval" runat="server" Text='<%# Eval("status") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:DropDownList ID="ddlApproval" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlApproval_SelectedIndexChanged">
+                                                                <asp:ListItem Value="Select">Select</asp:ListItem>
                                                                 <asp:ListItem Value="A">Approved</asp:ListItem>
                                                                 <asp:ListItem Value="R">Reject</asp:ListItem>
                                                             </asp:DropDownList>
+                                                           <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="ddlApproval" ErrorMessage="* Pls Select any one" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="HR Remarks" Visible="false">
@@ -427,11 +438,12 @@
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txt_HRRemarks" runat="server" Text='<%#Eval("hr_remarks")%>'></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqValHRRemarks" runat="server" Enabled="false" ControlToValidate="txt_HRRemarks" ErrorMessage="Remarks" ForeColor="Red"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Action">
                                                         <ItemTemplate>
-                                                            <asp:Button ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" class="btn btn-primary" />
+                                                            <asp:Button ID="btn_Edit" runat="server" Text="Approval" CommandName="Edit" class="btn btn-primary" />
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:Label ID="lbl_ID" runat="server" Text='<%#Eval("vendor_reg_code") %>' Visible="false"></asp:Label>
@@ -455,6 +467,12 @@
                                             </asp:GridView>
 
                                             <%--========================================================================================--%>
+                                        </div>
+                                        <div>
+                                            <p>Status Details :</p>
+                                            <p> P - Pending</p>
+                                            <p> A - Approved</p>
+                                            <p> R - Rejected</p>
                                         </div>
                                     </div>
                                 </div>

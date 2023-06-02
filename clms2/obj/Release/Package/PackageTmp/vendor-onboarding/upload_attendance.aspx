@@ -218,7 +218,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -238,7 +238,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="wage-slip.aspx">
+                                                <a class="dropdown-item" href="wage-slip-new.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -250,7 +250,11 @@
                                         </a>
                                         <ul class="dropdown-menu ">
 
-
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
@@ -408,7 +412,7 @@
                 <td>
                     <div>
                         <asp:FileUpload ID="FileUpload1" CssClass="button" runat="server" />
-                        <asp:Button ID="btnImport" CssClass="button" runat="server" Text="Import" OnClick="ImportCSV" />
+                        <asp:Button ID="btnImport" CssClass="button" runat="server" Text="Upload" OnClick="ImportCSV" />
                         <hr />
                         <%-- <asp:GridView ID="GridView1" runat="server">
                         </asp:GridView>--%>

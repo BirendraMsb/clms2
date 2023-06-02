@@ -10,34 +10,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="admin/admin_dashboard.aspx">
-      <publishTime>03/25/2023 09:59:27</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="admin/department.aspx">
-      <publishTime>03/31/2023 17:13:55</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="admin/generate-shift.aspx">
-      <publishTime>03/27/2023 11:21:05</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="admin/holiday-master.aspx">
-      <publishTime>03/31/2023 17:18:23</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="admin/leave-master.aspx">
-      <publishTime>03/25/2023 10:04:09</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="admin/man-correction-test.aspx">
       <publishTime>03/24/2023 13:09:21</publishTime>
     </File>
     <File Include="admin/manual-correction.aspx">
-      <publishTime>03/30/2023 12:01:37</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="admin/manual-punching.aspx">
-      <publishTime>03/26/2023 18:48:56</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="admin/shift-master.aspx">
-      <publishTime>03/25/2023 10:04:09</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="admin/show-gen-shift.aspx">
-      <publishTime>03/30/2023 11:20:32</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="admin/test.aspx">
       <publishTime>03/21/2023 16:06:37</publishTime>
@@ -49,7 +49,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/25/2023 10:04:09</publishTime>
     </File>
     <File Include="admin/user.aspx">
-      <publishTime>03/29/2023 11:31:40</publishTime>
+      <publishTime>05/27/2023 14:44:35</publishTime>
     </File>
     <File Include="attd_down_doc/Atted_Format.csv">
       <publishTime>05/20/2023 12:05:57</publishTime>
@@ -76,64 +76,70 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/18/2023 17:13:38</publishTime>
     </File>
     <File Include="bin/clms2.dll">
-      <publishTime>05/27/2023 01:54:29</publishTime>
+      <publishTime>06/02/2023 15:31:21</publishTime>
     </File>
     <File Include="contractor_cell/annual-return.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:24</publishTime>
     </File>
     <File Include="contractor_cell/attendance-approval.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/cc_dashboard.aspx">
-      <publishTime>05/27/2023 01:49:01</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/dashboard.aspx">
-      <publishTime>05/26/2023 01:06:52</publishTime>
+      <publishTime>05/31/2023 22:55:29</publishTime>
     </File>
     <File Include="contractor_cell/emp_bar_chart.aspx">
-      <publishTime>05/25/2023 00:44:16</publishTime>
+      <publishTime>05/31/2023 23:47:24</publishTime>
     </File>
     <File Include="contractor_cell/emp_chart_report.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:24</publishTime>
     </File>
     <File Include="contractor_cell/fnf_request_approval.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/fnf_request_approved.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/mail_sending_form.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:24</publishTime>
     </File>
     <File Include="contractor_cell/purposed-emp-detail-approval.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/purposed-emp-detail-block.aspx">
-      <publishTime>05/25/2023 17:35:35</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/purposed-wages-doc-approval.aspx">
-      <publishTime>05/26/2023 14:57:09</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/register-of-contractor.aspx">
-      <publishTime>05/25/2023 00:44:16</publishTime>
+      <publishTime>05/31/2023 23:47:24</publishTime>
+    </File>
+    <File Include="contractor_cell/tot_workorder_comp.aspx">
+      <publishTime>05/31/2023 23:53:38</publishTime>
     </File>
     <File Include="contractor_cell/vendor-detail.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/vendor_bar_chart.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:24</publishTime>
     </File>
     <File Include="contractor_cell/vendor_chart.aspx">
-      <publishTime>05/25/2023 00:44:15</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
+    </File>
+    <File Include="contractor_cell/work-order-detail-Rej.aspx">
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/work-order-detail.aspx">
-      <publishTime>05/25/2023 00:44:16</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/work-order-details-all.aspx">
-      <publishTime>05/25/2023 00:46:13</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="contractor_cell/work-order-entry.aspx">
-      <publishTime>05/25/2023 00:46:13</publishTime>
+      <publishTime>05/31/2023 23:47:25</publishTime>
     </File>
     <File Include="default.aspx">
       <publishTime>03/14/2023 09:45:32</publishTime>
@@ -202,7 +208,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/14/2023 14:55:15</publishTime>
     </File>
     <File Include="esic_doc/ESIC Registration.pdf">
-      <publishTime>05/01/2023 15:36:39</publishTime>
+      <publishTime>05/30/2023 10:55:12</publishTime>
     </File>
     <File Include="esic_doc/SampleJPGImage_50kbmb.jpg">
       <publishTime>02/01/2023 11:17:52</publishTime>
@@ -214,10 +220,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>02/01/2023 16:58:38</publishTime>
     </File>
     <File Include="gatepass_section/DataSet1.xsc">
-      <publishTime>04/22/2023 13:09:19</publishTime>
+      <publishTime>06/01/2023 13:37:15</publishTime>
     </File>
     <File Include="gatepass_section/DataSet1.xss">
-      <publishTime>04/22/2023 13:09:19</publishTime>
+      <publishTime>06/01/2023 13:37:15</publishTime>
     </File>
     <File Include="gatepass_section/employment_card.aspx">
       <publishTime>05/25/2023 23:05:43</publishTime>
@@ -226,16 +232,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/25/2023 23:05:43</publishTime>
     </File>
     <File Include="gatepass_section/gp-print.aspx">
-      <publishTime>05/25/2023 23:05:43</publishTime>
+      <publishTime>06/01/2023 17:23:34</publishTime>
     </File>
     <File Include="gatepass_section/gp-print1.aspx">
-      <publishTime>05/25/2023 23:05:43</publishTime>
+      <publishTime>05/29/2023 16:27:45</publishTime>
     </File>
     <File Include="gatepass_section/purposed-emp-detail.aspx">
-      <publishTime>05/25/2023 23:05:43</publishTime>
+      <publishTime>05/30/2023 11:34:34</publishTime>
     </File>
     <File Include="gatepass_section/vendor-list.aspx">
-      <publishTime>05/25/2023 23:05:43</publishTime>
+      <publishTime>05/29/2023 16:27:45</publishTime>
     </File>
     <File Include="images/Add_New.png">
       <publishTime>12/12/2022 12:13:00</publishTime>
@@ -568,7 +574,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/26/2023 17:30:24</publishTime>
     </File>
     <File Include="pf_doc/EPF Registration.pdf">
-      <publishTime>05/01/2023 15:36:39</publishTime>
+      <publishTime>05/30/2023 10:55:12</publishTime>
     </File>
     <File Include="pf_doc/SampleJPGImage_50kbmb.jpg">
       <publishTime>02/21/2023 22:53:42</publishTime>
@@ -604,7 +610,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>03/04/2023 18:30:15</publishTime>
     </File>
     <File Include="po_doc/Purchase order.pdf">
-      <publishTime>05/26/2023 17:11:30</publishTime>
+      <publishTime>05/31/2023 20:35:07</publishTime>
     </File>
     <File Include="po_doc/SampleJPGImage_50kbmb.jpg">
       <publishTime>02/21/2023 22:53:42</publishTime>
@@ -8398,16 +8404,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/30/2022 00:25:52</publishTime>
     </File>
     <File Include="safety_dept/purposed-emp-detail-approval.aspx">
-      <publishTime>05/01/2023 16:37:13</publishTime>
+      <publishTime>05/30/2023 11:34:34</publishTime>
     </File>
     <File Include="safety_dept/purposed-emp-detail.aspx">
-      <publishTime>03/12/2023 13:52:56</publishTime>
+      <publishTime>05/29/2023 16:27:45</publishTime>
     </File>
     <File Include="safety_dept/safety-dashboard.aspx">
       <publishTime>05/26/2023 00:38:31</publishTime>
     </File>
     <File Include="safety_dept/vendor-list.aspx">
-      <publishTime>03/13/2023 12:12:25</publishTime>
+      <publishTime>05/29/2023 16:27:45</publishTime>
     </File>
     <File Include="style.css">
       <publishTime>02/22/2023 22:53:47</publishTime>
@@ -8416,121 +8422,127 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/25/2023 12:41:46</publishTime>
     </File>
     <File Include="user_dept/attendance-approval.aspx">
-      <publishTime>05/26/2023 10:25:49</publishTime>
+      <publishTime>05/30/2023 11:34:34</publishTime>
     </File>
     <File Include="user_dept/dept-home.aspx">
       <publishTime>04/07/2023 12:03:58</publishTime>
     </File>
     <File Include="user_dept/purposed-emp-detail-approval.aspx">
-      <publishTime>05/25/2023 18:16:18</publishTime>
+      <publishTime>05/30/2023 11:34:34</publishTime>
     </File>
     <File Include="user_dept/purposed-emp-detail.aspx">
-      <publishTime>04/07/2023 12:03:59</publishTime>
+      <publishTime>05/29/2023 16:27:45</publishTime>
     </File>
     <File Include="user_dept/vendor-list.aspx">
-      <publishTime>04/07/2023 12:03:59</publishTime>
+      <publishTime>05/29/2023 16:27:45</publishTime>
     </File>
     <File Include="vendor-onboarding/AllowancesMaster.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/annual_bonus.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/attendance-view.aspx">
-      <publishTime>05/25/2023 18:39:59</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/dashboard.aspx">
-      <publishTime>05/25/2023 18:24:35</publishTime>
+      <publishTime>06/01/2023 17:33:05</publishTime>
     </File>
     <File Include="vendor-onboarding/department.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/emp_chart_report.aspx">
-      <publishTime>05/25/2023 18:39:59</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/emp_detail.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/emp_onboarding.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/fnf_request.aspx">
-      <publishTime>05/25/2023 18:39:59</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/fnf_settlement.aspx">
-      <publishTime>05/25/2023 18:39:59</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/form-V.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/form16.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/form17.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/generate-shift.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/gratuity.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/holiday-master.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:23</publishTime>
     </File>
     <File Include="vendor-onboarding/leave-master.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/leave_status.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/license_certificate.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/manual-correction.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/manual-punching.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/payroll_process.aspx">
-      <publishTime>05/25/2023 18:39:59</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/register-of-fines.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/register-of-OT.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/register-of-workmen.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/shift-master.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/show-gen-shift.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
+    </File>
+    <File Include="vendor-onboarding/tot_workorder_comp.aspx">
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/upload_attendance.aspx">
-      <publishTime>05/25/2023 18:39:59</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/user.aspx">
-      <publishTime>05/25/2023 18:39:59</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/vendor_detailNew.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/vendor_detail_entry.aspx">
-      <publishTime>05/25/2023 18:39:59</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
+    </File>
+    <File Include="vendor-onboarding/wage-slip-new.aspx">
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/wage-slip.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/wages_document.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:24</publishTime>
     </File>
     <File Include="vendor-onboarding/work-order-detail.aspx">
-      <publishTime>05/25/2023 18:39:58</publishTime>
+      <publishTime>06/02/2023 13:53:21</publishTime>
     </File>
     <File Include="vendors_pic/images.jpg">
       <publishTime>04/13/2023 00:20:37</publishTime>
@@ -8539,16 +8551,16 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/13/2023 13:29:54</publishTime>
     </File>
     <File Include="vendors_pic/images3.jpg">
-      <publishTime>05/26/2023 17:11:30</publishTime>
+      <publishTime>05/31/2023 20:35:07</publishTime>
     </File>
     <File Include="vendors_pic/images4.jpg">
-      <publishTime>04/13/2023 22:42:00</publishTime>
+      <publishTime>05/30/2023 00:16:47</publishTime>
     </File>
     <File Include="vendors_pic/images5.jpg">
       <publishTime>04/13/2023 14:13:11</publishTime>
     </File>
     <File Include="vendors_pic/images6.jpg">
-      <publishTime>04/28/2023 12:56:33</publishTime>
+      <publishTime>05/30/2023 10:55:12</publishTime>
     </File>
     <File Include="vendors_pic/index.jpg">
       <publishTime>04/10/2023 16:45:37</publishTime>
@@ -8578,7 +8590,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/11/2023 11:53:19</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/27/2023 00:10:17</publishTime>
+      <publishTime>06/02/2023 15:31:22</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -238,7 +238,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="wage-slip.aspx">
+                                                <a class="dropdown-item" href="wage-slip-new.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -250,7 +250,11 @@
                                         </a>
                                         <ul class="dropdown-menu ">
 
-
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
@@ -844,12 +848,11 @@
 
             <tr>
                 <td valign="top" align="left" class="style1">
-                    <asp:Button ID="btnAddToDb" runat="server" class="btn btn-info" Height="25px" Text="Save"
+                    <asp:Button ID="btnAddToDb" runat="server" Height="35px" class="btn btn-info" Text="Save"
                         Width="138px" OnClick="btnAddToDb_Click" Enabled="False" />&nbsp&nbsp
-                    <asp:Button ID="btnDownload" runat="server" Height="25px" class="btn btn-info" Text="Download File"
+                    <asp:Button ID="btnDownload" runat="server" Height="35px" class="btn btn-info" Text="Download File"
                         Width="138px" OnClick="btnDownload_Click" />
-                   <%-- <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                    <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>--%>
+                 
                 </td>
             </tr>
             <tr>

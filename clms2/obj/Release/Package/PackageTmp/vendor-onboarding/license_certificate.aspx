@@ -188,7 +188,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -208,7 +208,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="wage-slip.aspx">
+                                               <a class="dropdown-item" href="wage-slip-new.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -220,7 +220,11 @@
                                         </a>
                                         <ul class="dropdown-menu ">
 
-
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
@@ -384,7 +388,7 @@
             </div>
             <div style="float: right">Half-year ending </div>
             <div class="row">
-                <p><b>1. </b></p>
+               <%-- <p><b>1. </b></p>--%>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
@@ -406,7 +410,7 @@
                     </div>
                 </div>
 
-                <p><b>2. </b></p>
+               <%-- <p><b>2. </b></p>--%>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
@@ -431,7 +435,7 @@
                     </div>
                 </div>
 
-                <p><b>3. </b></p>
+                <%--<p><b>3. </b></p>--%>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
@@ -453,7 +457,7 @@
                     </div>
                 </div>
 
-                <p><b>4. Duration of contract :</b></p>
+                <p><b> Duration of contract :</b></p>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
@@ -476,7 +480,7 @@
                     </div>
                 </div>
 
-                <p><b>5. Number of days during the half-year on which</b></p>
+                <p><b> Number of days during the half-year on which</b></p>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
@@ -498,7 +502,7 @@
                     </div>
                 </div>
 
-                <p><b>6. Maximum number of contract labour employed on any day during the half year</b></p>
+                <p><b> Maximum number of contract labour employed on any day during the half year</b></p>
                 <div class="col-md-3">
                     <div class="form-group mb-3">
                         <label>
@@ -537,7 +541,7 @@
                 </div>
 
 
-                <p><b>7.</b></p>
+               <%-- <p><b>7.</b></p>--%>
                 <div class="col-md-4">
                     <div class="form-group mb-3">
                         <label>
@@ -581,7 +585,7 @@
                 </div>
 
 
-                <p><b>8. Number of man days worked by:</b></p>
+                <p><b>Number of man days worked by:</b></p>
                 <div class="col-md-3">
                     <div class="form-group mb-3">
                         <label>
@@ -620,7 +624,7 @@
                 </div>
 
 
-                <p><b>9. Amount of wages paid:</b></p>
+                <p><b>Amount of wages paid:</b></p>
                 <div class="col-md-3">
                     <div class="form-group mb-3">
                         <label>
@@ -659,7 +663,7 @@
                 </div>
 
 
-                <p><b>10. Amount of deduction from wages, if any</b></p>
+                <p><b>Amount of deduction from wages, if any</b></p>
                 <div class="col-md-3">
                     <div class="form-group mb-3">
                         <label>
@@ -697,7 +701,7 @@
                     </div>
                 </div>
 
-                <p><b>11. Whether the following have been provided </b></p>
+                <p><b>Whether the following have been provided </b></p>
                 <div class="col-md-2">
                     <div class="form-group mb-3">
                         <label>

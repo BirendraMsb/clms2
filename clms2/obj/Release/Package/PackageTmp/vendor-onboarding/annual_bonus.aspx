@@ -178,7 +178,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -198,7 +198,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="wage-slip.aspx">
+                                                <a class="dropdown-item" href="wage-slip-new.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -209,7 +209,11 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-
+                                             <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
 
                                             <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
@@ -485,7 +489,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="30px" HorizontalAlign="Center" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Sl.No in Resister of Workman" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Sl.No in Register of Workman" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -551,7 +555,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>--%>
-                                                     <%--   <asp:TemplateField HeaderText="PF" ItemStyle-Width="50px">
+                                                     <%--   <asp:TemplateField HeaderText="UAN" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="pf_deduction" runat="server" Text='<%# Eval("pf_deduction") %>'></asp:Label>
                                                             </ItemTemplate>

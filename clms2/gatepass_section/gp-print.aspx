@@ -170,6 +170,8 @@
                         <asp:DropDownList ID="txtSearch" runat="server" AutoPostBack="True" OnSelectedIndexChanged="txtSearch_SelectedIndexChanged"></asp:DropDownList>
                     </p>
                 </td>
+          
+
             </tr>
             <tr>
 

@@ -92,7 +92,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-
+                                             <li>
+                                                <a class="dropdown-item" href="work-order-detail-Rej.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Rejected Work order
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="work-order-details-all.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>View work order
@@ -137,6 +141,11 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages Document 
@@ -435,7 +444,7 @@
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Action" ItemStyle-Width="100px">
                                                             <ItemTemplate>
-                                                                <asp:Button ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" />
+                                                                <asp:Button ID="btn_Edit" runat="server" Text="Approval" CommandName="Edit" />
                                                             </ItemTemplate>
                                                             <EditItemTemplate>
                                                                 <asp:Label ID="id" runat="server" Text='<%#Eval("id") %>' Visible="false"></asp:Label>

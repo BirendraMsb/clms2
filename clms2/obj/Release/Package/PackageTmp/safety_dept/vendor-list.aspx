@@ -187,7 +187,7 @@
                                                     <asp:BoundField DataField="valid_to" HeaderText="Valid To" SortExpression="valid_to" DataFormatString="{0:d}" ItemStyle-Wrap="false"></asp:BoundField>
                                                     <asp:BoundField DataField="workers_authorised" HeaderText="Authorised Manpower" SortExpression="workers_authorised" ItemStyle-Wrap="false"></asp:BoundField>
 
-                                                    <asp:BoundField DataField="pfno" HeaderText="PF NO" SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
+                                                    <asp:BoundField DataField="pfno" HeaderText="UAN NO" SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
                                                     <asp:BoundField DataField="esicno" HeaderText="ESIC NO" SortExpression="esicno" ItemStyle-Wrap="false"></asp:BoundField>
 
                                                 </Columns>

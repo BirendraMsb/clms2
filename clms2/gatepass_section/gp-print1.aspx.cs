@@ -79,11 +79,29 @@ namespace clms2.gatepass_section
                     SqlDataAdapter s = new SqlDataAdapter(c);
                     DataTable dt = new DataTable();
                     s.Fill(dt);
+
+
                     ReportViewer1.LocalReport.DataSources.Clear();
                     ReportDataSource rds = new ReportDataSource("DataSet1", dt);
-                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("gp-print1-report.rdlc");
+                    ReportViewer1.LocalReport.ReportPath = Server.MapPath("~/gatepass_section/gp-print1-report.rdlc");
+
+                    ReportViewer1.LocalReport.EnableExternalImages = true;
+                    string img_name = dt.Rows[0]["img_file"].ToString();
+                    string imagePath = new Uri(Server.MapPath("~/emp_pic/" + img_name)).AbsoluteUri;
+                    ReportParameter parameter = new ReportParameter("ImagePath", imagePath);
+                    ReportViewer1.LocalReport.SetParameters(parameter);
+
                     ReportViewer1.LocalReport.DataSources.Add(rds);
                     ReportViewer1.LocalReport.Refresh();
+
+                    //foreach (DataRow r in dt.Rows)
+                    //{
+
+
+                      
+                        
+                    //}
+                  
 
                 
 
@@ -128,7 +146,7 @@ namespace clms2.gatepass_section
                     //    //lblESICNo.Text = r1["escic"].ToString();
                     //    //lblPFNO.Text = r1["pfno"].ToString();
                     //    //string img_name = r1["img_file"].ToString();
-                    //    //Image1.ImageUrl = "../emp_pic/" + img_name;
+                    //    //Image3.ImageUrl = "../emp_pic/" + img_name;
                     //    //lblLIC.Text = "";
                     //}
                     //r1.Close();

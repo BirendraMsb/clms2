@@ -183,7 +183,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -203,7 +203,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="wage-slip.aspx">
+                                                <a class="dropdown-item" href="wage-slip-new.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -215,7 +215,11 @@
                                         </a>
                                         <ul class="dropdown-menu ">
 
-
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
@@ -420,8 +424,8 @@
                                                         <asp:BoundField DataField="blood_grp" HeaderText="Blood Grp" SortExpression="blood_grp" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="nationality" HeaderText="Nationality" SortExpression="nationality" DataFormatString="{0:d}" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="aadhar_no" HeaderText="Aadhar No." SortExpression="aadhar_no" DataFormatString="{0:d}" ItemStyle-Wrap="false"></asp:BoundField>
-                                                        <asp:BoundField DataField="pfno" HeaderText="PF No." SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
-                                                        <asp:BoundField DataField="pf_declaration" HeaderText="PF Declaration" SortExpression="pf_declaration" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="pfno" HeaderText="UAN No." SortExpression="pfno" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="pf_declaration" HeaderText="UAN Declaration" SortExpression="pf_declaration" ItemStyle-Wrap="false"></asp:BoundField>
 
                                                         <asp:BoundField DataField="escic" HeaderText="ESIC NO" SortExpression="escic" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="esic_declaration" HeaderText="ESIC Declaration" SortExpression="esic_declaration" ItemStyle-Wrap="false"></asp:BoundField>

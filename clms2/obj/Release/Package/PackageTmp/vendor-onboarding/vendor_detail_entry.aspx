@@ -146,7 +146,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
-                                           <%-- <li>
+                                            <%-- <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
@@ -182,7 +182,7 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowences
+                                                    <i class="fa fa-angle-right me-1"></i>Allowances
                                                 </a>
                                             </li>
 
@@ -202,7 +202,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="wage-slip.aspx">
+                                                <a class="dropdown-item" href="wage-slip-new.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -214,7 +214,11 @@
                                         </a>
                                         <ul class="dropdown-menu ">
 
-
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="wages_document.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages document
@@ -226,7 +230,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
@@ -252,16 +256,16 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXI
                                                 </a>
                                             </li>
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="register-of-OT.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XXIII
                                                 </a>
                                             </li>
-                                          
+
                                             <li>
                                                 <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIV
                                                 </a>
                                             </li>
                                         </ul>
@@ -397,13 +401,13 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
-                                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandPF_Click" CausesValidation="False">download PF Declaration</asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkButton1" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandPF_Click" CausesValidation="False">download UAN Declaration</asp:LinkButton>
                                                     <asp:LinkButton ID="LinkButton2" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandEsic_Click" CausesValidation="False">download ESIC Declaration</asp:LinkButton><br />
                                                     <%--    <asp:UpdatePanel ID="UpdatePane4" runat="server">
                                                        <ContentTemplate>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>--%>
-                                                    <label class="text-danger">NB:  PF/ESI download are mandotory for company not having PF registration/ESIC registration</label>
+                                                    <label class="text-danger">NB:  UAN/ESI download are mandotory for company not having UAN registration/ESIC registration</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -422,7 +426,7 @@
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtVendorCode" ErrorMessage="* Pls Enter Vendor Reg. No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
-                                           
+
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
@@ -514,14 +518,73 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                                        <ContentTemplate>
+                                                            <label>UN-Skilled</label><label class="text-danger">*</label>
+                                                            <asp:TextBox ID="txtUnskilled" runat="server" Visible="true" class="form-control" AutoPostBack="true" OnTextChanged="txtUnskilled_TextChanged"  MaxLength="4"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" ControlToValidate="txtUnskilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator11" ControlToValidate="txtUnskilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                                        <ContentTemplate>
+                                                                <label>Semi-Skilled</label><label class="text-danger">*</label>
+                                                                <asp:TextBox ID="txtSemiSkilled" runat="server" Visible="true" class="form-control" AutoPostBack="true" MaxLength="4" OnTextChanged="txtSemiSkilled_TextChanged"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtSemiSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtSemiSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                                                        <ContentTemplate>
+                                                                <label>Skilled</label><label class="text-danger">*</label>
+                                                                <asp:TextBox ID="txtSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="true" OnTextChanged="txtSkilled_TextChanged"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                  
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                                                        <ContentTemplate>
+                                                                <label>High Skilled</label><label class="text-danger">*</label>
+                                                                <asp:TextBox ID="txtHighSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="true" OnTextChanged="txtHighSkilled_TextChanged"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtHighSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtHighSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                   
+                                                </div>
+                                            </div>
+                                    
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>No. of Workers Authorised</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtWAuthorised" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtWAuthorised" ErrorMessage="* Pls Enter Authorised No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtWAuthorised" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                    <asp:UpdatePanel ID="UpdatePanel7" runat="server">
+                                                        <ContentTemplate>
+                                                                <label>No. of Workers Authorised</label><label class="text-danger">*</label>
+                                                                <asp:TextBox ID="txtWAuthorised" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtWAuthorised" ErrorMessage="* Pls Enter Authorised No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtWAuthorised" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                
                                                 </div>
                                             </div>
 
@@ -548,14 +611,14 @@
                                                 <div class="form-group mb-3">
                                                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                         <ContentTemplate>
-                                                            <label>PF No.</label><label class="text-danger">*</label>
+                                                            <label>UAN No.</label><label class="text-danger">*</label>
                                                             <asp:RadioButton ID="pfRadio1" runat="server" Text="Y" GroupName="pf" AutoPostBack="true" OnCheckedChanged="pfRadio1_CheckedChanged" />
                                                             <asp:RadioButton ID="pfRadio2" runat="server" Text="N" AutoPostBack="true" GroupName="pf" OnCheckedChanged="pfRadio2_CheckedChanged" />
                                                             <br />
                                                             <asp:TextBox ID="txtPFNO" runat="server" class="form-control"></asp:TextBox>
                                                             <asp:FileUpload ID="PFileUpload" runat="server"></asp:FileUpload><br />
                                                             <asp:Label ID="lblPFfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
-                                                            <%--  <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" style="color:red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download PF declaration form here.....</asp:HyperLink>--%>
+                                                            <%--  <asp:HyperLink ID="HyperLinkPF" runat="server" Visible="False" style="color:red" NavigateUrl="https://www.epfindia.gov.in/site_en/Downloads.php">Download UAN declaration form here.....</asp:HyperLink>--%>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
                                                 </div>
@@ -586,7 +649,7 @@
                                                 <div class="form-group mb-3">
                                                     <label>PAN No.</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtPANNo" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtPANNo" ErrorMessage="* Pls Enter PF Number" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtPANNo" ErrorMessage="* Pls Enter UAN Number" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">

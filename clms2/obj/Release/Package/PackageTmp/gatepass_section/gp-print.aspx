@@ -170,6 +170,8 @@
                         <asp:DropDownList ID="txtSearch" runat="server" AutoPostBack="True" OnSelectedIndexChanged="txtSearch_SelectedIndexChanged"></asp:DropDownList>
                     </p>
                 </td>
+          
+
             </tr>
             <tr>
 
@@ -280,7 +282,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td class="style3"><strong>PF No.</strong></td>
+                                        <td class="style3"><strong>UAN No.</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
                                             <asp:Label ID="lblPFNO" runat="server" Text=""></asp:Label>

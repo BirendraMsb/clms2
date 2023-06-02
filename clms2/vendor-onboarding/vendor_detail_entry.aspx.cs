@@ -77,6 +77,9 @@ namespace clms2.vendor_onboarding
                         txtValidFrom.Text = r["valid_from"].ToString();
                         txtValidTo.Text = r["valid_to"].ToString();
 
+                        //txtValidFrom.Text =Convert.ToDateTime( r["valid_from"]).ToString("dd-MM-yyyy");
+                        //txtValidTo.Text =Convert.ToDateTime( r["valid_to"]).ToString("dd-MM-yyyy");
+
                         txtUnskilled.Text = r["un_skilled"].ToString();
                         txtSemiSkilled.Text = r["semi_skilled"].ToString();
                         txtSkilled.Text = r["skilled"].ToString();
@@ -88,8 +91,8 @@ namespace clms2.vendor_onboarding
                         txtPANNo.Text = r["pano"].ToString();
                         txtGSTNo.Text = r["gstno"].ToString();
                     }
-                    txtValidFrom.Text = Convert.ToDateTime(txtValidFrom.Text).ToString("MM-dd-yyyy");
-                    txtValidTo.Text = Convert.ToDateTime(txtValidTo.Text).ToString("MM-dd-yyyy");
+                    //////txtValidFrom.Text = Convert.ToDateTime(txtValidFrom.Text).ToString("MM-dd-yyyy");
+                    //////txtValidTo.Text = Convert.ToDateTime(txtValidTo.Text).ToString("MM-dd-yyyy");
                     con.Close();
                 }
             }
@@ -231,6 +234,7 @@ namespace clms2.vendor_onboarding
 
         protected void ddlWorkOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
+          if( ddlWorkOrder.SelectedItem.Text != "Select")
             ShowWorkOrdeDetails();
         }
 
@@ -485,10 +489,10 @@ namespace clms2.vendor_onboarding
                 //string fdt = Convert.ToDateTime(txtValidFrom.Text).ToString("dd-MM-yyyy");
                 //string tdt = Convert.ToDateTime(txtValidTo.Text).ToString("dd-MM-yyyy");
                 string fdt1 = txtValidFrom.Text;
-                DateTime fdt = DateTime.ParseExact(fdt1, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                //DateTime fdt = DateTime.ParseExact(fdt1, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture);
 
                 string tdt1 = txtValidTo.Text;
-                DateTime tdt = DateTime.ParseExact(tdt1, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture);
+                //DateTime tdt = DateTime.ParseExact(tdt1, "MM-dd-yyyy", System.Globalization.CultureInfo.InvariantCulture);
                 //----------------
                 ////string Str = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + txtState.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where vendor_reg_code='" + Session["User"] + "' ";
                 ////SqlCommand cmd = new SqlCommand("str",con); 
@@ -498,11 +502,11 @@ namespace clms2.vendor_onboarding
                 {
                     cmd.Connection = con;
 
-                    cmd.CommandText = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + ddlState.SelectedItem.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "un_skilled='" + txtUnskilled.Text + "'," + "semi_skilled='" + txtSemiSkilled.Text + "'," + "skilled='" + txtSkilled.Text + "'," + "high_skilled='" + txtHighSkilled.Text + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "'," + "status= 'P', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";  // status P for Pending , A for Aproved and R for Rejected
+                    cmd.CommandText = "update tbl_vendor_info set contact_no2='" + txtPhNo2.Text + "'," + "firm_address='" + txtAddress.Text + "'," + "firm_city='" + txtCity.Text + "'," + "firm_state='" + ddlState.SelectedItem.Text + "'," + "firm_pin='" + txtPIN.Text + "'," + "license_no='" + txtLicenseNo.Text + "'," + "valid_from='" + fdt1 + "'," + "valid_to= '" + tdt1 + "'," + "un_skilled='" + txtUnskilled.Text + "'," + "semi_skilled='" + txtSemiSkilled.Text + "'," + "skilled='" + txtSkilled.Text + "'," + "high_skilled='" + txtHighSkilled.Text + "'," + "workers_authorised='" + txtWAuthorised.Text + "'," + "pfno='" + txtPFNO.Text + "'," + "esicno='" + txtESIC.Text + "', " + "img_file='" + imgName + "'," + "status= 'P', " + "pfdoc='" + PFileUpload1 + "', " + "esicdoc='" + ESICFileUpload1 + "', " + "pano='" + txtPANNo.Text + "', " + "gstno='" + txtGSTNo.Text + "', " + "pocopy='" + POcopyUpload1 + "'  where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";  // status P for Pending , A for Aproved and R for Rejected
                     cmd.ExecuteNonQuery();
 
                     cmd.Parameters.Clear();
-                    cmd.CommandText = "update tbl_vendor_work_order set valid_from='" + fdt + "'," + "valid_to= '" + tdt + "'," + "status= 'P' where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";
+                    cmd.CommandText = "update tbl_vendor_work_order set valid_from='" + fdt1 + "'," + "valid_to= '" + tdt1 + "'," + "status= 'P' where  vendor_reg_code='" + Session["User"] + "' and work_worder= '" + ddlWorkOrder.SelectedItem.Text + "'";
                     cmd.ExecuteNonQuery();
                     con.Close();
                 }

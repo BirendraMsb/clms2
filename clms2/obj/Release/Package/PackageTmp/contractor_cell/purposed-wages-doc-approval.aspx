@@ -93,7 +93,11 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-
+                                             <li>
+                                                <a class="dropdown-item" href="work-order-detail-Rej.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Rejected Work order
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="work-order-details-all.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>View work order
@@ -138,6 +142,11 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="tot_workorder_comp.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Wages Document 
@@ -376,17 +385,17 @@
                                                             <asp:Label ID="lbl_gross_wages_paid" runat="server" Text='<%#Eval("gross_wages_paid") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="PF Amt Deposited" ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="UAN Amt Deposited" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_pfAmt" runat="server" Text='<%#Eval("pf_amt_deposited") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="PF Challan No" ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="UAN Challan No" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_pf_Challan_No" runat="server" Text='<%#Eval("pf_challan_no") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="PF Challan Date" ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="UAN Challan Date" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_pf_Challan_Date" runat="server" Text='<%#Eval("pf_challan_date") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -417,7 +426,7 @@
                     </ItemTemplate>  
                 </asp:TemplateField>--%>
 
-                                                    <asp:TemplateField HeaderText="PF Challan PDF">
+                                                    <asp:TemplateField HeaderText="UAN Challan PDF">
                                                         <ItemTemplate>
                                                             <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pf_challan_pdf") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pf_challan_pdf", "../pf_challan_pdf/{0}") %>'></asp:HyperLink>
                                                         </ItemTemplate>
@@ -545,7 +554,7 @@
 
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
-                                                            <asp:Button ID="btn_Edit" runat="server" Text="Edit" CommandName="Edit" />
+                                                            <asp:Button ID="btn_Edit" runat="server" Text="Approval" CommandName="Edit" />
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:Label ID="lbl_id" runat="server" Text='<%#Eval("id") %>' Visible="false"></asp:Label>

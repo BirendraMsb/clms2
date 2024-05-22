@@ -34,7 +34,8 @@ namespace clms2.user_dept
             if (!Page.IsPostBack)
             {
                 BindGrid();
-                strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "'";
+                strSQL = "SELECT e.* FROM tbl_emp e,tbl_vendor_work_order vwo where vwo.vendor_reg_code=e.vendor_code and vwo.work_worder= e.workorderno and vwo.work_worder= e.workorderno and vwo.department= '" + Session["User"].ToString() + "' AND e.dept_approval ='Pending'  order by e.id desc";
+                ////strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "' order by id desc";
                /// strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -53,7 +54,9 @@ namespace clms2.user_dept
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "'";
+                strSQL = "SELECT e.* FROM tbl_emp e,tbl_vendor_work_order vwo where vwo.vendor_reg_code=e.vendor_code and vwo.work_worder= e.workorderno and vwo.work_worder= e.workorderno and vwo.department= '" + Session["User"].ToString() + "' AND e.dept_approval ='Pending'  order by e.id desc";
+                ///strSQL = "SELECT e.* FROM tbl_emp e,tbl_vendor_work_order vwo where vwo.vendor_reg_code=e.vendor_code and vwo.department= '" + Session["User"].ToString() + "' AND dept_approval ='Pending'  order by e.id desc";
+                //// strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "' order by id desc";
                //// strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -119,6 +122,29 @@ namespace clms2.user_dept
             GvEmp.PageIndex = e.NewPageIndex;
             //GvEmp.DataBind();
             BindGrid();
+        }
+
+        protected void ddlDeptApproval_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddl_dept_approv = (DropDownList)sender;
+            string str = ddl_dept_approv.SelectedValue;
+            if (str == "Reject")
+                GvEmp.Columns[16].Visible = true;  //Remarks
+            else
+                GvEmp.Columns[16].Visible = false;
+
+            // CheckBox chkbox = sender as CheckBox;
+            GridViewRow currentRow = ddl_dept_approv.NamingContainer as GridViewRow;
+            RequiredFieldValidator rfv = GvEmp.Rows[currentRow.RowIndex]
+                                               .FindControl("ReqValDeptRemarks") as RequiredFieldValidator;
+            if (ddl_dept_approv.SelectedItem.Text == "Reject")
+            {
+                rfv.Enabled = true;
+            }
+            else
+            {
+                rfv.Enabled = false;
+            }
         }
     }
 }

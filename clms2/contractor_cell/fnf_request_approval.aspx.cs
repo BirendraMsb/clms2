@@ -43,11 +43,12 @@ namespace clms2.contractor_cell
         private void CreateEmptyTable()
         {
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[11] { new DataColumn("id", typeof(string)),
+            dt.Columns.AddRange(new DataColumn[12] { new DataColumn("id", typeof(string)),
             new DataColumn("work_order", typeof(string)),
             new DataColumn("emp_code",typeof(string)),
             new DataColumn("vendor_code",typeof(string)),
             new DataColumn("emp_name",typeof(string)),
+            new DataColumn("aadhar_no",typeof(string)),
             new DataColumn("department",typeof(string)),
             new DataColumn("last_working_day",typeof(string)),
             new DataColumn("date_of_request",typeof(string)),
@@ -107,6 +108,8 @@ namespace clms2.contractor_cell
                     dr[8] = string.Empty;
                     dr[9] = string.Empty;
                     dr[10] = string.Empty;
+                    dr[11] = string.Empty;
+
        
                 }
                 dt.Rows.Add(dr);
@@ -119,11 +122,12 @@ namespace clms2.contractor_cell
         private void BindTableInGrid()
         {
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[11] { new DataColumn("id", typeof(int)),
+            dt.Columns.AddRange(new DataColumn[12] { new DataColumn("id", typeof(int)),
            new DataColumn("work_order", typeof(string)),
             new DataColumn("emp_code",typeof(string)),
             new DataColumn("vendor_code",typeof(string)),
             new DataColumn("emp_name",typeof(string)),
+            new DataColumn("aadhar_no",typeof(string)),
             new DataColumn("department",typeof(string)),
             new DataColumn("last_working_day",typeof(string)),
             new DataColumn("date_of_request",typeof(string)),
@@ -135,8 +139,8 @@ namespace clms2.contractor_cell
 
             //----------------------------------//
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-
-            string query = "select * from tbl_full_final_request where hr_approval !='Approved' or hr_approval is null";
+            string query = "select a.id, a.work_order,a.emp_code,a.vendor_code,a.emp_name,b.aadhar_no, a.department,a.last_working_day,a.date_of_request,a.reason_for_separation,a.hr_approval,a.hr_remarks from tbl_full_final_request a ,tbl_emp b  where a.emp_code=b.emp_code and a.vendor_code= b.vendor_code and a.work_order=b.workorderno and a.hr_approval !='Approved'";
+           //// string query = "select * from tbl_full_final_request where hr_approval !='Approved' or hr_approval is null";
             ////string query = "select * from tbl_full_final_request where work_order= '" + ddlWorkdOrder.SelectedItem.Text + "'";
             DataTable dt1;
             using (SqlConnection con = new SqlConnection(constr))

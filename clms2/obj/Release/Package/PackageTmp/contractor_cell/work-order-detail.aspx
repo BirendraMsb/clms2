@@ -67,7 +67,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -95,7 +95,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="work-order-detail-Rej.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Rejected Work order
                                                 </a>
@@ -146,12 +146,12 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
 
@@ -171,8 +171,6 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
-
-
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -196,6 +194,21 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
@@ -284,9 +297,12 @@
                         <div class="page-content-tab">
                             <div class="container-fluid">
                                 <br />
+                                <br />
+                                <br />
+
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
-                                        <span>Work Order Status ( Pending ) </span>
+                                        <span>Work Order Approval </span>
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
@@ -351,9 +367,8 @@
                                                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                                                 <SortedDescendingHeaderStyle BackColor="#000065" />
                                             </asp:GridView>
-                                            <label style="background-color: orange; width: 100px; height: 20px; text-align: center; float: right">Peding</label>
-                                            <label style="background-color: lightblue; width: 100px; height: 20px; text-align: center; float: right">Confirm</label>
-
+                                            <%-- <label style="background-color: orange; width: 100px; height: 20px; text-align: center; float: right">Peding</label>--%>
+                                            <%-- <label style="background-color: lightblue; width: 100px; height: 20px; text-align: center; float: right">Confirm</label>--%>
                                         </div>
                                     </div>
                                 </div>
@@ -411,12 +426,11 @@
                 });
             });
         </script>
-    <%--    <script type="text/jscript">
+        <%--    <script type="text/jscript">
             $(window).on("load", function () {
                 $('#GvWod').DataTable({ responsive: true });
             });
         </script>--%>
-
     </form>
 </body>
 </html>

@@ -67,7 +67,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -95,7 +95,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="work-order-detail-Rej.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Rejected Work order
                                                 </a>
@@ -146,12 +146,12 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
 
@@ -196,6 +196,21 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
@@ -284,9 +299,12 @@
                         <div class="page-content-tab">
                             <div class="container-fluid">
                                 <br />
+                                <br />
+                                <br />
+
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
-                                        <span>Work Order Detail ( Rejected )</span>
+                                        <span>Work Order Returned</span>
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
@@ -313,14 +331,15 @@
                                                         <ItemStyle Width="250" />
                                                     </asp:BoundField>--%>
 
-                                                    <asp:HyperLinkField DataTextField="work_worder" DataNavigateUrlFields="vendor_reg_code"
+                                                    <%--<asp:HyperLinkField DataTextField="work_worder" DataNavigateUrlFields="vendor_reg_code"
                                                         DataNavigateUrlFormatString="vendor-detail.aspx?Id={0}"
-                                                        HeaderText="Work order No" ItemStyle-Wrap="false" />
+                                                        HeaderText="Work order No" ItemStyle-Wrap="false" />--%>
                                                     <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor Code" SortExpression="vendor_reg_code"></asp:BoundField>
-                                                    <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from">
+                                                    <asp:BoundField DataField="work_worder" HeaderText="Work Order" SortExpression="work_worder"></asp:BoundField>
+                                                    <asp:BoundField DataField="valid_from" HeaderText="Valid From" DataFormatString="{0:dd/MM/yyyy}" SortExpression="valid_from">
                                                         <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
                                                     </asp:BoundField>
-
+                                                   
                                                     <asp:BoundField DataField="valid_to" HeaderText="Valid To" ControlStyle-ForeColor="#ffffff" SortExpression="valid_from" />
 
 

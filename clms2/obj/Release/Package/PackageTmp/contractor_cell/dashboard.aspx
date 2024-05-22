@@ -67,7 +67,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -146,12 +146,12 @@
                                         <ul class="dropdown-menu ">
                                              <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
 
@@ -196,6 +196,21 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
@@ -283,18 +298,7 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-                                <div class="row mb-2 border-bottom pb-2">
-                                    <%--					<div class="col-sm-12">
-						<div class="page-title-box">
-							<div class="float-start">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="admin-dashboard.html">Dashboard</a></li>
-									<li class="breadcrumb-item active"><a href="admin-dashboard.html">Dashboard</a></li>
-								</ol>
-							</div>
-						</div>
-					</div>--%>
-                                </div>
+                     
                                 <div class="card border-0">
                                     <div class="row mb-2">
                                         <div class="col-md-3">
@@ -340,7 +344,7 @@
                                                         <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
                                                     </span>
                                                     <span>
-                                                        <h4>Active GP</h4>
+                                                        <h4>Active Gate Pass</h4>
                                                         <h3 class="mb-0">
                                                             <asp:Label ID="lblActiveGP" runat="server" Text="01"></asp:Label>
                                                         </h3>
@@ -377,7 +381,7 @@
                                                         <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
                                                     </span>
                                                     <span>
-                                                        <h4>Rejected GP</h4>
+                                                        <h4>Rejected Gate Pass</h4>
                                                         <h3 class="mb-0">01</h3>
                                                     </span>
                                                 </div>
@@ -401,7 +405,7 @@
                                                     </span>
                                                 </div>
                                                 <div class="card-footer text-center">
-                                                    <a href="#">View Details</a>
+                                                    <a href="attendance-report.aspx">View Details</a>
                                                 </div>
                                             </div>
                                         </div>

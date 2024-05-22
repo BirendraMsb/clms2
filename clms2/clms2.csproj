@@ -73,10 +73,14 @@
     <Content Include="admin\testChart.aspx" />
     <Content Include="admin\update-leave-register.aspx" />
     <Content Include="admin\user.aspx" />
+    <Content Include="age_proof_doc\SampleJPGImage_50kbmb.jpg" />
     <Content Include="contractor_cell\annual-return.aspx" />
     <Content Include="contractor_cell\attendance-approval.aspx" />
+    <Content Include="contractor_cell\attendance-report.aspx" />
     <Content Include="contractor_cell\cc_dashboard.aspx" />
     <Content Include="contractor_cell\dashboard.aspx" />
+    <Content Include="contractor_cell\emp-details-print.aspx" />
+    <Content Include="contractor_cell\emp-details-report.aspx" />
     <Content Include="contractor_cell\emp_bar_chart.aspx" />
     <Content Include="contractor_cell\emp_chart_report.aspx" />
     <Content Include="contractor_cell\fnf_request_approval.aspx" />
@@ -85,11 +89,13 @@
     <Content Include="contractor_cell\purposed-emp-detail-approval.aspx" />
     <Content Include="contractor_cell\purposed-emp-detail-block.aspx" />
     <Content Include="contractor_cell\purposed-wages-doc-approval.aspx" />
+    <Content Include="contractor_cell\register-of-contractor-print.aspx" />
     <Content Include="contractor_cell\register-of-contractor.aspx" />
     <Content Include="contractor_cell\tot_workorder_comp.aspx" />
     <Content Include="contractor_cell\vendor-detail.aspx" />
     <Content Include="contractor_cell\vendor_bar_chart.aspx" />
     <Content Include="contractor_cell\vendor_chart.aspx" />
+    <Content Include="contractor_cell\wages-doc-report.aspx" />
     <Content Include="contractor_cell\work-order-detail-Rej.aspx" />
     <Content Include="contractor_cell\work-order-detail.aspx" />
     <Content Include="contractor_cell\work-order-details-all.aspx" />
@@ -102,6 +108,7 @@
     <Content Include="dtm\date_fns.min.js" />
     <Content Include="dtm\pikaday.js" />
     <Content Include="dtm\plugins\pikaday.jquery.js" />
+    <Content Include="education_doc\SampleJPGImage_50kbmb.jpg" />
     <Content Include="emp_pic\Image111.jpg" />
     <Content Include="emp_pic\images.jpg" />
     <Content Include="emp_pic\images10.jpg" />
@@ -149,6 +156,7 @@
     <Content Include="images\DUnsubmit.png" />
     <Content Include="images\DViewContRpt.png" />
     <Content Include="images\DViewList.png" />
+    <Content Include="images\electro_sol.png" />
     <Content Include="images\EmpHrs.png" />
     <Content Include="images\expand.jpg" />
     <Content Include="images\Export.png" />
@@ -241,6 +249,9 @@
     <Content Include="public\common\css\bootstrap\bootstrap.rtl.css.map" />
     <Content Include="public\common\css\bootstrap\bootstrap.rtl.min.css.map" />
     <Content Include="public\common\css\bootswatchTheme.css" />
+    <Content Include="public\common\css\commoncss.min.css" />
+    <Content Include="public\common\images\logoicon\electro_sol.png" />
+    <Content Include="public\common\images\logoicon\electro_sol1.png" />
     <Content Include="public\common\vendors\datatables\Buttons-2.2.3\css\common.scss" />
     <Content Include="public\common\vendors\datatables\Buttons-2.2.3\css\mixins.scss" />
     <Content Include="public\common\vendors\datatables\pdfmake.min.js.map" />
@@ -435,6 +446,42 @@
     <Content Include="attd_upload_doc\Attendance_VCode222222.csv" />
     <Content Include="domicile_doc\Domicile.pdf" />
     <Content Include="esic_doc\EPF Registration.pdf" />
+    <Content Include="age_proof_doc\AGE CERTIFICATE.pdf" />
+    <Content Include="education_doc\EDUCATION CERTIFICATE.pdf" />
+    <Content Include="contractor_cell\DataSet_reg_of_contractor.xsc">
+      <DependentUpon>DataSet_reg_of_contractor.xsd</DependentUpon>
+    </Content>
+    <Content Include="clms2DataSet.xsc">
+      <DependentUpon>clms2DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="clms2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>clms2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="clms2DataSet.xss">
+      <DependentUpon>clms2DataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="contractor_cell\DataSet_reg_of_contractor.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_reg_of_contractor.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="contractor_cell\DataSet_reg_of_contractor.xss">
+      <DependentUpon>DataSet_reg_of_contractor.xsd</DependentUpon>
+    </Content>
+    <Content Include="contractor_cell\emp-details-report.xsc">
+      <DependentUpon>emp-details-report.xsd</DependentUpon>
+    </Content>
+    <None Include="contractor_cell\emp-details-report.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>emp-details-report.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="contractor_cell\emp-details-report.xss">
+      <DependentUpon>emp-details-report.xsd</DependentUpon>
+    </Content>
+    <Content Include="esic_doc_for_download\DECLARATION-FOR-ESIC.docx" />
     <None Include="gatepass_section\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -449,13 +496,21 @@
     <Content Include="po_doc\Police Verification Certificate.pdf" />
     <Content Include="police_verification_doc\EPF Registration.pdf" />
     <Content Include="police_verification_doc\Medical Verification Certificate.pdf" />
+    <Content Include="sub_ven_esic_doc\SampleJPGImage_50kbmb.jpg" />
+    <Content Include="sub_ven_pf_doc\SampleJPGImage_50kbmb.jpg" />
     <Content Include="TempImageFiles\temp.txt" />
+    <Content Include="vendor-onboarding\attendance-report.aspx" />
     <Content Include="vendor-onboarding\tot_workorder_comp.aspx" />
     <Content Include="vendor-onboarding\wage-slip-new.aspx" />
+    <Content Include="vendor-onboarding\work-order-detail-Rej.aspx" />
     <Content Include="wages_doc_uplouad\bank_doc\Purchase order.pdf" />
     <Content Include="wages_doc_uplouad\esic_doc\ESIC Registration.pdf" />
     <Content Include="wages_doc_uplouad\pf_doc\EPF Registration.pdf" />
+    <Content Include="pf_doc_for_download\DECLARATION-FOR-EPF.docx" />
     <None Include="Properties\PublishProfiles\clms2.pubxml" />
+    <Content Include="wages_doc_uplouad\pf_ecr_doc\PF ECR.pdf" />
+    <Content Include="wages_doc_uplouad\esi_ecr_doc\ESI ECR.pdf" />
+    <Content Include="wages_doc_uplouad\pf_ecr_doc\ESI ECR.pdf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -485,7 +540,7 @@
     <Content Include="public\common\css\bootstrap\index.html" />
     <Content Include="public\common\css\bootstrap\paper.css" />
     <Content Include="public\common\css\bootstrap\paper.min.css" />
-    <Content Include="public\common\css\commoncss.min.css" />
+    <Content Include="public\common\css\commoncss.min_old.css" />
     <Content Include="public\common\icons\android-icon-144x144.png" />
     <Content Include="public\common\icons\android-icon-192x192.png" />
     <Content Include="public\common\icons\android-icon-36x36.png" />
@@ -3039,6 +3094,11 @@
     <Compile Include="admin\user.aspx.designer.cs">
       <DependentUpon>user.aspx</DependentUpon>
     </Compile>
+    <Compile Include="clms2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>clms2DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="clsMail.cs" />
     <Compile Include="contractor_cell\annual-return.aspx.cs">
       <DependentUpon>annual-return.aspx</DependentUpon>
@@ -3054,6 +3114,13 @@
     <Compile Include="contractor_cell\attendance-approval.aspx.designer.cs">
       <DependentUpon>attendance-approval.aspx</DependentUpon>
     </Compile>
+    <Compile Include="contractor_cell\attendance-report.aspx.cs">
+      <DependentUpon>attendance-report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\attendance-report.aspx.designer.cs">
+      <DependentUpon>attendance-report.aspx</DependentUpon>
+    </Compile>
     <Compile Include="contractor_cell\cc_dashboard.aspx.cs">
       <DependentUpon>cc_dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3067,6 +3134,30 @@
     </Compile>
     <Compile Include="contractor_cell\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\DataSet_reg_of_contractor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_reg_of_contractor.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\emp-details-print.aspx.cs">
+      <DependentUpon>emp-details-print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\emp-details-print.aspx.designer.cs">
+      <DependentUpon>emp-details-print.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\emp-details-report.aspx.cs">
+      <DependentUpon>emp-details-report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\emp-details-report.aspx.designer.cs">
+      <DependentUpon>emp-details-report.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\emp-details-report.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>emp-details-report.xsd</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\emp_bar_chart.aspx.cs">
       <DependentUpon>emp_bar_chart.aspx</DependentUpon>
@@ -3124,6 +3215,13 @@
     <Compile Include="contractor_cell\purposed-wages-doc-approval.aspx.designer.cs">
       <DependentUpon>purposed-wages-doc-approval.aspx</DependentUpon>
     </Compile>
+    <Compile Include="contractor_cell\register-of-contractor-print.aspx.cs">
+      <DependentUpon>register-of-contractor-print.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\register-of-contractor-print.aspx.designer.cs">
+      <DependentUpon>register-of-contractor-print.aspx</DependentUpon>
+    </Compile>
     <Compile Include="contractor_cell\register-of-contractor.aspx.cs">
       <DependentUpon>register-of-contractor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3158,6 +3256,13 @@
     </Compile>
     <Compile Include="contractor_cell\vendor_chart.aspx.designer.cs">
       <DependentUpon>vendor_chart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="contractor_cell\wages-doc-report.aspx.cs">
+      <DependentUpon>wages-doc-report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="contractor_cell\wages-doc-report.aspx.designer.cs">
+      <DependentUpon>wages-doc-report.aspx</DependentUpon>
     </Compile>
     <Compile Include="contractor_cell\work-order-detail-Rej.aspx.cs">
       <DependentUpon>work-order-detail-Rej.aspx</DependentUpon>
@@ -3357,6 +3462,13 @@
     </Compile>
     <Compile Include="vendor-onboarding\annual_bonus.aspx.designer.cs">
       <DependentUpon>annual_bonus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="vendor-onboarding\attendance-report.aspx.cs">
+      <DependentUpon>attendance-report.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\attendance-report.aspx.designer.cs">
+      <DependentUpon>attendance-report.aspx</DependentUpon>
     </Compile>
     <Compile Include="vendor-onboarding\attendance-view.aspx.cs">
       <DependentUpon>attendance-view.aspx</DependentUpon>
@@ -3589,6 +3701,13 @@
     <Compile Include="vendor-onboarding\wages_document.aspx.designer.cs">
       <DependentUpon>wages_document.aspx</DependentUpon>
     </Compile>
+    <Compile Include="vendor-onboarding\work-order-detail-Rej.aspx.cs">
+      <DependentUpon>work-order-detail-Rej.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="vendor-onboarding\work-order-detail-Rej.aspx.designer.cs">
+      <DependentUpon>work-order-detail-Rej.aspx</DependentUpon>
+    </Compile>
     <Compile Include="vendor-onboarding\work-order-detail.aspx.cs">
       <DependentUpon>work-order-detail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -3601,6 +3720,8 @@
     <Folder Include="login\include\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="contractor_cell\emp-details.rdlc" />
+    <EmbeddedResource Include="contractor_cell\register-of-contractor-report.rdlc" />
     <EmbeddedResource Include="gatepass_section\gp-print1-report.rdlc" />
   </ItemGroup>
   <PropertyGroup>

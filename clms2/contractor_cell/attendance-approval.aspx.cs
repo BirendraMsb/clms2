@@ -90,7 +90,7 @@ namespace clms2.contractor_cell
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_attendance where dept_approval='Approved' and workorder = '" + ddlWorkOrder.Text + "' ";
+                strSQL = "SELECT * FROM tbl_attendance where dept_approval='Approved' and  hr_approval ='Pending' and workorder = '" + ddlWorkOrder.Text + "' ";
                //// strSQL = "SELECT * FROM tbl_attendance";
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
@@ -110,7 +110,8 @@ namespace clms2.contractor_cell
             dbConnection();
             if (ddlWorkOrder.SelectedValue != "")
             {
-                strSQL = "SELECT * FROM tbl_attendance where dept_approval='Approved' and workorder = '" + ddlWorkOrder.Text + "' ";
+                strSQL = "SELECT * FROM tbl_attendance where dept_approval='Approved' and  hr_approval ='Pending' and workorder = '" + ddlWorkOrder.Text + "' ";
+               //// strSQL = "SELECT * FROM tbl_attendance where dept_approval='Approved' and workorder = '" + ddlWorkOrder.Text + "' ";
                 ///dont delete///strSQL = "SELECT a.*,b.* FROM tbl_vendor_info a, tbl_attendance b where a.vendor_reg_code=b.vendor_code and workorder = '" + ddlWorkOrder.Text + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -156,6 +157,29 @@ namespace clms2.contractor_cell
 
             BindGrid();
 
+        }
+
+        protected void ddlHRApproval_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddl_approv = (DropDownList)sender;
+            string str = ddl_approv.SelectedValue;
+            if (str == "Reject")
+                GvAttn.Columns[48].Visible = true;  //Remarks
+            else
+                GvAttn.Columns[48].Visible = false;
+
+            // CheckBox chkbox = sender as CheckBox;
+            GridViewRow currentRow = ddl_approv.NamingContainer as GridViewRow;
+            RequiredFieldValidator rfv = GvAttn.Rows[currentRow.RowIndex]
+                                               .FindControl("ReqValHRRemarks") as RequiredFieldValidator;
+            if (ddl_approv.SelectedItem.Text == "Reject")
+            {
+                rfv.Enabled = true;
+            }
+            else
+            {
+                rfv.Enabled = false;
+            }
         }
     }
 }

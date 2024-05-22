@@ -92,7 +92,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="vendor-list.aspx">
+                                                <a class="dropdown-item" href="purposed-emp-detail.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Emp Approval
                                                 </a>
                                             </li>
@@ -178,132 +178,7 @@
                 <td>
                           <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="50%" Height="600px"></rsweb:ReportViewer>
                  </td>
-               <%-- <td>
-                    <table border="0" cellpadding="5" cellspacing="0" style="font-family: Urbanist,sans-serif; width: 50%; font-size: 12px; border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                        <tr>
-                            <td style="border-bottom: 1px solid;">
-                                <img src="../images/logo.png" title="" alt="" /></td>
-                            <td style="border-bottom: 1px solid;" colspan="6" align="center"><font size="4"><strong>GreenHRM Solutions</strong></font></td>
-                            <td style="border-bottom: 1px solid;" align="right">
-                                <img src="../images/logo.png" title="" alt="" /></td>
-                        </tr>
-
-                        <tr style="border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                            <td><strong>GP No.</strong></td>
-                            <td width="1%">:</td>
-                            <td colspan="2">
-                                <asp:Label ID="lblGPNo" runat="server" Text=""></asp:Label>
-                            </td>
-                            <td align="right"><strong>Valid From</strong></td>
-                            <td width="1%">:</td>
-                            <td colspan="2">
-                                <asp:Label ID="lblValidFrom" runat="server" Text=""></asp:Label>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="border-bottom: 1px solid;"><strong>Order No.</strong></td>
-                            <td style="border-bottom: 1px solid;">:</td>
-                            <td style="border-bottom: 1px solid;" colspan="2">
-                                <asp:Label ID="lblOrderNo" runat="server" Text=""></asp:Label>
-                            </td>
-                            <td style="border-bottom: 1px solid;" align="right"><strong>Valid To</strong></td>
-                            <td style="border-bottom: 1px solid;">:</td>
-                            <td style="border-bottom: 1px solid;" colspan="2">
-                                <asp:Label ID="lblValidTo" runat="server" Text=""></asp:Label>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="border-bottom: 1px solid;">&nbsp;</td>
-                            <td style="border-bottom: 1px solid;" colspan="6" align="center"><font size="2" face="Urbanist, sans-serif">Gatepass Permitted Hrs. : 06:00 AM to 06:00 AM</font></td>
-                            <td style="border-bottom: 1px solid;">&nbsp;</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="8">
-
-                                <table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-bottom: 0px solid;">
-                                    <tr>
-                                        <td class="style5"><strong style="font-size: medium"></strong>Photo</td>
-                                        <td class="style3"><strong>Name</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblName" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td rowspan="8" valign="top" style="text-align: center">
-                                            <asp:Image ID="Image1" runat="server" Style="width: 150px; height: auto;" />
-                                        </td>
-                                        <td class="style3"><strong>Identity Mark</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblIdentityMark" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Gender</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblGender" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Blood Grp</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblBloodGrp" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3" width="40%"><strong>Department&nbsp; </strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblDepartment" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Vendor</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblVendor" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Vendor Code</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblVendorCode" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>ESIC No.</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblESICNo" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>UAN No.</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblPFNO" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td class="style3" valign="top"><strong></strong></td>
-                                        <td valign="top"><strong></strong></td>
-                                        <td valign="top">
-                                            <asp:Label ID="lblLIC" runat="server" Text="" Visible="false"></asp:Label>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>--%>
+             
             </tr>
 
         </table>

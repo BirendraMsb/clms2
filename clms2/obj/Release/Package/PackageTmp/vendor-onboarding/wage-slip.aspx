@@ -71,7 +71,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -219,7 +219,7 @@
 
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
@@ -284,7 +284,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settlement
                                                 </a>
                                             </li>
                                             <li>
@@ -311,6 +311,11 @@
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detailNew.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
@@ -389,7 +394,7 @@
 
             <div class=" my-0 py-0 boxDec ">
                 <table>
-                  
+
                     <tr>
                         <td class="px-4">Name and address of contractor
                         </td>

@@ -104,7 +104,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -182,7 +182,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
-                                         <%--   <li>
+                                            <%--   <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
@@ -252,7 +252,7 @@
 
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
@@ -266,7 +266,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
@@ -292,16 +292,16 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXI
                                                 </a>
                                             </li>
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="register-of-OT.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XXIII
                                                 </a>
                                             </li>
-                                          
+
                                             <li>
                                                 <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIV
                                                 </a>
                                             </li>
                                         </ul>
@@ -317,7 +317,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settlement
                                                 </a>
                                             </li>
                                             <li>
@@ -344,6 +344,11 @@
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detailNew.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
@@ -411,12 +416,16 @@
             <tr>
                 <td>
                     <div>
+                         <br />
+                         <br />
+                         <br />
+                         <br />
                         <asp:FileUpload ID="FileUpload1" CssClass="button" runat="server" />
                         <asp:Button ID="btnImport" CssClass="button" runat="server" Text="Upload" OnClick="ImportCSV" />
                         <hr />
                         <%-- <asp:GridView ID="GridView1" runat="server">
                         </asp:GridView>--%>
-                       <%--  <asp:GridView ID="Gvrecords" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                        <%--  <asp:GridView ID="Gvrecords" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                     GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true">
                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                       <Columns>
@@ -852,13 +861,13 @@
                         Width="138px" OnClick="btnAddToDb_Click" Enabled="False" />&nbsp&nbsp
                     <asp:Button ID="btnDownload" runat="server" Height="35px" class="btn btn-info" Text="Download File"
                         Width="138px" OnClick="btnDownload_Click" />
-                 
+
                 </td>
             </tr>
             <tr>
                 <td>
                     <asp:Label ID="lblMessage" runat="server" Font-Bold="True" ForeColor="green"></asp:Label>
-                     <asp:Label ID="lblMsgError" runat="server" Font-Bold="True" ForeColor="red"></asp:Label>
+                    <asp:Label ID="lblMsgError" runat="server" Font-Bold="True" ForeColor="red"></asp:Label>
                 </td>
             </tr>
             <tr>

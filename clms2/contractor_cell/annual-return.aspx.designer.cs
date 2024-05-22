@@ -40,148 +40,184 @@ namespace clms2.contractor_cell {
         protected global::System.Web.UI.WebControls.Label lblUser;
         
         /// <summary>
-        /// lblPrincipalEmpNameAddr control.
+        /// ddlYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrincipalEmpNameAddr;
+        protected global::System.Web.UI.WebControls.DropDownList ddlYear;
         
         /// <summary>
-        /// lblNameOfEstbl control.
+        /// ddlVendorCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNameOfEstbl;
+        protected global::System.Web.UI.WebControls.DropDownList ddlVendorCode;
         
         /// <summary>
-        /// lblDistrict control.
+        /// txtPrincipalEmpName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDistrict;
+        protected global::System.Web.UI.WebControls.TextBox txtPrincipalEmpName;
         
         /// <summary>
-        /// lblPostalAddr control.
+        /// RequiredFieldValidator1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPostalAddr;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Label1 control.
+        /// txtPrincipalEmpAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox txtPrincipalEmpAddress;
         
         /// <summary>
-        /// lblNameRespSuerv control.
+        /// txtNameOfEstb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNameRespSuerv;
+        protected global::System.Web.UI.WebControls.TextBox txtNameOfEstb;
         
         /// <summary>
-        /// lblMaxNumWorkman control.
+        /// txtDistrict control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMaxNumWorkman;
+        protected global::System.Web.UI.WebControls.TextBox txtDistrict;
         
         /// <summary>
-        /// lbltotNumDaysEmployed control.
+        /// txtPostalAddr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbltotNumDaysEmployed;
+        protected global::System.Web.UI.WebControls.TextBox txtPostalAddr;
         
         /// <summary>
-        /// lblNumDaysLbrWorked control.
+        /// txtNatureOfOperation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNumDaysLbrWorked;
+        protected global::System.Web.UI.WebControls.TextBox txtNatureOfOperation;
         
         /// <summary>
-        /// Label2 control.
+        /// txtNameResSupervsr control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox txtNameResSupervsr;
         
         /// <summary>
-        /// Label3 control.
+        /// txtMaxNumWorkmanEmployedAsContractLab control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.TextBox txtMaxNumWorkmanEmployedAsContractLab;
         
         /// <summary>
-        /// Label4 control.
+        /// txtTot_no_of_days_cont_lab_employed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.TextBox txtTot_no_of_days_cont_lab_employed;
         
         /// <summary>
-        /// Label5 control.
+        /// txtTot_no_of_man_days_work_by_cont_lab control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.TextBox txtTot_no_of_man_days_work_by_cont_lab;
         
         /// <summary>
-        /// Label6 control.
+        /// txtMax_no_workman_as_employed_directly control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.TextBox txtMax_no_workman_as_employed_directly;
         
         /// <summary>
-        /// Label7 control.
+        /// txtTot_no_of_days_directly_lab_employed control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.TextBox txtTot_no_of_days_directly_lab_employed;
         
         /// <summary>
-        /// Label8 control.
+        /// txtTot_no_of_man_days_wosrked_by_directly_lab control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.TextBox txtTot_no_of_man_days_wosrked_by_directly_lab;
+        
+        /// <summary>
+        /// txtNature_of_work control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNature_of_work;
+        
+        /// <summary>
+        /// txtAmtOfSecurityDepByContractor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAmtOfSecurityDepByContractor;
+        
+        /// <summary>
+        /// txtAmtofSecurityDepForfeited control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtAmtofSecurityDepForfeited;
+        
+        /// <summary>
+        /// txtChangeInManagement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtChangeInManagement;
         
         /// <summary>
         /// lblPlace control.
@@ -209,5 +245,14 @@ namespace clms2.contractor_cell {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDate2;
+        
+        /// <summary>
+        /// btnPrint control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPrint;
     }
 }

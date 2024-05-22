@@ -102,25 +102,26 @@ namespace clms2.vendor_onboarding
         private void CreateEmptyTable()
         {
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[19] { new DataColumn("emp_code", typeof(string)),
+            dt.Columns.AddRange(new DataColumn[8] { new DataColumn("emp_code", typeof(string)),
             new DataColumn("emp_name",typeof(string)),
             new DataColumn("designation",typeof(string)),
             new DataColumn("no_of_workdone",typeof(string)),
-            new DataColumn("unit_of_workdone",typeof(string)),
+            //new DataColumn("unit_of_workdone",typeof(string)),
             new DataColumn("daily_rate_of_wages",typeof(string)),
-            new DataColumn("Basic",typeof(string)),
-            new DataColumn("DA",typeof(string)),
-            new DataColumn("overtime",typeof(string)),
-            new DataColumn("other_case_payment",typeof(string)),
-            new DataColumn("total",typeof(string)),
-            new DataColumn("pf_deduction",typeof(string)),
-            new DataColumn("esic_deduction",typeof(string)),
-            new DataColumn("other_deduction",typeof(string)),
-            new DataColumn("wage",typeof(string)),
-            new DataColumn("bonus_per_amt",typeof(string)),
+           // new DataColumn("daily_other_allowance",typeof(string)),
+            new DataColumn("Basic_earning",typeof(string)),
+            //new DataColumn("DA",typeof(string)),
+            //new DataColumn("overtime",typeof(string)),
+            //new DataColumn("other_case_payment",typeof(string)),
+            //new DataColumn("total",typeof(string)),
+            //new DataColumn("pf_deduction",typeof(string)),
+            //new DataColumn("esic_deduction",typeof(string)),
+            //new DataColumn("other_deduction",typeof(string)),
+            //new DataColumn("wage",typeof(string)),
+            new DataColumn("bonus_per",typeof(string)),
             new DataColumn("bonus_payable",typeof(string)),
-            new DataColumn("signature",typeof(string)),
-            new DataColumn("intial_contractor",typeof(string)),
+            //new DataColumn("signature",typeof(string)),
+            //new DataColumn("intial_contractor",typeof(string)),
            
             });
 
@@ -139,25 +140,16 @@ namespace clms2.vendor_onboarding
                     //  string MyString = dt_emp.Rows[i].ItemArray[j].ToString();
 
                     // dr[j] = dt_emp.Rows[i].ItemArray[j].ToString();
-                    dr[1] = string.Empty;
                     dr[0] = string.Empty;
+                    dr[1] = string.Empty;
                     dr[2] = string.Empty;
                     dr[3] = string.Empty;
                     dr[4] = string.Empty;
                     dr[5] = string.Empty;
                     dr[6] = string.Empty;
                     dr[7] = string.Empty;
-                    dr[8] = string.Empty;
-                    dr[9] = string.Empty;
-                    dr[10] = string.Empty;
-                    dr[11] = string.Empty;
-                    dr[12] = string.Empty;
-                    dr[13] = string.Empty;
-                    dr[14] = string.Empty;
-                    dr[15] = string.Empty;
-                    dr[16] = string.Empty;
-                    dr[17] = string.Empty;
-                    dr[18] = string.Empty;
+                    //dr[8] = string.Empty;
+                
                 }
                 dt.Rows.Add(dr);
             }
@@ -165,10 +157,116 @@ namespace clms2.vendor_onboarding
             GridView2.DataBind();
         }
 
-        protected void cmdProcess_Click(object sender, EventArgs e)
+        private void BindTableInGrid()
         {
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(new DataColumn[8] { new DataColumn("emp_code", typeof(string)),
+            new DataColumn("emp_name",typeof(string)),
+            new DataColumn("designation",typeof(string)),
+            new DataColumn("no_of_workdone",typeof(string)),
+            //new DataColumn("unit_of_workdone",typeof(string)),
+            new DataColumn("daily_rate_of_wages",typeof(string)),
+           // new DataColumn("daily_other_allowance",typeof(string)),
+            new DataColumn("Basic_earning",typeof(string)),
+            //new DataColumn("DA",typeof(string)),
+            //new DataColumn("overtime",typeof(string)),
+            //new DataColumn("other_case_payment",typeof(string)),
+            //new DataColumn("total",typeof(string)),
+            //new DataColumn("pf_deduction",typeof(string)),
+            //new DataColumn("esic_deduction",typeof(string)),
+            //new DataColumn("other_deduction",typeof(string)),
+            //new DataColumn("wage",typeof(string)),
+            new DataColumn("bonus_per",typeof(string)),
+            new DataColumn("bonus_payable",typeof(string)),
+            //new DataColumn("signature",typeof(string)),
+            //new DataColumn("intial_contractor",typeof(string)),
+           
+            });
+
+            //----------------------------------//
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            double bonus_per = 0;
+            bonus_per = Convert.ToDouble(txtBonusPercent.Text);
+            int month_from = 4;
+            int month_to = 12;
+            int year_from = Convert.ToInt16(ddlYearFrom.Text);
+            int year_to = Convert.ToInt16(ddlYearTo.Text);
+            ///  --------------------------------------------------------------------------------------------------//
+            /// (e.basic*a.present + e.allowance * a.present) as basic_earnings
+            ///  a.monthly_ot_hrs * e.[basic]/8 as ot_earning
+            ///  e.allowance *0 as other_allowance_earnings
+            ///  Total Earning = basic_earnings + other_allowance_earnings + ot_earning
+            ///  (e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0) as total_earnings 
+            ///  (a.Present * (e.basic +e.allowance) ) * 12/100 as PF_Deduction
+            ///  (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as ESIC_deduction
+            ///  Total Deduction = Pf contribution + ESIC + Other deduction 
+            ///  (((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction) as total_duduction
+            ///  Total Payable = Total Earning - Total deduction
+            ///  (((e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0)) - ((((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction))) as total_payable
+            ////string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.monthly_ot_hrs as ot_hrs, e.basic as daily_basic, e.allowance as daily_other_allowance,(e.basic*a.present + e.allowance * a.present) as basic_earnings , e.allowance *0 as other_allowance_earnings, a.monthly_ot_hrs * e.[basic]/8 as ot_earning ,(e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0) as total_earnings, (a.Present * (e.basic +e.allowance) ) * 12/100 as PF_Deduction , (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as ESIC_deduction,e.other_deduction, (((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction) as total_duduction,(((e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0)) - ((((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction))) as total_payable,a.sign from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved' and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
+            //string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone, e.basic as daily_basic, e.allowance as daily_other_allowance, cast(e.basic*a.present + e.allowance * a.present as decimal(10,2))  as basic_earnings ,cast((e.basic*a.present + e.allowance * a.present) * 8.33/100 as decimal(10,2)) as bonus_per_amt,cast((e.basic*a.present + e.allowance * a.present) * 8.33/100 as decimal(10,2)) as bonus_pay from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved'  and a.month1='" + ddlMonthFrom.SelectedValue + "' and a.year1='" + ddlYearFrom.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";  
+            ////string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,e.basic as daily_basic, cast(e.basic*a.present  as decimal(10,2))  as basic_earnings ," + bonus_per + "  as bonus_per, cast((e.basic*a.present) * " + bonus_per/100 + " as decimal(10,2)) as bonus_pay from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved'   and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";  //and a.month1='" + ddlMonthFrom.SelectedValue + "' and a.year1='" + ddlYearFrom.SelectedItem.Text + "'
+            string query = "select a.emp_code,a.emp_name,e.designation , sum(Present) as no_of_days_workdone,e.basic as daily_basic,cast(e.basic* sum(present)  as decimal(10,2)) as basic_earnings ," + bonus_per + "  as bonus_per,cast((e.basic* sum(present)) * " + bonus_per / 100 + "  as decimal(10,2)) as bonus_pay  from tbl_attendance a, tbl_emp e  where a.emp_code=e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.month1 between  " + month_from + "  and  " + month_to + "  and year1 between " + year_from + " and " + year_to + "  group by a.emp_code ,a.emp_name,e.designation,e.basic ";
+
+
+            DataTable dt1;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
+                {
+                    using (dt1 = new DataTable())
+                    {
+
+                        sda.Fill(dt1);
+                        if (dt1.Rows.Count > 0)
+                        {
+                            string MyString = dt1.Rows[0].ItemArray[0].ToString();
+                            //GridView2.DataSource = dt;
+                            //GridView2.DataBind();
+                        }
+                        else
+                        {
+                            CreateEmptyTable();
+                            ////GridView2.DataSource = null;
+                            ////GridView2.DataBind();
+                            return;
+                        }
+
+                    }
+                }
+            }
+
+
+            //------------------------------------//
+
+            int dtEmpRowCount = dt1.Rows.Count;
+            int dtEmpColCount = 8;
+            DataRow dr;
+            for (int i = 0; i < dtEmpRowCount; i++)
+            {
+                dr = dt.NewRow();
+                for (int j = 0; j < dtEmpColCount; j++)
+                {
+                    string MyString = dt1.Rows[i].ItemArray[j].ToString();
+
+                    dr[j] = dt1.Rows[i].ItemArray[j].ToString();
+
+                    ////dr[2] = string.Empty;
+           
+                }
+                dt.Rows.Add(dr);
+            }
+            GridView2.DataSource = dt;
+            GridView2.DataBind();
 
         }
+
+        protected void cmdProcess_Click(object sender, EventArgs e)
+        {
+            BindTableInGrid();
+        }
+
+
 
         protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
         {

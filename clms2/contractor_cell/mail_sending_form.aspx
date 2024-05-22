@@ -67,7 +67,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -95,7 +95,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="work-order-detail-Rej.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Rejected Work order
                                                 </a>
@@ -146,12 +146,12 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
 
@@ -196,6 +196,21 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
@@ -285,6 +300,8 @@
                             <div class="container-fluid">
                             </div>
                             <br />
+                            <br />
+                            <br />
                             <div class="card shadow border">
                                 <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Mail Form</div>
                                 <div class="card-body">
@@ -294,7 +311,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group mb-3">
                                                 <asp:Label ID="lblMsgError" runat="server" Text="" Font-Size="Larger" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                               <%-- <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label><br />--%>
+                                                <%-- <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label><br />--%>
                                                 <asp:Label ID="lblMsgMail" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label>
                                             </div>
                                         </div>
@@ -304,42 +321,42 @@
                                             <div class="form-group mb-3">
                                                 <%--<label>From Email Address:</label><label class="text-danger">*</label>--%>
                                                 <asp:TextBox ID="txtFrom" runat="server" Visible="false" class="form-control" MaxLength="20"></asp:TextBox>
-                                               <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtWONo" ErrorMessage="* Pls Enter Work Order No." ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
+                                                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtWONo" ErrorMessage="* Pls Enter Work Order No." ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
-                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
                                                 <%--<label>Email Password:  </label><label class="text-danger">*</label>--%>
                                                 <asp:TextBox ID="txtPass" runat="server" Visible="false" class="form-control" MaxLength="20"></asp:TextBox>
-                                               <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtVendorRegNo" ErrorMessage="* Pls Enter Vendor Reg. No." ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
+                                                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtVendorRegNo" ErrorMessage="* Pls Enter Vendor Reg. No." ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
-                                      
+
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
                                                 <%--<label>EmailServer</label><label class="text-danger">*</label>--%>
                                                 <asp:TextBox ID="txtMailServer" runat="server" Visible="false" class="form-control"></asp:TextBox>
-                                         <%--       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtValidFrom" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
-                         
-                                            </div>
-                                        </div>
-                                         </div>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label>Recipient Email Address: </label><label class="text-danger">*</label>
-                                                <asp:TextBox ID="txtTo" runat="server" class="form-control"></asp:TextBox>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtTo" ErrorMessage="* Pls Enter Date" ForeColor="#CC0000"></asp:RequiredFieldValidator>
-                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Enter Valid Mail" ControlToValidate="txtTo" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                                <%--       <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtValidFrom" ErrorMessage="* Pls Enter Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                      
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
+                                                <label>Recipient Email Address: </label>
+                                                <label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtTo" runat="server" class="form-control"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtTo" ErrorMessage="* Pls Enter Date" ForeColor="#CC0000"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Enter Valid Mail" ControlToValidate="txtTo" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
                                                 <label>Subject</label><label class="text-danger">*</label>
@@ -349,21 +366,21 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                     
+
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
                                                 <label>Mail Body:</label><label class="text-danger">*</label>
-                                                <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" Height="100px" class="form-control" ></asp:TextBox>
+                                                <asp:TextBox ID="txtContent" runat="server" TextMode="MultiLine" Height="100px" class="form-control"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtContent" ErrorMessage="* Pls Enter Text in Body" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                              
+
                                             </div>
                                         </div>
                                     </div>
-                          
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group mb-3">
-                                                
+
                                                 <asp:Button ID="BtnMail" runat="server" Text="Send Mail" Width="100px" class="btn btn-info" OnClick="BtnMail_Click"></asp:Button>
                                                 <asp:Button ID="cmdCancel" runat="server" Text="Cancel/Clear" class="btn btn-info" OnClick="cmdCancel_Click"></asp:Button>
                                             </div>

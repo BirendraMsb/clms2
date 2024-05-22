@@ -27,6 +27,7 @@ namespace clms2.vendor_onboarding
         {
             GvEmp.PageIndex = e.NewPageIndex;
                GvEmp.DataBind();
+          
         }
         //protected void GvEmp_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
         //{
@@ -90,16 +91,16 @@ namespace clms2.vendor_onboarding
 
         protected void btnExportToExcel_Click(object sender, EventArgs e)
         {
-            Response.Clear();
-            Response.Buffer = true;
-            Response.ContentType = "Application/ms-excel";
-            Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "AllRows"));
-            Response.Charset = "";
-            StringWriter sw = new StringWriter();
-            HtmlTextWriter hw = new HtmlTextWriter(sw);
-            GvEmp.RenderControl(hw);
-            Response.Write(sw.ToString());
-            Response.End();
+            //Response.Clear();
+            //Response.Buffer = true;
+            //Response.ContentType = "Application/ms-excel";
+            //Response.AddHeader("content-disposition", string.Format("attachment;filename={0}.xls", "AllRows"));
+            //Response.Charset = "";
+            //StringWriter sw = new StringWriter();
+            //HtmlTextWriter hw = new HtmlTextWriter(sw);
+            //GvEmp.RenderControl(hw);
+            //Response.Write(sw.ToString());
+            //Response.End();
         }
     
 

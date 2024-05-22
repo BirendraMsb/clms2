@@ -25,11 +25,7 @@ namespace clms2.contractor_cell
                 con.Open();
         }
 
-        //protected void GvEmp_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
-        //{
-        //    GvEmp.PageIndex = e.NewPageIndex;
-        //    GvEmp.DataBind();
-        //}
+     
         protected void Page_Load(object sender, EventArgs e)
         {
             string usrnm = Session["User"].ToString();
@@ -41,9 +37,10 @@ namespace clms2.contractor_cell
             if (!Page.IsPostBack)
             {
                 BindGrid();
+                strSQL = "SELECT * FROM tbl_emp where dept_approval='Approved' and hr_approval ='Pending' order by id desc";
+                ///strSQL = "SELECT * FROM tbl_emp where dept_approval='Approved' order by id desc";
                 //// 'strSQL = "SELECT * FROM tbl_emp where vendor_code='" & Request.QueryString("Id") & "'"
-               /// strSQL = "SELECT * FROM tbl_emp";   // 'where hr_approval<>'Reject'
-                strSQL = "SELECT * FROM tbl_emp where dept_approval='Approved'";
+                /// strSQL = "SELECT * FROM tbl_emp";   // 'where hr_approval<>'Reject'
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -61,9 +58,10 @@ namespace clms2.contractor_cell
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                // ' strSQL = "SELECT * FROM tbl_emp where vendor_code='" & Request.QueryString("Id") & "'"
+                strSQL = "SELECT * FROM tbl_emp where dept_approval='Approved' and hr_approval ='Pending' order by id desc";
+                ///strSQL = "SELECT * FROM tbl_emp where dept_approval='Approved' order by id desc";
+               // ' strSQL = "SELECT * FROM tbl_emp where vendor_code='" & Request.QueryString("Id") & "'"
                 //strSQL = "SELECT * FROM tbl_emp ";
-                strSQL = "SELECT * FROM tbl_emp where dept_approval='Approved'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -98,20 +96,16 @@ namespace clms2.contractor_cell
             
         }
 
-        //protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        //{
-        //    GvEmp.EditIndex = -1;
-        //    BindGrid();
-        //}
+     
 
         protected void ddlHRApproval_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList ddl_hr_approv = (DropDownList)sender;
             string str = ddl_hr_approv.SelectedValue;
             if (str == "Reject")
-                GvEmp.Columns[17].Visible = true;
+                GvEmp.Columns[18].Visible = true;  //Remarks
             else
-                GvEmp.Columns[17].Visible = false;
+                GvEmp.Columns[18].Visible = false;
 
            // CheckBox chkbox = sender as CheckBox;
             GridViewRow currentRow = ddl_hr_approv.NamingContainer as GridViewRow;
@@ -125,16 +119,14 @@ namespace clms2.contractor_cell
             {
                 rfv.Enabled = false;
             }
+
+
                
         }
 
    
 
-        //protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        //{
-        //    GvEmp.PageIndex = e.NewPageIndex;
-        //    GvEmp.DataBind();
-        //}
+      
 
         protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
@@ -209,7 +201,7 @@ namespace clms2.contractor_cell
         protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GvEmp.PageIndex = e.NewPageIndex;
-              // GvEmp.DataBind();
+              
             BindGrid();
         }
 

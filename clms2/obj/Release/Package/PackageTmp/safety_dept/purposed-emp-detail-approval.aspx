@@ -90,7 +90,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="vendor-list.aspx">
+                                                <a class="dropdown-item" href="purposed-emp-detail-approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Emp Approval
                                                 </a>
                                             </li>
@@ -154,7 +154,7 @@
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: auto;">
+                                        <div class="table-responsive" style="overflow: scroll; width: 80%">
                                             <%--========================================================================================--%>
                                             <%--  <asp:Button ID="CheckAll" runat="server" Text="Check All" class="btn btn-info" />--%>
 
@@ -190,7 +190,12 @@
                                                             <asp:Label ID="lbl_vendor_code" runat="server" Text='<%#Eval("vendor_code") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-
+                                                    <asp:TemplateField HeaderText="Employee Code" ItemStyle-Wrap="false">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_emp_code" runat="server" Text='<%#Eval("emp_code") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
+                                                    </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Emp Name" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_emp_name" runat="server" Text='<%#Eval("emp_name") %>'></asp:Label>
@@ -239,7 +244,7 @@
                         <asp:Label ID="lbl_emp_cast" runat="server" Text='<%#Eval("emp_cast") %>'></asp:Label>  
                     </ItemTemplate>  
                 </asp:TemplateField>--%>
-                                                     <asp:TemplateField HeaderText="Blood Grp" ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="Blood Grp" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_blood_grp" runat="server" Text='<%#Eval("blood_grp") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -388,22 +393,25 @@
                                                             <asp:Label ID="lbl_SafetyApproval" runat="server" Text='<%#Eval("safety_approval") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:DropDownList ID="ddlSafetyApproval" runat="server" AutoPostBack="false">
+                                                            <asp:DropDownList ID="ddlSafetyApproval" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlSafetyApproval_SelectedIndexChanged">
+                                                                <asp:ListItem Value="Select">Select</asp:ListItem>
                                                                 <asp:ListItem Value="Approved">Approved</asp:ListItem>
                                                                 <asp:ListItem Value="Reject">Reject</asp:ListItem>
                                                             </asp:DropDownList>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="ddlSafetyApproval" ErrorMessage="Select any one" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Safety Remarks">
+                                                    <asp:TemplateField HeaderText="Safety Remarks" Visible="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_SafetyRemarks" runat="server" Text='<%#Eval("safety_remarks") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txt_SafetyRemarks" runat="server" Text='<%#Eval("safety_remarks")%>'></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqValSafetyRemarks" runat="server" Enabled="false" ControlToValidate="txt_SafetyRemarks" ErrorMessage="Remarks" ForeColor="Red"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
 
-                                                 <%--   <asp:TemplateField HeaderText="Action By Security">
+                                                    <%--   <asp:TemplateField HeaderText="Action By Security">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Secapproval" runat="server" Text='<%#Eval("security_approval") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -432,7 +440,7 @@
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                                 <%-- <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />--%>
                                                 <HeaderStyle BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="#0033CC" HorizontalAlign="Center" BorderColor="#FF9900" Font-Bold="True" Font-Size="X-Large" />
                                                 <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
                                                 <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
                                                 <SortedAscendingCellStyle BackColor="#F1F1F1" />
@@ -442,6 +450,9 @@
                                             </asp:GridView>
                                             <%--  <asp:HiddenField ID="hfCount" runat="server" Value = "0" />--%>
                                             <%--========================================================================================--%>
+                                        </div>
+                                        <div>
+                                            <asp:Label ID="lblMSGError" ForeColor="Red" Font-Size="Large" runat="server" Text=""></asp:Label><br />
                                         </div>
                                     </div>
                                 </div>
@@ -499,12 +510,11 @@
                 });
             });
         </script>
-        <script type="text/jscript">
+        <%-- <script type="text/jscript">
             $(window).on("load", function () {
-                $('#GvWod').DataTable({ responsive: true });
+                $('#GvEmp').DataTable({ responsive: true });
             });
-        </script>
-
+        </script>--%>
     </form>
 </body>
 </html>

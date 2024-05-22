@@ -74,7 +74,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -152,7 +152,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
-                                        <%--    <li>
+                                            <%--    <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
@@ -208,7 +208,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                               <a class="dropdown-item" href="wage-slip-new.aspx">
+                                                <a class="dropdown-item" href="wage-slip-new.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -222,7 +222,7 @@
 
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
@@ -236,7 +236,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
@@ -262,16 +262,16 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXI
                                                 </a>
                                             </li>
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="register-of-OT.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XXIII
                                                 </a>
                                             </li>
-                                          
+
                                             <li>
                                                 <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIV
                                                 </a>
                                             </li>
                                         </ul>
@@ -287,7 +287,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settlement
                                                 </a>
                                             </li>
                                             <li>
@@ -314,6 +314,11 @@
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detailNew.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
@@ -381,6 +386,11 @@
         </table>
         <!--======================================================================================= -->
         <div class="container">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <div class="text-center">
                 <h6 class="mb-0">FORM XXIV</h6>
                 <h6 class="my-0">[See rule 82 (1)]</h6>
@@ -388,38 +398,38 @@
             </div>
             <div style="float: right">Half-year ending </div>
             <div class="row">
-               <%-- <p><b>1. </b></p>--%>
+                <%-- <p><b>1. </b></p>--%>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
-                            Contractor Name</label>
-                        <asp:TextBox ID="txtContractorName" runat="server" class="form-control m-b-0 m-t-0"
+                            Name of contractor</label>
+                        <asp:TextBox ID="vendor_owner_name" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtContractorName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            ControlToValidate="vendor_owner_name" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
-                            Contractor Address</label>
-                        <asp:TextBox ID="txtContractorAdd" runat="server" class="form-control m-b-0 m-t-0"
+                            Address of contractor</label>
+                        <asp:TextBox ID="owner_address" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtContractorAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            ControlToValidate="owner_address" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                     </div>
                 </div>
 
-               <%-- <p><b>2. </b></p>--%>
+                <%-- <p><b>2. </b></p>--%>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
-                            Name of establishment
+                            Name of Establishment
                         </label>
-                        <asp:TextBox ID="txtestbName" runat="server" class="form-control m-b-0 m-t-0"
+                        <asp:TextBox ID="vendor_name" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtestbName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            ControlToValidate="vendor_name" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                     </div>
                 </div>
 
@@ -428,10 +438,10 @@
                         <label>
                             Address of establishment
                         </label>
-                        <asp:TextBox ID="txtestbAddr" runat="server" class="form-control m-b-0 m-t-0"
+                        <asp:TextBox ID="firm_address" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtestbAddr" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            ControlToValidate="firm_address" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                     </div>
                 </div>
 
@@ -439,33 +449,35 @@
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
-                            Principal Employer Name</label>
-                        <asp:TextBox ID="txtprincEmpName" runat="server" class="form-control m-b-0 m-t-0"
+                            Name of  principal employer
+                        </label>
+                        <asp:TextBox ID="principal_employer" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtprincEmpName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            ControlToValidate="principal_employer" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
-                            Principal Employer Address</label>
-                        <asp:TextBox ID="txtprincEmpAdd" runat="server" class="form-control m-b-0 m-t-0"
+                            Address of principal employer
+                        </label>
+                        <asp:TextBox ID="pe_address" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtprincEmpAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            ControlToValidate="pe_address" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                     </div>
                 </div>
 
-                <p><b> Duration of contract :</b></p>
+                <p><b>Duration of contract :</b></p>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
                             From</label>
-                        <asp:TextBox ID="txtDurationFrom" runat="server" class="form-control m-b-0 m-t-0"
+                        <asp:TextBox ID="valid_from" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtDurationFrom" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            ControlToValidate="valid_from" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -473,14 +485,14 @@
                         <label>
                             TO
                         </label>
-                        <asp:TextBox ID="txtDurationTo" runat="server" class="form-control m-b-0 m-t-0"
+                        <asp:TextBox ID="valid_to" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtDurationTo" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            ControlToValidate="valid_to" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                     </div>
                 </div>
 
-                <p><b> Number of days during the half-year on which</b></p>
+                <p><b>Number of days during the half-year on which</b></p>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
@@ -502,7 +514,7 @@
                     </div>
                 </div>
 
-                <p><b> Maximum number of contract labour employed on any day during the half year</b></p>
+                <p><b>Maximum number of contract labour employed on any day during the half year</b></p>
                 <div class="col-md-3">
                     <div class="form-group mb-3">
                         <label>
@@ -534,14 +546,14 @@
                     <div class="form-group mb-3">
                         <label>
                             Total</label>
-                        <asp:TextBox ID="txtNoDayTotal" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <asp:TextBox ID="workers_authorised" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtNoDayTotal" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                            ControlToValidate="workers_authorised" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                     </div>
                 </div>
 
 
-               <%-- <p><b>7.</b></p>--%>
+                <%-- <p><b>7.</b></p>--%>
                 <div class="col-md-4">
                     <div class="form-group mb-3">
                         <label>
@@ -777,8 +789,19 @@
                                     ControlToValidate="txtDate" ValidationGroup="Reg"></asp:RequiredFieldValidator>
                             </div>
                         </div>
+
+
                     </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group mb-3 ">
+                            <asp:Button ID="btnSave" runat="server" BackColor="#99ccff" Text="Save" />
+                        </div>
+                    </div>
+                   
                 </div>
+
+
                 <div class="col-md-6"></div>
 
 

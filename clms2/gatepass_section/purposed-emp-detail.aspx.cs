@@ -36,8 +36,10 @@ namespace clms2.gatepass_section
             if (!Page.IsPostBack)
             {
                 BindGrid();
-                // 'strSQL = "SELECT * FROM tbl_emp where vendor_code='" & Request.QueryString("Id") & "'"
-                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
+                strSQL = "SELECT e.* FROM tbl_emp e , tbl_vendor_work_order vwo where vwo.vendor_reg_code=e.vendor_code and vwo.work_worder= e.workorderno and hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Pending' order by id desc";
+                ////strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Pending' order by id desc";
+               //// strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "' order by id desc";
+               // // 'strSQL = "SELECT * FROM tbl_emp where vendor_code='" & Request.QueryString("Id") & "'"
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -56,7 +58,9 @@ namespace clms2.gatepass_section
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
+                strSQL = "SELECT e.* FROM tbl_emp e , tbl_vendor_work_order vwo where vwo.vendor_reg_code=e.vendor_code and vwo.work_worder= e.workorderno and hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Pending' order by id desc";
+                ////strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Pending' order by id desc";
+               //// strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "' order by id desc";
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -130,7 +134,8 @@ namespace clms2.gatepass_section
         protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GvEmp.PageIndex = e.NewPageIndex;
-              GvEmp.DataBind();
+              //GvEmp.DataBind();
+            BindGrid();
         }
 
         protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -174,6 +179,35 @@ namespace clms2.gatepass_section
 
             BindGrid();
         }
+
+        protected void ddlSecApproval_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddl_sec_approv = (DropDownList)sender;
+            string str = ddl_sec_approv.SelectedValue;
+            if (str == "Reject")
+                GvEmp.Columns[17].Visible = true;  //Remarks
+            else
+                GvEmp.Columns[17].Visible = false;
+
+            // CheckBox chkbox = sender as CheckBox;
+            GridViewRow currentRow = ddl_sec_approv.NamingContainer as GridViewRow;
+            RequiredFieldValidator rfv = GvEmp.Rows[currentRow.RowIndex]
+                                               .FindControl("ReqValSecRemarks") as RequiredFieldValidator;
+            if (ddl_sec_approv.SelectedItem.Text == "Reject")
+            {
+                rfv.Enabled = true;
+            }
+            else
+            {
+                rfv.Enabled = false;
+            }
+        
+        }
+
+        //protected void ddlSecApproval_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+       // }
 
 
       

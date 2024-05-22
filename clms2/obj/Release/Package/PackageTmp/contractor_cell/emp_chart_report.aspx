@@ -67,7 +67,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -146,12 +146,12 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval 
                                                 </a>
                                             </li>
 
@@ -197,6 +197,21 @@
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                             <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                                <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
+                                            <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
                                                 </a>
@@ -229,7 +244,6 @@
                                                     <i class="fa fa-angle-right me-1"></i>Mail
                                                 </a>
                                             </li>
-
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -292,7 +306,7 @@
                                     </div>
                                 </div>
                                 <div class="card shadow border">
-                                    <div class="card-heading bg-dark text-white p-3 d-flex justify-content-between ">Employee Report</div>
+                                    <div class="card-heading bg-dark text-white p-3 d-flex justify-content-between ">Employee Chart Report</div>
                                     <div class="card-body">
                                         <%--<asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>--%>
@@ -539,14 +553,7 @@
                                                             </asp:ChartArea>
                                                         </ChartAreas>
                                                     </asp:Chart>
-                                                    <%--  <asp:Chart ID="Chart3" runat="server">
-                                                        <Series>
-                                                            <asp:Series Name="Series3"></asp:Series>
-                                                        </Series>
-                                                        <ChartAreas>
-                                                            <asp:ChartArea Name="ChartArea3"></asp:ChartArea>
-                                                        </ChartAreas>
-                                                    </asp:Chart>--%>
+                                              
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
@@ -555,140 +562,12 @@
                                             </div>
 
                                         </div>
-                                        <%--  <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Total Valid GP</label>
-                                                    <asp:TextBox ID="txtEMail" runat="server" class="form-control" TextMode="SingleLine"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>No of Emp Paid</label>
-                                                    <asp:TextBox ID="txtNoOfEmpPaid" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Man Days</label>
-                                                    <asp:TextBox ID="txtManDays" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Gross Wages Paid</label>
-                                                    <asp:TextBox ID="txtAddress" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>UAN Amount Deposited</label>
-                                                    <asp:TextBox ID="txtPFAmountDeposited" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>UAN Challan Number</label>
-                                                    <asp:TextBox ID="txtPFChallanNo" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>UAN Challan Date</label>
-                                                    <asp:TextBox ID="txtPIN" runat="server" class="form-control" MaxLength="6"></asp:TextBox>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>ESI Amount Deposited</label>
-                                                    <asp:TextBox ID="txtESIAmtDeposited" runat="server" class="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>ESI Challan Number.</label>
-                                                    <asp:TextBox ID="txtESIChallanNo" runat="server" class="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>ESI Challan Date</label>
-                                                    <asp:TextBox ID="txtEsiChallanDate" runat="server" class="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>ESI Contribution (In No)</label>
-                                                    <asp:TextBox ID="txtEsiContribution" runat="server" class="form-control"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>UAN Contricution (In No)</label>
-                                                    <asp:TextBox ID="txtPANNo" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
-                                                </div>
-                                            </div>
-                                        </div>
-                                       <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label>UAN Challan [PDF] </label><br />
-                                                <asp:FileUpload ID="PFChallanUpload" runat="server"></asp:FileUpload>
-                                            </div>
-                                        </div>
-                                      </div>
-                                         <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label>ESIC Challan [PDF] </label><br />
-                                                <asp:FileUpload ID="EsciChallanUpload" runat="server"></asp:FileUpload>
-                                            </div>
-                                        </div>
-                                      </div>
-                                       <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-3">
-                                                <label>Bank Statement [PDF] </label><br />
-                                                <asp:FileUpload ID="BankStatementUpload" runat="server"></asp:FileUpload>
-                                            </div>
-                                        </div>
-                                      </div>--%>
-
-
-                                        <%--  <hr class="my-3">--%>
-                                        <%--  <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                    <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info"></asp:Button>
-                                                    <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-danger"></asp:Button>
-                                                </div>
-                                            </div>
-                                        </div>
+                          
+                                          <hr class="my-3">
+                               
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group mb-3">
-                                                </div>
-                                            </div>
-                                        </div>--%>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                    <%--<asp:LinkButton ID="btnDownloadPF" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandPF_Click">download UAN</asp:LinkButton>
-                                                    <asp:LinkButton ID="btnDownloadEsic" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandEsic_Click">download ESIC</asp:LinkButton><br />--%>
                                                     <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label><br />
                                                     <asp:Label ID="lblMSGError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
                                                 </div>

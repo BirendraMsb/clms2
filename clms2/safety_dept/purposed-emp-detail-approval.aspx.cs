@@ -32,8 +32,10 @@ namespace clms2.safety_dept
             if (!Page.IsPostBack)
             {
                 BindGrid();
+                strSQL = "SELECT  e.* FROM tbl_emp e ,tbl_vendor_work_order vwo where vwo.vendor_reg_code=e.vendor_code and vwo.work_worder= e.workorderno and hr_approval='Approved' and dept_approval='Approved'  and safety_approval='Pending'  order by e.id desc";
+               //// strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved'  and safety_approval='Pending' and security_approval='Pending'  order by id desc";
+                ////strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved'  and vendor_code='" + Request.QueryString["Id"] + "' order by id desc";
                 ////strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "'";
-                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved'  and vendor_code='" + Request.QueryString["Id"] + "'";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -51,8 +53,11 @@ namespace clms2.safety_dept
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
+                strSQL = "SELECT e.* FROM tbl_emp e ,tbl_vendor_work_order vwo where vwo.vendor_reg_code=e.vendor_code and vwo.work_worder= e.workorderno and hr_approval='Approved' and dept_approval='Approved'  and safety_approval='Pending'  order by e.id desc";
+                ///strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved'  and safety_approval='Pending'  order by id desc";
+                ///strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "' order by id desc";
                 /// strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Request.QueryString["Id"] + "'";
-                strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
+                
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -65,7 +70,8 @@ namespace clms2.safety_dept
         }
         protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            GvEmp.PageIndex = e.NewPageIndex;
+            BindGrid();
         }
 
         protected void GvEmp_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -97,6 +103,8 @@ namespace clms2.safety_dept
 
         protected void GvEmp_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            lblMSGError.Text = "";
+
             Label id = GvEmp.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
             TextBox rmrks = GvEmp.Rows[e.RowIndex].FindControl("txt_SafetyRemarks") as TextBox;
             DropDownList approv = GvEmp.Rows[e.RowIndex].FindControl("ddlSafetyApproval") as DropDownList;
@@ -104,18 +112,50 @@ namespace clms2.safety_dept
             DropDownList medical_report = GvEmp.Rows[e.RowIndex].FindControl("ddlMedReport") as DropDownList;
             dbConnection();
 
-            string Str = "Update tbl_emp set  medical_report='" + medical_report.SelectedItem.Text + "' , safety_training='" + SafetyTraining.SelectedItem.Text + "',  safety_remarks='" + rmrks.Text + "', safety_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
+            if (medical_report.SelectedValue=="Fit" && SafetyTraining.SelectedValue=="Completed")
+            {
+                string Str = "Update tbl_emp set  medical_report='" + medical_report.SelectedItem.Text + "' , safety_training='" + SafetyTraining.SelectedItem.Text + "',  safety_remarks='" + rmrks.Text + "', safety_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
 
-            SqlCommand cm = new SqlCommand(Str, con);
-            cm.ExecuteNonQuery();
+                SqlCommand cm = new SqlCommand(Str, con);
+                cm.ExecuteNonQuery();
 
-            con.Close();
-            GvEmp.EditIndex = -1;
+                con.Close();
+                GvEmp.EditIndex = -1;
 
-            BindGrid();
+                BindGrid();
 
-            //lblMsg.Text = "Record Updated......";
+                //lblMsg.Text = "Record Updated......";
+            }
+            else
+            {
+                lblMSGError.Text = "";
+                lblMSGError.Text = "It will not be approved. Check Medical Report and Safety Training";
+            }
+         
 
+        }
+
+        protected void ddlSafetyApproval_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddl_safety_approv = (DropDownList)sender;
+            string str = ddl_safety_approv.SelectedValue;
+            if (str == "Reject")
+                GvEmp.Columns[15].Visible = true;  //Remarks
+            else
+                GvEmp.Columns[15].Visible = false;
+
+            // CheckBox chkbox = sender as CheckBox;
+            GridViewRow currentRow = ddl_safety_approv.NamingContainer as GridViewRow;
+            RequiredFieldValidator rfv = GvEmp.Rows[currentRow.RowIndex]
+                                               .FindControl("ReqValSafetyRemarks") as RequiredFieldValidator;
+            if (ddl_safety_approv.SelectedItem.Text == "Reject")
+            {
+                rfv.Enabled = true;
+            }
+            else
+            {
+                rfv.Enabled = false;
+            }
         }
     }
 }

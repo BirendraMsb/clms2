@@ -71,7 +71,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -150,12 +150,12 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
 
@@ -200,6 +200,21 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
@@ -287,7 +302,8 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-
+                                <br />
+                                <br />
                                 <br />
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
@@ -295,7 +311,7 @@
 
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: scroll; width: 70%">
+                                        <div class="table-responsive" style="overflow: scroll; width: 80%">
                                             <%--========================================================================================--%>
                                             <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
                                             <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="15" ForeColor="Red"></asp:Label>
@@ -775,15 +791,17 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="Action By HR">
+                                                    <asp:TemplateField HeaderText="Action By HR" ControlStyle-Width="100px">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_HRApproval" runat="server" Text='<%#Eval("hr_approval") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:DropDownList ID="ddlHRApproval" runat="server" AutoPostBack="false">
+                                                            <asp:DropDownList ID="ddlHRApproval" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlHRApproval_SelectedIndexChanged">
+                                                                <asp:ListItem Value="Select">Select</asp:ListItem>
                                                                 <asp:ListItem Value="Approved">Approved</asp:ListItem>
                                                                 <asp:ListItem Value="Reject">Reject</asp:ListItem>
                                                             </asp:DropDownList>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="ddlHRApproval" ErrorMessage="Select any one" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="HR Remarks" Visible="true">
@@ -792,6 +810,7 @@
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txt_HRRemarks" runat="server" Text='<%#Eval("hr_remarks")%>'></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqValHRRemarks" runat="server" Enabled="false" ControlToValidate="txt_HRRemarks" ErrorMessage="Remarks" ForeColor="Red"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField>
@@ -808,7 +827,7 @@
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                                 <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="#0033CC" HorizontalAlign="Center" BorderColor="#FF9900" Font-Bold="True" Font-Size="X-Large" />
                                                 <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
                                                 <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
                                                 <SortedAscendingCellStyle BackColor="#F1F1F1" />

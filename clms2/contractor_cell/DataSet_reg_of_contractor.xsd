@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet_reg_of_contractor" targetNamespace="http://tempuri.org/DataSet_reg_of_contractor.xsd" xmlns:mstns="http://tempuri.org/DataSet_reg_of_contractor.xsd" xmlns="http://tempuri.org/DataSet_reg_of_contractor.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="clms2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="clms2ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.clms2ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="clms2ConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT vwo.id, vwo.status, pe.principal_employer, pe.pe_address, vi.vendor_name, vi.firm_address, vwo.nature_of_work, vwo.job_location, vwo.valid_from, vwo.valid_to
+FROM     tbl_vendor_work_order AS vwo INNER JOIN
+                  tbl_vendor_info AS vi ON vwo.vendor_reg_code = vi.vendor_reg_code CROSS JOIN
+                  tbl_principal_employer AS pe
+WHERE  (vwo.status = 'A')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="status" DataSetColumn="status" />
+              <Mapping SourceColumn="principal_employer" DataSetColumn="principal_employer" />
+              <Mapping SourceColumn="pe_address" DataSetColumn="pe_address" />
+              <Mapping SourceColumn="vendor_name" DataSetColumn="vendor_name" />
+              <Mapping SourceColumn="firm_address" DataSetColumn="firm_address" />
+              <Mapping SourceColumn="nature_of_work" DataSetColumn="nature_of_work" />
+              <Mapping SourceColumn="job_location" DataSetColumn="job_location" />
+              <Mapping SourceColumn="valid_from" DataSetColumn="valid_from" />
+              <Mapping SourceColumn="valid_to" DataSetColumn="valid_to" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet_reg_of_contractor" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet_reg_of_contractor" msprop:Generator_UserDSName="DataSet_reg_of_contractor">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="status" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="principal_employer" msprop:Generator_ColumnVarNameInTable="columnprincipal_employer" msprop:Generator_ColumnPropNameInRow="principal_employer" msprop:Generator_ColumnPropNameInTable="principal_employerColumn" msprop:Generator_UserColumnName="principal_employer" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="pe_address" msprop:Generator_ColumnVarNameInTable="columnpe_address" msprop:Generator_ColumnPropNameInRow="pe_address" msprop:Generator_ColumnPropNameInTable="pe_addressColumn" msprop:Generator_UserColumnName="pe_address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vendor_name" msprop:Generator_ColumnVarNameInTable="columnvendor_name" msprop:Generator_ColumnPropNameInRow="vendor_name" msprop:Generator_ColumnPropNameInTable="vendor_nameColumn" msprop:Generator_UserColumnName="vendor_name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="firm_address" msprop:Generator_ColumnVarNameInTable="columnfirm_address" msprop:Generator_ColumnPropNameInRow="firm_address" msprop:Generator_ColumnPropNameInTable="firm_addressColumn" msprop:Generator_UserColumnName="firm_address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nature_of_work" msprop:Generator_ColumnVarNameInTable="columnnature_of_work" msprop:Generator_ColumnPropNameInRow="nature_of_work" msprop:Generator_ColumnPropNameInTable="nature_of_workColumn" msprop:Generator_UserColumnName="nature_of_work" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="job_location" msprop:Generator_ColumnVarNameInTable="columnjob_location" msprop:Generator_ColumnPropNameInRow="job_location" msprop:Generator_ColumnPropNameInTable="job_locationColumn" msprop:Generator_UserColumnName="job_location" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="valid_from" msprop:Generator_ColumnVarNameInTable="columnvalid_from" msprop:Generator_ColumnPropNameInRow="valid_from" msprop:Generator_ColumnPropNameInTable="valid_fromColumn" msprop:Generator_UserColumnName="valid_from" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="valid_to" msprop:Generator_ColumnVarNameInTable="columnvalid_to" msprop:Generator_ColumnPropNameInRow="valid_to" msprop:Generator_ColumnPropNameInTable="valid_toColumn" msprop:Generator_UserColumnName="valid_to" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

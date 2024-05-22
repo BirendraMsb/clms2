@@ -64,7 +64,7 @@
         <table class="table">
             <tr>
                 <td>
-                     <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -142,7 +142,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
-                                          <%--  <li>
+                                            <%--  <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
@@ -212,7 +212,7 @@
 
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
@@ -252,40 +252,40 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXI
                                                 </a>
                                             </li>
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="register-of-OT.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XXIII
                                                 </a>
                                             </li>
-                                          
+
                                             <li>
                                                 <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIV
                                                 </a>
                                             </li>
-           
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Offboarding <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                           <li>
-                                               <a class="dropdown-item" href="fnf_request.aspx">
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_request.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Full and Final Request
-                                               </a>
-                                           </li>
-                                          <li>
-                                               <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
-                                               </a>
-                                           </li>
-                                          <li>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="fnf_settlement.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settlement
+                                                </a>
+                                            </li>
+                                            <li>
                                                 <a class="dropdown-item" href="gratuity.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Gratuity
                                                 </a>
-                                           </li>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -305,6 +305,11 @@
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detailNew.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
@@ -375,6 +380,8 @@
                         <div class="page-content-tab">
                             <div class="container-fluid">
                                 <br />
+                                <br />
+                                <br />
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Gratuity </div>
                                     <div class="card-body">
@@ -383,12 +390,12 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group mb-3">
-                                                  <%--  <asp:Button ID="cmdSubmit" runat="server" Text="Submit" Width="150px" class="btn btn-info"></asp:Button>--%>
+                                                    <%--  <asp:Button ID="cmdSubmit" runat="server" Text="Submit" Width="150px" class="btn btn-info"></asp:Button>--%>
                                                     <%-- <asp:Button ID="btnBulkInsert" runat="server" Text="Insert" Width="150px" class="btn btn-info" OnClick="btnBulkInsert_Click"></asp:Button>--%>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" >
+                                        <div class="row">
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <label>Work Order</label>
@@ -469,7 +476,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Sl.No in Resister of Workman" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Sl.No in Register of Workmen" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
                                                             </ItemTemplate>
@@ -487,7 +494,7 @@
                                                             </ItemTemplate>
                                                             <ItemStyle Width="50px" />
                                                         </asp:TemplateField>
-                                                       
+
                                                         <asp:TemplateField HeaderText="Date of Joining" ItemStyle-Width="50px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="date_of_joining" runat="server" Text='<%# Eval("date_of_joining") %>'></asp:Label>

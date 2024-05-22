@@ -11,7 +11,7 @@
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
-   <%-- <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />--%>
+    <%-- <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />--%>
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/bootstrap.min.css" />
@@ -64,7 +64,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -92,7 +92,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="work-order-detail-Rej.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Rejected Work order
                                                 </a>
@@ -143,12 +143,12 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
 
@@ -193,6 +193,21 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
@@ -280,22 +295,24 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-
                                 <br />
+                                <br />
+                                <br />
+                               
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
                                         <span>Employee Blocking</span>
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: scroll;width:90%" >
+                                        <div class="table-responsive" style="overflow: scroll; width: 80%">
                                             <%--========================================================================================--%>
                                             <%--    <asp:Button ID="CheckAll" runat="server" Text="Check All" class="btn btn-info" />
                                 <asp:Button ID="UncheckAll" runat="server" Text="Uncheck All" class="btn btn-info" />--%>
 
                                             <%--<asp:Button ID="btnGenerate_GP" runat="server" Text="Generate GP" class="btn bg-purple" OnClick="OpenWindow" />--%>
                                             <asp:GridView ID="GvEmp" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                GridLines="Vertical"  AllowPaging="True" PageSize="5" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowCancelingEdit="GvEmp_RowCancelingEdit" OnRowDataBound="GvEmp_RowDataBound" OnRowEditing="GvEmp_RowEditing" OnRowUpdating="GvEmp_RowUpdating">
+                                                GridLines="Vertical" AllowPaging="True" PageSize="5" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowCancelingEdit="GvEmp_RowCancelingEdit" OnRowDataBound="GvEmp_RowDataBound" OnRowEditing="GvEmp_RowEditing" OnRowUpdating="GvEmp_RowUpdating">
 
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                 <Columns>
@@ -319,21 +336,21 @@
                                                             <asp:Label ID="lbl_workorderno" runat="server" Text='<%#Eval("workorderno") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Vendor Code" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_vendor_code" runat="server" Text='<%#Eval("vendor_code") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Emp Name" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_emp_name" runat="server" Text='<%#Eval("emp_name") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Photo">
                                                         <ItemTemplate>
@@ -372,7 +389,7 @@
                                                             <asp:Label ID="lbl_gender" runat="server" Text='<%#Eval("gender") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
                                                     <%-- <asp:TemplateField HeaderText="DOB" ItemStyle-Wrap="false">
                                             <ItemTemplate>
@@ -395,28 +412,28 @@
                                                             <asp:Label ID="lbl_aadhar_no" runat="server" Text='<%#Eval("aadhar_no") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Caste" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_emp_cast" runat="server" Text='<%#Eval("emp_cast") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="UAN No." ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="PF No." ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_pfno" runat="server" Text='<%#Eval("pfno") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="ESIC NO" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_escic" runat="server" Text='<%#Eval("escic") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
 
                                                     <asp:TemplateField HeaderText="Bank Name" ItemStyle-Wrap="false">
@@ -424,21 +441,21 @@
                                                             <asp:Label ID="lbl_bank_name" runat="server" Text='<%#Eval("bank_name") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Account No." ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_acc_no" runat="server" Text='<%#Eval("acc_no") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="IFSC Code" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_ifs_code" runat="server" Text='<%#Eval("ifs_code") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
 
                                                     <asp:TemplateField HeaderText="Domicile State" ItemStyle-Wrap="false">
@@ -446,7 +463,7 @@
                                                             <asp:Label ID="lbl_domicile_state" runat="server" Text='<%#Eval("domicile_state") %>'></asp:Label>
                                                         </ItemTemplate>
 
-<ItemStyle Wrap="False"></ItemStyle>
+                                                        <ItemStyle Wrap="False"></ItemStyle>
                                                     </asp:TemplateField>
 
                                                     <%--     <asp:TemplateField HeaderText="Domicile Certificate" ItemStyle-Wrap="false">  
@@ -518,7 +535,7 @@
                                                             <asp:Label ID="lbl_HRApproval" runat="server" Text='<%#Eval("hr_approval") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                     <asp:TemplateField HeaderText="Blocking By HR">
+                                                    <asp:TemplateField HeaderText="Blocking By HR">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_HRBlocking" runat="server" Text='<%#Eval("blocking_by_hr") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -537,23 +554,25 @@
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txt_HRRemOfBlocking" runat="server" Text='<%#Eval("hr_rem_of_blocking")%>'></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqHRRemOfBlocking" runat="server" Enabled="false" ControlToValidate="txt_HRRemOfBlocking" ErrorMessage="Remarks" ForeColor="Red"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Start Date"   Visible="false">
+                                                    <asp:TemplateField HeaderText="Start Date" ControlStyle-Width="80px" Visible="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblStartDate" runat="server"
                                                                 Text='<%#(Eval("start_date_of_blocking"))%>'></asp:Label>
                                                             <%-- Text='<%#Convert.ToDateTime(Eval("hr_remarks")).ToString("yyyy-MM-dd")%>'></asp:Label>--%>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:TextBox ID="txtStartDate" runat="server"  Text='<%#Eval("start_date_of_blocking")%>'></asp:TextBox></br>
+                                                            <asp:TextBox ID="txtStartDate" runat="server" Text='<%#Eval("start_date_of_blocking")%>'></asp:TextBox></br>
+                                                            <asp:RequiredFieldValidator ID="ReqStartDate" runat="server" Enabled="false" ControlToValidate="txtStartDate" ErrorMessage="Date" ForeColor="Red"></asp:RequiredFieldValidator>
                                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Enter Valid Date" ControlToValidate="txtStartDate" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
                                                         </EditItemTemplate>
-                                                        
+
                                                         <%--<ControlStyle Width="100px" />--%>
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="End Date" Visible="false">
+                                                    <asp:TemplateField HeaderText="End Date" ControlStyle-Width="80px" Visible="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lblEndDate" runat="server"
                                                                 Text='<%#(Eval("end_date_of_blocking"))%>'></asp:Label>
@@ -561,10 +580,11 @@
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txtEndDate" runat="server" Text='<%#Eval("end_date_of_blocking")%>'></asp:TextBox></br>
+                                                            <asp:RequiredFieldValidator ID="ReqEndDate" runat="server" Enabled="false" ControlToValidate="txtEndDate" ErrorMessage="Date" ForeColor="Red"></asp:RequiredFieldValidator>
                                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Enter Valid Date" ControlToValidate="txtEndDate" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
                                                         </EditItemTemplate>
-                                                        
-                                                      <%--  <ControlStyle Width="100px" />--%>
+
+                                                        <%--  <ControlStyle Width="100px" />--%>
                                                     </asp:TemplateField>
 
                                                     <%--  <asp:TemplateField HeaderText="Action By Safety">  
@@ -592,7 +612,7 @@
 
                                                     <asp:TemplateField>
                                                         <ItemTemplate>
-                                                            <asp:Button ID="btn_Edit" runat="server" Text="Approval" CommandName="Edit" />
+                                                            <asp:Button ID="btn_Edit" runat="server" Text="Blocking" CommandName="Edit" />
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:Label ID="lbl_id" runat="server" Text='<%#Eval("id") %>' Visible="false"></asp:Label>
@@ -606,7 +626,7 @@
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                                 <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="#0033CC" HorizontalAlign="Center" BorderColor="#FF9900" Font-Bold="True" Font-Size="X-Large" />
                                                 <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
                                                 <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
                                                 <SortedAscendingCellStyle BackColor="#F1F1F1" />
@@ -673,7 +693,7 @@
                 });
             });
         </script>
-    
+
         ''======Adding calender in the grid date field=====''
      <%-- <script type="text/javascript">
           $(document).ready(function () {
@@ -684,7 +704,7 @@
 
       </script>--%>
 
-  <%--      <script type="text/javascript">
+        <%--      <script type="text/javascript">
 
             $(document).ready(function () {
 
@@ -694,7 +714,6 @@
             });
 
         </script>--%>
-
     </form>
     <link rel="stylesheet" href="../dtm/css/pikaday.css" />
     <script src="../dtm/date_fns.min.js" type="text/jscript"></script>
@@ -739,9 +758,9 @@
         });
     </script>
     <script type="text/jscript">
-            $(window).on("load", function () {
-                $('#GvEmp').DataTable({ responsive: true });
-            });
-        </script>
+        $(window).on("load", function () {
+            $('#GvEmp').DataTable({ responsive: true });
+        });
+    </script>
 </body>
 </html>

@@ -10,6 +10,12 @@
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
+     <%--MAKE TOGLLER MENU  /app.min.css should be commented--%>
+  <%--  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" />--%>
+ <%--   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--%>
+  <%--  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>--%>
+
+
     <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
@@ -18,7 +24,7 @@
     <link rel="stylesheet" href="~/public/newfront/assets/css/icons.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/app.min.css" />
     <link rel="stylesheet" href="~/public/common/css/commoncss.min.css" />
-    <link rel="apple-touch-icon" sizes="57x57" href="~/public/common/icons/apple-icon-57x57.png" />
+<%--    <link rel="apple-touch-icon" sizes="57x57" href="~/public/common/icons/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="~/public/common/icons/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="~/public/common/icons/apple-icon-72x72.png" />
     <link rel="apple-touch-icon" sizes="76x76" href="~/public/common/icons/apple-icon-76x76.png" />
@@ -30,7 +36,7 @@
     <link rel="icon" type="image/png" sizes="192x192" href="~/public/common/icons/android-icon-192x192.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="~/public/common/icons/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="~/public/common/icons/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="~/public/common/icons/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/public/common/icons/favicon-16x16.png" />--%>
 
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
@@ -60,13 +66,13 @@
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
-        <%--<div class="loading">
+        <%-- <div class="loading">
             <div class="loader"></div>
         </div>--%>
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -88,7 +94,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb1" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
 
                                             <li>
@@ -110,8 +116,13 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendor Registration <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendor Registration <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
+                                             <li>
+                                                <a class="dropdown-item" href="work-order-detail-Rej.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Rejected List
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detail_entry.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Update
@@ -137,14 +148,14 @@
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb3" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="show-gen-shift.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
-                                         <%--   <li>
+                                            <%--   <li>
                                                 <a class="dropdown-item" href="#">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
@@ -211,9 +222,9 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
@@ -279,7 +290,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settlement
                                                 </a>
                                             </li>
                                             <li>
@@ -306,6 +317,11 @@
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detailNew.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
@@ -375,21 +391,11 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-                                <div class="row mb-2 border-bottom pb-2">
-                                    <%--					<div class="col-sm-12">
-						<div class="page-title-box">
-							<div class="float-start">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="admin-dashboard.html">Dashboard</a></li>
-									<li class="breadcrumb-item active"><a href="admin-dashboard.html">Dashboard</a></li>
-								</ol>
-							</div>
-						</div>
-					</div>--%>
-                                </div>
+
                                 <div class="card border-0">
-                                    <div class="row mb-2">
+                                    <div class="row mb-3">
                                         <div class="col-md-3">
+                                            
                                             <div class="card shadow border">
                                                 <div class="card-body d-flex align-items-center justify-content-start">
                                                     <span>
@@ -397,8 +403,8 @@
                                                     </span>
                                                     <span>
                                                         <h4>Total Work Order</h4>
-                                                        <h3 class="mb-0">
-                                                            <asp:Label ID="lblRegVendor" runat="server" Text="01"></asp:Label></h3>
+                                                        <h3 class="mb-0">01</h3>
+                                                       <%-- <h3 class="mb-0"><asp:Label ID="lblRegVendor" runat="server" Text="01"></asp:Label></h3>--%>
                                                     </span>
                                                 </div>
                                                 <div class="card-footer text-center">

@@ -11,7 +11,7 @@
     <meta property="og:url" content="index.html">
     <meta property="og:type" content="HR Solutions and Services">
     <meta property="og:title" content="Organization Profile">
-    <meta property="og:description" content="GreenHRM Solutions has defined its Mission, Vision & Core Values to bring clarity to all our stakeholders.">
+    <meta property="og:description" content="Electro Solutions has defined its Mission, Vision & Core Values to bring clarity to all our stakeholders.">
     <meta property="og:image" content="public/webfront/website/assets/img/websocial/Facebook_Banner.html">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -85,7 +85,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-      <%--  <div class="loading">
+        <%--  <div class="loading">
             <div class="loader"></div>
         </div>--%>
         <div class="content-wrapper">
@@ -95,15 +95,18 @@
                     <div class="container flex-lg-row flex-nowrap align-items-center" style="padding: 8px;">
                         <div class="navbar-brand w-100">
                             <%--<a href="#" aria-label="Website">--%>
-                            <img class="logo-dark navb-img" src="images/greenhrmwhite.png" alt="" title="" />
-                            <img class="logo-light navb-img" src="images/ghrm.png" alt="" title="" />
+                            <img class="logo-dark navb-img" src="images/electro_sol1.png" style="height:40px;width:100px" alt="" title="" />
+                            <img class="logo-light navb-img " src="images/electro_sol1.png" style="height:40px;width:100px" alt="" title=""  />
+                          
+                            <%--<img class="logo-dark navb-img" src="images/greenhrmwhite.png" alt="" title="" />--%>
+                            <%--<img class="logo-light navb-img" src="images/ghrm.png" alt="" title="" />--%>
                             <%--<img class="logo-dark navb-img" src="public/webfront/website/assets/img/weblogo/greenhrmcolor.svg" srcset="http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@2x.svg 2x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@3x.svg 3x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@4x.svg 4x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@5x.svg 5x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@6x.svg 6x" alt="" width="233" height="70">
 						<img class="logo-light navb-img" src="public/webfront/website/assets/img/weblogo/greenhrmwhite.svg" srcset="http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@2x.svg 2x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@3x.svg 3x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@4x.svg 4x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@5x.svg 5x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@6x.svg 6x" alt="" width="233" height="70">--%>
                             <%--</a>--%>
                         </div>
                         <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
                             <div class="offcanvas-header d-lg-none">
-                                <div class="text-white fs-21 mb-0">GreenHRM Solutions</div>
+                                <div class="text-white fs-21 mb-0">Electro Solutions</div>
                                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                             </div>
                         </div>
@@ -125,7 +128,7 @@
                         <div class="col-lg-12">
                             <h2>Contract Labour Management System</h2>
                             <p align="justify">
-                                <strong>CLM Services from GreenHRM Solutions is an IT enabled,</strong>
+                                <strong>CLM Services from Electro Solutions is an IT enabled,</strong>
                                 one of the most innovatively designed, cost effective, start to end centralised contract 
 labour lifecycle management services. It’s a real time solution giving complete visibility of 
 the contract, bringing in transparency between company & contractor records, with many management 
@@ -189,7 +192,7 @@ and intangible benefits to Service Providers/Contractors/Contract Workers and Pr
                             <strong>Disclaimer : </strong>
                             Contents, concept, template, logo, tagline, method and software, 
                  comprised in and associated with CLMS are proprietary to 
-                 GreenHRM Solutions and any unauthorized use or disclosure thereof is strictly prohibited.<br />
+                 Electro Solutions and any unauthorized use or disclosure thereof is strictly prohibited.<br />
                             <p style="text-align: center"><strong>Plateform : Dot Net <span>| </span>Technology : ASP.NET <span>| </span>Ver : 4.5 </strong></p>
                         </div>
 
@@ -212,7 +215,7 @@ and intangible benefits to Service Providers/Contractors/Contract Workers and Pr
         </div>
 
         <footer class="bg-navy text-inverse">
-            &copy; GreenHRM Solutions | All Rights Reserved 
+            &copy; Electro Solutions | All Rights Reserved 
         </footer>
         <script src="public/webfront/website/assets/js/primary.min.js"></script>
         <script> $("h2").addClass("display-5 mb-3"); $(".icon-list.bullet-bg li").append("<i class='uil uil-check'></i> ");</script>

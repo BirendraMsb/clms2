@@ -96,7 +96,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="vendor-list.aspx">
+                                                <a class="dropdown-item" href="purposed-emp-detail-approval.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Emp Approval
                                                 </a>
                                             </li>
@@ -174,12 +174,31 @@
 
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow:scroll; width:70%";>
+                                        <div class="table-responsive" style="overflow:scroll; width:80%";>
                                             <%--========================================================================================--%>
-                                            <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
+                                           
                                             <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="15" ForeColor="Red"></asp:Label>
                                             <asp:Label ID="lblVendorName" runat="server" Text="" Font-Size="15" ForeColor="Blue"></asp:Label>
-
+                                            <div class="d-inline-flex align-items-center">
+                                                 <asp:DropDownList ID="ddlWorkOrder" AutoPostBack="false" runat="server" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
+                                                 <asp:DropDownList ID="ddlMonth" runat="server"  Width="100px" AutoPostBack="true"  MaxLength="150" >
+                                                            <%-- <asp:ListItem>Select</asp:ListItem>--%>
+                                                            <asp:ListItem Value="1">Jan</asp:ListItem>
+                                                            <asp:ListItem Value="2">Feb</asp:ListItem>
+                                                            <asp:ListItem Value="3">Mar</asp:ListItem>
+                                                            <asp:ListItem Value="4">Apr</asp:ListItem>
+                                                            <asp:ListItem Value="5">May</asp:ListItem>
+                                                            <asp:ListItem Value="6">Jun</asp:ListItem>
+                                                            <asp:ListItem Value="7">Jul</asp:ListItem>
+                                                            <asp:ListItem Value="8">Aug</asp:ListItem>
+                                                            <asp:ListItem Value="9">Sep</asp:ListItem>
+                                                            <asp:ListItem Value="10">Oct</asp:ListItem>
+                                                            <asp:ListItem Value="11">Nov</asp:ListItem>
+                                                            <asp:ListItem Value="12">Dec</asp:ListItem>
+                                                 </asp:DropDownList>&nbsp&nbsp&nbsp
+                                                <asp:DropDownList ID="ddlYear" runat="server"  Width="100px"  MaxLength="100"></asp:DropDownList>&nbsp&nbsp&nbsp
+                                                 <asp:Button ID="btnProcess" runat="server" BackColor="#6699ff" Text="Process" OnClick="btnProcess_Click"/>
+                                            </div>
                                             <asp:GridView ID="GvAttn" runat="server" CssClass="gridview-container" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical"  DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GvAttn_PageIndexChanging" OnRowCancelingEdit="GvAttn_RowCancelingEdit" OnRowEditing="GvAttn_RowEditing" OnRowUpdating="GvAttn_RowUpdating">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -654,30 +673,33 @@
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="Action By Dept">
+                                                    <asp:TemplateField HeaderText="Action By Dept" ControlStyle-Width="100px">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_DeptApproval" runat="server" Text='<%#Eval("dept_approval") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:DropDownList ID="ddlDeptApproval" runat="server" AutoPostBack="false">
+                                                            <asp:DropDownList ID="ddlDeptApproval" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlDeptApproval_SelectedIndexChanged">
+                                                                <asp:ListItem Value="Select">Select</asp:ListItem>
                                                                 <asp:ListItem Value="Approved">Approved</asp:ListItem>
                                                                 <asp:ListItem Value="Reject">Reject</asp:ListItem>
                                                             </asp:DropDownList>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="ddlDeptApproval" ErrorMessage="Select any one" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Dept Remarks" Visible="true">
+                                                    <asp:TemplateField HeaderText="Dept Remarks" Visible="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_DeptRemarks" runat="server" Text='<%#Eval("dept_remarks") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txt_DeptRemarks" runat="server" Text='<%#Eval("dept_remarks")%>'></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqValDeptRemarks" runat="server" Enabled="false" ControlToValidate="txt_DeptRemarks" ErrorMessage="Remarks" ForeColor="Red"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField>
+                                                    <asp:TemplateField >
                                                         <ItemTemplate>
                                                             <asp:Button ID="btn_Edit" runat="server" Text="Approval" CommandName="Edit" />
                                                         </ItemTemplate>
-                                                        <EditItemTemplate>
+                                                        <EditItemTemplate >
                                                             <asp:Label ID="lbl_id" runat="server" Text='<%#Eval("id") %>' Visible="false"></asp:Label>
                                                             <asp:Button ID="btn_Update" runat="server" Text="OK" CommandName="Update" />
                                                             <%--<asp:Button ID="btn_Cancel" runat="server" Text="Cancel" CommandName="Cancel" />--%>

@@ -65,7 +65,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -93,7 +93,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="work-order-detail-Rej.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Rejected Work order
                                                 </a>
@@ -144,12 +144,12 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
 
@@ -194,6 +194,21 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
@@ -281,15 +296,17 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-
                                 <br />
+                                <br />
+                                <br />
+                                
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
                                         <span>Wages Document Approval</span>
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: scroll;width:80%">
+                                        <div class="table-responsive" style="overflow: scroll; width: 100%">
                                             <%--========================================================================================--%>
                                             <%--  <asp:Button ID="CheckAll" runat="server" Text="Check All" class="btn btn-info" />--%>
 
@@ -322,9 +339,14 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
-                                                    <asp:TemplateField HeaderText="Month And Year" ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="Month" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_MontheYear" runat="server" Text='<%#Eval("month") %>'></asp:Label>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Year" ItemStyle-Wrap="false">
+                                                        <ItemTemplate>
+                                                            <asp:Label ID="lbl_Year" runat="server" Text='<%#Eval("year") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
@@ -385,17 +407,17 @@
                                                             <asp:Label ID="lbl_gross_wages_paid" runat="server" Text='<%#Eval("gross_wages_paid") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="UAN Amt Deposited" ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="PF Amt Deposited" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_pfAmt" runat="server" Text='<%#Eval("pf_amt_deposited") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="UAN Challan No" ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="PF Challan No" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_pf_Challan_No" runat="server" Text='<%#Eval("pf_challan_no") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="UAN Challan Date" ItemStyle-Wrap="false">
+                                                    <asp:TemplateField HeaderText="PF Challan Date" ItemStyle-Wrap="false">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_pf_Challan_Date" runat="server" Text='<%#Eval("pf_challan_date") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -426,22 +448,32 @@
                     </ItemTemplate>  
                 </asp:TemplateField>--%>
 
-                                                    <asp:TemplateField HeaderText="UAN Challan PDF">
+                                                    <asp:TemplateField HeaderText="PF Challan PDF">
                                                         <ItemTemplate>
-                                                            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pf_challan_pdf") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pf_challan_pdf", "../pf_challan_pdf/{0}") %>'></asp:HyperLink>
+                                                            <asp:HyperLink ID="HyperLink1" runat="server" Target="_blank" Text='<%# Bind("pf_challan_pdf") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pf_challan_pdf", "../wages_doc_uplouad/pf_doc/{0}") %>'></asp:HyperLink>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
 
                                                     <asp:TemplateField HeaderText="ESIC Challan PDF">
                                                         <ItemTemplate>
-                                                            <%--<asp:HyperLink ID="HyperLink2" runat="server" Target="_blank" Text='<%# Bind("esic_challan_pdf") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.esic_challan_pfd", "../esic_challan_pdf/{0}") %>'></asp:HyperLink>--%>
+                                                            <asp:HyperLink ID="HyperLink2" runat="server" Target="_blank" Text='<%# Bind("esic_challan_pdf") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.esic_challan_pdf", "../wages_doc_uplouad/esic_doc/{0}") %>'></asp:HyperLink>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
                                                     <asp:TemplateField HeaderText="Bank Statemnt PDF">
                                                         <ItemTemplate>
-                                                            <asp:HyperLink ID="HyperLink3" runat="server" Target="_blank" Text='<%# Bind("bank_statement_pdf") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.bank_statement_pdf", "../bank_statement_pdf/{0}") %>'></asp:HyperLink>
+                                                            <asp:HyperLink ID="HyperLink3" runat="server" Target="_blank" Text='<%# Bind("bank_statement_pdf") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.bank_statement_pdf", "../wages_doc_uplouad/bank_doc/{0}") %>'></asp:HyperLink>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="PF ECR PDF ">
+                                                        <ItemTemplate>
+                                                            <asp:HyperLink ID="HyperLink4" runat="server" Target="_blank" Text='<%# Bind("pf_ecr_file") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.pf_ecr_file", "../wages_doc_uplouad/pf_ecr_doc/{0}") %>'></asp:HyperLink>
+                                                        </ItemTemplate>
+                                                    </asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="ESI ECR PDF ">
+                                                        <ItemTemplate>
+                                                            <asp:HyperLink ID="HyperLink5" runat="server" Target="_blank" Text='<%# Bind("esi_ecr_file") %>' NavigateUrl='<%# DataBinder.Eval(Container, "DataItem.esi_ecr_file", "../wages_doc_uplouad/esi_ecr_doc/{0}") %>'></asp:HyperLink>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
 
@@ -498,7 +530,7 @@
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>--%>
 
-                                                 <%--   <asp:TemplateField HeaderText="Action By Dept">
+                                                    <%--   <asp:TemplateField HeaderText="Action By Dept">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_DeptApproval" runat="server" Text='<%#Eval("dept_approval") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -509,23 +541,26 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>--%>
 
-                                                    <asp:TemplateField HeaderText="Action By HR">
+                                                    <asp:TemplateField HeaderText="Approval By HR">
                                                         <ItemTemplate>
-                                                            <%--<asp:Label ID="lbl_HRApproval" runat="server" Text='<%#Eval("hr_approval") %>'></asp:Label>--%>
+                                                            <asp:Label ID="lbl_HRApproval" runat="server" Text='<%#Eval("hr_approval") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
-                                                            <asp:DropDownList ID="ddlHRApproval" runat="server" AutoPostBack="true" >
+                                                            <asp:DropDownList ID="ddlHRApproval" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlHRApproval_SelectedIndexChanged">
+                                                                <asp:ListItem Value="Select">Select</asp:ListItem>
                                                                 <asp:ListItem Value="Approved">Approved</asp:ListItem>
                                                                 <asp:ListItem Value="Reject">Reject</asp:ListItem>
                                                             </asp:DropDownList>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="ddlHRApproval" ErrorMessage="* Pls Select any one" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="HR Remarks" Visible="false">
                                                         <ItemTemplate>
-                                                           <%-- <asp:Label ID="lbl_HRRemarks" runat="server" Text='<%#Eval("hr_remarks") %>'></asp:Label>--%>
+                                                            <asp:Label ID="lbl_HRRemarks" runat="server" Text='<%#Eval("hr_remarks") %>'></asp:Label>
                                                         </ItemTemplate>
                                                         <EditItemTemplate>
                                                             <asp:TextBox ID="txt_HRRemarks" runat="server" Text='<%#Eval("hr_remarks")%>'></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqValHRRemarks" runat="server" Enabled="false" ControlToValidate="txt_HRRemarks" ErrorMessage="Remarks" ForeColor="Red"></asp:RequiredFieldValidator>
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
 
@@ -540,7 +575,7 @@
                                             </ItemTemplate>
                                         </asp:TemplateField>--%>
 
-                                                  <%--  <asp:TemplateField HeaderText="Action By Security">
+                                                    <%--  <asp:TemplateField HeaderText="Action By Security">
                                                         <ItemTemplate>
                                                             <asp:Label ID="lbl_Secpproval" runat="server" Text='<%#Eval("security_approval") %>'></asp:Label>
                                                         </ItemTemplate>
@@ -552,7 +587,7 @@
                                                         </ItemTemplate>
                                                     </asp:TemplateField>--%>
 
-                                                    <asp:TemplateField>
+                                                    <asp:TemplateField HeaderText="Action">
                                                         <ItemTemplate>
                                                             <asp:Button ID="btn_Edit" runat="server" Text="Approval" CommandName="Edit" />
                                                         </ItemTemplate>

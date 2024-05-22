@@ -139,6 +139,7 @@ namespace clms2.contractor_cell
 
            if (!this.IsPostBack)
             {
+                txtBocwLibility.Text = "0";
                 naturofwork();
                 dept();
                 contracttype();
@@ -146,6 +147,8 @@ namespace clms2.contractor_cell
 
                 AutoID();
                 Auto_ID();
+
+                
             }
 
         }
@@ -253,9 +256,7 @@ namespace clms2.contractor_cell
                 lblMsgError.Text = "Work order no " + txtWONo.Text + " already exist. ";
                 return;
             }
-               
-
-
+   
             dbConnection();
             AutoID();
             Auto_ID();
@@ -268,16 +269,16 @@ namespace clms2.contractor_cell
 
                 var idd = txtID.Text;
 
-                string Str = "insert into tbl_vendor_work_order(id, " + "vendor_reg_code, " + "work_worder, " + "valid_from, " + "valid_to, " + "nature_of_work, " + "type_of_contract, " + "department, " + "job_location, " + "status,work_description,act_covered)";
+                string Str = "insert into tbl_vendor_work_order(id, " + "vendor_reg_code, " + "work_worder, " + "valid_from, " + "valid_to, " + "nature_of_work, " + "type_of_contract, " + "department, " + "job_location, " + "status,work_description,act_covered,work_order_value,bocw_liability)";
 
-                Str = Str + " values(" + idd + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtWONo.Text + "', " + "'" + txtValidFrom.Text + "', " + "'" + txtValidTo.Text + "', " + "'" + txtNatureofWork.Text + "', " + "'" + txtTypeofContract.Text + "', " + "'" + txtDepartment.Text + "', " + "'" + txtJobLocation.Text + "', " + "' ','" + txtDescription.Text + "','" + ddlActCovered.SelectedItem.Text + "')";  // Status P- Pending ,A -Approved , R - Rejected
+                Str = Str + " values(" + idd + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtWONo.Text + "', " + "'" + txtValidFrom.Text + "', " + "'" + txtValidTo.Text + "', " + "'" + txtNatureofWork.Text + "', " + "'" + txtTypeofContract.Text + "', " + "'" + txtDepartment.Text + "', " + "'" + txtJobLocation.Text + "', " + "' ','" + txtDescription.Text + "','" + ddlActCovered.SelectedItem.Text + "','" + txtWorkOrderValue.Text + "','" + txtBocwLibility.Text + "')";  // Status P- Pending ,A -Approved , R - Rejected
 
                 SqlCommand cm = new SqlCommand(Str, con);
                 cm.ExecuteNonQuery();
                 // ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-                string Str1 = "insert into tbl_vendor_info(id,  " + "vendor_reg_code, " + "vendor_name, " + "vendor_owner_name, " + "email, " + "contact_no1,contact_no2, " + "firm_address,firm_city, " + "firm_state,firm_pin,license_no, " + "valid_from,valid_to, " + "workers_authorised, " + "pfno,esicno,pwd,img_file,status,work_worder,un_skilled,semi_skilled,skilled,high_skilled)";
+                string Str1 = "insert into tbl_vendor_info(id,  " + "vendor_reg_code, " + "vendor_name, " + "vendor_owner_name, " + "email, " + "contact_no1,contact_no2, " + "firm_address,firm_city, " + "firm_state,firm_pin,license_no, " + "valid_from,valid_to, " + "workers_authorised, " + "pfno,esicno,pwd,img_file,status,work_worder,un_skilled,semi_skilled,skilled,high_skilled,owner_address)";
 
-                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEmail.Text + "', " + "'" + txtPhNo.Text + "', " + "'', " + "'', " + "'', " + "'', " + "'', " + "' ', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'', " + "'', " + "'123@123', " + "'-', " + "' ','" + txtWONo.Text + "'," + txtUnskilled.Text + "," + txtSemiSkilled.Text + "," + txtSkilled.Text + "," + txtHighSkilled.Text + ")";// Status P- Pending ,A -Approved , R - Rejected
+                Str1 = Str1 + " values(" + txtID1.Text + "," + "'" + txtVendorRegNo.Text + "', " + "'" + txtVendorName.Text + "', " + "'" + txtOwnerName.Text + "', " + "'" + txtEmail.Text + "', " + "'" + txtPhNo.Text + "', " + "'', " + "'', " + "'', " + "'', " + "'', " + "' ', " + "'2022-01-01', " + "'2022-01-01', " + "'" + txtNoEmp.Text + "', " + "'', " + "'', " + "'123@123', " + "'-', " + "' ','" + txtWONo.Text + "'," + txtUnskilled.Text + "," + txtSemiSkilled.Text + "," + txtSkilled.Text + "," + txtHighSkilled.Text + ",'" + txtOwnerAddress.Text + "')";// Status P- Pending ,A -Approved , R - Rejected
 
                 SqlCommand cm1 = new SqlCommand(Str1, con);
                 cm1.ExecuteNonQuery();
@@ -457,6 +458,72 @@ namespace clms2.contractor_cell
 
             txtNoEmp.Text = (Convert.ToInt32(txtUnskilled.Text) + Convert.ToInt32(txtSemiSkilled.Text) + Convert.ToInt32(txtSkilled.Text) + Convert.ToInt32(txtHighSkilled.Text)).ToString();
 
+        }
+
+        protected void rbBocwY_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtWorkOrderValue.Text != "" )
+            {
+               double workorderValue = Convert.ToDouble(txtWorkOrderValue.Text);
+               txtBocwLibility.Text =   (workorderValue * 1 / 100).ToString();
+               ReqBocwLiability.Enabled = true;
+            }
+            else
+            {
+                ReqBocwLiability.Enabled = true;
+            }
+        }
+
+        protected void rbBocwN_CheckedChanged(object sender, EventArgs e)
+        {
+            txtBocwLibility.Text = "0";
+            txtBocwLibility.ReadOnly = true;
+            ReqBocwLiability.Enabled = false;
+            
+        }
+
+        protected void txtTypeofContract_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           if (txtTypeofContract.SelectedItem.Text=="Labour Supply")
+           {
+               txtUnskilled.ReadOnly = false;
+               txtSemiSkilled.ReadOnly=false;
+               txtSkilled.ReadOnly=false;
+               txtHighSkilled.ReadOnly = false;
+               txtNoEmp.ReadOnly = true;
+
+               ReqUnskilled.Enabled = true;
+               ReqSemiSkilled.Enabled = true;
+               ReqSkilled.Enabled = true;
+               ReqHighSkilled.Enabled = true;
+
+               txtUnskilled.Text = "0";
+               txtSemiSkilled.Text = "0";
+               txtSkilled.Text = "0";
+               txtHighSkilled.Text = "0";
+               txtNoEmp.Text = "0";
+            }
+           else
+           {
+
+               txtUnskilled.ReadOnly = true;
+               txtSemiSkilled.ReadOnly = true;
+               txtSkilled.ReadOnly = true;
+               txtHighSkilled.ReadOnly = true;
+               txtNoEmp.ReadOnly = false;
+
+               ReqUnskilled.Enabled = false;
+               ReqSemiSkilled.Enabled = false;
+               ReqSkilled.Enabled = false;
+               ReqHighSkilled.Enabled = false;
+
+               txtUnskilled.Text = "0";
+               txtSemiSkilled.Text = "0";
+               txtSkilled.Text = "0";
+               txtHighSkilled.Text = "0";
+               txtNoEmp.Text = "0";
+
+           }
         }
 
 

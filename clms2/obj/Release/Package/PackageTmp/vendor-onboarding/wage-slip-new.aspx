@@ -64,7 +64,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -142,7 +142,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
-                                         <%--   <li>
+                                            <%--   <li>
                                                 <a class="dropdown-item" href="#">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
@@ -209,9 +209,9 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
@@ -277,7 +277,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settlement
                                                 </a>
                                             </li>
                                             <li>
@@ -304,6 +304,11 @@
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detailNew.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
@@ -369,44 +374,46 @@
                 </td>
 
             </tr>
-            <tr>
-                <td>
-                    <p style="text-align: left; padding-left: 200px">
-                        <asp:Label ID="lblWorkorder" runat="server" Text="Work Order"></asp:Label>&nbsp&nbsp
-                        <asp:DropDownList ID="ddlWorkorder" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlWorkorder_SelectedIndexChanged"></asp:DropDownList>&nbsp&nbsp
-                        <asp:Label ID="lblEmpCode" runat="server" Text="Employee Name"></asp:Label>&nbsp&nbsp
-                        <asp:DropDownList ID="ddlEmpCodeSearch" runat="server"></asp:DropDownList>&nbsp&nbsp
-                        <asp:Label ID="lblMonthSearch" runat="server" Text="Month"></asp:Label>&nbsp&nbsp
-                        <asp:DropDownList ID="ddlMonthSearch" runat="server">
-                            <%-- <asp:ListItem>Select</asp:ListItem>--%>
-                            <asp:ListItem Value="1">Jan</asp:ListItem>
-                            <asp:ListItem Value="2">Feb</asp:ListItem>
-                            <asp:ListItem Value="3">Mar</asp:ListItem>
-                            <asp:ListItem Value="4">Apr</asp:ListItem>
-                            <asp:ListItem Value="5">May</asp:ListItem>
-                            <asp:ListItem Value="6">Jun</asp:ListItem>
-                            <asp:ListItem Value="7">Jul</asp:ListItem>
-                            <asp:ListItem Value="8">Aug</asp:ListItem>
-                            <asp:ListItem Value="9">Sep</asp:ListItem>
-                            <asp:ListItem Value="10">Oct</asp:ListItem>
-                            <asp:ListItem Value="11">Nov</asp:ListItem>
-                            <asp:ListItem Value="12">Dec</asp:ListItem>
-                        </asp:DropDownList>&nbsp&nbsp
-                        <asp:Label ID="lblYearSearch" runat="server" Text="Year"></asp:Label>&nbsp&nbsp
-                        <asp:DropDownList ID="ddlYearSearch" runat="server"></asp:DropDownList>&nbsp&nbsp
-                    </p>
-                </td>
-            </tr>
+            <tr><td></td></tr>
+             <tr><td></td></tr>
+             <tr><td></td></tr>
             <tr>
 
                 <td>
-                    <table border="0" cellpadding="5" cellspacing="0" style="font-family: Urbanist,sans-serif; width: 50%; font-size: 12px; border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
+                    <table border="0" cellpadding="5" cellspacing="0" style="font-family: Urbanist,sans-serif; font-size: 12px; border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                         <tr>
-
                             <td style="border-bottom: 1px solid;" colspan="6" align="center"><font size="4"><strong></strong></font>
                                 <h6 class="mb-0">FORM XIX</h6>
                                 <h6 class="my-0">1[See rule 78 (1) (b)]</h6>
                                 <h5 class="my-0">Wage Slip</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="text-align: left; padding-left: 200px">
+                                    <asp:Label ID="lblWorkorder" runat="server" Text="Work Order"></asp:Label>&nbsp&nbsp
+                                    <asp:DropDownList ID="ddlWorkorder" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlWorkorder_SelectedIndexChanged"></asp:DropDownList>&nbsp&nbsp
+                                    <asp:Label ID="lblEmpCode" runat="server" Text="Employee Name"></asp:Label>&nbsp&nbsp
+                                    <asp:DropDownList ID="ddlEmpCodeSearch" runat="server"></asp:DropDownList>&nbsp&nbsp
+                                    <asp:Label ID="lblMonthSearch" runat="server" Text="Month"></asp:Label>&nbsp&nbsp
+                                    <asp:DropDownList ID="ddlMonthSearch" runat="server">
+                                        <%-- <asp:ListItem>Select</asp:ListItem>--%>
+                                        <asp:ListItem Value="1">Jan</asp:ListItem>
+                                        <asp:ListItem Value="2">Feb</asp:ListItem>
+                                        <asp:ListItem Value="3">Mar</asp:ListItem>
+                                        <asp:ListItem Value="4">Apr</asp:ListItem>
+                                        <asp:ListItem Value="5">May</asp:ListItem>
+                                        <asp:ListItem Value="6">Jun</asp:ListItem>
+                                        <asp:ListItem Value="7">Jul</asp:ListItem>
+                                        <asp:ListItem Value="8">Aug</asp:ListItem>
+                                        <asp:ListItem Value="9">Sep</asp:ListItem>
+                                        <asp:ListItem Value="10">Oct</asp:ListItem>
+                                        <asp:ListItem Value="11">Nov</asp:ListItem>
+                                        <asp:ListItem Value="12">Dec</asp:ListItem>
+                                    </asp:DropDownList>&nbsp&nbsp
+                                    <asp:Label ID="lblYearSearch" runat="server" Text="Year"></asp:Label>&nbsp&nbsp
+                                    <asp:DropDownList ID="ddlYearSearch" runat="server"></asp:DropDownList>&nbsp&nbsp
+                                </p>
                             </td>
                         </tr>
                         <tr>
@@ -418,14 +425,14 @@
                                         <td class="style3"><strong>Name of Contractor</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblName" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblVendorName" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Address of Contractor</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblAddress" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblFirnAddress" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -433,7 +440,7 @@
                                         <td class="style3"><strong>Name of Workman</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblEmpName" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblNameOfWorkMan" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -447,77 +454,77 @@
                                         <td class="style3"><strong>Location of Work</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblLocationOfWork" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblJobLocation" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Year&nbsp; </strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblYear" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblYear1" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Month</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblMonth" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblMonth1" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>No of day work</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblTotPresent" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblNoOfDayWorkDone" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Number Of units worked in case of piece rate workers</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblTotWorkDayforPeeceRate" runat="server" Text="">NA</asp:Label>
+                                            <asp:Label ID="lblNoOfkUnitWorkded" runat="server" Text="">NA</asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Rate of daily wages/piece rate</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblRateOfDailyWage" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblDailyBasic" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Amount of overtime wages</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblOverTimeWage" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblOtEaning" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Gross wages payable</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblGrossWagePay" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblTotalEarning" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Deductions, If any</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblDeduction" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblTotalDeduction" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Net amount of wages paid</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="lblNetAmount" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblTotPayable" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td class="style3"><strong>Initials of the Contractor or his representative</strong></td>
                                         <td><strong>:</strong></td>
                                         <td>
-                                            <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
+                                            <asp:Label ID="lblInitial" runat="server" Text=""></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>
@@ -528,12 +535,12 @@
                                             <asp:Label ID="lblLIC" runat="server" Text="" Visible="false"></asp:Label>
                                         </td>
                                     </tr>
-                                     <tr style="border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
+                                    <tr style="border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
                                         <td class="style3"></td>
                                         <td><strong></strong></td>
-                                        <td >
-                                            <asp:Button ID="Button1" runat="server" BackColor="#99ccff" Text="Process" />
-                                           
+                                        <td>
+                                            <asp:Button ID="btnProcess" runat="server" BackColor="#99ccff" Text="Process" OnClick="btnProcess_Click" />
+
                                         </td>
                                     </tr>
                                 </table>
@@ -552,9 +559,6 @@
                             <div class="text-center small">
                                 <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
 
-                                <%--<div class="text-light d-none d-sm-inline-block float-end">
-				 <a href="https://shitij.in">Kshitij Info Solutions</a>
-			</div>--%>
                             </div>
                         </div>
                     </footer>

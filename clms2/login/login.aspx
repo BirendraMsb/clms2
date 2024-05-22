@@ -45,17 +45,19 @@
         <div class="container h-100">
             <div class="login_name_wrapper">
                 <div class="text-center mb-4">
-                    <h4 class="robotobold">Green<span class="robotonormal">HRM</span><span class="robotonormal"> Solutions</span></h4>
+                    <h4 class="robotobold">Elecro<span class="robotonormal"></span><span class="robotonormal"> Solutions</span></h4>
                 </div>
             </div>
             <div class="d-flex justify-content-center h-50">
                 <div class="user_card">
                     <div class="d-flex justify-content-center">
-                        <div class="login_logo_container">
+                        <div class="login_logo_container ">
                             <img sizes="(max-width: 150px) 100vw, 150px"
-                                srcset="../public/common/images/logoicon/Makewhite_kgvyyw_c_scale,w_150.png 150w"
-                                src="../public/common/images/logoicon/Makewhite_kgvyyw_c_scale,w_150.png"
-                                class="login_logo" alt="GreenHRM Solutions | Breaking Stereotypes Logo" width="150" height="150" />
+                               srcset="../public/common/images/logoicon/electro_sol1.png, 150w"
+                                src="../public/common/images/logoicon/electro_sol1.png"
+                              <%--  srcset="../public/common/images/logoicon/Makewhite_kgvyyw_c_scale,w_150.png 150w"
+                                src="../public/common/images/logoicon/Makewhite_kgvyyw_c_scale,w_150.png"--%>
+                                class="login_logo rounded-circle" alt="Electro Solutions | Breaking Stereotypes Logo" width="150" height="150" />
                         </div>
                     </div>
                     <div class="form_container">
@@ -150,7 +152,7 @@
                         </div>
                     </div>
                     <div class="mt-4 d-flex justify-content-center">
-                        <p class="mb-0">&copy; 2022 GreenHRM Solutions | Breaking Stereotypes</p>
+                        <p class="mb-0">&copy; 2022 Electro Solutions | Breaking Stereotypes</p>
                     </div>
                 </div>
             </div>

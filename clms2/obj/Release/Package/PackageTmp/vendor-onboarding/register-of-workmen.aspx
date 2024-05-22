@@ -65,7 +65,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -143,7 +143,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
-                                          <%--  <li>
+                                            <%--  <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
@@ -199,7 +199,7 @@
                                                 </a>
                                             </li>
                                             <li>
-                                               <a class="dropdown-item" href="wage-slip-new.aspx">
+                                                <a class="dropdown-item" href="wage-slip-new.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Pay Slip
                                                 </a>
                                             </li>
@@ -213,7 +213,7 @@
 
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
@@ -227,7 +227,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
@@ -253,16 +253,16 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXI
                                                 </a>
                                             </li>
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="register-of-OT.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XXIII
                                                 </a>
                                             </li>
-                                          
+
                                             <li>
                                                 <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIV
                                                 </a>
                                             </li>
                                         </ul>
@@ -278,7 +278,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settlement
                                                 </a>
                                             </li>
                                             <li>
@@ -305,6 +305,11 @@
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detailNew.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
@@ -372,6 +377,11 @@
         </table>
         <!--======================================================================================= -->
         <div class="container">
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <div class="text-center">
                 <h6 class="mb-0">FORM XIII</h6>
                 <h6 class="my-0">(See rule 75)</h6>
@@ -381,21 +391,21 @@
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
-                            Contractor Name</label>
-                        <asp:TextBox ID="txtContractorName" runat="server" class="form-control m-b-0 m-t-0"
+                            Name of Contractor</label>
+                        <asp:TextBox ID="vendor_owner_name" ReadOnly="false" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtContractorName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                        <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" SetFocusOnError="true"
+                            ControlToValidate="vendor_owner_name" ValidationGroup="Reg"></asp:RequiredFieldValidator>--%>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
-                            Contractor Address</label>
-                        <asp:TextBox ID="txtContractorAdd" runat="server" class="form-control m-b-0 m-t-0"
+                            Address of Contractor</label>
+                        <asp:TextBox ID="owner_address" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtContractorAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                        <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" SetFocusOnError="true"
+                            ControlToValidate="owner_address" ValidationGroup="Reg"></asp:RequiredFieldValidator>--%>
                     </div>
                 </div>
 
@@ -404,19 +414,19 @@
                     <div class="form-group mb-3">
                         <label>
                             Nature of Work</label>
-                        <asp:TextBox ID="txtWorkNature" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtWorkNature" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                        <asp:TextBox ID="nature_of_work" runat="server" class="form-control m-b-0 m-t-0" placeholder=""></asp:TextBox>
+                        <%--   <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" SetFocusOnError="true"
+                            ControlToValidate="nature_of_work" ValidationGroup="Reg"></asp:RequiredFieldValidator>--%>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
                             Location of Work</label>
-                        <asp:TextBox ID="txtWorkLocation" runat="server" class="form-control m-b-0 m-t-0"
+                        <asp:TextBox ID="job_location" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtWorkLocation" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                        <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" SetFocusOnError="true"
+                            ControlToValidate="job_location" ValidationGroup="Reg"></asp:RequiredFieldValidator>--%>
                     </div>
                 </div>
 
@@ -424,20 +434,20 @@
                     <div class="form-group mb-3">
                         <label>
                             Name of establishment in/under which contract is carried on</label>
-                        <asp:TextBox ID="txtEstbName" runat="server" class="form-control m-b-0 m-t-0"
+                        <asp:TextBox ID="vendor_name" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtEstbName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                        <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" SetFocusOnError="true"
+                            ControlToValidate="vendor_name" ValidationGroup="Reg"></asp:RequiredFieldValidator>--%>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
                             Address of establishment in/under which contract is carried on</label>
-                        <asp:TextBox ID="txtEstbAdd" runat="server" class="form-control m-b-0 m-t-0"
+                        <asp:TextBox ID="firm_address" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtEstbAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                        <%--  <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" SetFocusOnError="true"
+                            ControlToValidate="firm_address" ValidationGroup="Reg"></asp:RequiredFieldValidator>--%>
                     </div>
                 </div>
 
@@ -445,20 +455,20 @@
                     <div class="form-group mb-3">
                         <label>
                             Principal Employer Name</label>
-                        <asp:TextBox ID="txtprincEmpName" runat="server" class="form-control m-b-0 m-t-0"
+                        <asp:TextBox ID="principal_employer" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtprincEmpName" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                        <%--     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtprincEmpName" ValidationGroup="Reg"></asp:RequiredFieldValidator>--%>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group mb-3">
                         <label>
                             Principal Employer Address</label>
-                        <asp:TextBox ID="txtprincEmpAdd" runat="server" class="form-control m-b-0 m-t-0"
+                        <asp:TextBox ID="pe_address" runat="server" class="form-control m-b-0 m-t-0"
                             placeholder=""></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" SetFocusOnError="true"
-                            ControlToValidate="txtprincEmpAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>
+                        <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" SetFocusOnError="true"
+                            ControlToValidate="txtprincEmpAdd" ValidationGroup="Reg"></asp:RequiredFieldValidator>--%>
                     </div>
                 </div>
 
@@ -473,24 +483,24 @@
                     <div class="">
                         <div class="container-fluid">
                             <div class="card-body">
-                                <div class="table-responsive" style="overflow: auto;">
+                                <div class="table-responsive" style="overflow: scroll;">
                                     <%--========================================================================================--%>
                                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BackColor="White"
                                         BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical"
-                                        AllowPaging="True" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit"
-                                        OnPageIndexChanging="OnPaging" OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
+                                        AllowPaging="True" PageSize="3" DataKeyNames="id" OnRowEditing="OnRowEditing" OnRowCancelingEdit="OnRowCancelingEdit"
+                                        OnPageIndexChanging="GridView1_PageIndexChanging" OnRowUpdating="OnRowUpdating" EmptyDataText="No records has been added."
                                         Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True">
                                         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                         <Columns>
-                                            <asp:TemplateField HeaderText="1. Sl. No">
+                                            <asp:TemplateField HeaderText="Sl. No">
                                                 <ItemTemplate>
                                                     <%# Container.DataItemIndex + 1 %>
                                                 </ItemTemplate>
                                                 <ItemStyle Width="30px" HorizontalAlign="Center" />
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="2. Name and surname of workman " ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="Name and surname of workman " ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblWorkManName" runat="server" Text='<%# Eval("vendor_code")%>'></asp:Label>
+                                                    <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txtVendorCode" runat="server" Text='<%# Eval("vendor_code")%>' Width="140"></asp:TextBox>
@@ -498,18 +508,27 @@
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderText="3. Age and sex" ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="DOB" ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblAgeSex" runat="server" Text='<%# Eval("vendor_code")%>'></asp:Label>
+                                                    <asp:Label ID="emp_age" runat="server" Text='<%# Eval("emp_age")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txtVendorCode" runat="server" Text='<%# Eval("vendor_code")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="4. Father's/Husband's name " ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="sex" ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblFaHusName" runat="server" Text='<%# Eval("workorderno")%>'></asp:Label>
+                                                    <asp:Label ID="gender" runat="server" Text='<%# Eval("gender")%>'></asp:Label>
+                                                </ItemTemplate>
+                                                <%--  <EditItemTemplate>
+                                                            <asp:TextBox ID="txtVendorCode" runat="server" Text='<%# Eval("vendor_code")%>' Width="140"></asp:TextBox>
+                                                        </EditItemTemplate>--%>
+                                                <ItemStyle Width="150px" />
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Father's/Husband's name " ItemStyle-Width="150px">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="father_husband_name" runat="server" Text='<%# Eval("father_husband_name")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txtWorkorderno" runat="server" Text='<%# Eval("workorderno")%>' Width="140"></asp:TextBox>
@@ -517,18 +536,18 @@
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderText="5. Nature of employment/designation" ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="Nature of employment/designation" ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblNatureOfEmp" runat="server" Text='<%# Eval("emp_name")%>'></asp:Label>
+                                                    <asp:Label ID="designation" runat="server" Text='<%# Eval("designation")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="txtEmpName" runat="server" Text='<%# Eval("emp_name")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="6. Permanent homeaddress of workman (village and Tehsil/Talukaand District)" ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="Permanent home address of workman (village and Tehsil/Talukaand District)" ItemStyle-Width="250px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblPermAddr" runat="server" Text='<%# Eval("emp_name")%>'></asp:Label>
+                                                    <asp:Label ID="emp_add" runat="server" Width="250px" Text='<%# Eval("emp_add")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <%-- <EditItemTemplate>
                                                             <asp:TextBox ID="txtEmpName" runat="server" Text='<%# Eval("emp_name")%>' Width="140"></asp:TextBox>
@@ -536,59 +555,59 @@
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderText="7. Local address" ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="Local address" ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblLocalAddr" runat="server" Text='<%# Eval("skill_category")%>'></asp:Label>
+                                                    <asp:Label ID="Local_address" runat="server" Text='<%# Eval("Local_address")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <%--  <EditItemTemplate>
                                                             <asp:TextBox ID="txtSkillCategory" runat="server" Text='<%# Eval("skill_category")%>' Width="140"></asp:TextBox>
                                                         </EditItemTemplate>--%>
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="8. Date ofcommencement ofemployment" ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="Date of commencement of employment" ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblDtStartEmp" runat="server" Text='<%# Eval("basic")%>'></asp:Label>
+                                                    <asp:Label ID="date_of_joining" runat="server" Text='<%# Eval("date_of_joining")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="9. Signature Or thumb Impressionof workman" ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="Signature Or thumb Impressionof workman" ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblSigThumb" runat="server" Text='<%# Eval("allowance")%>'></asp:Label>
+                                                    <asp:Label ID="signature" runat="server" Width="200px" Text=""></asp:Label>
                                                 </ItemTemplate>
 
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="10. Date of termination of employment" ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="Date of termination of employment" ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblDtTermination" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
+                                                    <asp:Label ID="date_of_termination" runat="server" Text='<%# Eval("date_of_termination")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderText="11. Reasons for termination" ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText=" Reasons for termination" ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblReasonTermn" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
+                                                    <asp:Label ID="Reason_of_termination" runat="server" Text='<%# Eval("Reason_of_termination")%>'></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
 
-                                            <asp:TemplateField HeaderText="12. Remarks" ItemStyle-Width="150">
+                                            <asp:TemplateField HeaderText="Remarks" ItemStyle-Width="150px">
                                                 <ItemTemplate>
-                                                    <asp:Label ID="lblRemarks" runat="server" Text='<%# Eval("other_deduction")%>'></asp:Label>
+                                                    <asp:Label ID="lblRemarks" runat="server" Text=""></asp:Label>
                                                 </ItemTemplate>
                                                 <ItemStyle Width="150px" />
                                             </asp:TemplateField>
 
 
-                                            <asp:CommandField ButtonType="Link" HeaderText="Action" ShowEditButton="true" ItemStyle-Width="150">
+                                            <%--  <asp:CommandField ButtonType="Link" HeaderText="Action" ShowEditButton="true" ItemStyle-Width="150">
                                                 <ItemStyle Width="150px" />
-                                            </asp:CommandField>
+                                            </asp:CommandField>--%>
                                         </Columns>
                                         <AlternatingRowStyle BackColor="#FFFFFF" />
                                         <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                         <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True"
                                             ForeColor="White" />
-                                        <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+                                        <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="#0033CC" HorizontalAlign="Center" BorderColor="#FF9900" Font-Bold="True" Font-Size="X-Large" />
                                         <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
                                         <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
                                         <SortedAscendingCellStyle BackColor="#F1F1F1" />

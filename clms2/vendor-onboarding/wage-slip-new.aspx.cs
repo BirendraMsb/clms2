@@ -12,8 +12,8 @@ namespace clms2.vendor_onboarding
 {
     public partial class wage_slip_new : System.Web.UI.Page
     {
-        private int rcnt;
-        private string wrkord;
+        //private int rcnt;
+        //private string wrkord;
         public string strSQL;
         private static string Conn = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
         private SqlConnection con = new SqlConnection(Conn);
@@ -44,7 +44,7 @@ namespace clms2.vendor_onboarding
             {
                 ddlYearSearch.Items.Add(i.ToString());
             }
-            ddlYearSearch.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
+           //// ddlYearSearch.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
         }
 
         private void workorder()

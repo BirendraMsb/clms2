@@ -64,7 +64,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -77,7 +77,6 @@
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                             </button>
-
                             <div class="collapse navbar-collapse" id="navbarColor02">
                                 <ul class="navbar-nav me-auto">
                                     <li class="nav-item">
@@ -86,184 +85,90 @@
                                         </a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">File <span class="fa fa-angle-down ms-1"></span></a>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Work Order <span class="fa fa-angle-down ms-1"></span></a>
                                         <ul class="dropdown-menu ">
-
                                             <li>
-                                                <a class="dropdown-item" href="shift-master.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Shift Master
+                                                <a class="dropdown-item" href="work-order-entry.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="leave-master.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Leave Master
+                                                <a class="dropdown-item" href="work-order-detail-Rej.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Rejected Work order
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="holiday-master.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Holiday Master
+                                                <a class="dropdown-item" href="work-order-details-all.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>View work order
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="work-order-detail.aspx?vl=awo">
+                                                    <i class="fa fa-angle-right me-1"></i>Pending Work Order
                                                 </a>
                                             </li>
 
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vendor Registration <span class="fa fa-angle-down ms-1"></span></a>
-                                        <ul class="dropdown-menu ">
-                                            <li>
-                                                <a class="dropdown-item" href="vendor_detail_entry.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Vendor Update
-                                                </a>
-                                            </li>
-
-                                            <%-- <li>
-                                                <a class="dropdown-item" href="site-incharge.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Site Incharge
-                                                </a>
-                                            </li>--%>
-                                        </ul>
-                                    </li>
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee Onboarding <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Employee <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="emp_onboarding.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Emp Detail Entry
+                                                <a class="dropdown-item" href="../contractor_cell/purposed-emp-detail-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Emp Approval
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/purposed-emp-detail-block.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Emp Blocking
                                                 </a>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" id="navbarweb2" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span></a>
-                                        <ul class="dropdown-menu ">
-                                            <li>
-                                                <a class="dropdown-item" href="show-gen-shift.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Generate Shift
-                                                </a>
-                                            </li>
-                                            <%-- <li>
-                                                <a class="dropdown-item" href="shift-master.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Update Leave Register
-                                                </a>
-                                            </li>--%>
-                                            <li>
-                                                <a class="dropdown-item" href="upload_attendance.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Upload Attendance
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="attendance-view.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Attendance View
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="manual-punching.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Manual Punching
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="manual-correction.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Manual Corrections
-                                                </a>
-                                            </li>
-
-
-                                        </ul>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Payroll <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Attendance <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="AllowancesMaster.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Allowances
+                                                <a class="dropdown-item" href="../contractor_cell/attendance-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Approval
                                                 </a>
                                             </li>
-
-                                            <li>
-                                                <a class="dropdown-item" href="payroll_process.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Payroll Process
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="annual_bonus.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Annual Bonus
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="leave_status.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Leave Status
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="wage-slip.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Pay Slip
-                                                </a>
-                                            </li>
-
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compliances <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="wages_document.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages document
+                                                <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="form16.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XVI
+                                                <a class="dropdown-item" href="../contractor_cell/register-of-contractor.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>From XII
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="../contractor_cell/annual-return.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXV
                                                 </a>
                                             </li>
 
-                                            <li>
-                                                <a class="dropdown-item" href="form17.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XVII
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="form-V.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form V
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-workmen.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XIII
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-fines.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XXI
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="dropdown-item" href="register-of-OT.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XXIII
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Form XXIV
-                                                </a>
-                                            </li>
 
                                         </ul>
                                     </li>
@@ -272,20 +177,16 @@
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="fnf_request.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Request
+                                                <a class="dropdown-item" href="fnf_request_approval.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Pending Full and Final Request
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                <a class="dropdown-item" href="fnf_request_approved.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Approved Full and Final Request
                                                 </a>
                                             </li>
-                                            <li>
-                                                <a class="dropdown-item" href="gratuity.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Gratuity
-                                                </a>
-                                            </li>
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -293,41 +194,61 @@
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="work-order-detail.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Work Order Detail
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="emp_detail.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Emp Detail
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="vendor_detailNew.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
-                                                <a class="dropdown-item" href="#">
-                                                    <i class="fa fa-angle-right me-1"></i>GP Detail
-                                                </a>
-                                            </li>
-                                            <%--   <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Employee Chart Report
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Chart
                                                 </a>
-                                            </li>--%>
+                                            </li>
+
+                                            <li>
+                                                <a class="dropdown-item" href="emp_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Bar Chart
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="vendor_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Chart
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="vendor_bar_chart.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Vendor Bar Chart
+                                                </a>
+                                            </li>
+
                                         </ul>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mail <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
                                             <li>
-                                                <a class="dropdown-item" href="vendor_detail.aspx">
-                                                    <i class="fa fa-user me-1"></i>My Account
+                                                <a class="dropdown-item" href="mail_sending_form.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Mail
                                                 </a>
                                             </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#" id="navbarAdmin" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="fa fa-angle-down ms-1"></span>
+                                        </a>
+                                        <ul class="dropdown-menu ">
+
                                             <li>
                                                 <a class="dropdown-item" href="../login/new-password.aspx">
                                                     <i class="fa fa-lock me-1"></i>Change Password
@@ -374,6 +295,8 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
+                                <br />
+                                <br />
                                 <br />
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Total Work Order Commplience </div>

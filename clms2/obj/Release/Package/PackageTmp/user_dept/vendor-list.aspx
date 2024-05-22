@@ -166,7 +166,8 @@
                                         <div class="table-responsive" style="overflow: auto;">
                                             <%--========================================================================================--%>
                                           Work Order :<asp:DropDownList ID="ddlWorkOrder" AutoPostBack="true" runat="server" class="form-control" Width="250px" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList><br />
-                                            <asp:GridView ID="GvVendor" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
+                                          
+                                              <asp:GridView ID="GvVendor" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
                                                 GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnSelectedIndexChanging="GvVendor_SelectedIndexChanging">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                 <Columns>

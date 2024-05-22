@@ -33,7 +33,7 @@ namespace clms2.user_dept
                 string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT distinct work_worder from tbl_vendor_work_order where  department='" + Session["User"].ToString() + "'"))  // tbl_attendance
+                    using (SqlCommand cmd = new SqlCommand("SELECT distinct work_worder from tbl_vendor_work_order where  department='" + Session["User"].ToString() + "' "))  // tbl_attendance
                     {
                         cmd.CommandType = CommandType.Text;
                         cmd.Connection = con;
@@ -66,7 +66,8 @@ namespace clms2.user_dept
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.Text + "' and department='" + Session["User"].ToString() + "' ";
+                strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.Text + "' and department='" + Session["User"].ToString() + "' and dept_approval='Pending' and  hr_approval ='Pending' and  year1='" + ddlYear.Text + "' and month1='" + ddlMonth.Text + "' order by month1 desc";
+               /// strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.Text + "' and department='" + Session["User"].ToString() + "' ";
                // strSQL = "SELECT * FROM tbl_attendance";
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
@@ -90,7 +91,7 @@ namespace clms2.user_dept
                 lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
                 if (!Page.IsPostBack)
                     workorder();
-
+                     year();
             }
             catch (Exception)
             {
@@ -102,19 +103,19 @@ namespace clms2.user_dept
 
         protected void ddlWorkOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dbConnection();
-            if (ddlWorkOrder.SelectedValue != "")
-            {
-                strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.SelectedItem.Text + "' and department='" + Session["User"].ToString() +"' ";
-                ///dont delete///strSQL = "SELECT a.*,b.* FROM tbl_vendor_info a, tbl_attendance b where a.vendor_reg_code=b.vendor_code and workorder = '" + ddlWorkOrder.Text + "'";
-                SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                GvAttn.DataSource = dt;
-                GvAttn.DataBind();
-                GvAttn.HeaderRow.TableSection = TableRowSection.TableHeader;
-            }
-            con.Close();
+            ////dbConnection();
+            ////if (ddlWorkOrder.SelectedValue != "")
+            ////{
+            ////    strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.SelectedItem.Text + "' and department='" + Session["User"].ToString() + "' and dept_approval='Pending' and  hr_approval ='Pending' order by month1 desc ";
+            ////    ///dont delete///strSQL = "SELECT a.*,b.* FROM tbl_vendor_info a, tbl_attendance b where a.vendor_reg_code=b.vendor_code and workorder = '" + ddlWorkOrder.Text + "'";
+            ////    SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
+            ////    DataTable dt = new DataTable();
+            ////    sda.Fill(dt);
+            ////    GvAttn.DataSource = dt;
+            ////    GvAttn.DataBind();
+            ////    GvAttn.HeaderRow.TableSection = TableRowSection.TableHeader;
+            ////}
+            ////con.Close();
         }
 
         protected void GvAttn_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -157,6 +158,43 @@ namespace clms2.user_dept
 
             BindGrid();
 
+        }
+
+        protected void ddlDeptApproval_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList ddl_approv = (DropDownList)sender;
+            string str = ddl_approv.SelectedValue;
+            if (str == "Reject")
+                GvAttn.Columns[48].Visible = true;  //Remarks
+            else
+                GvAttn.Columns[48].Visible = false;
+
+            // CheckBox chkbox = sender as CheckBox;
+            GridViewRow currentRow = ddl_approv.NamingContainer as GridViewRow;
+            RequiredFieldValidator rfv = GvAttn.Rows[currentRow.RowIndex]
+                                               .FindControl("ReqValDeptRemarks") as RequiredFieldValidator;
+            if (ddl_approv.SelectedItem.Text == "Reject")
+            {
+                rfv.Enabled = true;
+            }
+            else
+            {
+                rfv.Enabled = false;
+            }
+        }
+
+        protected void year()
+        {
+            int currYear = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
+            for (int i = 2010; i < currYear + 5; i++)
+            {
+                ddlYear.Items.Add(i.ToString());
+            }
+            ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
+        }
+        protected void btnProcess_Click(object sender, EventArgs e)
+        {
+            BindGrid();
         }
     }
 }

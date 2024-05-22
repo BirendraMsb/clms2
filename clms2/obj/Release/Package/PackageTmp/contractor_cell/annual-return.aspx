@@ -69,7 +69,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -97,7 +97,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-                                              <li>
+                                            <li>
                                                 <a class="dropdown-item" href="work-order-detail-Rej.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Rejected Work order
                                                 </a>
@@ -148,12 +148,12 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
 
@@ -198,6 +198,21 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                              <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
@@ -283,6 +298,9 @@
         </table>
         <!--======================================================================================= -->
         <div class="container">
+            <br />
+            <br />
+            <br />
             <div class="text-center">
                 <h6 class="mb-0">FORM XXV</h6>
                 <h6 class="my-0">[Sece rule 82(2)]</h6>
@@ -292,113 +310,154 @@
                 </h5>
             </div>
             <div class="row">
+
+                  <div class="col-md-2">
+                      <div class="form-group mb-3">
+                        <label>Year</label>
+                           <asp:DropDownList ID="ddlYear" runat="server" class="form-control" Width="150px" AutoPostBack="true" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged" MaxLength="50">
+                            <%--<asp:ListItem  Selected="True">Select</asp:ListItem>  --%>
+                        </asp:DropDownList>
+                       </div>
+                  </div>
+                  <div class="col-md-2">
+                     <div class="form-group mb-3">
+                     <%-- <label>Vendor Code</label>--%>
+                      <asp:DropDownList ID="ddlVendorCode" class="form-control" visible="false" runat="server"  AutoPostBack="false"  MaxLength="50" OnSelectedIndexChanged="ddlVendorCode_SelectedIndexChanged">
+                      </asp:DropDownList>
+                   </div>
+                 </div>
+            </div>
+            <div class="row">
                 <table class="table responsive table-striped table-bordered">
                     <tbody>
                         <tr>
-                            <td>Full Name and address of the Principal Employer
+                            <td>
+                                 <label>Full Name of the Principal Employer</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="lblPrincipalEmpNameAddr" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtPrincipalEmpName" runat="server" class="form-control" ></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtPrincipalEmpName" ErrorMessage="* Pls Enter Principal Employer" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                             </td>
                         </tr>
                         <tr>
-                            <td>Name of Estiblishment :
+                            <td>
+                                <label>Address of the Principal Employer</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="lblNameOfEstbl" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtPrincipalEmpAddress" runat="server"  class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>(a) District:
+                            <td>
+                                <label>Name of Establishment</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="lblDistrict" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtNameOfEstb" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>(b) Postal Address:
+                            <td>
+                                <label>(a) District</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="lblPostalAddr" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtDistrict" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>(b) Nature of Operations / industry / Work carried on
+                            <td> 
+                                <label>(b) Postal Address:</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtPostalAddr" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Full Name of the Manager or person responsible for supervision and control of
-                            the establishment:
+                            <td>
+                                <label>(C) Nature of Operations / industry / Work carried on</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="lblNameRespSuerv" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtNatureOfOperation" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Maximum Number of workman employed as contract labour on any day during the year:
+                            <td>
+                               <label>Full Name of the Manager or person responsible for supervision and control of the establishment:</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="lblMaxNumWorkman" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtNameResSupervsr" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Total number of days during the year on which contract labour was employed:
+                            <td>
+                                <label>Maximum Number of workman employed as contract labour on any day during the year:</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="lbltotNumDaysEmployed" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtMaxNumWorkmanEmployedAsContractLab" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Total number of man days worked by contract labour during the year:
+                            <td>
+                                <label>Total number of days during the year on which contract labour was employed:</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="lblNumDaysLbrWorked" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtTot_no_of_days_cont_lab_employed" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Maximum Number of workmen employed directly on any day during the year:
+                            <td>
+                                <label>Total number of man days worked by contract labour during the year:</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtTot_no_of_man_days_work_by_cont_lab" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Total Number of days during the year on which directly employed labour was employed:
+                            <td>
+                                <label>Maximum Number of workmen employed directly on any day during the year:</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="Label3" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtMax_no_workman_as_employed_directly" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Total Number of man days worked by directly employed workmen:
+                            <td>
+                                <label>Total Number of days during the year on which directly employed labour was employed:</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtTot_no_of_days_directly_lab_employed" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Nature of work on which contract labour was employed:
+                            <td>
+                                <label>Total Number of man days worked by directly employed workmen:</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="Label5" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtTot_no_of_man_days_wosrked_by_directly_lab" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Amount of Security deposits made by contractor(Give contractor wise):
+                            <td>
+                                <label>Nature of work on which contract labour was employed:</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="Label6" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtNature_of_work" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
-                            <td>Amount of Security deposits forfeited together with the names of contractor,
-                            if any:
+                            <td>
+                                <label>Amount of Security deposits made by contractor(Give contractor wise):</label><label class="text-danger">*</label>
                             </td>
                             <td>
-                                <asp:Label ID="Label7" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtAmtOfSecurityDepByContractor" runat="server" class="form-control"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td
+                                <label>Amount of Security deposits forfeited together with the names of contractor,
+                                if any:</label><label class="text-danger">*</label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="txtAmtofSecurityDepForfeited" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
                         <tr width="50%">
@@ -409,7 +468,7 @@
                                 <br />
                             </td>
                             <td>
-                                <asp:Label ID="Label8" runat="server" Text="Label"></asp:Label>
+                                <asp:TextBox ID="txtChangeInManagement" runat="server" class="form-control"></asp:TextBox>
                             </td>
                         </tr>
 
@@ -425,6 +484,13 @@
                         <tr width="50%">
                             <td>Date :
                                 <asp:Label ID="lblDate2" runat="server" Text=""></asp:Label><br />
+                            </td>
+                            <td></td>
+                        </tr>
+                          <tr width="50%">
+                              <td></td>
+                            <td>
+                                <asp:Button ID="btnPrint" runat="server" Text="Print" />
                             </td>
                             <td></td>
                         </tr>

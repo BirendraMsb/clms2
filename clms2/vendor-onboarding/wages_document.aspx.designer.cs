@@ -481,6 +481,42 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.Label lblBansStatementfileSizeMsg;
         
         /// <summary>
+        /// PFEcrUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload PFEcrUpload;
+        
+        /// <summary>
+        /// lblPFEcrFileSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPFEcrFileSize;
+        
+        /// <summary>
+        /// EsiEcrUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload EsiEcrUpload;
+        
+        /// <summary>
+        /// lblEsiEcrFileSize control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEsiEcrFileSize;
+        
+        /// <summary>
         /// cmdSave control.
         /// </summary>
         /// <remarks>

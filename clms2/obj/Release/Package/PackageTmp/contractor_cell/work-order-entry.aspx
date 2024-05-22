@@ -68,7 +68,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -96,7 +96,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>New Work Order
                                                 </a>
                                             </li>
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="work-order-detail-Rej.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Rejected Work order
                                                 </a>
@@ -147,12 +147,12 @@
                                         <ul class="dropdown-menu ">
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Compliance
                                                 </a>
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="../contractor_cell/purposed-wages-doc-approval.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Wages Document 
+                                                    <i class="fa fa-angle-right me-1"></i>Wages Document Approval
                                                 </a>
                                             </li>
 
@@ -197,6 +197,21 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Report <span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
+                                            <li>
+                                                <a class="dropdown-item" href="wages-doc-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Compliance Report
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="emp-details-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Employee Details
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
+                                                </a>
+                                            </li>
                                             <li>
                                                 <a class="dropdown-item" href="emp_chart_report.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Employee Chart
@@ -286,6 +301,9 @@
                             <div class="container-fluid">
                             </div>
                             <br />
+                            <br />
+                            <br />
+                            
                             <div class="card shadow border">
                                 <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Vendors Work Order Entry</div>
                                 <div class="card-body">
@@ -310,12 +328,35 @@
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
+                                                <label>Work Order Value</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtWorkOrderValue" runat="server" class="form-control" MaxLength="20"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" ControlToValidate="txtWorkOrderValue" ErrorMessage="* Pls Enter Work Order Value" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                                                    <ContentTemplate>
+                                                        <label>BOCW Liability</label><label class="text-danger">*</label>
+                                                        <asp:RadioButton ID="rbBocwY" runat="server" Text="Y" AutoPostBack="true" GroupName="bocw" OnCheckedChanged="rbBocwY_CheckedChanged" />
+                                                        <asp:RadioButton ID="rbBocwN" runat="server" Text="N" Checked="true" AutoPostBack="true" GroupName="bocw" OnCheckedChanged="rbBocwN_CheckedChanged" />
+                                                        <br />
+                                                        <asp:TextBox ID="txtBocwLibility" runat="server" ReadOnly="true" class="form-control"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="ReqBocwLiability" runat="server" Enabled="false" ControlToValidate="txtBocwLibility" ErrorMessage="* Pls Enter Work Order Value" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-3">
                                                 <label>Vendor Code</label><label class="text-danger">*</label>
                                                 <asp:TextBox ID="txtVendorRegNo" runat="server" class="form-control" MaxLength="20"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtVendorRegNo" ErrorMessage="* Pls Enter Vendor Reg. No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-4">
                                             <div class="form-group mb-3">
                                                 <label>Act Covered</label><label class="text-danger">*</label>
                                                 <asp:DropDownList ID="ddlActCovered" runat="server" class="form-control">
@@ -364,77 +405,76 @@
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
                                                 <label>Type Of Contract</label><label class="text-danger">*</label>
-                                                <asp:DropDownList ID="txtTypeofContract" class="form-control" runat="server"></asp:DropDownList>
+                                                <asp:DropDownList ID="txtTypeofContract" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="txtTypeofContract_SelectedIndexChanged"></asp:DropDownList>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtTypeofContract" ErrorMessage="* Pls Select type of contract" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
-                                                  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                                        <ContentTemplate>
-                                                                <label>UN-Skilled</label><label class="text-danger">*</label>
-                                                                <asp:TextBox ID="txtUnskilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" OnTextChanged="txtUnskilled_TextChanged"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtUnskilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtUnskilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
-                                                        </ContentTemplate>
-                                                    </asp:UpdatePanel>
-                                              
+                                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                    <ContentTemplate>
+                                                        <label>UN-Skilled</label><label class="text-danger">*</label>
+                                                        <asp:TextBox ID="txtUnskilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" ReadOnly="true" OnTextChanged="txtUnskilled_TextChanged"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="ReqUnskilled" runat="server" ControlToValidate="txtUnskilled" Enabled="false" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtUnskilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
-                                                   <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                                                        <ContentTemplate>
-                                                                <label>Semi-Skilled</label><label class="text-danger">*</label>
-                                                                <asp:TextBox ID="txtSemiSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" OnTextChanged="txtSemiSkilled_TextChanged"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtSemiSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtSemiSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
-                                                        </ContentTemplate>
-                                                    </asp:UpdatePanel>
-                                           </div>
+                                                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                                    <ContentTemplate>
+                                                        <label>Semi-Skilled</label><label class="text-danger">*</label>
+                                                        <asp:TextBox ID="txtSemiSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" ReadOnly="true" OnTextChanged="txtSemiSkilled_TextChanged"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="ReqSemiSkilled" runat="server" ControlToValidate="txtSemiSkilled" Enabled="false" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtSemiSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                    </ContentTemplate>
+                                                </asp:UpdatePanel>
+                                            </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
-                                                  <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                                <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                                     <ContentTemplate>
-                                                            <label>Skilled</label><label class="text-danger">*</label>
-                                                            <asp:TextBox ID="txtSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" OnTextChanged="txtSkilled_TextChanged"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        <label>Skilled</label><label class="text-danger">*</label>
+                                                        <asp:TextBox ID="txtSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" ReadOnly="true" OnTextChanged="txtSkilled_TextChanged"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="ReqSkilled" runat="server" ControlToValidate="txtSkilled" Enabled="false" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                                     </ContentTemplate>
-                                                  </asp:UpdatePanel>
-                                              
+                                                </asp:UpdatePanel>
+
                                             </div>
                                         </div>
-                                       <div class="col-md-2">
+                                        <div class="col-md-2">
                                             <div class="form-group mb-3">
                                                 <label>High Skilled</label><label class="text-danger">*</label>
                                                 <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                                     <ContentTemplate>
-                                                                <asp:TextBox ID="txtHighSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" OnTextChanged="txtHighSkilled_TextChanged"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtHighSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtHighSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        <asp:TextBox ID="txtHighSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="True" ReadOnly="true" OnTextChanged="txtHighSkilled_TextChanged"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="ReqHighSkilled" runat="server" ControlToValidate="txtHighSkilled" Enabled="false" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtHighSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                                     </ContentTemplate>
                                                 </asp:UpdatePanel>
-                                           
+
                                             </div>
                                         </div>
                                         <div class="col-md-2">
                                             <div class="form-group mb-3">
                                                 <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                                                     <ContentTemplate>
-                                                            <label>Total Employee</label><label class="text-danger">*</label>
-                                                            <asp:TextBox ID="txtNoEmp" runat="server" Visible="true" ReadOnly="true" class="form-control" MaxLength="4"></asp:TextBox>
-                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtNoEmp" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtNoEmp" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                        <label>Total Employee</label><label class="text-danger">*</label>
+                                                        <asp:TextBox ID="txtNoEmp" runat="server" Visible="true" ReadOnly="false" class="form-control" MaxLength="4"></asp:TextBox>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtNoEmp" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtNoEmp" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                                     </ContentTemplate>
                                                 </asp:UpdatePanel>
                                             </div>
                                         </div>
                                     </div>
-                              
+
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group mb-3">
@@ -459,11 +499,18 @@
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtVendorName" ErrorMessage="* Pls Enter Vendeor Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-2">
                                             <div class="form-group mb-3">
                                                 <label>Owner Name</label><label class="text-danger">*</label>
                                                 <asp:TextBox ID="txtOwnerName" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtOwnerName" ErrorMessage="* Pls Enter Owner Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group mb-3">
+                                                <label>Owner Address</label><label class="text-danger">*</label>
+                                                <asp:TextBox ID="txtOwnerAddress" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator21" runat="server" ControlToValidate="txtOwnerAddress" ErrorMessage="* Pls Enter Owner Address" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                     </div>
@@ -497,9 +544,9 @@
                                     </div>
                                     <hr class="my-5" />
                                 </div>
-                                </div>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </td>
             </tr>
@@ -596,10 +643,10 @@
             }
         });
     </script>
-    <script type="text/jscript">
+    <%-- <script type="text/jscript">
         $(window).on("load", function () {
             $('#GvWod').DataTable({ responsive: true });
         });
-    </script>
+    </script>--%>
 </body>
 </html>

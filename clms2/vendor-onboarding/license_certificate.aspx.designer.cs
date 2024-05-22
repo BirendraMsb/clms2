@@ -40,13 +40,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.Label lblUser;
         
         /// <summary>
-        /// txtContractorName control.
+        /// vendor_owner_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContractorName;
+        protected global::System.Web.UI.WebControls.TextBox vendor_owner_name;
         
         /// <summary>
         /// RequiredFieldValidator5 control.
@@ -58,13 +58,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
         
         /// <summary>
-        /// txtContractorAdd control.
+        /// owner_address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtContractorAdd;
+        protected global::System.Web.UI.WebControls.TextBox owner_address;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -76,13 +76,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// txtestbName control.
+        /// vendor_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtestbName;
+        protected global::System.Web.UI.WebControls.TextBox vendor_name;
         
         /// <summary>
         /// RequiredFieldValidator2 control.
@@ -94,13 +94,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// txtestbAddr control.
+        /// firm_address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtestbAddr;
+        protected global::System.Web.UI.WebControls.TextBox firm_address;
         
         /// <summary>
         /// RequiredFieldValidator15 control.
@@ -112,13 +112,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator15;
         
         /// <summary>
-        /// txtprincEmpName control.
+        /// principal_employer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtprincEmpName;
+        protected global::System.Web.UI.WebControls.TextBox principal_employer;
         
         /// <summary>
         /// RequiredFieldValidator6 control.
@@ -130,13 +130,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
-        /// txtprincEmpAdd control.
+        /// pe_address control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtprincEmpAdd;
+        protected global::System.Web.UI.WebControls.TextBox pe_address;
         
         /// <summary>
         /// RequiredFieldValidator7 control.
@@ -148,13 +148,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
-        /// txtDurationFrom control.
+        /// valid_from control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDurationFrom;
+        protected global::System.Web.UI.WebControls.TextBox valid_from;
         
         /// <summary>
         /// RequiredFieldValidator8 control.
@@ -166,13 +166,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
-        /// txtDurationTo control.
+        /// valid_to control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDurationTo;
+        protected global::System.Web.UI.WebControls.TextBox valid_to;
         
         /// <summary>
         /// RequiredFieldValidator9 control.
@@ -274,13 +274,13 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
         
         /// <summary>
-        /// txtNoDayTotal control.
+        /// workers_authorised control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNoDayTotal;
+        protected global::System.Web.UI.WebControls.TextBox workers_authorised;
         
         /// <summary>
         /// RequiredFieldValidator4 control.
@@ -704,5 +704,14 @@ namespace clms2.vendor_onboarding {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator37;
+        
+        /// <summary>
+        /// btnSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }

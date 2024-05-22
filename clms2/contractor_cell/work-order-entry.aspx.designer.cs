@@ -112,6 +112,69 @@ namespace clms2.contractor_cell {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
+        /// txtWorkOrderValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtWorkOrderValue;
+        
+        /// <summary>
+        /// RequiredFieldValidator20 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator20;
+        
+        /// <summary>
+        /// UpdatePanel6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel6;
+        
+        /// <summary>
+        /// rbBocwY control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbBocwY;
+        
+        /// <summary>
+        /// rbBocwN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbBocwN;
+        
+        /// <summary>
+        /// txtBocwLibility control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBocwLibility;
+        
+        /// <summary>
+        /// ReqBocwLiability control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqBocwLiability;
+        
+        /// <summary>
         /// txtVendorRegNo control.
         /// </summary>
         /// <remarks>
@@ -274,13 +337,13 @@ namespace clms2.contractor_cell {
         protected global::System.Web.UI.WebControls.TextBox txtUnskilled;
         
         /// <summary>
-        /// RequiredFieldValidator15 control.
+        /// ReqUnskilled control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator15;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqUnskilled;
         
         /// <summary>
         /// RegularExpressionValidator6 control.
@@ -310,13 +373,13 @@ namespace clms2.contractor_cell {
         protected global::System.Web.UI.WebControls.TextBox txtSemiSkilled;
         
         /// <summary>
-        /// RequiredFieldValidator17 control.
+        /// ReqSemiSkilled control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator17;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqSemiSkilled;
         
         /// <summary>
         /// RegularExpressionValidator7 control.
@@ -346,13 +409,13 @@ namespace clms2.contractor_cell {
         protected global::System.Web.UI.WebControls.TextBox txtSkilled;
         
         /// <summary>
-        /// RequiredFieldValidator18 control.
+        /// ReqSkilled control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator18;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqSkilled;
         
         /// <summary>
         /// RegularExpressionValidator8 control.
@@ -382,13 +445,13 @@ namespace clms2.contractor_cell {
         protected global::System.Web.UI.WebControls.TextBox txtHighSkilled;
         
         /// <summary>
-        /// RequiredFieldValidator19 control.
+        /// ReqHighSkilled control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator19;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqHighSkilled;
         
         /// <summary>
         /// RegularExpressionValidator9 control.
@@ -506,6 +569,24 @@ namespace clms2.contractor_cell {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
+        
+        /// <summary>
+        /// txtOwnerAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOwnerAddress;
+        
+        /// <summary>
+        /// RequiredFieldValidator21 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator21;
         
         /// <summary>
         /// txtEmail control.

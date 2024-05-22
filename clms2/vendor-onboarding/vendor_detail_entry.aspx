@@ -12,7 +12,7 @@
     <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
 
     <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
-    <link rel="icon" href="../public/common/icons/favicon.ico" type="icon/png" />
+    <link rel="icon" href="~/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="../public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="../public/newfront/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../public/newfront/datatables/datatables.min.css" />
@@ -68,7 +68,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -216,7 +216,7 @@
 
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
@@ -281,7 +281,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settlement
                                                 </a>
                                             </li>
                                             <li>
@@ -308,6 +308,11 @@
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detailNew.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
@@ -386,7 +391,7 @@
                                     </div>
                                 </div>
                                 <div class="card shadow border">
-                                    <div class="card-heading bg-dark text-white p-3 d-flex justify-content-between ">Update Details</div>
+                                    <div class="card-heading bg-dark text-white p-3 d-flex justify-content-between ">Update Details of Vendor</div>
                                     <div class="card-body">
                                         <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
                                         <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
@@ -494,7 +499,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>License No.</label><label class="text-danger">*</label>
+                                                    <label>Labour License No.</label><label class="text-danger">*</label>
                                                     <asp:TextBox ID="txtLicenseNo" runat="server" class="form-control"></asp:TextBox>
                                                     <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtLicenseNo" ErrorMessage="* Pls Enter License No" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                 </div>
@@ -524,67 +529,67 @@
                                                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                                         <ContentTemplate>
                                                             <label>UN-Skilled</label><label class="text-danger">*</label>
-                                                            <asp:TextBox ID="txtUnskilled" runat="server" Visible="true" class="form-control" AutoPostBack="true" OnTextChanged="txtUnskilled_TextChanged"  MaxLength="4"></asp:TextBox>
+                                                            <asp:TextBox ID="txtUnskilled" runat="server" Visible="true" class="form-control" AutoPostBack="true" OnTextChanged="txtUnskilled_TextChanged" MaxLength="4"></asp:TextBox>
                                                             <asp:RequiredFieldValidator ID="RequiredFieldValidator20" runat="server" ControlToValidate="txtUnskilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
                                                             <asp:RegularExpressionValidator ID="RegularExpressionValidator11" ControlToValidate="txtUnskilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
-                                                    
+
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                                                         <ContentTemplate>
-                                                                <label>Semi-Skilled</label><label class="text-danger">*</label>
-                                                                <asp:TextBox ID="txtSemiSkilled" runat="server" Visible="true" class="form-control" AutoPostBack="true" MaxLength="4" OnTextChanged="txtSemiSkilled_TextChanged"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtSemiSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtSemiSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                            <label>Semi-Skilled</label><label class="text-danger">*</label>
+                                                            <asp:TextBox ID="txtSemiSkilled" runat="server" Visible="true" class="form-control" AutoPostBack="true" MaxLength="4" OnTextChanged="txtSemiSkilled_TextChanged"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator17" runat="server" ControlToValidate="txtSemiSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator7" ControlToValidate="txtSemiSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
-                                                
+
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                                         <ContentTemplate>
-                                                                <label>Skilled</label><label class="text-danger">*</label>
-                                                                <asp:TextBox ID="txtSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="true" OnTextChanged="txtSkilled_TextChanged"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                            <label>Skilled</label><label class="text-danger">*</label>
+                                                            <asp:TextBox ID="txtSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="true" OnTextChanged="txtSkilled_TextChanged"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator18" runat="server" ControlToValidate="txtSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
-                                                  
+
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
                                                     <asp:UpdatePanel ID="UpdatePanel6" runat="server">
                                                         <ContentTemplate>
-                                                                <label>High Skilled</label><label class="text-danger">*</label>
-                                                                <asp:TextBox ID="txtHighSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="true" OnTextChanged="txtHighSkilled_TextChanged"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtHighSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtHighSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                            <label>High Skilled</label><label class="text-danger">*</label>
+                                                            <asp:TextBox ID="txtHighSkilled" runat="server" Visible="true" class="form-control" MaxLength="4" AutoPostBack="true" OnTextChanged="txtHighSkilled_TextChanged"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator19" runat="server" ControlToValidate="txtHighSkilled" ErrorMessage="* Pls Enter No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtHighSkilled" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
-                                                   
+
                                                 </div>
                                             </div>
-                                    
+
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
                                                     <asp:UpdatePanel ID="UpdatePanel7" runat="server">
                                                         <ContentTemplate>
-                                                                <label>No. of Workers Authorised</label><label class="text-danger">*</label>
-                                                                <asp:TextBox ID="txtWAuthorised" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
-                                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtWAuthorised" ErrorMessage="* Pls Enter Authorised No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtWAuthorised" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
+                                                            <label>No. of Workers Authorised</label><label class="text-danger">*</label>
+                                                            <asp:TextBox ID="txtWAuthorised" runat="server" class="form-control" ReadOnly="true"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtWAuthorised" ErrorMessage="* Pls Enter Authorised No of Employee" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtWAuthorised" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="\d+"></asp:RegularExpressionValidator>
                                                         </ContentTemplate>
                                                     </asp:UpdatePanel>
-                                                
+
                                                 </div>
                                             </div>
 
@@ -592,14 +597,13 @@
                                         <div class="row">
                                             <div class="col-md-2">
                                                 <div class="form-group mb-3">
-                                                    <label>Vendor Photo</label><br />
-                                                    <label class="text-danger">*</label>
+                                                    <label>Vendor Photo</label><label class="text-danger">*</label><br />
                                                     <asp:FileUpload ID="FileUpload1" runat="server" onchange="document.getElementById('imgVendor').src=window.URL.createObjectURL(this.files[0])"></asp:FileUpload>
                                                     <label class="text-danger">Image size should not be more than 20 KB</label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-2">
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
                                                     <asp:Image ID="imgVendor" runat="server" BackColor="#99CCFF" Width="100" Height="110"></asp:Image>
                                                 </div>
                                             </div>
@@ -660,17 +664,174 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group mb-3">
-                                                    <label>PO Copy</label><br />
-                                                    <label class="text-danger">*</label>
+                                                    <label>PO Copy(PDF)</label><label class="text-danger">*</label><br />
                                                     <asp:FileUpload ID="POcopyUpload" runat="server"></asp:FileUpload>
                                                     <label class="text-danger">File size should not be more than 100 KB</label>
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel8" runat="server">
+                                                        <ContentTemplate>
+                                                            <label>Sub Vendor Applicability</label><label class="text-danger">*</label>
+                                                            <asp:RadioButton ID="Applcability_yes" runat="server" Text="Y" GroupName="sv" AutoPostBack="true" OnCheckedChanged="Applcability_yes_CheckedChanged" />
+                                                            <asp:RadioButton ID="Applcability_No" runat="server" Text="N" AutoPostBack="true" GroupName="sv" OnCheckedChanged="Applcability_No_CheckedChanged" />
+                                                            <br />
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel11" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSubVenName" runat="server" Text="Sub Vendor Name"></asp:Label><asp:Label ID="lblSubVenName1" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                            <asp:TextBox ID="txtSubVenName" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqSubVenName" runat="server" Enabled="false" ControlToValidate="txtSubVenName" ErrorMessage="* Pls Enter Name" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel12" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSubVenAddress" runat="server" Text="Sub Vendor Address"></asp:Label><asp:Label ID="lblSubVenAddress1" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                            <asp:TextBox ID="txtSubVenAddress" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqSubVenAddress" runat="server" Enabled="false" ControlToValidate="txtSubVenAddress" ErrorMessage="* Pls Enter Address" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel9" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSubVenPFNo" runat="server" Text="Sub Vendor UAN No."></asp:Label><asp:Label ID="lblSubVenPFNo1" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                            <asp:TextBox ID="txtSubVenPFNo" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqSubVenPFNo" runat="server" Enabled="false" ControlToValidate="txtSubVenPFNo" ErrorMessage="* Pls Enter UAN No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel16" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblUloadSubVen" runat="server" Text="Upload Sub Vendor UAN Certificate(PDF)"></asp:Label><asp:Label ID="Label3" runat="server" Text="*" ForeColor="Red"></asp:Label></br>
+                                                            <asp:FileUpload ID="SubVenPFFileUpload" runat="server"></asp:FileUpload><br />
+                                                            <asp:Label ID="lblUloadSubVenMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel10" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSubVenEsicNo" runat="server" Text="Sub Vendor ESIC No."></asp:Label><asp:Label ID="lblSubVenEsicNo1" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                            <asp:TextBox ID="txtSubVenEsicNo" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqSubVenEsicNo" runat="server" Enabled="false" ControlToValidate="txtSubVenEsicNo" ErrorMessage="* Pls Enter ESIC No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel17" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSebVenEsicCert" runat="server" Text="Upload Sub Vendor ESIC Certificate(PDF)"></asp:Label><asp:Label ID="Label5" runat="server" Text="*" ForeColor="Red"></asp:Label></br>
+                                                            <asp:FileUpload ID="SubVenESICFileUpload" runat="server"></asp:FileUpload><br />
+                                                            <asp:Label ID="lblSebVenEsicCertMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel13" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSubVenPanNo" runat="server" Text="Sub Vendor PAN No."></asp:Label><asp:Label ID="lblSubVenPanNo1" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                            <asp:TextBox ID="txtSubVenPanNo" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqSubVenPanNo" runat="server" Enabled="false" ControlToValidate="txtSubVenPanNo" ErrorMessage="* Pls Enter PAN No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel14" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSubVenGstNo" runat="server" Text="Sub Vendor GST No."></asp:Label><asp:Label ID="lblSubVenGstNo1" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                            <asp:TextBox ID="txtSubVenGstNo" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqSubVenGstNo" runat="server" Enabled="false" ControlToValidate="txtSubVenGstNo" ErrorMessage="* Pls Enter GST No." ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel15" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSubVenEmail" runat="server" Text="Sub Vendor Email"></asp:Label><asp:Label ID="lblSubVenEmail1" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                            <asp:TextBox ID="txtSubVenEmail" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqSubVenEmail" runat="server" Enabled="false" ControlToValidate="txtSubVenEmail" ErrorMessage="* Pls Enter Email" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ErrorMessage="Enter Valid Mail" ControlToValidate="txtSubVenEmail" Display="Dynamic" ForeColor="#CC0000" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel18" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSubVenLabLicNo" runat="server" Text="Sub Vendor Labour License No."></asp:Label><asp:Label ID="lblSubVenLabLicNo1" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                            <asp:TextBox ID="txtSubVenLabLicNo" runat="server" class="form-control"></asp:TextBox>
+                                                            <asp:RequiredFieldValidator ID="ReqSubVenLabLicNo" runat="server" ControlToValidate="txtSubVenLabLicNo" ErrorMessage="* Pls Enter Labour License No" ForeColor="#CC3300"></asp:RequiredFieldValidator>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div class="form-group mb-3">
+                                                    <asp:UpdatePanel ID="UpdatePanel19" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Label ID="lblSubVenPhoto" runat="server" Text="Sub Vendor Photo"></asp:Label><asp:Label ID="lblSubVenPhoto1" runat="server" Text="*" ForeColor="Red"></asp:Label>
+                                                            <asp:FileUpload ID="UploadSubVenPhoto" runat="server" onchange="document.getElementById('imgSubVendor').src=window.URL.createObjectURL(this.files[0])"></asp:FileUpload>
+                                                            <label id="lblSubVenPhotoMsb" class="text-danger">Image size should not be more than 20 KB</label>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group mb-2">
+                                                    <asp:UpdatePanel ID="UpdatePanel20" runat="server">
+                                                        <ContentTemplate>
+                                                            <asp:Image ID="imgSubVendor" runat="server" BackColor="#99CCFF" Width="100" Height="110"></asp:Image>
+                                                        </ContentTemplate>
+                                                    </asp:UpdatePanel>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                         <hr class="my-5" />
                                         <div class="row">
                                             <div class="col-md-12">

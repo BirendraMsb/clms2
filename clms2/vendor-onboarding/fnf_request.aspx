@@ -68,7 +68,7 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar navbar-expand-lg transparent navbar-dark bg-dark">
+                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
                         <div class="container-fluid">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
@@ -146,7 +146,7 @@
                                                     <i class="fa fa-angle-right me-1"></i>Generate Shift
                                                 </a>
                                             </li>
-                                          <%--  <li>
+                                            <%--  <li>
                                                 <a class="dropdown-item" href="shift-master.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Update Leave Register
                                                 </a>
@@ -216,7 +216,7 @@
 
                                             <li>
                                                 <a class="dropdown-item" href="tot_workorder_comp.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order Complience
+                                                    <i class="fa fa-angle-right me-1"></i>Total Work Order compliance
                                                 </a>
                                             </li>
                                             <li>
@@ -230,7 +230,7 @@
                                         <a class="nav-link dropdown-toggle " href="#" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Statutory<span class="fa fa-angle-down ms-1"></span>
                                         </a>
                                         <ul class="dropdown-menu ">
-                                             <li>
+                                            <li>
                                                 <a class="dropdown-item" href="form16.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XVI
                                                 </a>
@@ -256,16 +256,16 @@
                                                     <i class="fa fa-angle-right me-1"></i>Form XXI
                                                 </a>
                                             </li>
-                                            
+
                                             <li>
                                                 <a class="dropdown-item" href="register-of-OT.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Form XXIII
                                                 </a>
                                             </li>
-                                          
+
                                             <li>
                                                 <a class="dropdown-item" href="license_certificate.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i> Form XXIV
+                                                    <i class="fa fa-angle-right me-1"></i>Form XXIV
                                                 </a>
                                             </li>
                                         </ul>
@@ -281,7 +281,7 @@
                                             </li>
                                             <li>
                                                 <a class="dropdown-item" href="fnf_settlement.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settelment
+                                                    <i class="fa fa-angle-right me-1"></i>Full and Final Settlement
                                                 </a>
                                             </li>
                                             <li>
@@ -308,6 +308,11 @@
                                             <li>
                                                 <a class="dropdown-item" href="vendor_detailNew.aspx">
                                                     <i class="fa fa-angle-right me-1"></i>Vendor Detail
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="attendance-report.aspx">
+                                                    <i class="fa fa-angle-right me-1"></i>Attendance Details
                                                 </a>
                                             </li>
                                             <li>
@@ -379,17 +384,19 @@
                             <div class="container-fluid">
                             </div>
                             <br />
+                            <br />
+                            <br />
                             <div class="card shadow border">
                                 <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">Full and Final Request</div>
                                 <div class="card-body">
                                     <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
-                             <%--       <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>--%>
+                                    <%--       <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>--%>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group mb-3">
                                                 <asp:Label ID="lblMsgError" runat="server" Text="" Font-Size="Larger" ForeColor="Red" Font-Bold="True"></asp:Label><br />
                                                 <asp:Label ID="lblMsg" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label><br />
-                                             <%--   <asp:Label ID="lblMsgMail" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label>--%>
+                                                <%--   <asp:Label ID="lblMsgMail" runat="server" Text="" Font-Size="Larger" ForeColor="blue" Font-Bold="True"></asp:Label>--%>
                                             </div>
                                         </div>
                                     </div>
@@ -398,7 +405,7 @@
                                             <div class="form-group mb-3">
                                                 <label>Work Order</label><label class="text-danger">*</label>
                                                 <asp:DropDownList ID="ddlWorkOrder" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlWorkOrder_SelectedIndexChanged"></asp:DropDownList>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlWorkOrder" ErrorMessage="* Pls Select Work Order"   ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlWorkOrder" ErrorMessage="* Pls Select Work Order" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -430,7 +437,7 @@
                                             <div class="form-group mb-3">
                                                 <label>Department</label><label class="text-danger">*</label>
                                                 <asp:TextBox ID="txtDeptment" class="form-control" runat="server" ReadOnly="true"></asp:TextBox>
-                                               <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtDept" ErrorMessage="* Pls Enter Deparment" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>--%>
+                                                <%-- <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtDept" ErrorMessage="* Pls Enter Deparment" ForeColor="#CC0000" InitialValue="Select"></asp:RequiredFieldValidator>--%>
                                             </div>
                                         </div>
                                         <div class="col-md-2">
@@ -570,7 +577,7 @@
         //    }
         //}); 
     </script>
-   
+
     <%-- <script type="text/jscript">
          $(function() {
              $('[id*=txtLastWorkinDay]').datepicker ({
@@ -582,12 +589,12 @@
 
          });
       </script>--%>
-    
+
     <script type="text/jscript">
         $(window).on("load", function () {
             $('#GvWod').DataTable({ responsive: true });
         });
     </script>
- 
+
 </body>
 </html>

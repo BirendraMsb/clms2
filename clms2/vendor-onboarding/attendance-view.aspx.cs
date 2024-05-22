@@ -48,7 +48,7 @@ namespace clms2.vendor_onboarding
                         }
                     }
                 }
-                ddlWorkOrder.Items.Insert(0, new ListItem("--Select Work Order--", "0"));
+                ddlWorkOrder.Items.Insert(0, new ListItem("Select", "0"));
 
             }
             catch (Exception)
@@ -68,7 +68,9 @@ namespace clms2.vendor_onboarding
                 // lblUser1.Text = usrnm
                 lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
                 if (!Page.IsPostBack)
+                   
                     workorder();
+                     year();
 
             }
             catch (Exception)
@@ -86,7 +88,16 @@ namespace clms2.vendor_onboarding
             GvAttn.DataBind();
         }
 
-     
+
+        protected void year()
+        {
+            int currYear = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
+            for (int i = 2010; i < currYear + 5; i++)
+            {
+                ddlYear.Items.Add(i.ToString());
+            }
+           //// ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
+        }
         private void BindGrid()
         {
             try
@@ -94,7 +105,9 @@ namespace clms2.vendor_onboarding
                 dbConnection();
 
                 // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_attendance where vendor_code='" + Session["User"].ToString() + "' ";
+                strSQL = "SELECT * FROM tbl_attendance where  vendor_code='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.Text + "' and  year1='" + ddlYear.Text + "' and month1='" + ddlMonth.SelectedValue + "' and (dept_approval='Pending' or dept_approval='Reject')  and  (hr_approval ='Pending' or hr_approval ='Reject')  ";
+               //// strSQL = "SELECT * FROM tbl_attendance where dept_approval='Pending' and  hr_approval ='Pending' and vendor_code='" + Session["User"].ToString() + "' ";
+               //// strSQL = "SELECT * FROM tbl_attendance where vendor_code='" + Session["User"].ToString() + "' ";
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
@@ -110,19 +123,7 @@ namespace clms2.vendor_onboarding
 
         protected void ddlWorkOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dbConnection();
-            if (ddlWorkOrder.SelectedValue != "")
-            {
-                strSQL = "SELECT * FROM tbl_attendance where vendor_code='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.Text + "' ";
-                ///dont delete///strSQL = "SELECT a.*,b.* FROM tbl_vendor_info a, tbl_attendance b where a.vendor_reg_code=b.vendor_code and workorder = '" + ddlWorkOrder.Text + "'";
-                SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                GvAttn.DataSource = dt;
-                GvAttn.DataBind();
-                GvAttn.HeaderRow.TableSection = TableRowSection.TableHeader;
-            }
-            con.Close();
+         
         }
 
        
@@ -996,6 +997,39 @@ namespace clms2.vendor_onboarding
             GvAttn.EditIndex = -1;
 
             BindGrid();
+        }
+
+        protected void btnProcess_Click(object sender, EventArgs e)
+        {
+            dbConnection();
+
+           
+
+            if (ddlWorkOrder.SelectedItem.Text != "Select")
+            {
+                GvAttn.DataSource = null;
+
+                strSQL = "SELECT * FROM tbl_attendance where  vendor_code ='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.SelectedItem.Text + "' and month1='" + ddlMonth.SelectedValue + "' and  year1='" + ddlYear.SelectedItem.Text + "' and (dept_approval='Pending' or dept_approval='Reject')  and  (hr_approval ='Pending' or hr_approval ='Reject')  ";
+                //// strSQL = "SELECT * FROM tbl_attendance where vendor_code='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.Text + "' ";
+                SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                if (dt.Rows.Count > 0)
+                { 
+                GvAttn.DataSource = dt;
+                GvAttn.DataBind();
+                GvAttn.HeaderRow.TableSection = TableRowSection.TableHeader;
+                }
+                else
+                {
+                    lblMSG.Text = "There is no record available";
+                }
+            }
+            else
+            {
+                GvAttn.DataSource = null;
+            }
+            con.Close();
         }
 
       

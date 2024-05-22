@@ -1071,6 +1071,9 @@ namespace clms2.vendor_onboarding
             string medicalexamination = MVFileUpload.FileName;
             string DomCerificate = DomFileUpload.FileName;
 
+            string AgeCertFileName = AgeCertFileUpload.FileName;
+            string EduCertFileName = EduCertUpload.FileName;
+
             // sets the image path
             string empimgPath = "../emp_pic/" + imgName;
             string PfimgPath = "../pf_doc/" + pffile;
@@ -1078,6 +1081,9 @@ namespace clms2.vendor_onboarding
             string PoliceVerimgPath = "../police_verification_doc/" + policeverification;
             string MedicalExamimgPath = "../medical_examination_doc/" + medicalexamination;
             string DomCerificatePath = "../domicile_doc/" + DomCerificate;
+
+            string AgeCertFilePath = "../age_proof_doc/" + AgeCertFileName;
+            string EduCertFilePath = "../education_doc/" + EduCertFileName;
             // get the size in bytes that
 
             string crtime = DateTime.Now.ToString("hhmmssffffff");
@@ -1186,10 +1192,18 @@ namespace clms2.vendor_onboarding
                     decimal DomCerificateSize = Math.Round((System.Convert.ToDecimal(DomFileUpload.PostedFile.ContentLength) / System.Convert.ToDecimal(1024)), 2);
 
                     if ((DomCerificateSize > 100))
+                    {
                         lblMSGError.Text = "File is too big to upload, Max Size is 100 KB";
-                    else
+                        return;
+                    }
+                     else
+                    {
                         DomFileUpload.SaveAs(Server.MapPath(DomCerificatePath));
+                    }
+                      
                 }
+            
+             
 
                 // 0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-Police Verification File-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0
               if((PVFileUpload.PostedFile.FileName != "" & MVFileUpload.PostedFile.FileName != ""))
@@ -1238,7 +1252,38 @@ namespace clms2.vendor_onboarding
                   lblMSGError.Text = "Upload both Police Verication and Medical Examination Document.......";
                   return;
               }
-                  
+
+              if (AgeCertFileName != "")
+              {
+                  decimal AgeCerificateSize = Math.Round((System.Convert.ToDecimal(AgeCertFileUpload.PostedFile.ContentLength) / System.Convert.ToDecimal(1024)), 2);
+
+                  if ((AgeCerificateSize > 100))
+                  {
+                      lblMSGError.Text = "File is too big to upload, Max Size is 100 KB";
+                      return;
+                  }
+                  else
+                  {
+                      AgeCertFileUpload.SaveAs(Server.MapPath(AgeCertFilePath));
+                  }
+
+              }
+
+              if (EduCertFileName != "")
+              {
+                  decimal EduCerificateSize = Math.Round((System.Convert.ToDecimal(EduCertUpload.PostedFile.ContentLength) / System.Convert.ToDecimal(1024)), 2);
+
+                  if ((EduCerificateSize > 100))
+                  {
+                      lblMSGError.Text = "File is too big to upload, Max Size is 100 KB";
+                      return;
+                  }
+                  else
+                  {
+                      EduCertUpload.SaveAs(Server.MapPath(EduCertFilePath));
+                  }
+
+              }
                 
     
                 // 0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-employee photo-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0
@@ -1301,8 +1346,8 @@ namespace clms2.vendor_onboarding
                     string dob = Convert.ToDateTime(txtDOB.Text).ToString("yyyy-MM-dd");
 
                     // ===============================================================================
-                    string Str = "insert into tbl_emp(id, " + "vendor_code, " + "emp_name, emp_add, " + "emp_ph_no1,emp_ph_no2, " + "email, " + "gender,dob, " + "emp_cast,blood_grp, " + "nationality, aadhar_no, " + "pfno,pf_declaration, " + "escic,esic_declaration, " + "education, " + "police_verification, " + "medical_examination, " + "bank_name, acc_no, ifs_code, " + "emergency_contact_person_name, ecpn_ph_no, img_file, " + "status,remarks, " + "dept_approval,dept_remarks, " + "hr_approval,hr_remarks, " + "safety_approval,safety_remarks, " + "security_approval,security_remarks, " + "workorderno,any_disease, " + "designation,skill_category, " + "police_veryfication_dt,medical_certificate_dt,shift,basic,emp_code,city,state,experience,department,domicile_state,domicile_certificate,trade" + ")";
-                    Str = Str + " values(" + txtID.Text + "," + "'" + Session["User"] + "', " + "'" + txtEmpName.Text + "', '" + txtAddress.Text + "', " + "'" + txtPhNo1.Text + "', '" + txtPhNo2.Text + "', '" + txtEMail.Text + "', " + "'" + ddlGender.Text + "','" + txtDOB.Text + "', '" + ddlCast.Text + "', " + "'" + ddlBloodGrp.Text + "', '" + txtNationality.Text + "', " + "'" + txtAadharNo.Text + "', " + "'" + txtPFNO.Text + "','" + pffile + "', " + "'" + txtESIC.Text + "', '" + escicfile + "', " + "'" + ddlEducation.SelectedValue + "', " + "'" + policeverification + "', '" + medicalexamination + "', " + "'" + ddlBankName.Text + "', '" + txtAccountNo.Text + "', '" + txtIFSC.Text + "', " + "'" + txtContactPerson.Text + "', '" + txtContactNo.Text + "', '" + imgName + "', " + "'P','-','N','-','N','-','N','-','N','-','" + txtWorkOrderNo.Text + "', " + "'" + txtDiseaseName.Text + "', " + "'" + ddlDesignation.SelectedValue + "','" + ddlSkill.SelectedItem.Text + "', " + "'" + txtPVD.Text + "','" + txtMCID.Text + "','" + txtShift.Text + "','" + txtBasic.Text + "','" + txtEmpCode.Text + "','" + txtCity.Text + "','" + ddlState.Text + "','" + txtExp.Text + "','" + txtDepart.Text + "','" + ddlDomState.SelectedItem.Text + "','" + DomCerificate + "','" + ddlTrade.SelectedItem.Text + "')";  //, @ImageData
+                    string Str = "insert into tbl_emp(id, " + "vendor_code, " + "emp_name, emp_add, " + "emp_ph_no1,emp_ph_no2, " + "email, " + "gender,dob, " + "emp_cast,blood_grp, " + "nationality, aadhar_no, " + "pfno,pf_declaration, " + "escic,esic_declaration, " + "education, " + "police_verification, " + "medical_examination, " + "bank_name, acc_no, ifs_code, " + "emergency_contact_person_name, ecpn_ph_no, img_file, " + "status,remarks, " + "dept_approval,dept_remarks, " + "hr_approval,hr_remarks, " + "safety_approval,safety_remarks, " + "security_approval,security_remarks, " + "workorderno,any_disease, " + "designation,skill_category, " + "police_veryfication_dt,medical_certificate_dt,shift,basic,emp_code,city,state,experience,department,domicile_state,domicile_certificate,trade,age_certificate,education_certificate,father_husband_name,Local_address" + ")";
+                    Str = Str + " values(" + txtID.Text + "," + "'" + Session["User"] + "', " + "'" + txtEmpName.Text + "', '" + txtAddress.Text + "', " + "'" + txtPhNo1.Text + "', '" + txtPhNo2.Text + "', '" + txtEMail.Text + "', " + "'" + ddlGender.Text + "','" + txtDOB.Text + "', '" + ddlCast.Text + "', " + "'" + ddlBloodGrp.Text + "', '" + txtNationality.Text + "', " + "'" + txtAadharNo.Text + "', " + "'" + txtPFNO.Text + "','" + pffile + "', " + "'" + txtESIC.Text + "', '" + escicfile + "', " + "'" + ddlEducation.SelectedValue + "', " + "'" + policeverification + "', '" + medicalexamination + "', " + "'" + ddlBankName.Text + "', '" + txtAccountNo.Text + "', '" + txtIFSC.Text + "', " + "'" + txtContactPerson.Text + "', '" + txtContactNo.Text + "', '" + imgName + "', " + "'P','-','Pending','-','Pending','-','Pending','-','Pending','-','" + txtWorkOrderNo.Text + "', " + "'" + txtDiseaseName.Text + "', " + "'" + ddlDesignation.SelectedValue + "','" + ddlSkill.SelectedItem.Text + "', " + "'" + txtPVD.Text + "','" + txtMCID.Text + "','" + txtShift.Text + "','" + txtBasic.Text + "','" + txtEmpCode.Text + "','" + txtCity.Text + "','" + ddlState.Text + "','" + txtExp.Text + "','" + txtDepart.Text + "','" + ddlDomState.SelectedItem.Text + "','" + DomCerificate + "','" + ddlTrade.SelectedItem.Text + "','" + AgeCertFileName + "','" + EduCertFileName + "','" + txtFatherHusband.Text + "','" + txtLocalAddress.Text + "')";  //, @ImageData
 
                     SqlCommand cm = new SqlCommand(Str, con);
                    ////// //// ' cm.Parameters.Add("@ImageData", SqlDbType.Image).Value = Imagebytes
@@ -1455,7 +1500,7 @@ namespace clms2.vendor_onboarding
         protected void pfLinkButton1_Click(object sender, EventArgs e)
         {
             var path = Server.MapPath("../pf_doc_for_download");
-            var filePath = Path.Combine(path, "DECLARATION-FOR-EPF.pdf");
+            var filePath = Path.Combine(path, "DECLARATION-FOR-EPF.docx");
             FileInfo file = new FileInfo(filePath);
             if (file.Exists)
             {
@@ -1479,7 +1524,7 @@ namespace clms2.vendor_onboarding
         protected void esicLinkButton2_Click(object sender, EventArgs e)
         {
             var path = Server.MapPath("../esic_doc_for_download");
-            var filePath = Path.Combine(path, "DECLARATION-FOR-ESIC.pdf");
+            var filePath = Path.Combine(path, "DECLARATION-FOR-ESIC.docx");
             FileInfo file = new FileInfo(filePath);
             if (file.Exists)
             {

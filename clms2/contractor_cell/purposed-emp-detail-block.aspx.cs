@@ -187,8 +187,8 @@ namespace clms2.contractor_cell
 
         protected void ddlBlockingByHR_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DropDownList list = (DropDownList)sender;
-            string str = list.SelectedValue;
+            DropDownList ddl_hr_blocking = (DropDownList)sender;
+            string str = ddl_hr_blocking.SelectedValue;
             if (str == "TB")
             {
                 //// remarkofblocking - col17 
@@ -200,10 +200,42 @@ namespace clms2.contractor_cell
             }
             else if (str == "PB")
             {
-                GvEmp.Columns[17].Visible = true;
+                GvEmp.Columns[17].Visible = true;  //remarks
                 GvEmp.Columns[18].Visible = false;
                 GvEmp.Columns[19].Visible = false;
             }
+
+            GridViewRow currentRow = ddl_hr_blocking.NamingContainer as GridViewRow;
+            RequiredFieldValidator rfv = GvEmp.Rows[currentRow.RowIndex]
+                                               .FindControl("ReqHRRemOfBlocking") as RequiredFieldValidator;
+            if (ddl_hr_blocking.SelectedValue== "PB")
+            {
+                rfv.Enabled = true;
+            }
+            else 
+            {
+                rfv.Enabled = false;
+            }
+
+            // -------- date field  Requirefiled validation for Temporary Block--------------//
+            GridViewRow currentRow1 = ddl_hr_blocking.NamingContainer as GridViewRow;
+            RequiredFieldValidator rfv1 = GvEmp.Rows[currentRow1.RowIndex]
+                                               .FindControl("ReqStartDate") as RequiredFieldValidator;
+            RequiredFieldValidator rfv2 = GvEmp.Rows[currentRow1.RowIndex]
+                                              .FindControl("ReqEndDate") as RequiredFieldValidator;
+            if (ddl_hr_blocking.SelectedValue == "TB")
+            {
+                rfv1.Enabled = true;
+                rfv2.Enabled = true;
+
+            }
+            else 
+            {
+                rfv1.Enabled = false;
+                rfv2.Enabled = false;
+            }
+
+
 
         }
     }

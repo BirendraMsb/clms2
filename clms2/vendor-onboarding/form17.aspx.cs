@@ -333,60 +333,60 @@ namespace clms2.vendor_onboarding
 
         protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
         {
-             // diplaying calender 
-            if (ddlMonth.SelectedItem.Text != "Select")
-            {
-                DateTime dt = DateTime.Now;
-                int year = Convert.ToInt32(ddlYear.SelectedItem.Text);   //Convert.ToInt32(DateTime.Now.Year);
-                int month = Convert.ToInt32(ddlMonth.SelectedValue);
-                int days = GetDaysInMonth(month, year);
+            // // diplaying calender 
+            //if (ddlMonth.SelectedItem.Text != "Select")
+            //{
+            //    DateTime dt = DateTime.Now;
+            //    int year = Convert.ToInt32(ddlYear.SelectedItem.Text);   //Convert.ToInt32(DateTime.Now.Year);
+            //    int month = Convert.ToInt32(ddlMonth.SelectedValue);
+            //    int days = GetDaysInMonth(month, year);
 
-                // int days = GetDaysInMonth(Convert.ToInt32(DropDownList1.SelectedValue), Convert.ToInt32(DateTime.Now.Year));
+            //    // int days = GetDaysInMonth(Convert.ToInt32(DropDownList1.SelectedValue), Convert.ToInt32(DateTime.Now.Year));
 
 
-                // string dayname = DateTime.Now.DayOfWeek();
-                DataTable myDT = new DataTable();
-                //myDT.Columns.Add("Emp_Code",typeof(String));
-                //myDT.Columns.Add("Emp_Name", typeof(String));
+            //    // string dayname = DateTime.Now.DayOfWeek();
+            //    DataTable myDT = new DataTable();
+            //    //myDT.Columns.Add("Emp_Code",typeof(String));
+            //    //myDT.Columns.Add("Emp_Name", typeof(String));
 
-                for (int i = 1; i <= days; i++)
-                {
-                    // DataColumn id = new DataColumn("Day-");
-                    DataColumn id = new DataColumn();
-                    id.ColumnName = id + i.ToString();
-                    // id.DataType = System.Type.GetType("System.Int32");
-                    id.DataType = System.Type.GetType("System.String");
-                    myDT.Columns.Add(id);
+            //    for (int i = 1; i <= days; i++)
+            //    {
+            //        // DataColumn id = new DataColumn("Day-");
+            //        DataColumn id = new DataColumn();
+            //        id.ColumnName = id + i.ToString();
+            //        // id.DataType = System.Type.GetType("System.Int32");
+            //        id.DataType = System.Type.GetType("System.String");
+            //        myDT.Columns.Add(id);
 
-                }
+            //    }
 
-                //for (int i = 1; i <= 1; i++)
-                //{
-                //    DataRow dr = myDT.NewRow();
-                //    for (int ii = 0; ii < days; ii++)
-                //    {
-                //        dr[ii] = (ii+1).ToString();
-                //    }
-                //    myDT.Rows.Add(dr);
-                //}
+            //    //for (int i = 1; i <= 1; i++)
+            //    //{
+            //    //    DataRow dr = myDT.NewRow();
+            //    //    for (int ii = 0; ii < days; ii++)
+            //    //    {
+            //    //        dr[ii] = (ii+1).ToString();
+            //    //    }
+            //    //    myDT.Rows.Add(dr);
+            //    //}
 
-                for (int i = 1; i <= 1; i++)
-                {
-                    DataRow dr = myDT.NewRow();
+            //    for (int i = 1; i <= 1; i++)
+            //    {
+            //        DataRow dr = myDT.NewRow();
 
-                    for (int ii = 0; ii < days; ii++)
-                    {
-                        string dayname = (Convert.ToDateTime((ii + 1).ToString() + "-" + month.ToString() + "-" + year.ToString())).ToString("ddd");
-                        dr[ii] = dayname;
-                        //  dr[ii] = (ii + 1).ToString()+ "-" + month.ToString()+ "-" + year.ToString();
-                        // dr[ii] = "bk";
-                    }
-                    myDT.Rows.Add(dr);
-                }
+            //        for (int ii = 0; ii < days; ii++)
+            //        {
+            //            string dayname = (Convert.ToDateTime((ii + 1).ToString() + "-" + month.ToString() + "-" + year.ToString())).ToString("ddd");
+            //            dr[ii] = dayname;
+            //            //  dr[ii] = (ii + 1).ToString()+ "-" + month.ToString()+ "-" + year.ToString();
+            //            // dr[ii] = "bk";
+            //        }
+            //        myDT.Rows.Add(dr);
+            //    }
 
-                //GridView1.DataSource = myDT;
-                //GridView1.DataBind();
-            }
+            //    //GridView1.DataSource = myDT;
+            //    //GridView1.DataBind();
+            //}
         }
 
         protected void GridView2_PageIndexChanging(object sender, GridViewPageEventArgs e)

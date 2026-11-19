@@ -369,6 +369,29 @@
                 display: none !important;
             }
         }
+
+        /* ========================================================
+           Layout & Menu Bar Clearance (50px below navbar)
+           ======================================================== */
+        html, body {
+            min-height: 100vh !important;
+        }
+
+        body {
+            padding-top: 124px !important; /* Navbar height (~74px) + 50px space below menu bar */
+            position: relative !important;
+        }
+
+        body > form > table.table {
+            width: 100% !important;
+            margin-bottom: 0 !important;
+            border: none !important;
+        }
+
+        body > form > table.table > tbody > tr > td {
+            border: none !important;
+            padding: 0 !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">

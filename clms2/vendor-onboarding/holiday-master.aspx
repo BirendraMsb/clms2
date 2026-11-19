@@ -450,6 +450,15 @@
                 display: none !important;
             }
         }
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .form-two-column-row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -874,10 +883,7 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Date" ItemStyle-Width="150">
                                                     <ItemTemplate>
-                                                        <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25 px-2 py-1">
-                                                            <%# Eval("holiday_dt","{0:dd-MM-yyyy}")%>
-                                                        </span>
-                                                        <asp:Label ID="lblHoliday_dt" runat="server" Visible="false" Text='<%# Eval("holiday_dt","{0:dd-MM-yyyy}")%>'></asp:Label>
+                                                        <asp:Label ID="lblHoliday_dt" runat="server" Text='<%# Eval("holiday_dt","{0:dd-MM-yyyy}")%>'></asp:Label>
                                                     </ItemTemplate>
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="txtHoliday_dt" runat="server" Text='<%# Eval("holiday_dt","{0:dd-MM-yyyy}")%>' CssClass="form-control form-control-sm" Width="140"></asp:TextBox>

@@ -572,6 +572,16 @@
                 display: none !important;
             }
         }
+
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .form-two-column-row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -1033,10 +1043,7 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="In Time" ItemStyle-Width="150">
                                                     <ItemTemplate>
-                                                        <span class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-2 py-1">
-                                                            <%# Eval("InTime","{0:HH:mm:ss}")%>
-                                                        </span>
-                                                        <asp:Label ID="lblInTime" runat="server" Visible="false" Text='<%# Eval("InTime","{0:HH:mm:ss}")%>'></asp:Label>
+                                                        <asp:Label ID="lblInTime" runat="server" Text='<%# Eval("InTime","{0:HH:mm:ss}")%>'></asp:Label>
                                                     </ItemTemplate>
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="txtInTime" runat="server" Text='<%# Eval("InTime","{0:HH:mm:ss}")%>' CssClass="form-control form-control-sm" Width="140"></asp:TextBox>
@@ -1046,10 +1053,7 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Out Time" ItemStyle-Width="150">
                                                     <ItemTemplate>
-                                                        <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2 py-1">
-                                                            <%# Eval("OutTime","{0:HH:mm:ss}")%>
-                                                        </span>
-                                                        <asp:Label ID="lblOutTime" runat="server" Visible="false" Text='<%# Eval("OutTime","{0:HH:mm:ss}")%>'></asp:Label>
+                                                        <asp:Label ID="lblOutTime" runat="server" Text='<%# Eval("OutTime","{0:HH:mm:ss}")%>'></asp:Label>
                                                     </ItemTemplate>
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="txtOutTime" runat="server" Text='<%# Eval("OutTime","{0:HH:mm:ss}")%>' CssClass="form-control form-control-sm" Width="140"></asp:TextBox>

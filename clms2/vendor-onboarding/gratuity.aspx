@@ -119,10 +119,13 @@
             border-bottom-left-radius: 0 !important;
         }
         .form-two-column-row {
+            display: flex !important;
+            flex-wrap: wrap !important;
             margin-left: -17.5px;
             margin-right: -17.5px;
         }
         .form-two-column-row > [class*="col-"] {
+            float: none !important;
             padding-left: 17.5px;
             padding-right: 17.5px;
         }
@@ -453,6 +456,16 @@
             .navbar .navbar-toggler {
                 display: none !important;
             }
+        }
+
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .form-two-column-row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
         }
     </style>
 </head>
@@ -829,11 +842,8 @@
                                             </div>
                                         </div>
 
-                                        <%-- Section 2: Gratuity Details GridView --%>
+                                        <%-- Gratuity Details GridView --%>
                                         <hr class="my-4 border-2" />
-                                        <div class="form-section-header">
-                                            <i class="fa fa-list-alt text-primary me-2"></i>Eligible Workman Gratuity Details
-                                        </div>
 
                                         <div class="table-responsive shadow-sm rounded-3 border">
                                             <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#e2e8f0" BorderStyle="None" BorderWidth="1px" CellPadding="3"

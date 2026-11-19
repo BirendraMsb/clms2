@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fnf_request_approval.aspx.cs" Inherits="clms2.contractor_cell.fnf_request_approval" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fnf_request_approval.aspx.cs" Inherits="clms2.contractor_cell.fnf_request_approval" %>
 
 <!DOCTYPE html>
 
@@ -397,6 +397,11 @@
                 display: none !important;
             }
         }
+
+        /* Clearance and space below fixed menu bar */
+        .page-wrapper {
+            margin-top: 50px !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -753,16 +758,10 @@
                                                                 <asp:Label ID="emp_name" runat="server" Text='<%# Eval("emp_name") %>'></asp:Label>
                                                             </ItemTemplate>
                                                         </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Adhar No" ItemStyle-Width="200px">
-                                                            <ItemTemplate>
-                                                                <asp:Label ID="aadhar_no" runat="server" Text='<%# Eval("aadhar_no") %>'></asp:Label>
-                                                            </ItemTemplate>
-                                                        </asp:TemplateField>
-                                                        <asp:TemplateField HeaderText="Department" ItemStyle-Width="50px">
+                                                        <asp:TemplateField HeaderText="Department" ItemStyle-Width="100px">
                                                             <ItemTemplate>
                                                                 <asp:Label ID="department" runat="server" Text='<%# Eval("department") %>'></asp:Label>
                                                             </ItemTemplate>
-
                                                         </asp:TemplateField>
                                                         <asp:TemplateField HeaderText="Last Working Day" ItemStyle-Width="150px">
                                                             <ItemTemplate>

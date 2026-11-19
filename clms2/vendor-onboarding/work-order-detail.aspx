@@ -386,7 +386,7 @@
                             <div class="navbar-brand w-40">
                                 <a class="navbar-brand" href="dashboard.aspx">
                                     <span>
-                                        <%--<img src="../public/common/images/ElectroSolHeader3.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />--%>
+                                        <img src="../public/common/images/ElectroSolHeader3.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />
                                     </span>
                                 </a>
                             </div>
@@ -708,7 +708,7 @@
                                             <%--========================================================================================--%>
 
                                             <asp:GridView ID="GvWod" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true">
+                                                GridLines="Vertical" AllowPaging="false" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Sl. No">
@@ -723,11 +723,13 @@
                                                     <asp:BoundField DataField="vendor_reg_code" HeaderText="Vendor No" SortExpression="vendor_reg_code">
                                                         <ItemStyle Width="100" />
                                                     </asp:BoundField>
-                                                    <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from">
+                                                    <asp:BoundField DataField="valid_from" HeaderText="Valid From" SortExpression="valid_from" DataFormatString="{0:dd-MM-yyyy}" HtmlEncode="false">
                                                         <%--<ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />--%>
                                                     </asp:BoundField>
 
-                                                    <asp:BoundField DataField="valid_to" HeaderText="Valid To" SortExpression="valid_from" />
+                                                    <asp:BoundField DataField="valid_to" HeaderText="Valid To" SortExpression="valid_to" DataFormatString="{0:dd-MM-yyyy}" HtmlEncode="false">
+                                                        <ItemStyle HorizontalAlign="Center" VerticalAlign="Middle" />
+                                                    </asp:BoundField>
 
                                                     <asp:BoundField DataField="nature_of_work" HeaderText="Nature Of Work" SortExpression="nature_of_work"></asp:BoundField>
                                                     <asp:BoundField DataField="type_of_contract" HeaderText="Type Of Contract" SortExpression="type_of_contract"></asp:BoundField>
@@ -736,9 +738,9 @@
                                                 </Columns>
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                                <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
+                                                <HeaderStyle CssClass="myheader" BackColor="#343a40" Height="35px" Font-Bold="True" ForeColor="White" />
                                                 <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                                <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
+                                                <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
                                                 <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
                                                 <SortedAscendingCellStyle BackColor="#F1F1F1" />
                                                 <SortedAscendingHeaderStyle BackColor="#0000A9" />

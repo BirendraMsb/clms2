@@ -369,6 +369,15 @@
                 display: none !important;
             }
         }
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .form-two-column-row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">

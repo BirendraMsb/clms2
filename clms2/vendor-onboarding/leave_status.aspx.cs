@@ -17,7 +17,7 @@ namespace clms2.vendor_onboarding
         private SqlConnection con = new SqlConnection(Conn);
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
             if (!this.IsPostBack)
@@ -41,14 +41,19 @@ namespace clms2.vendor_onboarding
             {
                 ddlYear.Items.Add(i.ToString());
             }
-            ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
+            ListItem currentYearItem = ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString());
+            if (currentYearItem != null)
+            {
+                currentYearItem.Selected = true;
+            }
         }
 
         private void workorder()
         {
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
 
-            string query = "SELECT distinct(workorder) FROM tbl_attendance where  hr_approval='Approved' and dept_approval='Approved' and vendor_code ='" + Session["User"].ToString() + "'";
+            string u = Session["User"] != null ? Session["User"].ToString() : "";
+            string query = "SELECT distinct(workorder) FROM tbl_attendance where  hr_approval='Approved' and dept_approval='Approved' and vendor_code ='" + u + "'";
             ////  string query = "SELECT distinct(a.workorder),vendor_code FROM tbl_Attendance a,tbl_vendor_info v where vendor_code ='" + Session["User"].ToString() + "' ";
 
             using (SqlConnection con = new SqlConnection(constr))

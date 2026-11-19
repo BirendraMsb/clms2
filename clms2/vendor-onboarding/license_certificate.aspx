@@ -118,10 +118,13 @@
             border-bottom-left-radius: 0 !important;
         }
         .form-two-column-row {
+            display: flex !important;
+            flex-wrap: wrap !important;
             margin-left: -17.5px;
             margin-right: -17.5px;
         }
         .form-two-column-row > [class*="col-"] {
+            float: none !important;
             padding-left: 17.5px;
             padding-right: 17.5px;
         }
@@ -436,6 +439,16 @@
             .navbar .navbar-toggler {
                 display: none !important;
             }
+        }
+
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .form-two-column-row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
         }
     </style>
 </head>
@@ -840,12 +853,6 @@
                         </div>
                     </div>
 
-                    <%-- Section 2: Duration of Contract & Working Days --%>
-                    <hr class="my-4 border-2" />
-                    <div class="form-section-header">
-                        <i class="fa fa-calendar-check text-primary me-2"></i>Duration of Contract &amp; Working Days
-                    </div>
-
                     <div class="row form-two-column-row">
                         <div class="col-md-6 col-12 mb-3">
                             <label class="form-label" for="valid_from">Contract Duration From</label>
@@ -882,12 +889,6 @@
                             </div>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" SetFocusOnError="true" ControlToValidate="txtNumDaysContrWorked" ValidationGroup="Reg" ForeColor="#dc2626" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
-                    </div>
-
-                    <%-- Section 3: Maximum Contract Labour Employed --%>
-                    <hr class="my-4 border-2" />
-                    <div class="form-section-header">
-                        <i class="fa fa-users text-primary me-2"></i>Max Contract Labour Employed On Any Day
                     </div>
 
                     <div class="row form-two-column-row">
@@ -928,12 +929,6 @@
                         </div>
                     </div>
 
-                    <%-- Section 4: Working Hours & Holidays --%>
-                    <hr class="my-4 border-2" />
-                    <div class="form-section-header">
-                        <i class="fa fa-business-time text-primary me-2"></i>Working Hours &amp; Weekly Holidays
-                    </div>
-
                     <div class="row form-two-column-row">
                         <div class="col-md-6 col-12 mb-3">
                             <label class="form-label" for="txtDailyWorkDay">Daily Hours of Work &amp; Spread-over</label>
@@ -972,12 +967,6 @@
                         </div>
                     </div>
 
-                    <%-- Section 5: Man Days Worked --%>
-                    <hr class="my-4 border-2" />
-                    <div class="form-section-header">
-                        <i class="fa fa-user-clock text-primary me-2"></i>Number of Man-Days Worked
-                    </div>
-
                     <div class="row form-two-column-row">
                         <div class="col-md-6 col-12 mb-3">
                             <label class="form-label" for="txtNoDaysMenWorked">Man-Days - Men</label>
@@ -1014,12 +1003,6 @@
                             </div>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator22" runat="server" SetFocusOnError="true" ControlToValidate="txtNoWorkDayTotal" ValidationGroup="Reg" ForeColor="#dc2626" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
-                    </div>
-
-                    <%-- Section 6: Wages Paid & Deductions --%>
-                    <hr class="my-4 border-2" />
-                    <div class="form-section-header">
-                        <i class="fa fa-money-bill-wave text-primary me-2"></i>Amount of Wages Paid &amp; Deductions
                     </div>
 
                     <div class="row form-two-column-row">
@@ -1096,12 +1079,6 @@
                         </div>
                     </div>
 
-                    <%-- Section 7: Welfare Amenities Provided --%>
-                    <hr class="my-4 border-2" />
-                    <div class="form-section-header">
-                        <i class="fa fa-medkit text-primary me-2"></i>Welfare Amenities Provided
-                    </div>
-
                     <div class="row form-two-column-row">
                         <div class="col-md-6 col-12 mb-3">
                             <label class="form-label" for="txtCanteen">Canteen Standards</label>
@@ -1151,12 +1128,6 @@
                         <div class="col-md-6 col-12 mb-3">
                             <%-- Balanced spacer column --%>
                         </div>
-                    </div>
-
-                    <%-- Section 8: Place & Date --%>
-                    <hr class="my-4 border-2" />
-                    <div class="form-section-header">
-                        <i class="fa fa-map-marker-alt text-primary me-2"></i>Declaration Place &amp; Date
                     </div>
 
                     <div class="row form-two-column-row">

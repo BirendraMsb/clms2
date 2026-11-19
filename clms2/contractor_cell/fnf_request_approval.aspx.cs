@@ -43,157 +43,56 @@ namespace clms2.contractor_cell
         private void CreateEmptyTable()
         {
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[12] { new DataColumn("id", typeof(string)),
-            new DataColumn("work_order", typeof(string)),
-            new DataColumn("emp_code",typeof(string)),
-            new DataColumn("vendor_code",typeof(string)),
-            new DataColumn("emp_name",typeof(string)),
-            new DataColumn("aadhar_no",typeof(string)),
-            new DataColumn("department",typeof(string)),
-            new DataColumn("last_working_day",typeof(string)),
-            new DataColumn("date_of_request",typeof(string)),
-            new DataColumn("reason_for_separation",typeof(string)),
-            new DataColumn("hr_approval",typeof(string)),
-            new DataColumn("hr_remarks",typeof(string)),
-        
-           
+            dt.Columns.AddRange(new DataColumn[11] { 
+                new DataColumn("id", typeof(string)),
+                new DataColumn("work_order", typeof(string)),
+                new DataColumn("emp_code", typeof(string)),
+                new DataColumn("vendor_code", typeof(string)),
+                new DataColumn("emp_name", typeof(string)),
+                new DataColumn("department", typeof(string)),
+                new DataColumn("last_working_day", typeof(string)),
+                new DataColumn("date_of_request", typeof(string)),
+                new DataColumn("reason_for_separation", typeof(string)),
+                new DataColumn("hr_approval", typeof(string)),
+                new DataColumn("hr_remarks", typeof(string))
             });
 
-
-
-            ////----------------------------------//
-            //string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            ////string query = "SELECT emp_code,emp_name,date,in_time,out_time FROM tbl_manual_punch";
-            //string query = "SELECT emp_code,emp_name,basic FROM tbl_emp where vendor_code ='" + Session["User"].ToString() + "' ";
-            //DataTable dt_emp;
-            //using (SqlConnection con = new SqlConnection(constr))
-            //{
-            //    using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
-            //    {
-            //        using (dt_emp = new DataTable())
-            //        {
-
-            //            sda.Fill(dt_emp);
-            //            string MyString = dt_emp.Rows[0].ItemArray[0].ToString();
-            //            //GridView2.DataSource = dt;
-            //            //GridView2.DataBind();
-            //        }
-            //    }
-            //}
-
-
-            //------------------------------------//
-
-            // int dtEmpRowCount = dt_emp.Rows.Count;
-            int dtEmpRowCount = 1;
-            int dtEmpColCount = 2;
-            DataRow dr;
-            for (int i = 0; i < dtEmpRowCount; i++)
+            DataRow dr = dt.NewRow();
+            for (int j = 0; j < 11; j++)
             {
-                dr = dt.NewRow();
-                for (int j = 0; j < dtEmpColCount; j++)
-                {
-
-                    //  string MyString = dt_emp.Rows[i].ItemArray[j].ToString();
-
-                    // dr[j] = dt_emp.Rows[i].ItemArray[j].ToString();
-                    dr[0] = string.Empty;
-                    dr[1] = string.Empty;
-                    dr[2] = string.Empty;
-                    dr[3] = string.Empty;
-                    dr[4] = string.Empty;
-                    dr[5] = string.Empty;
-                    dr[6] = string.Empty;
-                    dr[7] = string.Empty;
-                    dr[8] = string.Empty;
-                    dr[9] = string.Empty;
-                    dr[10] = string.Empty;
-                    dr[11] = string.Empty;
-
-       
-                }
-                dt.Rows.Add(dr);
+                dr[j] = string.Empty;
             }
+            dt.Rows.Add(dr);
             GridView2.DataSource = dt;
             GridView2.DataBind();
         }
 
-
         private void BindTableInGrid()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[12] { new DataColumn("id", typeof(int)),
-           new DataColumn("work_order", typeof(string)),
-            new DataColumn("emp_code",typeof(string)),
-            new DataColumn("vendor_code",typeof(string)),
-            new DataColumn("emp_name",typeof(string)),
-            new DataColumn("aadhar_no",typeof(string)),
-            new DataColumn("department",typeof(string)),
-            new DataColumn("last_working_day",typeof(string)),
-            new DataColumn("date_of_request",typeof(string)),
-            new DataColumn("reason_for_separation",typeof(string)),
-            new DataColumn("hr_approval",typeof(string)),
-            new DataColumn("hr_remarks",typeof(string)),
-      
-            });
-
-            //----------------------------------//
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "select distinct(a.id), a.work_order, a.emp_code,a.vendor_code,a.emp_name,a.department,a.last_working_day,a.date_of_request,a.reason_for_separation,a.hr_approval,a.hr_remarks from tbl_full_final_request a ,tbl_emp b  where a.emp_code=b.emp_code and a.vendor_code= b.vendor_code and a.work_order=b.workorderno and a.hr_approval IS NULL OR a.hr_approval = '' or a.hr_approval !='Approved' ";
-            ////string query = "select a.id, a.work_order,a.emp_code,a.vendor_code,a.emp_name,b.aadhar_no, a.department,a.last_working_day,a.date_of_request,a.reason_for_separation,a.hr_approval,a.hr_remarks from tbl_full_final_request a ,tbl_emp b  where a.emp_code=b.emp_code and a.vendor_code= b.vendor_code and a.work_order=b.workorderno and a.hr_approval !='Approved'";
-           //// string query = "select * from tbl_full_final_request where hr_approval !='Approved' or hr_approval is null";
-            ////string query = "select * from tbl_full_final_request where work_order= '" + ddlWorkdOrder.SelectedItem.Text + "'";
-            DataTable dt1;
+            string query = "select distinct(a.id), a.work_order, a.emp_code, a.vendor_code, a.emp_name, a.department, a.last_working_day, a.date_of_request, a.reason_for_separation, a.hr_approval, a.hr_remarks from tbl_full_final_request a ,tbl_emp b  where a.emp_code=b.emp_code and a.vendor_code= b.vendor_code and a.work_order=b.workorderno and (a.hr_approval IS NULL OR a.hr_approval = '' or a.hr_approval !='Approved') ";
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
                 {
-                    using (dt1 = new DataTable())
+                    using (DataTable dt1 = new DataTable())
                     {
-
                         sda.Fill(dt1);
                         if (dt1.Rows.Count > 0)
                         {
-                            string MyString = dt1.Rows[0].ItemArray[0].ToString();
-                            ////GridView2.DataSource = dt;
-                            ////GridView2.DataBind();
+                            GridView2.DataSource = dt1;
+                            GridView2.DataBind();
                         }
                         else
                         {
                             CreateEmptyTable();
-                            ////GridView2.DataSource = null;
-                            ////GridView2.DataBind();
                             return;
                         }
-
                     }
                 }
             }
-
-
-            //------------------------------------//
-
-            int dt1EmpRowCount = dt1.Rows.Count;
-            int dt1EmpColCount = 11;
-            DataRow dr;
-            for (int i = 0; i < dt1EmpRowCount; i++)
-            {
-                dr = dt.NewRow();
-                for (int j = 0; j < dt1EmpColCount; j++)
-                {
-                    string MyString = dt1.Rows[i].ItemArray[j].ToString();
-
-                    dr[j] = dt1.Rows[i].ItemArray[j].ToString();
-
-                    ////dr[2] = string.Empty;
-               
-                }
-                dt.Rows.Add(dr);
-            }
-            GridView2.DataSource = dt;
-            GridView2.DataBind();
-
         }
+
         private void Vendor_code()
         {
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;

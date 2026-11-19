@@ -36,28 +36,145 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
-    <style>
-        .nav-link {
-            padding: 0.32rem 0.75rem;
+        <style>
+        .nav-link { padding: 0.32rem 0.75rem; }
+        .bg-dark { background-color: #292e40 !important; }
+        .icon-svg, .icon-svg.icon-svg-lg { width: 3rem; height: 3rem; }
+        img, svg { vertical-align: middle; }
+        svg:not(:root) { overflow: hidden; }
+
+        /* Action Buttons */
+        .btn-round-action {
+            border-radius: 50px !important;
+            padding: 9px 28px !important;
+            font-size: 0.92rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.3px !important;
+            min-width: 130px !important;
+            cursor: pointer !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            text-transform: none !important;
+            border: 1px solid transparent !important;
+            outline: none !important;
+        }
+        .btn-round-action:hover { transform: translateY(-2px) !important; }
+        .btn-action-save {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+            color: #ffffff !important;
+            border-color: #1d4ed8 !important;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.32) !important;
+        }
+        .btn-action-save:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.48) !important;
+            color: #ffffff !important;
         }
 
-        .bg-dark {
-            background-color: #292e40 !important;
+        /* Card Entry Styles */
+        .card-entry {
+            background: #ffffff;
+            border-radius: 1rem !important;
+            border: 1px solid #e2e8f0 !important;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08) !important;
+            overflow: hidden;
+            margin-bottom: 2rem !important;
+            width: 100% !important;
+        }
+        .card-entry-header {
+            background: linear-gradient(135deg, #090e1a 0%, #0f172a 45%, #1e293b 100%) !important;
+            color: #ffffff;
+            padding: 1.25rem 2rem;
+            border-top-left-radius: 1rem !important;
+            border-top-right-radius: 1rem !important;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, #38bdf8 0%, #3b82f6 50%, #6366f1 100%) 1;
+        }
+        .card-entry-body {
+            padding: 2rem !important;
+        }
+        .form-section-header {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .form-label {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.4rem;
+        }
+        .form-control, .form-select {
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 0.5rem !important;
+            padding: 0.55rem 0.85rem !important;
+            font-size: 0.88rem !important;
+            color: #0f172a !important;
+            background-color: #ffffff;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #3b82f6 !important;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+        }
+        .input-group-text {
+            border: 1px solid #cbd5e1 !important;
+            border-right: none !important;
+            background-color: #f8fafc !important;
+            color: #64748b !important;
+            border-top-left-radius: 0.5rem !important;
+            border-bottom-left-radius: 0.5rem !important;
+            padding: 0.55rem 0.85rem !important;
+        }
+        .input-group .form-control, .input-group .form-select {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+        body { padding-bottom: 120px !important; }
+        .page-wrapper {
+            margin-top: 105px !important;
+            padding-bottom: 80px !important;
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
+        @media (max-width: 768px) {
+            .page-wrapper { padding-left: 12px !important; padding-right: 12px !important; margin-top: 90px !important; }
+            .card-entry-header, .card-entry-body { padding: 1.25rem !important; }
         }
 
-        .icon-svg, .icon-svg.icon-svg-lg {
-            width: 3rem;
-            height: 3rem;
+        /* Wage Slip Document Card Specifics */
+        .wage-slip-document-card {
+            border: 1px solid #cbd5e1 !important;
+            box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.12) !important;
+            background: #ffffff;
+            max-width: 960px;
+            margin: 0 auto !important;
+        }
+        .payslip-highlight-row {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.08) 0%, rgba(16, 185, 129, 0.12) 100%) !important;
+            border-top: 2px solid #10b981 !important;
+            border-bottom: 2px solid #10b981 !important;
         }
 
-        img, svg {
-            vertical-align: middle;
+        /* Print Styles */
+        @media print {
+            body { padding: 0 !important; background: #ffffff !important; }
+            nav.navbar, .filter-card, .footer, .btn-print, .btn-action-save, .table.footer { display: none !important; }
+            .page-wrapper { margin-top: 0 !important; padding: 0 !important; }
+            .card-entry { box-shadow: none !important; border: 1px solid #000000 !important; margin-bottom: 0 !important; }
+            .wage-slip-document-card { max-width: 100% !important; border: none !important; box-shadow: none !important; }
         }
 
-            svg:not(:root) {
-                overflow: hidden;
-            }
-    /* Menu Bar (Navbar) Solid Black Theme */
+        /* Menu Bar (Navbar) Solid Black Theme */
         html body nav.navbar,
         html body nav.navbar.bg-dark,
         html body nav.navbar.transparent,
@@ -71,7 +188,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
         }
 
-        /* Ensure navbar inner container-fluid is strictly transparent and never white */
         html body nav.navbar .container-fluid,
         html body .navbar .container-fluid,
         nav.navbar .container-fluid,
@@ -80,7 +196,6 @@
             background-color: transparent !important;
         }
 
-        /* Menu Bar Navigation Links - Crisp White on Black */
         html body nav.navbar .navbar-nav .nav-link,
         html body nav.navbar .nav-link {
             color: #ffffff !important;
@@ -107,7 +222,6 @@
             margin-left: 0.35rem !important;
         }
 
-        /* Dropdown Menus - Solid Black Background */
         html body nav.navbar .nav-item.dropdown,
         html body nav.navbar .dropdown {
             position: relative !important;
@@ -204,9 +318,6 @@
             }
         }
 
-        /* ========================================================
-           Mobile Navbar Collapse System (Strict ID + Class Rules)
-           ======================================================== */
         @media (max-width: 991.98px) {
             html body nav.navbar .container-fluid {
                 display: flex !important;
@@ -231,7 +342,6 @@
                 max-height: 38px !important;
             }
 
-            /* STRICTLY HIDE collapsed navbar by default on mobile */
             html body nav.navbar #navbarColor02:not(.show),
             html body nav.navbar .navbar-collapse:not(.show),
             nav.navbar #navbarColor02:not(.show),
@@ -241,7 +351,6 @@
                 display: none !important;
             }
 
-            /* STRICTLY DISPLAY navbar when toggled open on mobile */
             html body nav.navbar #navbarColor02.show,
             html body nav.navbar .navbar-collapse.show,
             nav.navbar #navbarColor02.show,
@@ -260,7 +369,6 @@
                 -webkit-overflow-scrolling: touch !important;
             }
 
-            /* Mobile hamburger toggler button */
             html body nav.navbar .navbar-toggler,
             nav.navbar .navbar-toggler,
             .navbar .navbar-toggler {
@@ -283,7 +391,6 @@
                 outline: none !important;
             }
 
-            /* Mobile Sub-menu (Dropdown Menu) Styling */
             html body nav.navbar .navbar-collapse .dropdown-menu {
                 position: static !important;
                 float: none !important;
@@ -302,7 +409,6 @@
                 animation: none !important;
             }
 
-            /* Mobile Sub-menu Visible State */
             html body nav.navbar .navbar-collapse .dropdown-menu.show,
             html body nav.navbar .navbar-collapse .nav-item.dropdown.show > .dropdown-menu,
             html body nav.navbar .navbar-collapse .dropdown.show > .dropdown-menu {
@@ -311,39 +417,21 @@
                 opacity: 1 !important;
             }
 
-            /* Mobile Sub-menu Items */
             html body nav.navbar .navbar-collapse .dropdown-menu .dropdown-item {
                 padding: 8px 12px !important;
                 color: #e2e8f0 !important;
                 font-size: 0.88rem !important;
                 display: flex !important;
                 align-items: center !important;
-                border-bottom: 1px solid #1e1e1e !important;
-                background: transparent !important;
-                white-space: normal !important;
             }
 
-            html body nav.navbar .navbar-collapse .dropdown-menu .dropdown-item:last-child {
-                border-bottom: none !important;
+            html body nav.navbar .navbar-collapse .dropdown-menu .dropdown-item i {
+                margin-right: 8px !important;
             }
 
-            html body nav.navbar .navbar-collapse .dropdown-menu .dropdown-item:hover,
-            html body nav.navbar .navbar-collapse .dropdown-menu .dropdown-item:focus {
-                background-color: #222222 !important;
-                color: #38bdf8 !important;
-            }
-
-            /* Caret icon rotation when dropdown is open */
-            html body nav.navbar .dropdown.show > .nav-link .fa-angle-down,
-            html body nav.navbar .dropdown.show > .nav-link span.fa-angle-down,
-            html body nav.navbar .nav-item.show > .nav-link .fa-angle-down,
-            html body nav.navbar .nav-item.show > .nav-link span.fa-angle-down {
-                transform: rotate(180deg) !important;
-                color: #38bdf8 !important;
-            }
-
-            /* Right side controls */
             html body nav.navbar .navbar-collapse .d-flex {
+                display: flex !important;
+                align-items: center !important;
                 flex-wrap: wrap !important;
                 gap: 8px !important;
                 margin-top: 12px !important;
@@ -369,20 +457,45 @@
                 display: none !important;
             }
         }
+
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .form-two-column-row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+        }
+
+        /* Remove any borders from outer layout table */
+        table.table-layout, table.table {
+            border: none !important;
+            border-collapse: collapse !important;
+            margin-bottom: 0 !important;
+        }
+        table.table-layout > :not(caption) > * > *,
+        table.table > tbody > tr > td {
+            border: none !important;
+            border-bottom: none !important;
+            border-bottom-width: 0 !important;
+            padding: 0 !important;
+            background-color: transparent !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
     <form id="form1" runat="server">
-        <table class="table">
+        <table class="table-layout w-100 border-0 m-0 p-0" style="border:none !important;">
             <tr>
                 <td>
-                    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="background-color: #000000 !important; background: #000000 !important;">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="background-color: #000000 !important; background: #000000 !important;">
                         <div class="container-fluid" style="background: transparent !important; background-color: transparent !important;">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
                                 <a class="navbar-brand" href="dashboard.aspx">
                                     <span>
-                                        <img src="../public/common/images/straight_logo_greenhrm.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />
+                                        <img src="../public/common/images/ElectroSolHeader3.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />
                                     </span>
                                 </a>
                             </div>
@@ -684,193 +797,288 @@
                         </div>
                     </nav>
                 </td>
-
             </tr>
-            <tr><td></td></tr>
-             <tr><td></td></tr>
-             <tr><td></td></tr>
             <tr>
-
                 <td>
-                    <table border="0" cellpadding="5" cellspacing="0" style="font-family: Urbanist,sans-serif; font-size: 12px; border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                        <tr>
-                            <td style="border-bottom: 1px solid;" colspan="6" align="center"><font size="4"><strong></strong></font>
-                                <h6 class="mb-0">FORM XIX</h6>
-                                <h6 class="my-0">1[See rule 78 (1) (b)]</h6>
-                                <h5 class="my-0">Wage Slip</h5>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p style="text-align: left; padding-left: 200px">
-                                    <asp:Label ID="lblWorkorder" runat="server" Text="Work Order"></asp:Label>&nbsp&nbsp
-                                    <asp:DropDownList ID="ddlWorkorder" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlWorkorder_SelectedIndexChanged"></asp:DropDownList>&nbsp&nbsp
-                                    <asp:Label ID="lblEmpCode" runat="server" Text="Employee Name"></asp:Label>&nbsp&nbsp
-                                    <asp:DropDownList ID="ddlEmpCodeSearch" runat="server"></asp:DropDownList>&nbsp&nbsp
-                                    <asp:Label ID="lblMonthSearch" runat="server" Text="Month"></asp:Label>&nbsp&nbsp
-                                    <asp:DropDownList ID="ddlMonthSearch" runat="server">
-                                        <%-- <asp:ListItem>Select</asp:ListItem>--%>
-                                        <asp:ListItem Value="1">Jan</asp:ListItem>
-                                        <asp:ListItem Value="2">Feb</asp:ListItem>
-                                        <asp:ListItem Value="3">Mar</asp:ListItem>
-                                        <asp:ListItem Value="4">Apr</asp:ListItem>
-                                        <asp:ListItem Value="5">May</asp:ListItem>
-                                        <asp:ListItem Value="6">Jun</asp:ListItem>
-                                        <asp:ListItem Value="7">Jul</asp:ListItem>
-                                        <asp:ListItem Value="8">Aug</asp:ListItem>
-                                        <asp:ListItem Value="9">Sep</asp:ListItem>
-                                        <asp:ListItem Value="10">Oct</asp:ListItem>
-                                        <asp:ListItem Value="11">Nov</asp:ListItem>
-                                        <asp:ListItem Value="12">Dec</asp:ListItem>
-                                    </asp:DropDownList>&nbsp&nbsp
-                                    <asp:Label ID="lblYearSearch" runat="server" Text="Year"></asp:Label>&nbsp&nbsp
-                                    <asp:DropDownList ID="ddlYearSearch" runat="server"></asp:DropDownList>&nbsp&nbsp
-                                </p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="8">
+                    <div class="page-wrapper">
+                        <div class="page-content-tab">
+                            <div class="container-fluid">
 
-                                <table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-bottom: 0px solid;">
-                                    <tr>
+                                <%-- 1. Filter / Generation Panel --%>
+                                <div class="card card-entry filter-card my-4">
+                                    <div class="card-entry-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="header-icon-box bg-white bg-opacity-10 text-white rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                                                <i class="fa fa-file-invoice-dollar fa-lg"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-0 fw-bold text-white tracking-wide">Pay Slip Management</h5>
+                                                <small class="text-white text-opacity-75">Statutory Wage Slip (Form XIX) Generation & Download</small>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="badge bg-primary bg-opacity-25 text-white border border-light border-opacity-25 px-3 py-2 rounded-pill font-monospace" style="font-size: 0.75rem;">
+                                                <i class="fa fa-certificate me-1"></i>Rule 78 (1) (b)
+                                            </span>
+                                        </div>
+                                    </div>
 
-                                        <td class="style3"><strong>Name of Contractor</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblVendorName" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Address of Contractor</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblFirnAddress" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
+                                    <div class="card-entry-body">
+                                        <div class="form-section-header">
+                                            <i class="fa fa-sliders-h text-primary me-2"></i>Filter Pay Slip Parameters
+                                        </div>
 
-                                        <td class="style3"><strong>Name of Workman</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblNameOfWorkMan" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Nature of Work</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblNatueOfWork" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Location of Work</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblJobLocation" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Year&nbsp; </strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblYear1" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Month</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblMonth1" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>No of day work</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblNoOfDayWorkDone" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Number Of units worked in case of piece rate workers</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblNoOfkUnitWorkded" runat="server" Text="">NA</asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Rate of daily wages/piece rate</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblDailyBasic" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Amount of overtime wages</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblOtEaning" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Gross wages payable</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblTotalEarning" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Deductions, If any</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblTotalDeduction" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Net amount of wages paid</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblTotPayable" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Initials of the Contractor or his representative</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblInitial" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td class="style3" valign="top"><strong></strong></td>
-                                        <td valign="top"><strong></strong></td>
-                                        <td valign="top">
-                                            <asp:Label ID="lblLIC" runat="server" Text="" Visible="false"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                                        <td class="style3"></td>
-                                        <td><strong></strong></td>
-                                        <td>
-                                            <asp:Button ID="btnProcess" class="btn btn-info rounded-pill" runat="server" BackColor="#99ccff" Text="Process" OnClick="btnProcess_Click" />
+                                        <div class="row g-3">
+                                            <div class="col-lg-3 col-md-6 col-12">
+                                                <label class="form-label fw-semibold text-secondary" for="ddlWorkorder">
+                                                    <asp:Label ID="lblWorkorder" runat="server" Text="Work Order"></asp:Label> <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                                                    <asp:DropDownList ID="ddlWorkorder" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlWorkorder_SelectedIndexChanged" CssClass="form-select"></asp:DropDownList>
+                                                </div>
+                                            </div>
 
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
+                                            <div class="col-lg-3 col-md-6 col-12">
+                                                <label class="form-label fw-semibold text-secondary" for="ddlEmpCodeSearch">
+                                                    <asp:Label ID="lblEmpCode" runat="server" Text="Employee Name"></asp:Label> <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                                    <asp:DropDownList ID="ddlEmpCodeSearch" runat="server" CssClass="form-select"></asp:DropDownList>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-12">
+                                                <label class="form-label fw-semibold text-secondary" for="ddlMonthSearch">
+                                                    <asp:Label ID="lblMonthSearch" runat="server" Text="Month"></asp:Label> <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
+                                                    <asp:DropDownList ID="ddlMonthSearch" runat="server" CssClass="form-select">
+                                                        <asp:ListItem Value="1">Jan</asp:ListItem>
+                                                        <asp:ListItem Value="2">Feb</asp:ListItem>
+                                                        <asp:ListItem Value="3">Mar</asp:ListItem>
+                                                        <asp:ListItem Value="4">Apr</asp:ListItem>
+                                                        <asp:ListItem Value="5">May</asp:ListItem>
+                                                        <asp:ListItem Value="6">Jun</asp:ListItem>
+                                                        <asp:ListItem Value="7">Jul</asp:ListItem>
+                                                        <asp:ListItem Value="8">Aug</asp:ListItem>
+                                                        <asp:ListItem Value="9">Sep</asp:ListItem>
+                                                        <asp:ListItem Value="10">Oct</asp:ListItem>
+                                                        <asp:ListItem Value="11">Nov</asp:ListItem>
+                                                        <asp:ListItem Value="12">Dec</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-3 col-md-6 col-12">
+                                                <label class="form-label fw-semibold text-secondary" for="ddlYearSearch">
+                                                    <asp:Label ID="lblYearSearch" runat="server" Text="Year"></asp:Label> <span class="text-danger">*</span>
+                                                </label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                                    <asp:DropDownList ID="ddlYearSearch" runat="server" CssClass="form-select"></asp:DropDownList>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-flex flex-wrap align-items-center justify-content-end gap-3 mt-4 pt-3">
+                                            <asp:Button ID="btnProcess" runat="server" CssClass="btn btn-round-action btn-action-save" Text="Process Pay Slip" OnClick="btnProcess_Click" />
+                                            <button type="button" class="btn btn-outline-secondary btn-round-action btn-print" onclick="window.print();">
+                                                <i class="fa fa-print me-2"></i>Print Pay Slip
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <%-- 2. Statutory Wage Slip (Form XIX) Document Card --%>
+                                <div class="card card-entry wage-slip-document-card my-4">
+                                    <div class="card-body p-4 p-md-5">
+                                        <%-- Official Title Banner --%>
+                                        <div class="text-center pb-3 mb-4">
+                                            <div class="d-inline-block px-3 py-1 mb-2 rounded-pill bg-dark text-white text-uppercase font-monospace fw-bold" style="font-size: 0.8rem; letter-spacing: 1px;">
+                                                FORM XIX
+                                            </div>
+                                            <div class="text-muted small fw-semibold mb-1">[See rule 78 (1) (b)]</div>
+                                            <h3 class="fw-bold text-dark text-uppercase tracking-wide mb-1">Wage Slip</h3>
+                                            <div class="text-muted small">The Contract Labour (Regulation & Abolition) Central Rules, 1971</div>
+                                        </div>
+
+                                        <%-- Profile Information Grid (Contractor & Workman Details) --%>
+                                        <div class="row g-4 mb-4">
+                                            <%-- Contractor Details Card --%>
+                                            <div class="col-lg-6 col-12">
+                                                <div class="p-3 rounded-3 bg-light border h-100">
+                                                    <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                                        <i class="fa fa-building text-primary"></i>
+                                                        <h6 class="mb-0 fw-bold text-dark text-uppercase small letter-spacing-1">Contractor Information</h6>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-sm table-borderless mb-0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="text-muted fw-semibold" style="width: 42%;">Name of Contractor</td>
+                                                                    <td class="fw-bold text-dark" style="width: 5%;">:</td>
+                                                                    <td class="fw-bold text-dark"><asp:Label ID="lblVendorName" runat="server" Text=""></asp:Label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-muted fw-semibold">Address of Contractor</td>
+                                                                    <td class="fw-bold text-dark">:</td>
+                                                                    <td class="text-dark"><asp:Label ID="lblFirnAddress" runat="server" Text=""></asp:Label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-muted fw-semibold">Nature of Work</td>
+                                                                    <td class="fw-bold text-dark">:</td>
+                                                                    <td class="text-dark"><asp:Label ID="lblNatueOfWork" runat="server" Text=""></asp:Label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-muted fw-semibold">Location of Work</td>
+                                                                    <td class="fw-bold text-dark">:</td>
+                                                                    <td class="text-dark"><asp:Label ID="lblJobLocation" runat="server" Text=""></asp:Label></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <%-- Workman & Period Details Card --%>
+                                            <div class="col-lg-6 col-12">
+                                                <div class="p-3 rounded-3 bg-light border h-100">
+                                                    <div class="d-flex align-items-center gap-2 mb-3 pb-2 border-bottom">
+                                                        <i class="fa fa-id-card text-primary"></i>
+                                                        <h6 class="mb-0 fw-bold text-dark text-uppercase small letter-spacing-1">Workman & Wage Period</h6>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-sm table-borderless mb-0">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td class="text-muted fw-semibold" style="width: 42%;">Name of Workman</td>
+                                                                    <td class="fw-bold text-dark" style="width: 5%;">:</td>
+                                                                    <td class="fw-bold text-primary"><asp:Label ID="lblNameOfWorkMan" runat="server" Text=""></asp:Label></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-muted fw-semibold">Wage Month & Year</td>
+                                                                    <td class="fw-bold text-dark">:</td>
+                                                                    <td class="fw-semibold text-dark">
+                                                                        <asp:Label ID="lblMonth1" runat="server" Text=""></asp:Label>
+                                                                        <span class="mx-1">/</span>
+                                                                        <asp:Label ID="lblYear1" runat="server" Text=""></asp:Label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-muted fw-semibold">No. of Days Worked</td>
+                                                                    <td class="fw-bold text-dark">:</td>
+                                                                    <td class="fw-bold text-dark">
+                                                                        <asp:Label ID="lblNoOfDayWorkDone" runat="server" Text=""></asp:Label>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-muted fw-semibold">Units Worked (Piece Rate)</td>
+                                                                    <td class="fw-bold text-dark">:</td>
+                                                                    <td class="text-muted"><asp:Label ID="lblNoOfkUnitWorkded" runat="server" Text="">NA</asp:Label></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <%-- Financial Breakdown & Wages Table --%>
+                                        <div class="mb-4">
+                                            <div class="d-flex align-items-center gap-2 mb-3">
+                                                <i class="fa fa-coins text-primary"></i>
+                                                <h6 class="mb-0 fw-bold text-dark text-uppercase small letter-spacing-1">Earnings & Deductions Summary</h6>
+                                            </div>
+                                            <div class="table-responsive shadow-sm rounded-3 border">
+                                                <table class="table table-hover align-middle mb-0">
+                                                    <thead class="table-light">
+                                                        <tr>
+                                                            <th style="width: 50px;" class="text-center">Sl.</th>
+                                                            <th>Wage Component / Description</th>
+                                                            <th class="text-end" style="width: 250px;">Amount (₹)</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-center text-muted">1</td>
+                                                            <td class="fw-semibold text-dark">Rate of Daily Wages / Piece Rate</td>
+                                                            <td class="text-end fw-semibold text-dark">
+                                                                <asp:Label ID="lblDailyBasic" runat="server" Text=""></asp:Label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center text-muted">2</td>
+                                                            <td class="fw-semibold text-dark">Amount of Overtime Wages</td>
+                                                            <td class="text-end fw-semibold text-dark">
+                                                                <asp:Label ID="lblOtEaning" runat="server" Text=""></asp:Label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-primary bg-opacity-10">
+                                                            <td class="text-center fw-bold text-primary">3</td>
+                                                            <td class="fw-bold text-primary">Gross Wages Payable</td>
+                                                            <td class="text-end fw-bold text-primary fs-6">
+                                                                <asp:Label ID="lblTotalEarning" runat="server" Text=""></asp:Label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-center text-muted">4</td>
+                                                            <td class="fw-semibold text-danger">Deductions, If Any</td>
+                                                            <td class="text-end fw-semibold text-danger">
+                                                                <asp:Label ID="lblTotalDeduction" runat="server" Text=""></asp:Label>
+                                                            </td>
+                                                        </tr>
+                                                        <tr class="table-success bg-opacity-25" style="border-top: 2px solid #22c55e;">
+                                                            <td class="text-center fw-bold text-success fs-5">★</td>
+                                                            <td class="fw-bold text-success fs-6 text-uppercase">Net Amount of Wages Paid</td>
+                                                            <td class="text-end fw-bold text-success fs-4">
+                                                                <asp:Label ID="lblTotPayable" runat="server" Text=""></asp:Label>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+
+                                        <%-- Signature & Certification Row --%>
+                                        <div class="row pt-4 mt-4">
+                                            <div class="col-md-6 col-12 mb-3 mb-md-0">
+                                                <div class="p-3 border rounded-3 bg-light text-center" style="min-height: 110px;">
+                                                    <div class="text-muted small fw-semibold text-uppercase mb-4">Signature / Thumb Impression of Workman</div>
+                                                    <div class="border-bottom border-2 mx-auto w-50" style="margin-top: 35px;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="p-3 border rounded-3 bg-light text-center" style="min-height: 110px;">
+                                                    <div class="text-muted small fw-semibold text-uppercase mb-2">Initials of the Contractor / Representative</div>
+                                                    <div class="fw-bold text-dark mt-3">
+                                                        <asp:Label ID="lblInitial" runat="server" Text="" CssClass="fs-6"></asp:Label>
+                                                    </div>
+                                                    <div class="border-bottom border-2 mx-auto w-50 mt-2"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <asp:Label ID="lblLIC" runat="server" Text="" Visible="false"></asp:Label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
                 </td>
             </tr>
-
         </table>
-        <table class="table  footer">
+
+        <table class="table-layout w-100 border-0 m-0 p-0" style="border:none !important; margin-top: 40px !important;">
             <tr>
                 <td>
-                    <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
+                    <footer class="py-3 bg-dark mt-auto">
                         <div class="container-fluid">
                             <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | Electro Solutions | All Rights Reserved</div>
-
+                                <div class="text-light">&copy; 2022 | Electro Solutions | All Rights Reserved</div>
                             </div>
                         </div>
                     </footer>
@@ -879,9 +1087,7 @@
         </table>
     </form>
 
-
-
-    <script type="text/jscript" src="../public/newfront/js/jquery.min.js"></script>
+<script type="text/jscript" src="../public/newfront/js/jquery.min.js"></script>
     <script type="text/jscript" src="../public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
     <script type="text/jscript" src="../public/newfront/assets/js/app.js?v=3.1" defer></script>
     <script type="text/jscript" src="../public/newfront/datatables/datatables.min.js" defer></script>
@@ -986,3 +1192,4 @@
 
 </body>
 </html>
+

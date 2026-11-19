@@ -25,14 +25,17 @@ namespace clms2.vendor_onboarding
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "";
             lblUser.Text = usrnm;
             // lblUser1.Text = usrnm
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
 
-            if ((!IsPostBack))
-                 workorder();
-                 year();
+            if (!IsPostBack)
+            {
+                workorder();
+                year();
+                Emp_Name_show();
+            }
             dbConnection();
 
         }
@@ -44,15 +47,27 @@ namespace clms2.vendor_onboarding
             {
                 ddlYearSearch.Items.Add(i.ToString());
             }
-          ddlYearSearch.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
+            ListItem currentYearItem = ddlYearSearch.Items.FindByValue(System.DateTime.Now.Year.ToString());
+            if (currentYearItem != null)
+            {
+                currentYearItem.Selected = true;
+            }
         }
 
         private void workorder()
         {
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
 
-            string query = "SELECT distinct(workorder) FROM tbl_attendance where  hr_approval='Approved' and dept_approval='Approved' and vendor_code ='" + Session["User"].ToString() + "'";
-            ////  string query = "SELECT distinct(a.workorder),vendor_code FROM tbl_Attendance a,tbl_vendor_info v where vendor_code ='" + Session["User"].ToString() + "' ";
+            string u = Session["User"] != null ? Session["User"].ToString().Trim() : "";
+            string query = "";
+            if (!string.IsNullOrEmpty(u) && u.ToLower() != "admin" && u.ToLower() != "vendor")
+            {
+                query = "SELECT distinct(workorder) FROM tbl_attendance where hr_approval='Approved' and dept_approval='Approved' and vendor_code ='" + u + "'";
+            }
+            else
+            {
+                query = "SELECT distinct(workorder) FROM tbl_attendance where hr_approval='Approved' and dept_approval='Approved'";
+            }
 
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -61,6 +76,13 @@ namespace clms2.vendor_onboarding
                     using (DataTable dt = new DataTable())
                     {
                         sda.Fill(dt);
+                        if (dt.Rows.Count == 0 && !string.IsNullOrEmpty(u))
+                        {
+                            using (SqlDataAdapter sdaAll = new SqlDataAdapter("SELECT distinct(workorder) FROM tbl_attendance where hr_approval='Approved' and dept_approval='Approved'", con))
+                            {
+                                sdaAll.Fill(dt);
+                            }
+                        }
                         ddlWorkorder.DataSource = dt;
                         ddlWorkorder.DataTextField = "workorder";
                         ddlWorkorder.DataValueField = "workorder";
@@ -78,12 +100,29 @@ namespace clms2.vendor_onboarding
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                ////  strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
-               //// using (SqlCommand cmd = new SqlCommand("select * from tbl_emp  where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved'"))
-                using (SqlCommand cmd = new SqlCommand("select * from tbl_attendance  where hr_approval='Approved' and dept_approval='Approved' and workorder='"+ddlWorkorder.SelectedItem.Text +"' "))
+                string query = "";
+                string selectedWorkorder = (ddlWorkorder.SelectedItem != null && ddlWorkorder.SelectedItem.Text != "Select") ? ddlWorkorder.SelectedItem.Text.Trim() : "";
+
+                if (!string.IsNullOrEmpty(selectedWorkorder))
+                {
+                    query = "SELECT distinct emp_code, emp_name FROM tbl_attendance WHERE hr_approval='Approved' and dept_approval='Approved' and workorder='" + selectedWorkorder + "' ORDER BY emp_name";
+                }
+                else
+                {
+                    string u = Session["User"] != null ? Session["User"].ToString().Trim() : "";
+                    if (!string.IsNullOrEmpty(u) && u.ToLower() != "admin" && u.ToLower() != "vendor")
+                    {
+                        query = "SELECT distinct emp_code, emp_name FROM tbl_attendance WHERE hr_approval='Approved' and dept_approval='Approved' and vendor_code='" + u + "' ORDER BY emp_name";
+                    }
+                    else
+                    {
+                        query = "SELECT distinct emp_code, emp_name FROM tbl_attendance WHERE hr_approval='Approved' and dept_approval='Approved' ORDER BY emp_name";
+                    }
+                }
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
                     using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                     {
                         DataSet ds = new DataSet();
@@ -95,18 +134,35 @@ namespace clms2.vendor_onboarding
                     }
                 }
             }
-            ddlEmpCodeSearch.Items.Insert(0, new ListItem("--Selec Emp Name--", "0"));
+            ddlEmpCodeSearch.Items.Insert(0, new ListItem("--Select Emp Name--", "0"));
         }
 
         public void WageSlipDetails()
         {
-            /// display new wor_entry details int vendor update form '''
-            // Call dbConnection()
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                string query = "select vi.vendor_name ,vi.firm_address, a.emp_name as Name_of_Workman,vo.nature_of_work,vo.job_location,a.year1 , a.month1 , a.present as no_of_days_workdone, a.monthly_ot_hrs as ot_hrs, e.basic as daily_basic, e.allowance as daily_other_allowance, cast(e.basic*a.present + e.allowance * a.present as decimal(10,2))  as basic_earnings , e.allowance *0 as other_allowance_earnings,cast(a.monthly_ot_hrs * e.[basic]/8 as decimal(10,2))  as ot_earning , cast((e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0) as decimal(10,2)) as total_earnings , cast((a.Present * (e.basic +e.allowance) ) * 12/100 as decimal(10,2)) as PF_Deduction , cast( (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as decimal(10,2) )as ESIC_deduction , e.other_deduction , cast( (((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction) as decimal(10,2)) as total_duduction ,cast( (((e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0)) - ((((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction))) as decimal(10,2)) as total_payable,a.sign from tbl_attendance a,tbl_emp e,tbl_vendor_work_order vo ,tbl_vendor_info vi  where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.workorder = vo.work_worder and a.workorder=vi.work_worder  and a.hr_approval='Approved' and a.dept_approval='Approved'  and a.month1='" + ddlMonthSearch.SelectedValue + "' and a.year1='" + ddlYearSearch.SelectedItem.Text + "' and a.workorder='" + ddlWorkorder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";  
-                
+                string selectedWorkorder = (ddlWorkorder.SelectedItem != null && ddlWorkorder.SelectedItem.Text != "Select") ? ddlWorkorder.SelectedItem.Text.Trim() : "";
+                string selectedEmpCode = (ddlEmpCodeSearch.SelectedValue != null && ddlEmpCodeSearch.SelectedValue != "0") ? ddlEmpCodeSearch.SelectedValue.Trim() : "";
+                string u = Session["User"] != null ? Session["User"].ToString().Trim() : "";
+
+                string query = "select vi.vendor_name ,vi.firm_address, a.emp_name as Name_of_Workman,vo.nature_of_work,vo.job_location,a.year1 , a.month1 , a.present as no_of_days_workdone, a.monthly_ot_hrs as ot_hrs, e.basic as daily_basic, e.allowance as daily_other_allowance, cast(e.basic*a.present + e.allowance * a.present as decimal(10,2))  as basic_earnings , e.allowance *0 as other_allowance_earnings,cast(a.monthly_ot_hrs * e.[basic]/8 as decimal(10,2))  as ot_earning , cast((e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0) as decimal(10,2)) as total_earnings , cast((a.Present * (e.basic +e.allowance) ) * 12/100 as decimal(10,2)) as PF_Deduction , cast( (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as decimal(10,2) )as ESIC_deduction , e.other_deduction , cast( (((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction) as decimal(10,2)) as total_duduction ,cast( (((e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0)) - ((((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction))) as decimal(10,2)) as total_payable,a.sign from tbl_attendance a,tbl_emp e,tbl_vendor_work_order vo ,tbl_vendor_info vi  where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.workorder = vo.work_worder and a.workorder=vi.work_worder  and a.hr_approval='Approved' and a.dept_approval='Approved'  and a.month1='" + ddlMonthSearch.SelectedValue + "' and a.year1='" + ddlYearSearch.SelectedItem.Text + "'";
+
+                if (!string.IsNullOrEmpty(selectedWorkorder))
+                {
+                    query += " and a.workorder='" + selectedWorkorder + "'";
+                }
+
+                if (!string.IsNullOrEmpty(selectedEmpCode))
+                {
+                    query += " and a.emp_code='" + selectedEmpCode + "'";
+                }
+
+                if (!string.IsNullOrEmpty(u) && u.ToLower() != "admin" && u.ToLower() != "vendor")
+                {
+                    query += " and a.vendor_code='" + u + "'";
+                }
+
                 using (SqlCommand cmd = new SqlCommand(query))
                 {
                     cmd.CommandType = CommandType.Text;
@@ -132,14 +188,14 @@ namespace clms2.vendor_onboarding
                         lblTotalEarning.Text = r["total_earnings"].ToString();
                         lblTotalDeduction.Text = r["total_duduction"].ToString();
                         lblTotPayable.Text = r["total_payable"].ToString();
-                    
+
                     }
                     else
                     {
                         clear_pay_slip_fields();
                     }
 
-                 
+
                     con.Close();
                 }
             }

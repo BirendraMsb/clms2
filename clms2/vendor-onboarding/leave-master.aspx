@@ -450,6 +450,16 @@
                 display: none !important;
             }
         }
+
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .form-two-column-row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -896,10 +906,7 @@
                                                 </asp:TemplateField>
                                                 <asp:TemplateField HeaderText="Paid" ItemStyle-Width="150">
                                                     <ItemTemplate>
-                                                        <span class='<%# Eval("IsPaid").ToString() == "Y" ? "badge bg-success bg-opacity-10 text-success border border-success border-opacity-25 px-2 py-1" : "badge bg-secondary bg-opacity-10 text-secondary border border-secondary border-opacity-25 px-2 py-1" %>'>
-                                                            <%# Eval("IsPaid")%>
-                                                        </span>
-                                                        <asp:Label ID="lblPaid" runat="server" Visible="false" Text='<%# Eval("IsPaid")%>'></asp:Label>
+                                                        <asp:Label ID="lblPaid" runat="server" Text='<%# Eval("IsPaid")%>'></asp:Label>
                                                     </ItemTemplate>
                                                     <EditItemTemplate>
                                                         <asp:TextBox ID="txtPaid" runat="server" Text='<%# Eval("IsPaid")%>' CssClass="form-control form-control-sm" Width="140"></asp:TextBox>

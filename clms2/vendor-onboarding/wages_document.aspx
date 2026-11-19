@@ -865,12 +865,14 @@
 
                                         <div class="row form-two-column-row">
                                             <div class="col-md-6 col-12 mb-3">
-                                                <label class="form-label" for="txtVendorCode">Vendor Code <span class="text-danger">*</span></label>
+                                                <label class="form-label" for="ddlVendorCode">Vendor Code <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <span class="input-group-text"><i class="fa fa-id-card"></i></span>
-                                                    <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" placeholder="Vendor Code"></asp:TextBox>
+                                                    <asp:DropDownList ID="ddlVendorCode" runat="server" class="form-select" AutoPostBack="true" OnSelectedIndexChanged="ddlVendorCode_SelectedIndexChanged">
+                                                    </asp:DropDownList>
+                                                    <asp:TextBox ID="txtVendorCode" runat="server" style="display:none;"></asp:TextBox>
                                                 </div>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtVendorCode" ErrorMessage="* Pls Enter Vendor Code" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="ddlVendorCode" InitialValue="Select" ErrorMessage="* Pls Select Vendor Code" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
                                             </div>
 
                                             <div class="col-md-6 col-12 mb-3">
@@ -887,7 +889,7 @@
                                                         <label class="form-label" for="ddlYear">Year <span class="text-danger">*</span></label>
                                                         <div class="input-group">
                                                             <span class="input-group-text"><i class="fa fa-calendar-check"></i></span>
-                                                            <asp:DropDownList ID="ddlYear" runat="server" class="form-select" MaxLength="50"></asp:DropDownList>
+                                                            <asp:DropDownList ID="ddlYear" runat="server" class="form-select" AutoPostBack="true" MaxLength="50" OnSelectedIndexChanged="ddlYear_SelectedIndexChanged"></asp:DropDownList>
                                                         </div>
                                                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlYear" ErrorMessage="* Select Year" ForeColor="#CC3300" InitialValue="Select" Display="Dynamic"></asp:RequiredFieldValidator>
                                                     </div>

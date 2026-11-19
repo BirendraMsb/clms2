@@ -51,8 +51,7 @@ namespace clms2.gatepass_section
        
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "Gatepass";
             lblUser.Text = usrnm;
             // lblUser1.Text = usrnm
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");

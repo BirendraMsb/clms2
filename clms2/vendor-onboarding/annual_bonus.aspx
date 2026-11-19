@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="annual_bonus.aspx.cs" Inherits="clms2.vendor_onboarding.annual_bonus" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="annual_bonus.aspx.cs" Inherits="clms2.vendor_onboarding.annual_bonus" %>
 
 <!DOCTYPE html>
 
@@ -805,9 +805,9 @@
                                             <i class="fa fa-sliders-h text-primary me-2"></i>Select Work Order &amp; Bonus Parameters
                                         </div>
 
-                                        <div class="row form-two-column-row">
-                                            <div class="col-md-6 col-12 mb-3">
-                                                <label class="form-label" for="ddlWorkdOrder">Work Order Number <span class="text-danger">*</span></label>
+                                        <div class="row g-2 align-items-end mb-3">
+                                            <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                                                <label class="form-label fw-semibold text-dark text-nowrap" for="ddlWorkdOrder">Work Order Number <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <span class="input-group-text"><i class="fa fa-file-contract"></i></span>
                                                     <asp:DropDownList ID="ddlWorkdOrder" class="form-select" runat="server" Visible="True" MaxLength="50">
@@ -815,8 +815,8 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6 col-12 mb-3">
-                                                <label class="form-label" for="txtBonusPercent">Bonus Percentage (%) <span class="text-danger">*</span></label>
+                                            <div class="col-xl-2 col-lg-2 col-md-6 col-12">
+                                                <label class="form-label fw-semibold text-dark text-nowrap" for="txtBonusPercent">Bonus Percentage (%) <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <span class="input-group-text"><i class="fa fa-percentage"></i></span>
                                                     <asp:TextBox ID="txtBonusPercent" runat="server" class="form-control" placeholder="e.g. 8.33 to 20"></asp:TextBox>
@@ -825,52 +825,40 @@
                                                 <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter Value between 8.33% to 20%" ForeColor="#dc2626" MinimumValue="8.33" MaximumValue="20" SetFocusOnError="true" Type="Double" Display="Dynamic"></asp:RangeValidator>
                                             </div>
 
-                                            <div class="col-md-6 col-12 mb-3">
-                                                <div class="row g-2">
-                                                    <div class="col-6">
-                                                        <label class="form-label" for="ddlMonthFrom">Month From <span class="text-danger">*</span></label>
-                                                        <div class="input-group">
-                                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                                            <asp:DropDownList ID="ddlMonthFrom" runat="server" class="form-select" AutoPostBack="true" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
-                                                                <asp:ListItem Value="4">Apr</asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label class="form-label" for="ddlYearFrom">Year From <span class="text-danger">*</span></label>
-                                                        <div class="input-group">
-                                                            <span class="input-group-text"><i class="fa fa-calendar-check"></i></span>
-                                                            <asp:DropDownList ID="ddlYearFrom" runat="server" class="form-select" MaxLength="50"></asp:DropDownList>
-                                                        </div>
-                                                    </div>
+                                            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-6 col-6">
+                                                <label class="form-label fw-semibold text-dark text-nowrap" for="ddlMonthFrom">Month From <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <asp:DropDownList ID="ddlMonthFrom" runat="server" class="form-select px-2" AutoPostBack="true" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
+                                                        <asp:ListItem Value="4">Apr</asp:ListItem>
+                                                    </asp:DropDownList>
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6 col-12 mb-3">
-                                                <div class="row g-2">
-                                                    <div class="col-6">
-                                                        <label class="form-label" for="ddlMonthTo">Month To <span class="text-danger">*</span></label>
-                                                        <div class="input-group">
-                                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
-                                                            <asp:DropDownList ID="ddlMonthTo" runat="server" class="form-select" AutoPostBack="true" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
-                                                                <asp:ListItem Value="3">Mar</asp:ListItem>
-                                                            </asp:DropDownList>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-6">
-                                                        <label class="form-label" for="ddlYearTo">Year To <span class="text-danger">*</span></label>
-                                                        <div class="input-group">
-                                                            <span class="input-group-text"><i class="fa fa-calendar-check"></i></span>
-                                                            <asp:DropDownList ID="ddlYearTo" runat="server" class="form-select" MaxLength="50"></asp:DropDownList>
-                                                        </div>
-                                                    </div>
+                                            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-6 col-6">
+                                                <label class="form-label fw-semibold text-dark text-nowrap" for="ddlYearFrom">Year From <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <asp:DropDownList ID="ddlYearFrom" runat="server" class="form-select px-2" MaxLength="50"></asp:DropDownList>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row">
-                                            <div class="col-12 text-center py-3">
-                                                <asp:Button ID="cmdProcess" runat="server" Text="Process Bonus" class="btn btn-round-action btn-action-save" OnClick="cmdProcess_Click"></asp:Button>
+                                            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-6 col-6">
+                                                <label class="form-label fw-semibold text-dark text-nowrap" for="ddlMonthTo">Month To <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <asp:DropDownList ID="ddlMonthTo" runat="server" class="form-select px-2" AutoPostBack="true" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
+                                                        <asp:ListItem Value="3">Mar</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-6 col-6">
+                                                <label class="form-label fw-semibold text-dark text-nowrap" for="ddlYearTo">Year To <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <asp:DropDownList ID="ddlYearTo" runat="server" class="form-select px-2" MaxLength="50"></asp:DropDownList>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-auto col-lg-auto col-md-auto col-12 ms-xl-auto ms-lg-auto">
+                                                <asp:Button ID="cmdProcess" runat="server" Text="Process Bonus" class="btn btn-round-action btn-action-save text-nowrap shadow-sm" style="padding: 7px 22px !important; height: 38px; display: inline-flex; align-items: center; justify-content: center;" OnClick="cmdProcess_Click"></asp:Button>
                                             </div>
                                         </div>
 

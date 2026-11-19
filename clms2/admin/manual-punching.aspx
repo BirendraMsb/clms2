@@ -485,6 +485,53 @@
                 display: none !important;
             }
         }
+
+        /* ========================================================
+           Layout & Positioning Fixes
+           ======================================================== */
+        html, body {
+            min-height: 100vh !important;
+        }
+
+        body {
+            padding-bottom: 150px !important;
+            position: relative !important;
+        }
+
+        body > form > table.table {
+            margin-bottom: 0 !important;
+            border: none !important;
+        }
+
+        body > form > table.table > tbody > tr > td {
+            border: none !important;
+            padding: 0 !important;
+        }
+
+        .page-wrapper {
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: auto !important;
+        }
+
+        .page-wrapper .page-content-tab {
+            width: 100% !important;
+            margin-left: 0 !important;
+            min-height: auto !important;
+            padding: 20px 24px 120px 24px !important;
+            margin-top: 50px !important;
+        }
+
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .form-two-column-row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -676,7 +723,7 @@
 
                                         <div class="row">
                                             <div class="col-12 text-center py-3">
-                                                <asp:Button ID="cmdSave" runat="server" Text="Record Punches" class="btn btn-round-action btn-action-save" OnClick="cmdSave_Click"></asp:Button>
+                                                <asp:Button ID="cmdSave" runat="server" Text="Save" class="btn btn-round-action btn-action-save" OnClick="cmdSave_Click"></asp:Button>
                                             </div>
                                         </div>
 

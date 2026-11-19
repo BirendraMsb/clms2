@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gp-print.aspx.cs" Inherits="clms2.gatepass_section.gp_print" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gp-print.aspx.cs" Inherits="clms2.gatepass_section.gp_print" %>
 
 <!DOCTYPE html>
 
@@ -722,142 +722,163 @@
                 </td>
 
             </tr>
-            <tr>
-                <td>
-                    <p style="text-align: left; padding-left: 200px">
-                        <asp:Label ID="lblSearch" runat="server" Text="Emp Name"></asp:Label>
-                        <asp:DropDownList ID="txtSearch" runat="server" AutoPostBack="True" OnSelectedIndexChanged="txtSearch_SelectedIndexChanged"></asp:DropDownList>
-                    </p>
+                        <tr>
+                <td class="px-3">
+                    <div class="gp-container">
+                        <!-- Search & Print Interactive Toolbar -->
+                        <div class="gp-toolbar-card no-print">
+                            <div class="row align-items-center g-3">
+                                <div class="col-md-7">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-dark text-white border-dark">
+                                            <i class="fa fa-user me-1"></i> <asp:Label ID="lblSearch" runat="server" Text="Emp Name" CssClass="fw-semibold"></asp:Label>
+                                        </span>
+                                        <asp:DropDownList ID="txtSearch" runat="server" AutoPostBack="True" OnSelectedIndexChanged="txtSearch_SelectedIndexChanged" CssClass="form-select shadow-none">
+                                        </asp:DropDownList>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 text-md-end text-start">
+                                    <button type="button" class="btn btn-outline-primary px-3 shadow-sm me-2" onclick="window.print();">
+                                        <i class="fa fa-print me-1"></i> Print Pass
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modern Gate Pass Badge Card -->
+                        <div class="gp-card">
+                            <!-- Card Header -->
+                            <div class="gp-header">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center">
+                                        <img src="../images/logo.png" alt="Company Logo" class="me-3" style="max-height: 44px; filter: brightness(0) invert(1);" onerror="this.style.filter='none';" />
+                                        <div>
+                                            <h4 class="gp-header-title">Electro Solutions</h4>
+                                            <p class="gp-header-subtitle">SECURITY ACCESS GATE PASS</p>
+                                        </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <span class="badge bg-info text-dark fw-bold px-2 py-1 mb-1 d-inline-block">GATE PASS</span>
+                                        <div class="small text-white-50"><i class="fa fa-shield me-1"></i>SECURED ACCESS</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timing Bar -->
+                            <div class="gp-timing-bar">
+                                <span>
+                                    <i class="fa fa-clock-o text-primary me-1"></i>
+                                    <strong>Permitted Hours:</strong> 06:00 AM to 06:00 PM
+                                </span>
+                                <span>
+                                    <span class="badge bg-success-subtle text-success border border-success-subtle">
+                                        <i class="fa fa-check-circle me-1"></i>AUTHORIZED
+                                    </span>
+                                </span>
+                            </div>
+
+                            <!-- Meta Grid (GP No, Order No, Valid From, Valid To) -->
+                            <div class="gp-badge-meta">
+                                <div class="row g-2 text-center text-sm-start">
+                                    <div class="col-6 col-sm-3 border-end">
+                                        <span class="gp-meta-label"><i class="fa fa-id-card-o me-1"></i>GP No.</span>
+                                        <span class="gp-meta-value text-primary"><asp:Label ID="lblGPNo" runat="server" Text="--"></asp:Label></span>
+                                    </div>
+                                    <div class="col-6 col-sm-3 border-end">
+                                        <span class="gp-meta-label"><i class="fa fa-file-text-o me-1"></i>Order No.</span>
+                                        <span class="gp-meta-value"><asp:Label ID="lblOrderNo" runat="server" Text="--"></asp:Label></span>
+                                    </div>
+                                    <div class="col-6 col-sm-3 border-end">
+                                        <span class="gp-meta-label"><i class="fa fa-calendar-check-o me-1"></i>Valid From</span>
+                                        <span class="gp-meta-value text-success"><asp:Label ID="lblValidFrom" runat="server" Text="--"></asp:Label></span>
+                                    </div>
+                                    <div class="col-6 col-sm-3">
+                                        <span class="gp-meta-label"><i class="fa fa-calendar-times-o me-1"></i>Valid To</span>
+                                        <span class="gp-meta-value text-danger"><asp:Label ID="lblValidTo" runat="server" Text="--"></asp:Label></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Main Card Body -->
+                            <div class="gp-body">
+                                <div class="row g-4 align-items-center">
+                                    <!-- Photo Column -->
+                                    <div class="col-sm-4 text-center">
+                                        <div class="gp-photo-container mb-2">
+                                            <asp:Image ID="Image1" runat="server" CssClass="gp-photo img-fluid" AlternateText="Employee Photo" />
+                                        </div>
+                                        <div class="d-flex justify-content-center gap-1 flex-wrap">
+                                            <span class="badge bg-secondary-subtle text-secondary border">
+                                                <i class="fa fa-venus-mars me-1"></i><asp:Label ID="lblGender" runat="server" Text="--"></asp:Label>
+                                            </span>
+                                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle">
+                                                <i class="fa fa-tint me-1"></i><asp:Label ID="lblBloodGrp" runat="server" Text="--"></asp:Label>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Details Column -->
+                                    <div class="col-sm-8">
+                                        <div class="gp-emp-name">
+                                            <asp:Label ID="lblName" runat="server" Text="Employee Name"></asp:Label>
+                                        </div>
+                                        <div class="text-muted small mb-3">
+                                            <i class="fa fa-tag me-1"></i>Identity Mark: 
+                                            <span class="fw-semibold text-dark"><asp:Label ID="lblIdentityMark" runat="server" Text="None"></asp:Label></span>
+                                        </div>
+
+                                        <div class="gp-field-list">
+                                            <div class="gp-field-row">
+                                                <div class="gp-field-label"><i class="fa fa-building-o text-muted me-2"></i>Department</div>
+                                                <div class="gp-field-sep">:</div>
+                                                <div class="gp-field-val"><asp:Label ID="lblDepartment" runat="server" Text="--"></asp:Label></div>
+                                            </div>
+                                            <div class="gp-field-row">
+                                                <div class="gp-field-label"><i class="fa fa-briefcase text-muted me-2"></i>Vendor</div>
+                                                <div class="gp-field-sep">:</div>
+                                                <div class="gp-field-val"><asp:Label ID="lblVendor" runat="server" Text="--"></asp:Label></div>
+                                            </div>
+                                            <div class="gp-field-row">
+                                                <div class="gp-field-label"><i class="fa fa-barcode text-muted me-2"></i>Vendor Code</div>
+                                                <div class="gp-field-sep">:</div>
+                                                <div class="gp-field-val"><asp:Label ID="lblVendorCode" runat="server" Text="--"></asp:Label></div>
+                                            </div>
+                                            <div class="gp-field-row">
+                                                <div class="gp-field-label"><i class="fa fa-hospital-o text-muted me-2"></i>ESIC No.</div>
+                                                <div class="gp-field-sep">:</div>
+                                                <div class="gp-field-val"><asp:Label ID="lblESICNo" runat="server" Text="--"></asp:Label></div>
+                                            </div>
+                                            <div class="gp-field-row">
+                                                <div class="gp-field-label"><i class="fa fa-credit-card text-muted me-2"></i>UAN No.</div>
+                                                <div class="gp-field-sep">:</div>
+                                                <div class="gp-field-val"><asp:Label ID="lblPFNO" runat="server" Text="--"></asp:Label></div>
+                                            </div>
+                                        </div>
+                                        <asp:Label ID="lblLIC" runat="server" Text="" Visible="false"></asp:Label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card Footer -->
+                            <div class="gp-footer">
+                                <div class="row align-items-end">
+                                    <div class="col-7">
+                                        <p class="text-muted small mb-0" style="font-size: 0.72rem; line-height: 1.3;">
+                                            <strong>Instructions:</strong> This pass is property of Electro Solutions and must be visibly displayed at all times within premises. If found, please return to Security Dept.
+                                        </p>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="gp-signatory-box">
+                                            <div class="gp-signatory-line"></div>
+                                            <div class="fw-semibold">Authorized Signatory</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </td>
-          
-
             </tr>
-            <tr>
-
-                <td>
-                    <table border="0" cellpadding="5" cellspacing="0" style="font-family: Urbanist,sans-serif; width: 50%; font-size: 12px; border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                        <tr>
-                            <td style="border-bottom: 1px solid;">
-                                <img src="../images/logo.png" title="" alt="" /></td>
-                            <td style="border-bottom: 1px solid;" colspan="6" align="center"><font size="4"><strong>Electro Solutions</strong></font></td>
-                            <td style="border-bottom: 1px solid;" align="right">
-                                <img src="../images/logo.png" title="" alt="" /></td>
-                        </tr>
-
-                        <tr style="border-bottom: 1px solid; border-top: 1px solid; border-left: 1px solid; border-right: 1px solid;">
-                            <td><strong>GP No.</strong></td>
-                            <td width="1%">:</td>
-                            <td colspan="2">
-                                <asp:Label ID="lblGPNo" runat="server" Text=""></asp:Label>
-                            </td>
-                            <td align="right"><strong>Valid From</strong></td>
-                            <td width="1%">:</td>
-                            <td colspan="2">
-                                <asp:Label ID="lblValidFrom" runat="server" Text=""></asp:Label>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="border-bottom: 1px solid;"><strong>Order No.</strong></td>
-                            <td style="border-bottom: 1px solid;">:</td>
-                            <td style="border-bottom: 1px solid;" colspan="2">
-                                <asp:Label ID="lblOrderNo" runat="server" Text=""></asp:Label>
-                            </td>
-                            <td style="border-bottom: 1px solid;" align="right"><strong>Valid To</strong></td>
-                            <td style="border-bottom: 1px solid;">:</td>
-                            <td style="border-bottom: 1px solid;" colspan="2">
-                                <asp:Label ID="lblValidTo" runat="server" Text=""></asp:Label>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td style="border-bottom: 1px solid;">&nbsp;</td>
-                            <td style="border-bottom: 1px solid;" colspan="6" align="center"><font size="2" face="Urbanist, sans-serif">Gatepass Permitted Hrs. : 06:00 AM to 06:00 AM</font></td>
-                            <td style="border-bottom: 1px solid;">&nbsp;</td>
-                        </tr>
-
-                        <tr>
-                            <td colspan="8">
-
-                                <table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-bottom: 0px solid;">
-                                    <tr>
-                                        <td class="style5"><strong style="font-size: medium"></strong>Photo</td>
-                                        <td class="style3"><strong>Name</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblName" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td rowspan="8" valign="top" style="text-align: center">
-                                            <asp:Image ID="Image1" runat="server" Style="width: 150px; height: auto;" />
-                                        </td>
-                                        <td class="style3"><strong>Identity Mark</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblIdentityMark" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Gender</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblGender" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Blood Grp</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblBloodGrp" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3" width="40%"><strong>Department&nbsp; </strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblDepartment" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Vendor</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblVendor" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>Vendor Code</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblVendorCode" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>ESIC No.</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblESICNo" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="style3"><strong>UAN No.</strong></td>
-                                        <td><strong>:</strong></td>
-                                        <td>
-                                            <asp:Label ID="lblPFNO" runat="server" Text=""></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>&nbsp;</td>
-                                        <td class="style3" valign="top"><strong></strong></td>
-                                        <td valign="top"><strong></strong></td>
-                                        <td valign="top">
-                                            <asp:Label ID="lblLIC" runat="server" Text="" Visible="false"></asp:Label>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
                     </table>
                 </td>
             </tr>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wages_document.aspx.cs" Inherits="clms2.vendor_onboarding.wages_document" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="wages_document.aspx.cs" Inherits="clms2.vendor_onboarding.wages_document" %>
 
 <!DOCTYPE html>
 
@@ -128,11 +128,14 @@
             border-top-left-radius: 0 !important;
             border-bottom-left-radius: 0 !important;
         }
-        .form-two-column-row {
+                .form-two-column-row {
+            display: flex !important;
+            flex-wrap: wrap !important;
             margin-left: -17.5px;
             margin-right: -17.5px;
         }
         .form-two-column-row > [class*="col-"] {
+            float: none !important;
             padding-left: 17.5px;
             padding-right: 17.5px;
         }
@@ -447,6 +450,53 @@
             .navbar .navbar-toggler {
                 display: none !important;
             }
+        }
+            /* ========================================================
+           Layout & Positioning Fixes
+           ======================================================== */
+        html, body {
+            min-height: 100vh !important;
+        }
+
+        body {
+            padding-bottom: 150px !important;
+            position: relative !important;
+        }
+
+        body > form > table.table {
+            width: 100% !important;
+            margin-bottom: 0 !important;
+            border: none !important;
+        }
+
+        body > form > table.table > tbody > tr > td {
+            border: none !important;
+            padding: 0 !important;
+        }
+
+        .page-wrapper {
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: auto !important;
+        }
+
+        .page-wrapper .page-content-tab {
+            width: 100% !important;
+            margin-left: 0 !important;
+            min-height: auto !important;
+            padding: 20px 24px 120px 24px !important;
+            margin-top: 50px !important;
+        }
+
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .form-two-column-row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
         }
     </style>
 </head>
@@ -883,12 +933,6 @@
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtGrossWagesPaid" ErrorMessage="* Pls Enter Gross Wages Paid" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="txtGrossWagesPaid" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$" Display="Dynamic"></asp:RegularExpressionValidator>
                                             </div>
-                                        </div>
-
-                                        <%-- Section 2: Provident Fund Compliance --%>
-                                        <hr class="my-4 border-2" />
-                                        <div class="form-section-header">
-                                            <i class="fa fa-piggy-bank text-primary me-2"></i>Provident Fund (PF) Compliance
                                         </div>
 
                                         <div class="row form-two-column-row">

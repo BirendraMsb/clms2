@@ -468,6 +468,7 @@
         }
 
         body > form > table.table {
+            width: 100% !important;
             margin-bottom: 0 !important;
             border: none !important;
         }

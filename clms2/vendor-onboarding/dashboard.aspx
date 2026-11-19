@@ -374,6 +374,72 @@
                 display: none !important;
             }
         }
+
+        /* Ensure dashboard cards are 100% fully visible without clipping or displacement */
+        .page-wrapper {
+            margin-top: 110px !important;
+        }
+
+        .dashboard-cards-container,
+        .page-wrapper .card.border-0,
+        .page-content-tab .card.border-0 {
+            overflow: visible !important;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .page-wrapper .row,
+        .dashboard-cards-row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .page-wrapper .row > *,
+        .dashboard-cards-row > *,
+        .page-content-tab .row > * {
+            position: static !important;
+            top: 0 !important;
+            left: 0 !important;
+            overflow: visible !important;
+        }
+
+        .dashboard-card,
+        .page-wrapper .card.shadow.border {
+            border-radius: 12px !important;
+            border: 1px solid #e2e8f0 !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+            background: #ffffff !important;
+            min-height: 170px !important;
+            overflow: visible !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .dashboard-card:hover,
+        .page-wrapper .card.shadow.border:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        .dashboard-card .card-body,
+        .page-wrapper .card.shadow.border .card-body {
+            padding: 1.5rem !important;
+            overflow: visible !important;
+        }
+
+        .dashboard-card .card-footer,
+        .page-wrapper .card.shadow.border .card-footer {
+            background-color: #f8fafc !important;
+            border-top: 1px solid #edf2f7 !important;
+            padding: 0.75rem 1rem !important;
+            border-bottom-left-radius: 12px !important;
+            border-bottom-right-radius: 12px !important;
+            display: block !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -705,11 +771,11 @@
                         <div class="page-content-tab">
                             <div class="container-fluid">
 
-                                <div class="card border-0">
-                                    <div class="row mb-3">
+                                <div class="dashboard-cards-container w-100">
+                                    <div class="row dashboard-cards-row mb-3">
                                         <div class="col-md-3">
                                             
-                                            <div class="card shadow border">
+                                            <div class="card shadow border dashboard-card">
                                                 <div class="card-body d-flex align-items-center justify-content-start">
                                                     <span>
                                                         <i class="fa fa-users fa-4x mb-2 me-4"></i>
@@ -726,7 +792,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="card shadow border">
+                                            <div class="card shadow border dashboard-card">
                                                 <div class="card-body d-flex align-items-center justify-content-start">
                                                     <span>
                                                         <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
@@ -742,7 +808,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="card shadow border">
+                                            <div class="card shadow border dashboard-card">
                                                 <div class="card-body d-flex align-items-center justify-content-start">
                                                     <span>
                                                         <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
@@ -758,7 +824,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3">
-                                            <div class="card shadow border">
+                                            <div class="card shadow border dashboard-card">
                                                 <div class="card-body d-flex align-items-center justify-content-start">
                                                     <span>
                                                         <i class="fa fa-address-card fa-4x mb-2 me-4"></i>
@@ -777,7 +843,7 @@
                                     <%--	<div class="row mb-4">
   
 		<div class="col-md-3">
-			<div class="card shadow border">
+			<div class="card shadow border dashboard-card">
 				<div class="card-body d-flex align-items-center justify-content-start">
 					<span>
 						<i class="fa fa-cog fa-spin fa-4x mb-2 me-4"></i>

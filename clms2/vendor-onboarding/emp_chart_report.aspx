@@ -690,7 +690,7 @@
             </tr>
             <tr>
                 <td>
-                    <div class="page-wrapper">
+                    <div class="page-wrapper" style="margin-top: 100px !important;">
                         <div class="page-content-tab">
                             <div class="container-fluid">
                                 <div class="row mb-2 border-bottom pb-2">

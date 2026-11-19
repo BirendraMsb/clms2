@@ -841,29 +841,12 @@
                                                 </div>
                                             </div>
 
-                                            <div class="param-col-bonus">
-                                                <label class="form-label fw-semibold text-dark text-nowrap" for="txtBonusPercent">Bonus Percentage (%) <span class="text-danger">*</span></label>
-                                                <div class="input-group">
-                                                    <span class="input-group-text"><i class="fa fa-percentage"></i></span>
-                                                    <asp:TextBox ID="txtBonusPercent" runat="server" class="form-control" placeholder="8.33 to 20"></asp:TextBox>
-                                                </div>
-                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter Bonus in %" ForeColor="#dc2626" Display="Dynamic"></asp:RequiredFieldValidator>
-                                                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter 8.33% to 20%" ForeColor="#dc2626" MinimumValue="8.33" MaximumValue="20" SetFocusOnError="true" Type="Double" Display="Dynamic"></asp:RangeValidator>
-                                            </div>
-
                                             <div class="param-col-month">
                                                 <label class="form-label fw-semibold text-dark text-nowrap" for="ddlMonthFrom">Month From <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <asp:DropDownList ID="ddlMonthFrom" runat="server" class="form-select px-2" AutoPostBack="true" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
                                                         <asp:ListItem Value="4">Apr</asp:ListItem>
                                                     </asp:DropDownList>
-                                                </div>
-                                            </div>
-
-                                            <div class="param-col-year">
-                                                <label class="form-label fw-semibold text-dark text-nowrap" for="ddlYearFrom">Year From <span class="text-danger">*</span></label>
-                                                <div class="input-group">
-                                                    <asp:DropDownList ID="ddlYearFrom" runat="server" class="form-select px-2" MaxLength="50"></asp:DropDownList>
                                                 </div>
                                             </div>
 
@@ -877,10 +860,27 @@
                                             </div>
 
                                             <div class="param-col-year">
+                                                <label class="form-label fw-semibold text-dark text-nowrap" for="ddlYearFrom">Year From <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <asp:DropDownList ID="ddlYearFrom" runat="server" class="form-select px-2" MaxLength="50"></asp:DropDownList>
+                                                </div>
+                                            </div>
+
+                                            <div class="param-col-year">
                                                 <label class="form-label fw-semibold text-dark text-nowrap" for="ddlYearTo">Year To <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <asp:DropDownList ID="ddlYearTo" runat="server" class="form-select px-2" MaxLength="50"></asp:DropDownList>
                                                 </div>
+                                            </div>
+
+                                            <div class="param-col-bonus">
+                                                <label class="form-label fw-semibold text-dark text-nowrap" for="txtBonusPercent">Bonus Percentage (%) <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-percentage"></i></span>
+                                                    <asp:TextBox ID="txtBonusPercent" runat="server" class="form-control" placeholder="8.33 to 20"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter Bonus in %" ForeColor="#dc2626" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter 8.33% to 20%" ForeColor="#dc2626" MinimumValue="8.33" MaximumValue="20" SetFocusOnError="true" Type="Double" Display="Dynamic"></asp:RangeValidator>
                                             </div>
 
                                             <div class="param-col-btn">

@@ -744,8 +744,8 @@
                                 <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
                                     <div class="d-flex align-items-center gap-2 flex-grow-1" style="max-width: 520px;">
                                         <label for="txtSearch" class="fw-bold text-secondary mb-0 text-nowrap d-flex align-items-center">
-                                            <i class="fa fa-user text-primary me-2"></i>
-                                            <asp:Label ID="lblSearch" runat="server" Text="Emp Name:" CssClass="fw-semibold text-dark"></asp:Label>
+                                            <i class="fa fa-id-card text-primary me-2"></i>
+                                            <asp:Label ID="lblSearch" runat="server" Text="Emp Code / Name:" CssClass="fw-semibold text-dark"></asp:Label>
                                         </label>
                                         <asp:DropDownList ID="txtSearch" runat="server" AutoPostBack="True" OnSelectedIndexChanged="txtSearch_SelectedIndexChanged" CssClass="form-select shadow-none">
                                         </asp:DropDownList>

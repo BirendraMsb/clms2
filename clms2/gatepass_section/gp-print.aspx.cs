@@ -31,7 +31,7 @@ namespace clms2.gatepass_section
             using (SqlConnection con = new SqlConnection(constr))
             {
               //  strSQL = "SELECT * FROM tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and vendor_code='" + Request.QueryString["Id"] + "'";
-                using (SqlCommand cmd = new SqlCommand("select * from tbl_emp  where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved'"))
+                using (SqlCommand cmd = new SqlCommand("select *, (ISNULL(emp_code, '') + ' - ' + ISNULL(emp_name, '')) as emp_code_name from tbl_emp where hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved' order by emp_code"))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -40,13 +40,13 @@ namespace clms2.gatepass_section
                         DataSet ds = new DataSet();
                         sda.Fill(ds);
                         txtSearch.DataSource = ds.Tables[0];
-                        txtSearch.DataTextField = "emp_name";
+                        txtSearch.DataTextField = "emp_code_name";
                         txtSearch.DataValueField = "emp_code";
                         txtSearch.DataBind();
                     }
                 }
             }
-            txtSearch.Items.Insert(0, new ListItem("--Selec Emp Name--", "0"));
+            txtSearch.Items.Insert(0, new ListItem("--Select Emp Code / Name--", "0"));
         }
        
         protected void Page_Load(object sender, EventArgs e)
@@ -68,6 +68,26 @@ namespace clms2.gatepass_section
             {
                 if ((IsPostBack))
                 {
+                    if (txtSearch.SelectedValue == "0" || string.IsNullOrEmpty(txtSearch.SelectedValue))
+                    {
+                        lblGPNo.Text = "";
+                        lblValidFrom.Text = "";
+                        lblOrderNo.Text = "";
+                        lblValidTo.Text = "";
+                        lblName.Text = "";
+                        lblIdentityMark.Text = "";
+                        lblGender.Text = "";
+                        lblBloodGrp.Text = "";
+                        lblDepartment.Text = "";
+                        lblVendor.Text = "";
+                        lblVendorCode.Text = "";
+                        lblESICNo.Text = "";
+                        lblPFNO.Text = "";
+                        lblLIC.Text = "";
+                        Image1.ImageUrl = "";
+                        return;
+                    }
+
                     // 'strSQL = "select * from tbl_vendor_work_order where vendor_reg_code = '" & Request.QueryString("vcd") & "'"
                     strSQL = "select b.emp_code, a.valid_from,a.work_worder,a.valid_to,b.emp_name,b.gender,b.blood_grp,a.department,b.vendor_code, b.escic,b.pfno from tbl_vendor_work_order a,tbl_emp b where a.vendor_reg_code = b.vendor_code and b.emp_code='" + txtSearch.SelectedValue + "'";
                     // 'strSQL = "select * from tbl_emp where emp_name = '" + txtSearch.Text + "'"

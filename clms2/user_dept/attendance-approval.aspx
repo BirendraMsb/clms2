@@ -373,6 +373,63 @@
                 display: none !important;
             }
         }
+
+        /* ========================================================
+           Layout, GridView & Spacing Fixes
+           ======================================================== */
+        html, body {
+            min-height: 100vh !important;
+        }
+
+        body {
+            padding-bottom: 150px !important;
+            position: relative !important;
+        }
+
+        body > form > table.table {
+            width: 100% !important;
+            margin-bottom: 0 !important;
+            border: none !important;
+        }
+
+        body > form > table.table > tbody > tr > td {
+            border: none !important;
+            padding: 0 !important;
+        }
+
+        .page-wrapper {
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: auto !important;
+        }
+
+        .page-wrapper .page-content-tab {
+            width: 100% !important;
+            margin-left: 0 !important;
+            min-height: auto !important;
+            padding: 20px 24px 120px 24px !important;
+            margin-top: 50px !important;
+        }
+
+        .table-responsive {
+            border: none !important;
+            overflow-x: auto !important;
+            overflow-y: visible !important;
+            width: 100% !important;
+            margin-bottom: 2.5rem !important;
+            max-height: none !important;
+            height: auto !important;
+        }
+
+        #GvAttn {
+            width: 100% !important;
+            border-collapse: collapse !important;
+        }
+
+        #GvAttn th, #GvAttn td {
+            vertical-align: middle !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -539,8 +596,15 @@
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Emp Code">
                                                         <ItemTemplate>
-                                                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("Id") %>' Text='<%# Eval("emp_code") %>'></asp:HyperLink>
+                                                            <asp:LinkButton ID="lnkEmpCode" runat="server" Text='<%# Eval("emp_code") %>' CommandName="Edit" ForeColor="#0d6efd" Font-Bold="True" ToolTip="Click to edit / approve attendance"></asp:LinkButton>
                                                         </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:Label ID="lbl_emp_code" runat="server" Text='<%# Eval("emp_code") %>' Font-Bold="True"></asp:Label>
+                                                            <div class="mt-1 d-flex gap-1">
+                                                                <asp:Button ID="btn_Update_Emp" class="btn btn-primary btn-sm rounded-pill" runat="server" Text="Update" CommandName="Update" />
+                                                                <asp:Button ID="btn_Cancel_Emp" class="btn btn-secondary btn-sm rounded-pill" runat="server" Text="Cancel" CommandName="Cancel" />
+                                                            </div>
+                                                        </EditItemTemplate>
                                                         <ControlStyle Width="150px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>
@@ -1013,8 +1077,8 @@
                                                         </ItemTemplate>
                                                         <EditItemTemplate >
                                                             <asp:Label ID="lbl_id" runat="server" Text='<%#Eval("id") %>' Visible="false"></asp:Label>
-                                                            <asp:Button ID="btn_Update" class="btn btn-primary rounded-pill" runat="server" Text="OK" CommandName="Update" />
-                                                            <%--<asp:Button ID="btn_Cancel" class="btn btn-secondary rounded-pill" runat="server" Text="Cancel" CommandName="Cancel" />--%>
+                                                            <asp:Button ID="btn_Update" class="btn btn-primary rounded-pill" runat="server" Text="Update" CommandName="Update" />
+                                                            <asp:Button ID="btn_Cancel" class="btn btn-secondary rounded-pill" runat="server" Text="Cancel" CommandName="Cancel" />
                                                         </EditItemTemplate>
                                                     </asp:TemplateField>
                                                 </Columns>

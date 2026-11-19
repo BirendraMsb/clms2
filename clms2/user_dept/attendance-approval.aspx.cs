@@ -33,9 +33,11 @@ namespace clms2.user_dept
                 string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT distinct work_worder from tbl_vendor_work_order where  department='" + Session["User"].ToString() + "' "))  // tbl_attendance
+                    string dept = Session["User"] != null ? Session["User"].ToString() : "";
+                    using (SqlCommand cmd = new SqlCommand("SELECT distinct work_worder from tbl_vendor_work_order where department=@dept"))
                     {
                         cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@dept", dept);
                         cmd.Connection = con;
                         using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                         {
@@ -65,16 +67,18 @@ namespace clms2.user_dept
             {
                 dbConnection();
 
-                // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.Text + "' and department='" + Session["User"].ToString() + "' and dept_approval='Pending' and  hr_approval ='Pending' and  year1='" + ddlYear.Text + "' and month1='" + ddlMonth.Text + "' order by month1 desc";
-               /// strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.Text + "' and department='" + Session["User"].ToString() + "' ";
-               // strSQL = "SELECT * FROM tbl_attendance";
+                string dept = Session["User"] != null ? Session["User"].ToString() : "";
+                strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.Text + "' and department='" + dept + "' and dept_approval='Pending' and  hr_approval ='Pending' and  year1='" + ddlYear.Text + "' and month1='" + ddlMonth.Text + "' order by month1 desc";
 
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
                 GvAttn.DataSource = dt;
                 GvAttn.DataBind();
+                if (GvAttn.Rows.Count > 0)
+                {
+                    GvAttn.HeaderRow.TableSection = TableRowSection.TableHeader;
+                }
             }
             catch (Exception ex)
             {
@@ -85,13 +89,15 @@ namespace clms2.user_dept
         {
             try
             {
-                string usrnm = Session["User"].ToString();
+                string usrnm = Session["User"] != null ? Session["User"].ToString() : "user_dept";
                 lblUser.Text = usrnm;
                 // lblUser1.Text = usrnm
                 lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
                 if (!Page.IsPostBack)
+                {
                     workorder();
-                     year();
+                    year();
+                }
             }
             catch (Exception)
             {
@@ -103,25 +109,12 @@ namespace clms2.user_dept
 
         protected void ddlWorkOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ////dbConnection();
-            ////if (ddlWorkOrder.SelectedValue != "")
-            ////{
-            ////    strSQL = "SELECT * FROM tbl_attendance where  workorder = '" + ddlWorkOrder.SelectedItem.Text + "' and department='" + Session["User"].ToString() + "' and dept_approval='Pending' and  hr_approval ='Pending' order by month1 desc ";
-            ////    ///dont delete///strSQL = "SELECT a.*,b.* FROM tbl_vendor_info a, tbl_attendance b where a.vendor_reg_code=b.vendor_code and workorder = '" + ddlWorkOrder.Text + "'";
-            ////    SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
-            ////    DataTable dt = new DataTable();
-            ////    sda.Fill(dt);
-            ////    GvAttn.DataSource = dt;
-            ////    GvAttn.DataBind();
-            ////    GvAttn.HeaderRow.TableSection = TableRowSection.TableHeader;
-            ////}
-            ////con.Close();
         }
 
         protected void GvAttn_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GvAttn.PageIndex = e.NewPageIndex;
-            GvAttn.DataBind();
+            BindGrid();
         }
 
         protected void GvAttn_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
@@ -138,19 +131,24 @@ namespace clms2.user_dept
 
         protected void GvAttn_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            Label id = GvAttn.Rows[e.RowIndex].FindControl("lbl_ID") as Label;
-            TextBox rmrks = GvAttn.Rows[e.RowIndex].FindControl("txt_DeptRemarks") as TextBox;
-            approv = GvAttn.Rows[e.RowIndex].FindControl("ddlDeptApproval") as DropDownList;
-            ////DropDownList Shift = GvAttn.Rows[e.RowIndex].FindControl("ddlShift") as DropDownList;
-            ////DropDownList med_report = GvAttn.Rows[e.RowIndex].FindControl("ddlMedReport") as DropDownList;
+            Label id = GvAttn.Rows[e.RowIndex].FindControl("lbl_ID") as Label
+                    ?? GvAttn.Rows[e.RowIndex].FindControl("lbl_id") as Label;
+            string recordId = (id != null && !string.IsNullOrEmpty(id.Text))
+                            ? id.Text
+                            : (GvAttn.DataKeys[e.RowIndex] != null ? GvAttn.DataKeys[e.RowIndex].Value.ToString() : "");
 
-            //// 'If approv.SelectedItem.Text = "Reject" Then
-            //// '    GvEmp.Columns(1).Visible = False
-            //// 'End If
+            TextBox rmrks = GvAttn.Rows[e.RowIndex].FindControl("txt_DeptRemarks") as TextBox;
+            string remarksText = rmrks != null ? rmrks.Text : "";
+
+            approv = GvAttn.Rows[e.RowIndex].FindControl("ddlDeptApproval") as DropDownList;
+            string approvalValue = approv != null ? approv.SelectedValue : "Approved";
 
             dbConnection();
-            string Str = "Update tbl_attendance set dept_remarks='" + rmrks.Text + "', dept_approval='" + approv.SelectedValue + "' where id=" + id.Text + "";
+            string Str = "Update tbl_attendance set dept_remarks=@dept_remarks, dept_approval=@dept_approval where id=@id";
             SqlCommand cm = new SqlCommand(Str, con);
+            cm.Parameters.AddWithValue("@dept_remarks", remarksText);
+            cm.Parameters.AddWithValue("@dept_approval", approvalValue);
+            cm.Parameters.AddWithValue("@id", recordId);
             cm.ExecuteNonQuery();
 
             con.Close();

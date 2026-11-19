@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -22,7 +22,7 @@ namespace clms2.vendor_onboarding
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd-MMM-yyyy");
 
@@ -106,8 +106,8 @@ namespace clms2.vendor_onboarding
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                ////using (SqlCommand cmd = new SqlCommand("select a.email,a.contact_no1,b.valid_from,b.valid_to,a.workers_authorised from tbl_vendor_info a,tbl_vendor_work_order b where a.work_worder = b.work_worder and b.work_worder= '" + ddlWorkOrder.SelectedItem.Text + "' and a.vendor_reg_code=" + Session["User"] + " "))
-                using (SqlCommand cmd = new SqlCommand("select a.vendor_code,count(a.emp_code) as no_of_emp_paid,count(a.emp_code) as esi_contr_in_no,count(a.emp_code) as pf_contr_in_no, a.month1, cast(sum(a.present) as decimal(10,0)) as no_of_days_workdone ,cast(sum(e.[basic]/8) as decimal(10,2)) as daily_rate_of_wages, cast(sum( (( a.Present * (e.basic +  e.allowance)) - (a.Present * (e.basic + e.allowance )) * 12/100  - (((a.Present * e.basic)  + (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) - e.other_deduction)as decimal(10,2)) as Basic_wages,sum(e.basic*0) as Dearness_Allowances , cast(sum(a.monthly_ot_hrs * e.[basic]/8)as decimal(10,2)) as overtime,sum(e.allowance) as other_cash_payment, cast(sum((( a.Present * (e.basic +  e.allowance)) - (a.Present * (e.basic + e.allowance )) * 12/100  - (((a.Present * e.basic)  + (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) - e.other_deduction  + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) as decimal(10,2)) as Total, cast(sum((a.Present * (e.basic +e.allowance) ) * 12/100) as decimal(10,2)) as PF_Deduction, cast(sum((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) as decimal(10,2)) as ESIC_deduction,sum(e.other_deduction) as other_deduction, cast(sum((((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) - ((a.Present * e.basic ) * 12/100 ) - ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100) - e.other_deduction) as decimal(10,2))  as Net_Amount_Paid   from tbl_attendance a,tbl_emp e where e.emp_code = a.emp_code and a.vendor_code = e.vendor_code   and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "'  and a.vendor_code=" + Session["User"] + " group by a.vendor_code,a.month1"))
+                string u = Session["User"] != null ? Session["User"].ToString() : "";
+                using (SqlCommand cmd = new SqlCommand("select a.vendor_code,count(a.emp_code) as no_of_emp_paid,count(a.emp_code) as esi_contr_in_no,count(a.emp_code) as pf_contr_in_no, a.month1, cast(sum(a.present) as decimal(10,0)) as no_of_days_workdone ,cast(sum(e.[basic]/8) as decimal(10,2)) as daily_rate_of_wages, cast(sum( (( a.Present * (e.basic +  e.allowance)) - (a.Present * (e.basic + e.allowance )) * 12/100  - (((a.Present * e.basic)  + (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) - e.other_deduction)as decimal(10,2)) as Basic_wages,sum(e.basic*0) as Dearness_Allowances , cast(sum(a.monthly_ot_hrs * e.[basic]/8)as decimal(10,2)) as overtime,sum(e.allowance) as other_cash_payment, cast(sum((( a.Present * (e.basic +  e.allowance)) - (a.Present * (e.basic + e.allowance )) * 12/100  - (((a.Present * e.basic)  + (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) - e.other_deduction  + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) as decimal(10,2)) as Total, cast(sum((a.Present * (e.basic +e.allowance) ) * 12/100) as decimal(10,2)) as PF_Deduction, cast(sum((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) as decimal(10,2)) as ESIC_deduction,sum(e.other_deduction) as other_deduction, cast(sum((((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) - ((a.Present * e.basic ) * 12/100 ) - ((a.Present * e.basic) + e.basic*0 + (a.monthly_ot_hrs * e.[basic]/8) + e.allowance) * 0.75/100) - e.other_deduction) as decimal(10,2))  as Net_Amount_Paid   from tbl_attendance a,tbl_emp e where e.emp_code = a.emp_code and a.vendor_code = e.vendor_code   and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "'  and a.vendor_code='" + u + "' group by a.vendor_code,a.month1"))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -137,9 +137,8 @@ namespace clms2.vendor_onboarding
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                ////using (SqlCommand cmd = new SqlCommand("select a.email,a.contact_no1,b.valid_from,b.valid_to,a.workers_authorised from tbl_vendor_info a,tbl_vendor_work_order b where a.work_worder = b.work_worder and b.work_worder= '" + ddlWorkOrder.SelectedItem.Text + "' and a.vendor_reg_code=" + Session["User"] + " "))
-               //// using (SqlCommand cmd = new SqlCommand("select e.emp_code,e.emp_name,convert(date, vwo.valid_to , 103 ) as valid_to,convert(date , GETDATE() , 103)  as date2 from tbl_emp e,tbl_vendor_work_order vwo where e.vendor_code=vwo.vendor_reg_code  and convert(date, vwo.valid_to , 103 )  > convert(date , GETDATE() , 103) and  hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved'"))
-                using (SqlCommand cmd = new SqlCommand("select count(e.emp_code) as tot_valid_gatepass from tbl_emp e,tbl_vendor_work_order vwo where e.vendor_code=vwo.vendor_reg_code  and convert(date, vwo.valid_to , 103 )  > convert(date , GETDATE() , 103) and  hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved' and vwo.vendor_reg_code=" + Session["User"] + ""))
+                string u = Session["User"] != null ? Session["User"].ToString() : "";
+                using (SqlCommand cmd = new SqlCommand("select count(e.emp_code) as tot_valid_gatepass from tbl_emp e,tbl_vendor_work_order vwo where e.vendor_code=vwo.vendor_reg_code  and convert(date, vwo.valid_to , 103 )  > convert(date , GETDATE() , 103) and  hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved' and vwo.vendor_reg_code='" + u + "'"))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -159,7 +158,8 @@ namespace clms2.vendor_onboarding
         {
 
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "SELECT * FROM tbl_wages_document where month='" + ddlMonth.SelectedValue + "' and year='" + ddlYear.SelectedItem.Text + "'  and vendor_code= " + Session["User"] + " ";
+            string u = Session["User"] != null ? Session["User"].ToString() : "";
+            string query = "SELECT * FROM tbl_wages_document where month='" + ddlMonth.SelectedValue + "' and year='" + ddlYear.SelectedItem.Text + "'  and vendor_code= '" + u + "' ";
             SqlConnection con = new SqlConnection(constr);
             con.Open();
             SqlDataAdapter sda = new SqlDataAdapter(query, con);

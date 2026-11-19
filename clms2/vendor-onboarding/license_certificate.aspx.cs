@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -23,7 +23,7 @@ namespace clms2.vendor_onboarding
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
             if (!this.IsPostBack)

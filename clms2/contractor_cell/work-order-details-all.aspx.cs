@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -27,30 +27,31 @@ namespace clms2.contractor_cell
         {
             dbConnection();
             strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code, b.pano,b.gstno,b.pfno,b.esicno,b.pfdoc,b.esicdoc FROM tbl_vendor_work_order a,tbl_vendor_info b  where a.vendor_reg_code=b.vendor_reg_code and a.work_worder=b.work_worder and b.status='A'";
-            ////strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code ";  // 'and b.status='A'
-            //////if (txtSearch.Text == "")
-            //////    strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code ";  // 'and b.status='A'
-            //////else
-            //////    strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code and work_worder = '" + txtSearch.Text + "'";
-
 
             SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
             DataTable dt = new DataTable();
             sda.Fill(dt);
             GvWod.DataSource = dt;
             GvWod.DataBind();
-            GvWod.HeaderRow.TableSection = TableRowSection.TableHeader;
+            if (GvWod.HeaderRow != null)
+            {
+                GvWod.HeaderRow.TableSection = TableRowSection.TableHeader;
+            }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
-            lblUser.Text = usrnm;
-            // lblUser1.Text = usrnm
+            if (Session["User"] != null)
+            {
+                string usrnm = Session["User"] != null ? Session["User"].ToString() : "Contractor Cell";
+                lblUser.Text = usrnm;
+            }
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
-            gvInfo();
-
+            if (!IsPostBack)
+            {
+                gvInfo();
+            }
         }
-    
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
@@ -60,29 +61,38 @@ namespace clms2.contractor_cell
         protected void GvWod_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GvWod.PageIndex = e.NewPageIndex;
-            GvWod.DataBind();
+            gvInfo();
         }
 
         protected void GvWod_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            string chk = Request.QueryString["vl"];
-
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                var row = (DataRowView)e.Row.DataItem;
-                string sts = row["status"].ToString();
-                //if (sts == "N" && chk == "awo")
-                if (sts == "N")
+                string[] headers = new string[] {
+                    "Sl. No", "Vendor Code", "Valid From", "Valid To", "Vendor Name",
+                    "Type Of Contract", "Department", "PAN No.", "GST No.", "UAN No.",
+                    "ESIC No.", "Job Location"
+                };
+
+                for (int i = 0; i < e.Row.Cells.Count && i < headers.Length; i++)
                 {
-                    e.Row.BackColor = System.Drawing.Color.LightSalmon;
+                    e.Row.Cells[i].Attributes["data-label"] = headers[i];
                 }
 
-                else
+                var row = (DataRowView)e.Row.DataItem;
+                if (row != null && row.Row.Table.Columns.Contains("status"))
                 {
-                    e.Row.BackColor = System.Drawing.Color.LightBlue;
+                    string sts = row["status"] != null ? row["status"].ToString() : "";
+                    if (sts == "N")
+                    {
+                        e.Row.BackColor = System.Drawing.Color.LightSalmon;
+                    }
+                    else
+                    {
+                        e.Row.BackColor = System.Drawing.Color.LightBlue;
+                    }
                 }
             }
-
         }
 
 

@@ -279,7 +279,7 @@
                 <div>
                     <br />
                     <br />
-                    <asp:Button ID="btnBulkInsert" runat="server" Text="Submit" OnClick="btnBulkInsert_Click" />
+                    <asp:Button ID="btnBulkInsert" class="btn btn-primary rounded-pill" runat="server" Text="Submit" OnClick="btnBulkInsert_Click" />
                     <br />
                     <asp:Label ID="lblMsg" runat="server" ForeColor="#00CC66"></asp:Label>
                     <asp:Label ID="lblMsgError"  runat="server" ForeColor="#CC0000"></asp:Label>

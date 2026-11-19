@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,7 +14,7 @@ namespace clms2.vendor_onboarding
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
             if (!this.IsPostBack)
@@ -27,8 +27,9 @@ namespace clms2.vendor_onboarding
         }
         private void BindGrid()
         {
+            string user = Session["User"] != null ? Session["User"].ToString() : "";
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "SELECT * FROM tbl_emp where vendor_code ='" + Session["User"].ToString() + "' and workorderno= '" + ddlWorkdOrder.SelectedItem.Text + "'  and hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved'";
+            string query = "SELECT * FROM tbl_emp where vendor_code ='" + user + "' and workorderno= '" + ddlWorkdOrder.SelectedItem.Text + "'  and hr_approval='Approved' and dept_approval='Approved' "; //and safety_approval='Approved' and security_approval='Approved'
            //// string query = "SELECT * FROM tbl_emp";
             using (SqlConnection con = new SqlConnection(constr))
             {
@@ -46,8 +47,9 @@ namespace clms2.vendor_onboarding
 
        private void workorder()
         {
+            string user = Session["User"] != null ? Session["User"].ToString() : "";
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "SELECT distinct(a.workorder),vendor_code FROM tbl_Attendance a,tbl_vendor_info v where vendor_code ='" + Session["User"].ToString() + "' ";
+            string query = "SELECT distinct(a.workorder),vendor_code FROM tbl_Attendance a,tbl_vendor_info v where vendor_code ='" + user + "' ";
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter(query, con))
@@ -121,8 +123,9 @@ namespace clms2.vendor_onboarding
 
         protected void ddlWorkdOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
+            string user = Session["User"] != null ? Session["User"].ToString() : "";
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "SELECT * FROM tbl_emp where vendor_code ='" + Session["User"].ToString() + "' and workorderno= '" + ddlWorkdOrder.SelectedItem.Text + "'  and hr_approval='Approved' and dept_approval='Approved' and safety_approval='Approved' and security_approval='Approved'";
+            string query = "SELECT * FROM tbl_emp where vendor_code ='" + user + "' and workorderno= '" + ddlWorkdOrder.SelectedItem.Text + "'  and hr_approval='Approved' and dept_approval='Approved' ";//and safety_approval='Approved' and security_approval='Approved'
             /////string query = "SELECT * FROM tbl_attendance where  hr_approval='Approved' and dept_approval='Approved' and vendor_code ='" + Session["User"].ToString() + "' and workorder= '" + ddlWorkdOrder.SelectedItem.Text + "'";
           
             using (SqlConnection con = new SqlConnection(constr))

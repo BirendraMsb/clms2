@@ -96,7 +96,7 @@ namespace clms2.vendor_onboarding
             {
                 ddlYear.Items.Add(i.ToString());
             }
-           //// ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
+            ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
         }
         private void BindGrid()
         {
@@ -1009,7 +1009,7 @@ namespace clms2.vendor_onboarding
             {
                 GvAttn.DataSource = null;
 
-                strSQL = "SELECT * FROM tbl_attendance where  vendor_code ='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.SelectedItem.Text + "' and month1='" + ddlMonth.SelectedValue + "' and  year1='" + ddlYear.SelectedItem.Text + "' and (dept_approval='Pending' or dept_approval='Reject')  and  (hr_approval ='Pending' or hr_approval ='Reject')  ";
+                strSQL = "SELECT * FROM tbl_attendance where  vendor_code ='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.SelectedItem.Text + "' and month1='" + ddlMonth.SelectedValue + "' and  year1='" + ddlYear.SelectedItem.Text + "' and (dept_approval !='Pending' or dept_approval !='Reject')  and  (hr_approval !='Pending' or hr_approval !='Reject')  ";
                 //// strSQL = "SELECT * FROM tbl_attendance where vendor_code='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.Text + "' ";
                 SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
                 DataTable dt = new DataTable();

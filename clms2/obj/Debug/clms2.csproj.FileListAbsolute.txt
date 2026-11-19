@@ -12,3 +12,12 @@ D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\RdlCompile.compiled
 D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\clms2.dll
 D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\clms2.pdb
 D:\Visual_Studio_2013_Projects\clms2\clms2\obj\Debug\clms2.csprojResolveAssemblyReference.cache
+d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\bin\clms2.dll.config
+d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\bin\clms2.dll
+d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\bin\clms2.pdb
+d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\bin\Microsoft.SqlServer.Types.dll
+d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\obj\Debug\clms2.csproj.AssemblyReference.cache
+d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\obj\Debug\clms2.csproj.CoreCompileInputs.cache
+d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\obj\Debug\clms2.csproj.Up2Date
+d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\obj\Debug\clms2.dll
+d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\obj\Debug\clms2.pdb

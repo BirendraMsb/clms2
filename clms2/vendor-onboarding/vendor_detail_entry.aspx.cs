@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -25,60 +25,61 @@ namespace clms2.vendor_onboarding
       
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            string usrnm = Session["User"].ToString();
-            lblUser.Text = usrnm;
+            if (Session["User"] != null)
+            {
+                string usrnm = Session["User"].ToString();
+                lblUser.Text = usrnm;
+            }
             lblDate.Text = DateTime.Today.ToString("dd-MMM-yyyy");
 
             lblMSG.Text = "";
             lblMSGError.Text = "";
             lblPFfileSizeMsg.Text = "";
 
-          
-               
-                if (!IsPostBack)
+            if (!IsPostBack)
+            {
+                work_order_no();    // error not found in server for this function
+                state();
+                pfRadio1.Checked = true;
+                ESICRadio1.Checked = true;
+                ////txtPFNO.Visible = false;
+                ////txtESIC.Visible = false;
+                PFileUpload.Visible = false;
+
+                ESICFileUpload.Visible = false;
+                lblPFfileSizeMsg.Visible = false;
+                lblEsicfileSizeMsg.Visible = false;
+
+                Applcability_No.Checked = true;
+
+                txtSubVenName.ReadOnly = true;
+                txtSubVenAddress.ReadOnly = true;
+                txtSubVenPFNo.ReadOnly = true;
+                txtSubVenEsicNo.ReadOnly = true;
+                txtSubVenPanNo.ReadOnly = true;
+                txtSubVenGstNo.ReadOnly = true;
+                txtSubVenEmail.ReadOnly = true;
+                txtSubVenLabLicNo.ReadOnly = true;
+                SubVenPFFileUpload.Enabled = false;
+                SubVenESICFileUpload.Enabled = false;
+                UploadSubVenPhoto.Enabled = false;
+
+                ReqSubVenName.Enabled = false;
+                ReqSubVenAddress.Enabled = false;
+                ReqSubVenPFNo.Enabled = false;
+                ReqSubVenEsicNo.Enabled = false;
+                ReqSubVenPanNo.Enabled = false;
+                ReqSubVenGstNo.Enabled = false;
+                ReqSubVenEmail.Enabled = false;
+                ReqSubVenLabLicNo.Enabled = false;
+
+                ////LinkButton1.Visible = false;  // download UAN declartion
+                ////LinkButton2.Visible = false;  //// download esic declartion
+
+                //sub_ven_invisible();
+
+                if (Session["User"] != null)
                 {
-                    work_order_no();    // error not found in server for this function
-                    state();
-                    pfRadio1.Checked = true;
-                    ESICRadio1.Checked = true;
-                    ////txtPFNO.Visible = false;
-                    ////txtESIC.Visible = false;
-                    PFileUpload.Visible = false;
-
-                    ESICFileUpload.Visible = false;
-                    lblPFfileSizeMsg.Visible = false;
-                    lblEsicfileSizeMsg.Visible = false;
-
-                    Applcability_No.Checked = true;
-
-                    txtSubVenName.ReadOnly = true;
-                    txtSubVenAddress.ReadOnly = true;
-                    txtSubVenPFNo.ReadOnly = true;
-                    txtSubVenEsicNo.ReadOnly = true;
-                    txtSubVenPanNo.ReadOnly = true;
-                    txtSubVenGstNo.ReadOnly = true;
-                    txtSubVenEmail.ReadOnly = true;
-                    txtSubVenLabLicNo.ReadOnly = true;
-                    SubVenPFFileUpload.Enabled = false;
-                    SubVenESICFileUpload.Enabled = false;
-                    UploadSubVenPhoto.Enabled = false;
-
-                    ReqSubVenName.Enabled = false;
-                    ReqSubVenAddress.Enabled = false;
-                    ReqSubVenPFNo.Enabled = false;
-                    ReqSubVenEsicNo.Enabled = false;
-                    ReqSubVenPanNo.Enabled = false;
-                    ReqSubVenGstNo.Enabled = false;
-                    ReqSubVenEmail.Enabled = false;
-                    ReqSubVenLabLicNo.Enabled = false;
-
-                    ////LinkButton1.Visible = false;  // download UAN declartion
-                    ////LinkButton2.Visible = false;  //// download esic declartion
-
-                    //sub_ven_invisible();
-
-
                     dbConnection();
                     // strSQL = "select * from tbl_vendor_info where vendor_reg_code = '" & Session("User") & "'"
                     strSQL = "select * from tbl_vendor_work_order where vendor_reg_code = '" + Session["User"] + "'";
@@ -88,7 +89,7 @@ namespace clms2.vendor_onboarding
                         txtVendorCode.Text = r["vendor_reg_code"].ToString();// '& " = " & Session("User")
                     r.Close();
                 }
-           
+            }
         }
 
         public void work_order_no()
@@ -97,7 +98,8 @@ namespace clms2.vendor_onboarding
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT distinct cast( work_worder as  integer)as work_worder FROM tbl_vendor_info where vendor_reg_code=" + Session["User"] + " "))
+                //using (SqlCommand cmd = new SqlCommand("SELECT distinct cast( work_worder as  integer)as work_worder FROM tbl_vendor_info where vendor_reg_code=" + Session["User"] + " "))
+                using (SqlCommand cmd = new SqlCommand("SELECT distinct id, work_worder FROM tbl_vendor_info where vendor_reg_code='" + Session["User"] + "' and status !='A' "))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -107,7 +109,7 @@ namespace clms2.vendor_onboarding
                         sda.Fill(ds);
                         ddlWorkOrder.DataSource = ds.Tables[0];
                         ddlWorkOrder.DataTextField = "work_worder";
-                        ddlWorkOrder.DataValueField = "work_worder";
+                        ddlWorkOrder.DataValueField = "id";
                         ddlWorkOrder.DataBind();
                     }
                 }

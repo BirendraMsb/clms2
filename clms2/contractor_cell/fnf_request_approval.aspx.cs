@@ -18,7 +18,7 @@ namespace clms2.contractor_cell
         private DropDownList approv;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "Contractor Cell";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
             if (!this.IsPostBack)
@@ -139,7 +139,8 @@ namespace clms2.contractor_cell
 
             //----------------------------------//
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "select a.id, a.work_order,a.emp_code,a.vendor_code,a.emp_name,b.aadhar_no, a.department,a.last_working_day,a.date_of_request,a.reason_for_separation,a.hr_approval,a.hr_remarks from tbl_full_final_request a ,tbl_emp b  where a.emp_code=b.emp_code and a.vendor_code= b.vendor_code and a.work_order=b.workorderno and a.hr_approval !='Approved'";
+            string query = "select distinct(a.id), a.work_order, a.emp_code,a.vendor_code,a.emp_name,a.department,a.last_working_day,a.date_of_request,a.reason_for_separation,a.hr_approval,a.hr_remarks from tbl_full_final_request a ,tbl_emp b  where a.emp_code=b.emp_code and a.vendor_code= b.vendor_code and a.work_order=b.workorderno and a.hr_approval IS NULL OR a.hr_approval = '' or a.hr_approval !='Approved' ";
+            ////string query = "select a.id, a.work_order,a.emp_code,a.vendor_code,a.emp_name,b.aadhar_no, a.department,a.last_working_day,a.date_of_request,a.reason_for_separation,a.hr_approval,a.hr_remarks from tbl_full_final_request a ,tbl_emp b  where a.emp_code=b.emp_code and a.vendor_code= b.vendor_code and a.work_order=b.workorderno and a.hr_approval !='Approved'";
            //// string query = "select * from tbl_full_final_request where hr_approval !='Approved' or hr_approval is null";
             ////string query = "select * from tbl_full_final_request where work_order= '" + ddlWorkdOrder.SelectedItem.Text + "'";
             DataTable dt1;

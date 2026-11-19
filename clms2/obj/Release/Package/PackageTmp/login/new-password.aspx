@@ -24,9 +24,9 @@
         <div class="header" style="background-color:black";>
             <div class="container">
                 <div class="logo">
-                    <%--<a href="#">GreenHRM</a>--%>
-                   <%-- <img src="../images/greenhrm.png" title="GreenHRM" alt="GreenHRM" />--%>
-                   <img src="../public/common/images/straight_logo_greenhrm.png" class="logo-lg logo-light" alt="GreenHRM Solutions | Breaking Stereotypes Logo" width="188" height="50" />
+                    <%--<a href="#">Electro</a>--%>
+                   <%-- <img src="../images/greenhrm.png" title="Electro" alt="Electro" />--%>
+                   <img src="../public/common/images/ElectroSolHeader3.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />
                 </div>
                 <div class="header-right">
                     <%--			<a class="account" href="#">Admin Login</a>&nbsp;&nbsp;
@@ -85,7 +85,7 @@
 
             <!--footer section start-->
             <footer class="diff" style="height: 25px;">
-                <p class="text-center">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</p>
+                <p class="text-center">&copy; 2022 | Electro Solutions | All Rights Reserved</p>
             </footer>
             <!--footer section end-->
         </section>

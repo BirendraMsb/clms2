@@ -1,4 +1,5 @@
-﻿using System;
+using System.Web.Services;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,6 +14,32 @@ namespace clms2.vendor_onboarding
 {
     public partial class emp_onboarding : System.Web.UI.Page
     {
+        [WebMethod]
+        public static bool CheckDuplicateEmpCode(string empCode)
+        {
+            if (string.IsNullOrWhiteSpace(empCode))
+                return false;
+
+            try
+            {
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM tbl_emp WHERE LTRIM(RTRIM(emp_code)) = @emp_code", con))
+                    {
+                        cmd.Parameters.AddWithValue("@emp_code", empCode.Trim());
+                        con.Open();
+                        int count = Convert.ToInt32(cmd.ExecuteScalar());
+                        return count > 0;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         public string strSQL;
         private static string Conn = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
         private SqlConnection con = new SqlConnection(Conn);
@@ -25,126 +52,195 @@ namespace clms2.vendor_onboarding
 
         public void work_order_no()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT  distinct work_worder FROM tbl_vendor_work_order where status='A' and vendor_reg_code=" + Session["User"] + " "))
+                txtWorkOrderNo.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    string sql;
+                    string userSession = Session["User"] != null ? Session["User"].ToString().Trim() : "";
+
+                    // If user is logged in as a specific vendor (vendor code is not Admin, Contractor Cell, etc.)
+                    if (!string.IsNullOrEmpty(userSession) && userSession != "Admin" && userSession != "Contractor Cell" && userSession != "User Department")
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        txtWorkOrderNo.DataSource = ds.Tables[0];
-                        txtWorkOrderNo.DataTextField = "work_worder";
-                        txtWorkOrderNo.DataValueField = "work_worder";
-                        txtWorkOrderNo.DataBind();
+                        sql = "SELECT distinct work_worder FROM tbl_vendor_work_order where status='A' and vendor_reg_code = @vendor_code ORDER BY work_worder";
+                    }
+                    else
+                    {
+                        sql = "SELECT distinct work_worder FROM tbl_vendor_work_order where status='A' ORDER BY work_worder";
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        if (sql.Contains("@vendor_code"))
+                        {
+                            cmd.Parameters.AddWithValue("@vendor_code", userSession);
+                        }
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataTable dt = new DataTable();
+                            sda.Fill(dt);
+
+                            // If filtered by vendor code but returned 0 records, fall back to all approved work orders
+                            if (dt.Rows.Count == 0 && sql.Contains("@vendor_code"))
+                            {
+                                using (SqlCommand fallbackCmd = new SqlCommand("SELECT distinct work_worder FROM tbl_vendor_work_order where status='A' ORDER BY work_worder", con))
+                                {
+                                    using (SqlDataAdapter fallbackSda = new SqlDataAdapter(fallbackCmd))
+                                    {
+                                        fallbackSda.Fill(dt);
+                                    }
+                                }
+                            }
+
+                            // If still 0 records, fall back to all work orders in tbl_vendor_work_order
+                            if (dt.Rows.Count == 0)
+                            {
+                                using (SqlCommand allCmd = new SqlCommand("SELECT distinct work_worder FROM tbl_vendor_work_order ORDER BY work_worder", con))
+                                {
+                                    using (SqlDataAdapter allSda = new SqlDataAdapter(allCmd))
+                                    {
+                                        allSda.Fill(dt);
+                                    }
+                                }
+                            }
+
+                            txtWorkOrderNo.DataSource = dt;
+                            txtWorkOrderNo.DataTextField = "work_worder";
+                            txtWorkOrderNo.DataValueField = "work_worder";
+                            txtWorkOrderNo.DataBind();
+                        }
                     }
                 }
             }
-           /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
-            txtWorkOrderNo.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex)
+            {
+                // Graceful fallback
+            }
+            finally
+            {
+                txtWorkOrderNo.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
         public void cast()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_cast"))
+                ddlCast.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_cast", con))
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        ddlCast.DataSource = ds.Tables[0];
-                        ddlCast.DataTextField = "cast";
-                        ddlCast.DataValueField = "cast";
-                        ddlCast.DataBind();
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+                            ddlCast.DataSource = ds.Tables[0];
+                            ddlCast.DataTextField = "cast";
+                            ddlCast.DataValueField = "cast";
+                            ddlCast.DataBind();
+                        }
                     }
                 }
             }
-            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
-            ddlCast.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex) { }
+            finally
+            {
+                ddlCast.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
 
         public void blood_group()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_blood_group"))
+                ddlBloodGrp.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_blood_group", con))
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        ddlBloodGrp.DataSource = ds.Tables[0];
-                        ddlBloodGrp.DataTextField = "blood_group";
-                        ddlBloodGrp.DataValueField = "blood_group";
-                        ddlBloodGrp.DataBind();
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+                            ddlBloodGrp.DataSource = ds.Tables[0];
+                            ddlBloodGrp.DataTextField = "blood_group";
+                            ddlBloodGrp.DataValueField = "blood_group";
+                            ddlBloodGrp.DataBind();
+                        }
                     }
                 }
             }
-            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
-            ddlBloodGrp.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex) { }
+            finally
+            {
+                ddlBloodGrp.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
 
         public void designation()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_designation"))
+                ddlDesignation.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_designation", con))
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        ddlDesignation.DataSource = ds.Tables[0];
-                        ddlDesignation.DataTextField = "designation";
-                        ddlDesignation.DataValueField = "designation";
-                        ddlDesignation.DataBind();
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+                            ddlDesignation.DataSource = ds.Tables[0];
+                            ddlDesignation.DataTextField = "designation";
+                            ddlDesignation.DataValueField = "designation";
+                            ddlDesignation.DataBind();
+                        }
                     }
                 }
             }
-            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
-            ddlDesignation.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex) { }
+            finally
+            {
+                ddlDesignation.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
 
         public void education()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_education"))
+                ddlEducation.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_education", con))
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        ddlEducation.DataSource = ds.Tables[0];
-                        ddlEducation.DataTextField = "education";
-                        ddlEducation.DataValueField = "education";
-                        ddlEducation.DataBind();
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+                            ddlEducation.DataSource = ds.Tables[0];
+                            ddlEducation.DataTextField = "education";
+                            ddlEducation.DataValueField = "education";
+                            ddlEducation.DataBind();
+                        }
                     }
                 }
             }
-            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
-            ddlEducation.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex) { }
+            finally
+            {
+                ddlEducation.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
 
         public void non_matric()
@@ -323,150 +419,181 @@ namespace clms2.vendor_onboarding
 
         public void skill_category()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_skill_cat"))
+                ddlSkill.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_skill_cat", con))
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        ddlSkill.DataSource = ds.Tables[0];
-                        ddlSkill.DataTextField = "skill_cat";
-                        ddlSkill.DataValueField = "id";
-                        ddlSkill.DataBind();
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+                            ddlSkill.DataSource = ds.Tables[0];
+                            ddlSkill.DataTextField = "skill_cat";
+                            ddlSkill.DataValueField = "id";
+                            ddlSkill.DataBind();
+                        }
                     }
                 }
             }
-            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
-            ddlSkill.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex) { }
+            finally
+            {
+                ddlSkill.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
         public void state()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_state"))
+                ddlState.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_state", con))
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        ddlState.DataSource = ds.Tables[0];
-                        ddlState.DataTextField = "state";
-                        ddlState.DataValueField = "state";
-                        ddlState.DataBind();
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+                            ddlState.DataSource = ds.Tables[0];
+                            ddlState.DataTextField = "state";
+                            ddlState.DataValueField = "state";
+                            ddlState.DataBind();
+                        }
                     }
                 }
             }
-            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
-            ddlState.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex) { }
+            finally
+            {
+                ddlState.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
 
         public void domicile_state()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_state"))
+                ddlDomState.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_state", con))
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        ddlDomState.DataSource = ds.Tables[0];
-                        ddlDomState.DataTextField = "state";
-                        ddlDomState.DataValueField = "state";
-                        ddlDomState.DataBind();
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+                            ddlDomState.DataSource = ds.Tables[0];
+                            ddlDomState.DataTextField = "state";
+                            ddlDomState.DataValueField = "state";
+                            ddlDomState.DataBind();
+                        }
                     }
                 }
             }
-            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
-            ddlDomState.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex) { }
+            finally
+            {
+                ddlDomState.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
         public void bank()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT * from tbl_bank"))
+                ddlBankName.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_bank", con))
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        ddlBankName.DataSource = ds.Tables[0];
-                        ddlBankName.DataTextField = "bank_name";
-                        ddlBankName.DataValueField = "bank_name";
-                        ddlBankName.DataBind();
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+                            ddlBankName.DataSource = ds.Tables[0];
+                            ddlBankName.DataTextField = "bank_name";
+                            ddlBankName.DataValueField = "bank_name";
+                            ddlBankName.DataBind();
+                        }
                     }
                 }
             }
-            /// txtWorkOrderNo.Items.Insert(0, new ListItem("--Select Work Order No.--", "0"));
-            ddlBankName.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex) { }
+            finally
+            {
+                ddlBankName.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
         public void shift_name()
         {
-            // Call dbConnection()
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT  * FROM tbl_shift_master"))
+                txtShift.Items.Clear();
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_shift_master", con))
                     {
-                        DataSet ds = new DataSet();
-                        sda.Fill(ds);
-                        txtShift.DataSource = ds.Tables[0];
-                        txtShift.DataTextField = "ShiftName";
-                        txtShift.DataValueField = "ShiftName";
-                        txtShift.DataBind();
+                        cmd.CommandType = CommandType.Text;
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataSet ds = new DataSet();
+                            sda.Fill(ds);
+                            txtShift.DataSource = ds.Tables[0];
+                            txtShift.DataTextField = "ShiftName";
+                            txtShift.DataValueField = "ShiftName";
+                            txtShift.DataBind();
+                        }
                     }
                 }
             }
-            ///txtShift.Items.Insert(0, new ListItem("--Select Shift--", "0"));
-            txtShift.Items.Insert(0, new ListItem("Select", "Select"));
+            catch (Exception ex) { }
+            finally
+            {
+                txtShift.Items.Insert(0, new ListItem("Select", "Select"));
+            }
         }
 
         // ' show  vendor reg code on selecting work order no''
         public void vendor_reg_code()
         {
-            dbConnection();
-            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            using (SqlConnection con = new SqlConnection(constr))
+            try
             {
-                using (SqlCommand cmd = new SqlCommand("SELECT  distinct vendor_reg_code,department FROM tbl_vendor_work_order where work_worder= '" + txtWorkOrderNo.SelectedValue + "' and status='A'"))
+                string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    con.Open();
-                    SqlDataReader r = cmd.ExecuteReader();
-
-                    if ((r.Read()))
+                    using (SqlCommand cmd = new SqlCommand("SELECT distinct vendor_reg_code,department FROM tbl_vendor_work_order where work_worder = @work_order and status='A'", con))
                     {
-                        txtVendorCode.Text = r["vendor_reg_code"].ToString();
-                        txtDepart.Text = r["department"].ToString();
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("@work_order", txtWorkOrderNo.SelectedValue);
+                        con.Open();
+                        using (SqlDataReader r = cmd.ExecuteReader())
+                        {
+                            if ((r.Read()))
+                            {
+                                txtVendorCode.Text = r["vendor_reg_code"].ToString();
+                                txtDepart.Text = r["department"].ToString();
+                                if (Session["User"] == null || Session["User"].ToString() == "Contractor Cell" || Session["User"].ToString() == "Admin")
+                                {
+                                    Session["User"] = r["vendor_reg_code"].ToString();
+                                }
+                            }
+                        }
+                        con.Close();
                     }
-                       
-                    r.Close();
-                    con.Close();
                 }
             }
+            catch (Exception ex) { }
         }
 
         ////public void check_DOB()
@@ -498,7 +625,7 @@ namespace clms2.vendor_onboarding
             // Response.Redirect("../login/login.aspx")
             // Else
             //lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd-MMM-yyyy");
             /// String.Format("{0:dd/MM/yyyy}", txtMCID.Text);
@@ -507,12 +634,17 @@ namespace clms2.vendor_onboarding
             {
                 domicile_state();
                 txtBasic.Text = "0";
+                pnlUAN.Visible = false;
                 txtPFNO.Visible = false;
-                txtESIC.Visible = false;
+                pnlPFUpload.Visible = false;
                 PFileUpload.Visible = false;
-                ESICFileUpload.Visible = false;
                 lblPFfileSizeMsg.Visible = false;
-                lblEsicfileSizeMsg.Visible=false;
+
+                pnlESIC.Visible = false;
+                txtESIC.Visible = false;
+                pnlESICUpload.Visible = false;
+                ESICFileUpload.Visible = false;
+                lblEsicfileSizeMsg.Visible = false;
       
                 work_order_no();
                 shift_name();
@@ -523,6 +655,8 @@ namespace clms2.vendor_onboarding
                 skill_category();
                 state();
                 bank();
+                ddlTrade.Items.Clear();
+                ddlTrade.Items.Insert(0, new ListItem("Select", "Select"));
         
             }
             //-------this updte is not working----------//
@@ -609,33 +743,44 @@ namespace clms2.vendor_onboarding
 
         private void Auto_Emp_Code()
         {
-          
-            // ------------cont vendor and workorderwise ---------//
-
-            using (SqlConnection con1 = new SqlConnection(Conn))
+            try
             {
-                using (SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) As Count FROM tbl_emp where vendor_code ='" + Session["User"] + "' and workorderno ='" + txtWorkOrderNo.SelectedItem.Text + "'", con1))
+                string vendorCode = Session["User"] != null ? Session["User"].ToString() : txtVendorCode.Text;
+                string workOrder = txtWorkOrderNo.SelectedItem != null ? txtWorkOrderNo.SelectedItem.Text : "";
+
+                using (SqlConnection con1 = new SqlConnection(Conn))
                 {
-                    cmd1.CommandType = CommandType.Text;
-                    con1.Open();
-                    object o = cmd1.ExecuteScalar();
-                    if (o != null)
+                    using (SqlCommand cmd1 = new SqlCommand("SELECT COUNT(*) As Count FROM tbl_emp where vendor_code = @vendor_code and workorderno = @workorder", con1))
                     {
-                        count_emp = (int)o;
-
-                        if (count_emp >= 0)
+                        cmd1.CommandType = CommandType.Text;
+                        cmd1.Parameters.AddWithValue("@vendor_code", vendorCode);
+                        cmd1.Parameters.AddWithValue("@workorder", workOrder);
+                        con1.Open();
+                        object o = cmd1.ExecuteScalar();
+                        if (o != null)
                         {
-                            count_emp = count_emp + 1;
+                            count_emp = (int)o;
+                            if (count_emp >= 0)
+                            {
+                                count_emp = count_emp + 1;
+                            }
                         }
-                      
+                        con1.Close();
                     }
-                  
-                    con1.Close();
+                    while (CheckDuplicateEmpCode(vendorCode + "-" + workOrder + "-" + count_emp))
+                    {
+                        count_emp++;
+                    }
+                    txtEmpCode.Text = vendorCode + "-" + workOrder + "-" + count_emp;
                 }
-
-                txtEmpCode.Text = Session["User"].ToString() + "-" + txtWorkOrderNo.SelectedItem.Text + "-" + count_emp;
-
             }
+            catch (Exception ex)
+            {
+                string vendorCode = Session["User"] != null ? Session["User"].ToString() : txtVendorCode.Text;
+                string workOrder = txtWorkOrderNo.SelectedItem != null ? txtWorkOrderNo.SelectedItem.Text : "";
+                txtEmpCode.Text = vendorCode + "-" + workOrder + "-1";
+            }
+        }
 
             //-------------------------------------------------------
            // int x = 0;
@@ -662,7 +807,7 @@ namespace clms2.vendor_onboarding
            // dr.Close();
            //// x = Convert.ToInt16(txtID.Text);
            // return x;
-        }
+        // }
         private int Auto_ID()
         {
             int x=0;
@@ -1058,6 +1203,12 @@ namespace clms2.vendor_onboarding
             lblMSG.Text = "";
             lblMSGError.Text = "";
 
+            if (CheckDuplicateEmpCode(txtEmpCode.Text.Trim()))
+            {
+                lblMSGError.Text = "Duplicate Employee";
+                return;
+            }
+
             try
             {
    
@@ -1121,7 +1272,10 @@ namespace clms2.vendor_onboarding
 
                 }
 
-                if (PFRadioButtonList1.SelectedItem.Text=="N")
+                bool isPF_No = PFRadioButtonList1.SelectedValue == "N" || (PFRadioButtonList1.SelectedItem != null && (PFRadioButtonList1.SelectedItem.Text.Trim().Equals("N", StringComparison.OrdinalIgnoreCase) || PFRadioButtonList1.SelectedItem.Text.Trim().Equals("No", StringComparison.OrdinalIgnoreCase)));
+                bool isPF_Yes = PFRadioButtonList1.SelectedValue == "Y" || (PFRadioButtonList1.SelectedItem != null && (PFRadioButtonList1.SelectedItem.Text.Trim().Equals("Y", StringComparison.OrdinalIgnoreCase) || PFRadioButtonList1.SelectedItem.Text.Trim().Equals("Yes", StringComparison.OrdinalIgnoreCase)));
+
+                if (isPF_No)
                 {      
                     if (pffile != "")
                     {
@@ -1147,7 +1301,7 @@ namespace clms2.vendor_onboarding
                     }
                 }
                
-                if (PFRadioButtonList1.SelectedItem.Text=="Y")
+                if (isPF_Yes)
                 {
                     if (txtPFNO.Text=="")
                     {
@@ -1158,7 +1312,10 @@ namespace clms2.vendor_onboarding
 
                 // 0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-ESIC File-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0-0
 
-                if (ESICRadioButtonList1.SelectedItem.Text=="N")
+                bool isESIC_No = ESICRadioButtonList1.SelectedValue == "N" || (ESICRadioButtonList1.SelectedItem != null && (ESICRadioButtonList1.SelectedItem.Text.Trim().Equals("N", StringComparison.OrdinalIgnoreCase) || ESICRadioButtonList1.SelectedItem.Text.Trim().Equals("No", StringComparison.OrdinalIgnoreCase)));
+                bool isESIC_Yes = ESICRadioButtonList1.SelectedValue == "Y" || (ESICRadioButtonList1.SelectedItem != null && (ESICRadioButtonList1.SelectedItem.Text.Trim().Equals("Y", StringComparison.OrdinalIgnoreCase) || ESICRadioButtonList1.SelectedItem.Text.Trim().Equals("Yes", StringComparison.OrdinalIgnoreCase)));
+
+                if (isESIC_No)
                 {
                     if (escicfile != "")
                     {
@@ -1177,7 +1334,7 @@ namespace clms2.vendor_onboarding
                     }
 
                 }
-                if (ESICRadioButtonList1.SelectedItem.Text == "Y")
+                if (isESIC_Yes)
                 {
                     if (txtESIC.Text == "")
                     {
@@ -1382,18 +1539,32 @@ namespace clms2.vendor_onboarding
             // ''' police varification expiry alert
             if (txtPVD.Text != "")
             {
-                DateTime PolVarDate = Convert.ToDateTime(txtPVD.Text);
-                DateTime PolVarExpDate1 = PolVarDate.AddMonths(1);
-                string PolVarExpDate2 = string.Format("{0:dd-MM-yyyy}", PolVarExpDate1);
-                lblPoliceExpiry.Text = "Police Verification expiry Date is : " + PolVarExpDate2;
+                string PolVarExpDate2 = txtPVD.Text.Trim();
+                DateTime PolVarDate;
+                if (DateTime.TryParseExact(PolVarExpDate2.Replace("/", "-"), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out PolVarDate))
+                {
+                    PolVarExpDate2 = PolVarDate.ToString("dd-MM-yyyy");
+                }
+                else if (DateTime.TryParse(PolVarExpDate2, out PolVarDate))
+                {
+                    PolVarExpDate2 = PolVarDate.ToString("dd-MM-yyyy");
+                }
+                lblPoliceExpiry.Text = " Police Verification expiry Date is : " + PolVarExpDate2;
             }
             // ''' Medical varification expiry alert
             if (txtMCID.Text != "")
             {
-                DateTime MedVarDate = Convert.ToDateTime(txtMCID.Text);
-                DateTime MedVarExpDate1 = MedVarDate.AddMonths(1);
-                string MedVarExpDate2 = string.Format("{0:dd-MM-yyyy}", MedVarExpDate1);
-                lblMedicalExpiry.Text = "Medical Verification expiry Date is : " + MedVarExpDate2;
+                string MedVarExpDate2 = txtMCID.Text.Trim();
+                DateTime MedVarDate;
+                if (DateTime.TryParseExact(MedVarExpDate2.Replace("/", "-"), "dd-MM-yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out MedVarDate))
+                {
+                    MedVarExpDate2 = MedVarDate.ToString("dd-MM-yyyy");
+                }
+                else if (DateTime.TryParse(MedVarExpDate2, out MedVarDate))
+                {
+                    MedVarExpDate2 = MedVarDate.ToString("dd-MM-yyyy");
+                }
+                lblMedicalExpiry.Text = " Medical Verification expiry Date is : " + MedVarExpDate2;
             }
 
             }
@@ -1439,6 +1610,12 @@ namespace clms2.vendor_onboarding
             txtAadharNo.Text = "";
             txtPFNO.Text = "";
             txtESIC.Text = "";
+            PFRadioButtonList1.SelectedIndex = -1;
+            ESICRadioButtonList1.SelectedIndex = -1;
+            pnlUAN.Visible = false;
+            pnlPFUpload.Visible = false;
+            pnlESIC.Visible = false;
+            pnlESICUpload.Visible = false;
 
             ddlEducation.SelectedIndex = -1;
             ddlBankName.SelectedIndex = -1;
@@ -1463,37 +1640,65 @@ namespace clms2.vendor_onboarding
         }
         protected void PFRadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (PFRadioButtonList1.SelectedItem.Text =="Y")
+            string val = PFRadioButtonList1.SelectedValue;
+            if (string.IsNullOrEmpty(val) && PFRadioButtonList1.SelectedItem != null)
+                val = PFRadioButtonList1.SelectedItem.Value;
+
+            if (val == "Y" || (PFRadioButtonList1.SelectedItem != null && (PFRadioButtonList1.SelectedItem.Text.Trim().Equals("Yes", StringComparison.OrdinalIgnoreCase) || PFRadioButtonList1.SelectedItem.Text.Trim().Equals("Y", StringComparison.OrdinalIgnoreCase))))
             {
+                pnlUAN.Visible = true;
                 txtPFNO.Visible = true;
+                pnlPFUpload.Visible = false;
                 PFileUpload.Visible = false;
                 lblPFfileSizeMsg.Visible = false;
-                //HyperLinkPF.Visible = false;
             }
-            else if(PFRadioButtonList1.SelectedItem.Text=="N")
+            else if (val == "N" || (PFRadioButtonList1.SelectedItem != null && (PFRadioButtonList1.SelectedItem.Text.Trim().Equals("No", StringComparison.OrdinalIgnoreCase) || PFRadioButtonList1.SelectedItem.Text.Trim().Equals("N", StringComparison.OrdinalIgnoreCase))))
             {
+                pnlUAN.Visible = false;
                 txtPFNO.Visible = false;
+                pnlPFUpload.Visible = true;
                 PFileUpload.Visible = true;
                 lblPFfileSizeMsg.Visible = true;
-                //HyperLinkPF.Visible = true;
+            }
+            else
+            {
+                pnlUAN.Visible = false;
+                txtPFNO.Visible = false;
+                pnlPFUpload.Visible = false;
+                PFileUpload.Visible = false;
+                lblPFfileSizeMsg.Visible = false;
             }
         }
 
         protected void ESICRadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ESICRadioButtonList1.SelectedItem.Text == "Y")
+            string esicVal = ESICRadioButtonList1.SelectedValue;
+            if (string.IsNullOrEmpty(esicVal) && ESICRadioButtonList1.SelectedItem != null)
+                esicVal = ESICRadioButtonList1.SelectedItem.Value;
+
+            if (esicVal == "Y" || (ESICRadioButtonList1.SelectedItem != null && (ESICRadioButtonList1.SelectedItem.Text.Trim().Equals("Yes", StringComparison.OrdinalIgnoreCase) || ESICRadioButtonList1.SelectedItem.Text.Trim().Equals("Y", StringComparison.OrdinalIgnoreCase))))
             {
+                pnlESIC.Visible = true;
                 txtESIC.Visible = true;
+                pnlESICUpload.Visible = false;
                 ESICFileUpload.Visible = false;
                 lblEsicfileSizeMsg.Visible = false;
-                //HyperLinkESIC.Visible = false;
             }
-            else if (ESICRadioButtonList1.SelectedItem.Text == "N")
+            else if (esicVal == "N" || (ESICRadioButtonList1.SelectedItem != null && (ESICRadioButtonList1.SelectedItem.Text.Trim().Equals("No", StringComparison.OrdinalIgnoreCase) || ESICRadioButtonList1.SelectedItem.Text.Trim().Equals("N", StringComparison.OrdinalIgnoreCase))))
             {
+                pnlESIC.Visible = false;
                 txtESIC.Visible = false;
+                pnlESICUpload.Visible = true;
                 ESICFileUpload.Visible = true;
                 lblEsicfileSizeMsg.Visible = true;
-                //HyperLinkESIC.Visible = true;
+            }
+            else
+            {
+                pnlESIC.Visible = false;
+                txtESIC.Visible = false;
+                pnlESICUpload.Visible = false;
+                ESICFileUpload.Visible = false;
+                lblEsicfileSizeMsg.Visible = false;
             }
         }
 

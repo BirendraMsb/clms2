@@ -44,7 +44,7 @@ namespace clms2.vendor_onboarding
             {
                 ddlYearSearch.Items.Add(i.ToString());
             }
-           //// ddlYearSearch.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
+          ddlYearSearch.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
         }
 
         private void workorder()

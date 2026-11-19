@@ -23,8 +23,8 @@
 <div class="header" style="background-color:#0b4e47;">
 		<div class="container">
 			<div class="logo">
-				<%--<a href="#">GreenHRM</a>--%>
-                <img src="../images/greenhrm.png" title="GreenHRM" alt="GreenHRM" />
+				<%--<a href="#">Electro</a>--%>
+                <img src="../images/greenhrm.png" title="Electro" alt="Electro" />
 			</div>
 			<div class="header-right">
 <%--			<a class="account" href="#">Admin Login</a>&nbsp;&nbsp;

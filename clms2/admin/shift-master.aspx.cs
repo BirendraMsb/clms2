@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -17,7 +17,7 @@ namespace clms2.admin
         private SqlConnection con = new SqlConnection(Conn);
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "Admin";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
             if (!this.IsPostBack)
@@ -157,6 +157,37 @@ namespace clms2.admin
            
         }
 
-   
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = GridView1.Rows[e.RowIndex];
+            int Id = Convert.ToInt32(GridView1.DataKeys[e.RowIndex].Values[0]);
+            string query = "Delete from tbl_shift_master WHERE shiftcode=@id";
+            string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                using (SqlCommand cmd = new SqlCommand(query))
+                {
+                    cmd.Parameters.AddWithValue("@id", Id);
+                    cmd.Connection = con;
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+
+            GridView1.EditIndex = -1;
+            this.BindGrid();
+        }
+
+        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GridView1.EditIndex)
+            {
+                if (e.Row.Cells.Count > 4 && e.Row.Cells[4].Controls.Count > 2 && e.Row.Cells[4].Controls[2] is LinkButton)
+                {
+                    (e.Row.Cells[4].Controls[2] as LinkButton).Attributes["onclick"] = "return confirm('Do you want to delete this row?');";
+                }
+            }
+        }
     }
 }

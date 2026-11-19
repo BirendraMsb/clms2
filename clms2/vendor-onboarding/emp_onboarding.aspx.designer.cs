@@ -832,6 +832,15 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator19;
         
         /// <summary>
+        /// pnlUAN control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlUAN;
+
+        /// <summary>
         /// txtPFNO control.
         /// </summary>
         /// <remarks>
@@ -840,6 +849,15 @@ namespace clms2.vendor_onboarding {
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPFNO;
         
+        /// <summary>
+        /// pnlPFUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlPFUpload;
+
         /// <summary>
         /// PFileUpload control.
         /// </summary>
@@ -886,6 +904,15 @@ namespace clms2.vendor_onboarding {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator20;
         
         /// <summary>
+        /// pnlESIC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlESIC;
+
+        /// <summary>
         /// txtESIC control.
         /// </summary>
         /// <remarks>
@@ -894,6 +921,15 @@ namespace clms2.vendor_onboarding {
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtESIC;
         
+        /// <summary>
+        /// pnlESICUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlESICUpload;
+
         /// <summary>
         /// ESICFileUpload control.
         /// </summary>

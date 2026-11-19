@@ -150,7 +150,7 @@ namespace clms2.vendor_onboarding
             GridView2.DataBind();
         }
 
-        private void BindTableInGrid()
+        private void BindTableInGrid() //show record in grid
         {
             DataTable dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[16] { new DataColumn("vendor_code",typeof(string)),

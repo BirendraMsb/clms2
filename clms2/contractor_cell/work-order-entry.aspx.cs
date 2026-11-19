@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -133,7 +133,7 @@ namespace clms2.contractor_cell
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "Contractor Cell";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd-MMM-yyyy");
 
@@ -462,11 +462,19 @@ namespace clms2.contractor_cell
 
         protected void rbBocwY_CheckedChanged(object sender, EventArgs e)
         {
-            if (txtWorkOrderValue.Text != "" )
+            if (txtWorkOrderValue.Text != "")
             {
-               double workorderValue = Convert.ToDouble(txtWorkOrderValue.Text);
-               txtBocwLibility.Text =   (workorderValue * 1 / 100).ToString();
-               ReqBocwLiability.Enabled = true;
+                double workorderValue;
+                if (double.TryParse(txtWorkOrderValue.Text, out workorderValue))
+                {
+                    txtBocwLibility.Text = (workorderValue * 1 / 100).ToString();
+                    ReqBocwLiability.Enabled = true;
+                }
+                else
+                {
+                    txtBocwLibility.Text = "0";
+                    ReqBocwLiability.Enabled = true;
+                }
             }
             else
             {

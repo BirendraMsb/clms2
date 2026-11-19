@@ -17,7 +17,7 @@ namespace clms2.contractor_cell
         private SqlConnection con = new SqlConnection(Conn);
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "Contractor Cell";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
             if (!this.IsPostBack)
@@ -71,7 +71,7 @@ namespace clms2.contractor_cell
             new DataColumn("workorder",typeof(string)),
             new DataColumn("month1",typeof(string)),
             new DataColumn("department",typeof(string)),
-             new DataColumn("tot_emp",typeof(string)),
+            new DataColumn("tot_emp",typeof(string)),
             new DataColumn("no_of_workdone",typeof(string)),
             new DataColumn("daily_rate_of_wages",typeof(string)),
             new DataColumn("Basic",typeof(string)),

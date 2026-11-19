@@ -18,7 +18,7 @@ namespace clms2.contractor_cell
         private SqlConnection con = new SqlConnection(Conn);
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "Contractor Cell";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
             if (!this.IsPostBack)

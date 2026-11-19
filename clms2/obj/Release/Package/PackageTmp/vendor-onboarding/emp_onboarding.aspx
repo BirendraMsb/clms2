@@ -8,17 +8,19 @@
     <title>CLMS | Emp | Dashboard</title>
 
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
-    <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
-    <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
+    <meta content="Electro Solutions | Breaking Stereotypes" name="description" />
+    <meta content="Electro Solutions | Breaking Stereotypes" name="author" />
 
     <link href="../public/common/css/bootswatchTheme.css" rel="stylesheet" />
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
+  
     <link rel="stylesheet" href="~/public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/public/newfront/datatables/datatables.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/icons.min.css" />
     <link rel="stylesheet" href="~/public/newfront/assets/css/app.min.css" />
     <link rel="stylesheet" href="~/public/common/css/commoncss.min.css" />
+     <link rel="stylesheet" href="../dtm/css/pikaday.css" />
     <link rel="apple-touch-icon" sizes="57x57" href="~/public/common/icons/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="~/public/common/icons/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="~/public/common/icons/apple-icon-72x72.png" />
@@ -75,7 +77,7 @@
                             <div class="navbar-brand w-40">
                                 <a class="navbar-brand" href="dashboard.aspx">
                                     <span>
-                                        <img src="../public/common/images/straight_logo_greenhrm.png" class="logo-lg logo-light" alt="GreenHRM Solutions | Breaking Stereotypes Logo" width="188" height="50" />
+                                        <img src="../public/common/images/ElectroSolHeader3.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />
                                     </span>
                                 </a>
                             </div>
@@ -924,7 +926,7 @@
                     <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
                         <div class="container-fluid">
                             <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved                     </div>
+                                <div class="text-light ">&copy; 2022 | Electro Solutions | All Rights Reserved                     </div>
                             </div>
                     </footer>
                 </td>
@@ -963,7 +965,7 @@
                 });
             });
         </script>
-        <link rel="stylesheet" href="../dtm/css/pikaday.css" />
+       
         <script src="../dtm/date_fns.min.js" type="text/jscript"></script>
         <script src="../dtm/pikaday.js" type="text/jscript"></script>
         <script type="text/jscript">

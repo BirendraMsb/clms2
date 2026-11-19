@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -16,9 +16,10 @@ namespace clms2.vendor_onboarding
         private static string Conn = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
         private SqlConnection con = new SqlConnection(Conn);
         private SqlCommand cmd;
+        string usrnm = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            usrnm = Session["User"] != null ? Session["User"].ToString() : "";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
             if (!this.IsPostBack)
@@ -65,7 +66,7 @@ namespace clms2.vendor_onboarding
         private void BindGrid()
         {
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "SELECT emp_code,emp_name,shift FROM tbl_emp";
+            string query = "SELECT emp_code,emp_name,shift FROM tbl_emp where vendor_code= '" + usrnm + "'";
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter(query, con))

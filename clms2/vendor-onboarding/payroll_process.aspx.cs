@@ -283,7 +283,7 @@ namespace clms2.vendor_onboarding
         {
             if (month < 1 || month > 12)
             {
-                throw new System.ArgumentOutOfRangeException("month", month, "month mustbe between 1 and 12");
+                throw new System.ArgumentOutOfRangeException("month", month, "month must be between 1 and 12");
             }
             if (1 == month || 3 == month || 5 == month || 7 == month || 8 == month ||
             10 == month || 12 == month)

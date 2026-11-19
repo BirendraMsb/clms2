@@ -15,9 +15,10 @@ namespace clms2.vendor_onboarding
         public string strSQL;
         private static string Conn = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
         private SqlConnection con = new SqlConnection(Conn);
+        string usrnm = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+             usrnm = Session["User"].ToString();
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
             if (!this.IsPostBack)
@@ -150,7 +151,8 @@ namespace clms2.vendor_onboarding
         private void Emp_Code()
         {
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-            string query = "SELECT * FROM tbl_shfit_schedule";
+            //string query = "SELECT * FROM tbl_shfit_schedule";
+            string query = "select emp_code from tbl_emp where vendor_code= '818181'";
             using (SqlConnection con = new SqlConnection(constr))
             {
                 using (SqlDataAdapter sda = new SqlDataAdapter(query, con))

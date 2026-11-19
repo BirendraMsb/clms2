@@ -14,13 +14,20 @@ namespace clms2.vendor_onboarding
        
     public partial class upload_attendance : System.Web.UI.Page
     {
+
+
+
+       
+          
+        //--------------------------------------------
         SqlConnection con;
         SqlCommand cmd;
         SqlTransaction tran;
         string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
+        string usrnm ="";
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+             usrnm = Session["User"].ToString();
             lblUser.Text = usrnm;
             // lblUser1.Text = usrnm
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
@@ -102,6 +109,7 @@ namespace clms2.vendor_onboarding
                         //Execute a loop over the columns.
                         foreach (string cell in row.Split(','))
                         {
+
                             dt.Rows[dt.Rows.Count - 1][i] = cell;
                             i++;
                         }
@@ -115,13 +123,7 @@ namespace clms2.vendor_onboarding
 
                 ////compare grid data with database and find duplciate record ------------------------/////
   
-                   
-
-
-
-
-
-
+    
             }
             catch (Exception ex)
             {
@@ -131,89 +133,171 @@ namespace clms2.vendor_onboarding
           
         }
 
-        protected void btnAddToDb_Click(object sender, EventArgs e)
-        {
+         private  void  FindEmp()//check grid emd record in emp table 
+          {
 
-            #region compare grid data with tbl_atteandance and find duplciate record and exit
+              //----------------Approved Record of employee table------------//
+
+            SqlConnection con2 = new SqlConnection(ConfigurationManager.ConnectionStrings["const"].ConnectionString);
+            string query2 = "SELECT emp_code FROM tbl_emp where vendor_code= '" + usrnm + "'";
+            SqlCommand cmd2 = new SqlCommand(query2);
+            SqlDataAdapter da2 = new SqlDataAdapter(cmd2.CommandText, con2);
+            DataTable dt2 = new DataTable();
+            da2.Fill(dt2);
+
+            //-----------------------------------------------------------------------------------
+
+               int RowCount2 = dt2.Rows.Count;
+
+              if (RowCount2 > 0)
+               {
+
+                for (int i = 0; i < RowCount2 ; i++)
+                {
+                    foreach (GridViewRow g1 in Gvrecords.Rows)
+                    {
+                        //int present = 0;
+                        //int absent = 0;
+                        //int tot_holidays = 0;
+                        //int tot_leave = 0;
+                        //int tot_week_off = 0;
+                        //int tot_working_day = 0;
+
+                        string emp_code = (g1.FindControl("lblemp_code") as Label).Text;
+
+
+                        string emp_code_emp = dt2.Rows[i]["emp_code"].ToString();
+
+                        if (emp_code == emp_code_emp) //if record not present in employee table the terminate
+                        {
+                            // pass the record
+                        }
+
+
+                        else
+                        {
+                            string message = "Emp code=" + emp_code + "";
+                            message += " - This Employee does not Exists in Employee table or May not Approved by HR or Dept. Pls Correct it and Upload it again";
+                            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                            sb.Append("<script type = 'text/javascript'>");
+                            sb.Append("window.onload=function(){");
+                            sb.Append("alert('");
+                            sb.Append(message);
+                            sb.Append("')};");
+                            sb.Append("</script>");
+
+                            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+                            return;
+
+                        }
+                    }
+
+
+                } // end of for loop
+
+              
+            }
+            
+            }
+
+         private void checkDuplicateEmp() // check duplicate emp in attendaance table
+          {
+
+                 //------------attendance table-------------------//
             SqlConnection con1 = new SqlConnection(ConfigurationManager.ConnectionStrings["const"].ConnectionString);
             string query1 = "select * from tbl_attendance";
             SqlCommand cmd1 = new SqlCommand(query1);
             SqlDataAdapter da1 = new SqlDataAdapter(cmd1.CommandText, con1);
             DataTable dt1 = new DataTable();
             da1.Fill(dt1);
+                 
+            
+               int RowCount = dt1.Rows.Count;
 
-            int RowCount = dt1.Rows.Count;
-
-            for (int i = 0; i < RowCount; i++)
-            {
-                foreach (GridViewRow g1 in Gvrecords.Rows)
+               if ( RowCount > 0)
+               {
+                //---------------------------------------------------//
+                for (int i = 0; i < RowCount; i++)
                 {
-                    //int present = 0;
-                    //int absent = 0;
-                    //int tot_holidays = 0;
-                    //int tot_leave = 0;
-                    //int tot_week_off = 0;
-                    //int tot_working_day = 0;
-
-                    string emp_code = (g1.FindControl("lblemp_code") as Label).Text;
-                    string vendor_code = (g1.FindControl("lblvendor_code") as Label).Text;
-                    string workorder = (g1.FindControl("lblworkorder") as Label).Text;
-                    string emp_name = (g1.FindControl("lblemp_name") as Label).Text;
-                    string department = (g1.FindControl("lbldepartment") as Label).Text;
-                    string year1 = (g1.FindControl("lblyear1") as Label).Text;
-                    string month1 = (g1.FindControl("lblmonth1") as Label).Text;
-
-                    ////Label1.Text = ((TextBox)Gvrecords.FindControl("lblemp_code")).Text;
-                    //// Label2.Text = dt1.Rows[i]["emp_code"].ToString();
-                    string emp_code_att = dt1.Rows[i]["emp_code"].ToString();
-                    string vendor_code_att = dt1.Rows[i]["vendor_code"].ToString();
-                    string workorder_att = dt1.Rows[i]["workorder"].ToString();
-                    string year_att = dt1.Rows[i]["year1"].ToString();
-                    string month_att = dt1.Rows[i]["month1"].ToString();
-                    if (emp_code == emp_code_att && vendor_code == vendor_code_att && workorder == workorder_att && year1 == year_att && month1 == month_att)
+                    foreach (GridViewRow g1 in Gvrecords.Rows)
                     {
-                        string message = "Emp code=" + emp_code + ",Vendor Code=" + vendor_code + ",Workorder=" + workorder + ",Emp Name=" + emp_name + ",Year=" + year1 + ",Month1=" + month1 + "" ;
-                        message += " This record already Exists . Pls Correct it and Upload it again";
-                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                        sb.Append("<script type = 'text/javascript'>");
-                        sb.Append("window.onload=function(){");
-                        sb.Append("alert('");
-                        sb.Append(message);
-                        sb.Append("')};");
-                        sb.Append("</script>");
+                        //int present = 0;
+                        //int absent = 0;
+                        //int tot_holidays = 0;
+                        //int tot_leave = 0;
+                        //int tot_week_off = 0;
+                        //int tot_working_day = 0;
 
-                        ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
-                        return;
-                    }
-                    else
-                    {
-                        //string message = "Successfully saved";
+                        string emp_code = (g1.FindControl("lblemp_code") as Label).Text;
+                        string vendor_code = (g1.FindControl("lblvendor_code") as Label).Text;
+                        string workorder = (g1.FindControl("lblworkorder") as Label).Text;
+                        string emp_name = (g1.FindControl("lblemp_name") as Label).Text;
+                        string department = (g1.FindControl("lbldepartment") as Label).Text;
+                        string year1 = (g1.FindControl("lblyear1") as Label).Text;
+                        string month1 = (g1.FindControl("lblmonth1") as Label).Text;
 
-                        //System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                        //sb.Append("<script type = 'text/javascript'>");
-                        //sb.Append("window.onload=function(){");
-                        //sb.Append("alert('");
-                        //sb.Append(message);
-                        //sb.Append("')};");
-                        //sb.Append("</script>");
-
-                        //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
-                    }
-                }
+                        ////Label1.Text = ((TextBox)Gvrecords.FindControl("lblemp_code")).Text;
+                        //// Label2.Text = dt1.Rows[i]["emp_code"].ToString();
+                        // attendance table record -----------------//
+                        string emp_code_att = dt1.Rows[i]["emp_code"].ToString();
+                        string vendor_code_att = dt1.Rows[i]["vendor_code"].ToString();
+                        string workorder_att = dt1.Rows[i]["workorder"].ToString();
+                        string year_att = dt1.Rows[i]["year1"].ToString();
+                        string month_att = dt1.Rows[i]["month1"].ToString();
 
 
-            } // end of for loop
 
-            #endregion
+                        if (emp_code == emp_code_att && vendor_code == vendor_code_att && workorder == workorder_att && year1 == year_att && month1 == month_att)
+                        {
+                            string message = "Emp code=" + emp_code + ",Vendor Code=" + vendor_code + ",Workorder=" + workorder + ",Emp Name=" + emp_name + ",Year=" + year1 + ",Month1=" + month1 + "";
+                            message += " - This record already Exists . Pls Correct it and Upload it again";
+                            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                            sb.Append("<script type = 'text/javascript'>");
+                            sb.Append("window.onload=function(){");
+                            sb.Append("alert('");
+                            sb.Append(message);
+                            sb.Append("')};");
+                            sb.Append("</script>");
+
+                            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+                            return;
+                        }
+
+                        else
+                        {
+                            //string message = "Successfully saved";
+
+                            //System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                            //sb.Append("<script type = 'text/javascript'>");
+                            //sb.Append("window.onload=function(){");
+                            //sb.Append("alert('");
+                            //sb.Append(message);
+                            //sb.Append("')};");
+                            //sb.Append("</script>");
+
+                            //ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+                        }
+                    }// end of for each loop
 
 
+                } // forloop
+
+
+            } // if end
+
+
+         }
+
+
+         private void save_data()// save grid data in atted table  
+          {
             con.Open();
-            tran = con.BeginTransaction();
-            cmd.Transaction = tran;
+            ////tran = con.BeginTransaction();
+            ////cmd.Transaction = tran;
             string slno = null;
             try
             {
-
+               
                 foreach (GridViewRow g1 in Gvrecords.Rows)
                 {
                     int present = 0;
@@ -1022,16 +1106,73 @@ namespace clms2.vendor_onboarding
                     string monthly_ot_hrs = (g1.FindControl("lblmonthly_ot_hrs") as Label).Text;
 
                     tot_working_day = present + absent;
-
-                    string query = "insert into tbl_attendance(emp_code,vendor_code,workorder,emp_name,department,year1,month1,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,daily_working_hrs,monthly_work_hrs,monthly_ot_hrs,Absent,Present,tot_holidays,tot_leave,tot_week_off,tot_working_day,hr_approval,dept_approval) values('" + emp_code + "','" + vendor_code + "','" + workorder + "','" + emp_name + "','" + department + "'," + year1 + " ," + month1 + " , '" + d1 + "' ,'" + d2 + "' ,'" + d3 + "' ,'" + d4 + "'   ,'" + d5 + "' ,'" + d6 + "'   ,'" + d7 + "'    ,'" + d8 + "'      ,'" + d9 + "' ,'" + d10 + "','" + d11 + "' ,'" + d12 + "' ,'" + d13 + "' ,'" + d14 + "'   ,'" + d15 + "' ,'" + d16 + "'   ,'" + d17 + "'    ,'" + d18 + "','" + d19 + "' ,'" + d20 + "','" + d21 + "' ,'" + d22 + "' ,'" + d23 + "' ,'" + d24 + "'   ,'" + d25 + "' ,'" + d26 + "' ,'" + d27 + "' ,'" + d28 + "' ,'" + d29 + "' ,'" + d30 + "','" + d31 + "','" + daily_working_hrs + "','" + monthly_work_hrs + "','" + monthly_ot_hrs + "','" + absent + "','" + present + "','" + tot_holidays + "' ,'" + tot_leave + "','" + tot_week_off + "','" + tot_working_day + "','Pending','Pending' )";
+                    string query = "usp_InsertInAttendance";
+                    //////string query = "insert into tbl_attendance(emp_code,vendor_code,workorder,emp_name,department,year1,month1,d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25,d26,d27,d28,d29,d30,d31,daily_working_hrs,monthly_work_hrs,monthly_ot_hrs,Absent,Present,tot_holidays,tot_leave,tot_week_off,tot_working_day,hr_approval,dept_approval) values('" + emp_code + "','" + vendor_code + "','" + workorder + "','" + emp_name + "','" + department + "'," + year1 + " ," + month1 + " , '" + d1 + "' ,'" + d2 + "' ,'" + d3 + "' ,'" + d4 + "'   ,'" + d5 + "' ,'" + d6 + "'   ,'" + d7 + "'    ,'" + d8 + "'      ,'" + d9 + "' ,'" + d10 + "','" + d11 + "' ,'" + d12 + "' ,'" + d13 + "' ,'" + d14 + "'   ,'" + d15 + "' ,'" + d16 + "'   ,'" + d17 + "'    ,'" + d18 + "','" + d19 + "' ,'" + d20 + "','" + d21 + "' ,'" + d22 + "' ,'" + d23 + "' ,'" + d24 + "'   ,'" + d25 + "' ,'" + d26 + "' ,'" + d27 + "' ,'" + d28 + "' ,'" + d29 + "' ,'" + d30 + "','" + d31 + "','" + daily_working_hrs + "','" + monthly_work_hrs + "','" + monthly_ot_hrs + "','" + absent + "','" + present + "','" + tot_holidays + "' ,'" + tot_leave + "','" + tot_week_off + "','" + tot_working_day + "','Pending','Pending' )";
                     //cmd.CommandText = "insert into Members values ('" + g1.Cells[0].Text + "','" + g1.Cells[1].Text + "','" + g1.Cells[2].Text + "','" + g1.Cells[3].Text + "')";  
                     slno = vendor_code;
-                    cmd.CommandText = query;
-                    cmd.ExecuteNonQuery();
+                    using (SqlCommand cmd1 = new SqlCommand(query,con))
+                    {
+
+                        cmd1.CommandType = CommandType.StoredProcedure;
+                        cmd1.Parameters.AddWithValue("@emp_code", emp_code);
+                        cmd1.Parameters.AddWithValue("@vendor_code", vendor_code);
+                        cmd1.Parameters.AddWithValue("@workorder", workorder);
+                        cmd1.Parameters.AddWithValue("@emp_name", emp_name);
+                        cmd1.Parameters.AddWithValue("@department", department);
+                        cmd1.Parameters.AddWithValue("@year1", year1);
+                        cmd1.Parameters.AddWithValue("@month1", month1);
+                        cmd1.Parameters.AddWithValue("@d1", d1);
+                        cmd1.Parameters.AddWithValue("@d2", d2);
+                        cmd1.Parameters.AddWithValue("@d3", d3);
+                        cmd1.Parameters.AddWithValue("@d4", d4);
+                        cmd1.Parameters.AddWithValue("@d5", d5);
+                        cmd1.Parameters.AddWithValue("@d6", d6);
+                        cmd1.Parameters.AddWithValue("@d7", d7);
+                        cmd1.Parameters.AddWithValue("@d8", d8);
+                        cmd1.Parameters.AddWithValue("@d9", d9);
+                        cmd1.Parameters.AddWithValue("@d10", d10);
+                        cmd1.Parameters.AddWithValue("@d11", d11);
+                        cmd1.Parameters.AddWithValue("@d12", d12);
+                        cmd1.Parameters.AddWithValue("@d13", d13);
+                        cmd1.Parameters.AddWithValue("@d14", d14);
+                        cmd1.Parameters.AddWithValue("@d15", d15);
+                        cmd1.Parameters.AddWithValue("@d16", d16);
+                        cmd1.Parameters.AddWithValue("@d17", d17);
+                        cmd1.Parameters.AddWithValue("@d18", d18);
+                        cmd1.Parameters.AddWithValue("@d19", d19);
+                        cmd1.Parameters.AddWithValue("@d20", d20);
+                        cmd1.Parameters.AddWithValue("@d21", d21);
+                        cmd1.Parameters.AddWithValue("@d22", d22);
+                        cmd1.Parameters.AddWithValue("@d23", d23);
+                        cmd1.Parameters.AddWithValue("@d24", d24);
+                        cmd1.Parameters.AddWithValue("@d25", d25);
+                        cmd1.Parameters.AddWithValue("@d26", d26);
+                        cmd1.Parameters.AddWithValue("@d27", d27);
+                        cmd1.Parameters.AddWithValue("@d28", d28);
+                        cmd1.Parameters.AddWithValue("@d29", d29);
+                        cmd1.Parameters.AddWithValue("@d30", d30);
+                        cmd1.Parameters.AddWithValue("@d31", d31);
+                        cmd1.Parameters.AddWithValue("@daily_working_hrs", daily_working_hrs);
+                        cmd1.Parameters.AddWithValue("@monthly_work_hrs", monthly_work_hrs);
+                        cmd1.Parameters.AddWithValue("@monthly_ot_hrs", monthly_ot_hrs);
+                        cmd1.Parameters.AddWithValue("@Absent", absent);
+                        cmd1.Parameters.AddWithValue("@Present", present);
+                        cmd1.Parameters.AddWithValue("@tot_holidays", tot_holidays);
+                        cmd1.Parameters.AddWithValue("@tot_leave", tot_leave);
+                        cmd1.Parameters.AddWithValue("@tot_week_off", tot_week_off);
+                        cmd1.Parameters.AddWithValue("@tot_working_day", tot_working_day);
+                        cmd1.Parameters.AddWithValue("@hr_approval","Pending" );
+                        cmd1.Parameters.AddWithValue("@dept_approval", "Pending");
+                        cmd1.ExecuteNonQuery();
+                        
+                        
+                    }
+                   
                 }
-                tran.Commit();
+                ////tran.Commit();
                 lblMessage.Text = "Records inserted successfully";
             }
+          
             catch (Exception ex)
             {
                 tran.Rollback();
@@ -1044,7 +1185,28 @@ namespace clms2.vendor_onboarding
                 con.Close();
             }  
         }
+         protected void btnAddToDb_Click(object sender, EventArgs e)
+         {
 
+             //// #region compare grid data with tbl_atteandance and find duplciate record and exit
+             ////FindEmp();//check grid emd record in emp table
+             ////checkDuplicateEmp();// check duplicate emp in attendaance table
+             save_data();//save grid data in atted table
+             //-----------------------------------------------------//
+             //------------------checking uploaded grid with employee record exist of not---------------------------------------//
+
+
+         }
+           
+          
+              
+            
+            
+            
+
+         
+    
+    
         protected void btnDownload_Click(object sender, EventArgs e)
         {
             var path = Server.MapPath("~/attd_down_doc");

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -17,7 +17,7 @@ namespace clms2.vendor_onboarding
         private SqlConnection con = new SqlConnection(Conn);
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd/MM/yyyy");
             if (!this.IsPostBack)
@@ -36,7 +36,7 @@ namespace clms2.vendor_onboarding
         protected void year1()
         {
             int currYear = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
-            for (int i = currYear-1; i < currYear + 1; i++)
+            for (int i = currYear-6; i < currYear + 1; i++)
             {
                 ddlYearFrom.Items.Add(i.ToString());
             }
@@ -46,7 +46,7 @@ namespace clms2.vendor_onboarding
         protected void year2()
         {
             int currYear = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
-            for (int i = currYear; i < currYear + 2; i++)
+            for (int i = currYear-5; i < currYear + 2; i++)
             {
                 ddlYearTo.Items.Add(i.ToString());
             }
@@ -55,8 +55,8 @@ namespace clms2.vendor_onboarding
         private void workorder()
         {
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
-
-            string query = "SELECT distinct(workorder) FROM tbl_attendance where  hr_approval='Approved' and dept_approval='Approved' and vendor_code ='" + Session["User"].ToString() + "'";
+            string u = Session["User"] != null ? Session["User"].ToString() : "";
+            string query = "SELECT distinct(workorder) FROM tbl_attendance where  hr_approval='Approved' and dept_approval='Approved' and vendor_code ='" + u + "'";
           ////  string query = "SELECT distinct(a.workorder),vendor_code FROM tbl_Attendance a,tbl_vendor_info v where vendor_code ='" + Session["User"].ToString() + "' ";
            
             using (SqlConnection con = new SqlConnection(constr))
@@ -187,8 +187,8 @@ namespace clms2.vendor_onboarding
             string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
             double bonus_per = 0;
             bonus_per = Convert.ToDouble(txtBonusPercent.Text);
-            int month_from = 4;
-            int month_to = 12;
+            int month_from =Convert.ToInt16( ddlMonthFrom.Text);
+            int month_to = Convert.ToInt16(ddlMonthTo.Text);
             int year_from = Convert.ToInt16(ddlYearFrom.Text);
             int year_to = Convert.ToInt16(ddlYearTo.Text);
             ///  --------------------------------------------------------------------------------------------------//
@@ -206,8 +206,8 @@ namespace clms2.vendor_onboarding
             ////string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,a.monthly_ot_hrs as ot_hrs, e.basic as daily_basic, e.allowance as daily_other_allowance,(e.basic*a.present + e.allowance * a.present) as basic_earnings , e.allowance *0 as other_allowance_earnings, a.monthly_ot_hrs * e.[basic]/8 as ot_earning ,(e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0) as total_earnings, (a.Present * (e.basic +e.allowance) ) * 12/100 as PF_Deduction , (((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100 as ESIC_deduction,e.other_deduction, (((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction) as total_duduction,(((e.basic*a.present + e.allowance * a.present)  + (a.monthly_ot_hrs * e.[basic]/8)+ (e.allowance *0)) - ((((a.Present * (e.basic +e.allowance) ) * 12/100 ) + ((((a.Present * e.basic) +  (a.monthly_ot_hrs * (e.basic + e.allowance)/8))) * 0.75/100) + e.other_deduction))) as total_payable,a.sign from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved' and a.month1='" + ddlMonth.SelectedValue + "' and a.year1='" + ddlYear.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";
             //string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone, e.basic as daily_basic, e.allowance as daily_other_allowance, cast(e.basic*a.present + e.allowance * a.present as decimal(10,2))  as basic_earnings ,cast((e.basic*a.present + e.allowance * a.present) * 8.33/100 as decimal(10,2)) as bonus_per_amt,cast((e.basic*a.present + e.allowance * a.present) * 8.33/100 as decimal(10,2)) as bonus_pay from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved'  and a.month1='" + ddlMonthFrom.SelectedValue + "' and a.year1='" + ddlYearFrom.SelectedItem.Text + "' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";  
             ////string query = "select a.emp_code,a.emp_name as Name_of_Workman,e.designation,a.present as no_of_days_workdone,e.basic as daily_basic, cast(e.basic*a.present  as decimal(10,2))  as basic_earnings ," + bonus_per + "  as bonus_per, cast((e.basic*a.present) * " + bonus_per/100 + " as decimal(10,2)) as bonus_pay from tbl_attendance a,tbl_emp e where a.emp_code = e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved'   and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.vendor_code='" + Session["User"].ToString() + "' ";  //and a.month1='" + ddlMonthFrom.SelectedValue + "' and a.year1='" + ddlYearFrom.SelectedItem.Text + "'
-            string query = "select a.emp_code,a.emp_name,e.designation , sum(Present) as no_of_days_workdone,e.basic as daily_basic,cast(e.basic* sum(present)  as decimal(10,2)) as basic_earnings ," + bonus_per + "  as bonus_per,cast((e.basic* sum(present)) * " + bonus_per / 100 + "  as decimal(10,2)) as bonus_pay  from tbl_attendance a, tbl_emp e  where a.emp_code=e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and a.month1 between  " + month_from + "  and  " + month_to + "  and year1 between " + year_from + " and " + year_to + "  group by a.emp_code ,a.emp_name,e.designation,e.basic ";
-
+           //string query = "select a.emp_code,a.emp_name,e.designation , sum(Present) as no_of_days_workdone,e.basic as daily_basic,cast(e.basic* sum(present)  as decimal(10,2)) as basic_earnings ," + bonus_per + "  as bonus_per,cast((e.basic* sum(present)) * " + bonus_per / 100 + "  as decimal(10,2)) as bonus_pay  from tbl_attendance a, tbl_emp e  where a.emp_code=e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and (( year1 * 12  +  month1)  between  ( " + year_from + " *12  + " + month_from + " ) and ( " + year_to + " *12  + " + month_to + " ))  group by a.emp_code ,a.emp_name,e.designation,e.basic ";
+            string query = "select a.emp_code,a.emp_name,e.designation , sum(Present) as no_of_days_workdone,e.basic as daily_basic,cast(e.basic* sum(present)  as decimal(10,2)) as basic_earnings ," + bonus_per + "  as bonus_per,cast((e.basic* sum(present)) * " + bonus_per / 100 + "  as decimal(10,2)) as bonus_pay  from tbl_attendance a, tbl_emp e  where a.emp_code=e.emp_code and a.workorder = e.workorderno and a.hr_approval='Approved' and a.dept_approval='Approved' and a.workorder='" + ddlWorkdOrder.SelectedItem.Text + "' and ((year1 = " + year_from + " and a.month1 >=  " + month_from + ")  or  (year1= " + year_to + "  and month1<= " + month_to + " ) )  group by a.emp_code ,a.emp_name,e.designation,e.basic ";
 
             DataTable dt1;
             using (SqlConnection con = new SqlConnection(constr))

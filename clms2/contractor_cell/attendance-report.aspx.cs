@@ -28,7 +28,7 @@ namespace clms2.contractor_cell
             try
             {
                 // Call dbConnection()
-                string vencode = Session["User"].ToString();
+                string vencode = Session["User"] != null ? Session["User"].ToString() : "";
                 string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
@@ -61,7 +61,7 @@ namespace clms2.contractor_cell
         {
             try
             {
-                string usrnm = Session["User"].ToString();
+                string usrnm = Session["User"] != null ? Session["User"].ToString() : "Contractor Cell";
                 lblUser.Text = usrnm;
                 // lblUser1.Text = usrnm
                 lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");

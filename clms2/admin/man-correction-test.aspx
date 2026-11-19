@@ -34,7 +34,7 @@
                 <SortedDescendingCellStyle BackColor="#F1E5CE" />
                 <SortedDescendingHeaderStyle BackColor="#93451F" />
             </asp:GridView>
-            <asp:Button ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
+            <asp:Button ID="btnUpdate" class="btn btn-primary rounded-pill" runat="server" Text="Update" OnClick="btnUpdate_Click" />
         </div>
         <script>
             var checked = true;

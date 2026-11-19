@@ -28,7 +28,7 @@ namespace clms2.contractor_cell
      
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "Contractor Cell";
             lblUser.Text = usrnm;
             // lblUser1.Text = usrnm
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
@@ -67,6 +67,10 @@ namespace clms2.contractor_cell
                 sda.Fill(dt);
                 GvEmp.DataSource = dt;
                 GvEmp.DataBind();
+                if (GvEmp.Rows.Count > 0)
+                {
+                    GvEmp.HeaderRow.TableSection = TableRowSection.TableHeader;
+                }
             }
             catch (Exception ex)
             {

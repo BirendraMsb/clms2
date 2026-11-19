@@ -2,79 +2,249 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head runat="server">
-    <title>CLMS | Forgot Password</title>
-    <link rel="stylesheet" href="../login_css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../login_css/bootstrap-select.css" />
-    <link href="../login_css/style.css" rel="stylesheet" type="text/css" media="all" />
-    <!-- for-mobile-apps -->
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Forgot Password &bull; Contract Labour Management System</title>
 
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <!-- //for-mobile-apps -->
-    <!--fonts-->
-    <link href='//fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' />
+    <link rel="icon" href="../public/common/icons/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../public/common/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="../public/common/vendors/fontawesome/css/all.min.css" />
+
+    <!-- Google Fonts for modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <style type="text/css">
+        :root {
+            --brand-primary: #0d6efd;
+            --brand-primary-dark: #0a58ca;
+            --brand-dark: #0b1329;
+            --brand-card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body.login-page {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at 80% 20%, #1e3a5f 0%, #0d1b2a 45%, #080d1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body.login-page::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(13, 110, 253, 0.15) 0%, rgba(13, 110, 253, 0) 70%);
+            top: -100px;
+            left: -100px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body.login-page::after {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.12) 0%, rgba(14, 165, 233, 0) 70%);
+            bottom: -80px;
+            right: -80px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .login-wrapper {
+            width: 100%;
+            max-width: 460px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-card {
+            background: var(--brand-card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1.25rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            padding: 2.5rem 2.25rem;
+        }
+
+        .brand-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .brand-logo-wrap {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.25rem;
+            background: #ffffff;
+            border-radius: 0.75rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.25rem;
+        }
+
+        .brand-logo-wrap img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .login-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.025em;
+            margin-bottom: 0.35rem;
+        }
+
+        .login-subtitle {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            font-size: 0.8125rem;
+            font-weight: 700;
+            color: #334155;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            margin-bottom: 0.375rem;
+        }
+
+        .input-group {
+            border-radius: 0.625rem;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+            border: 1px solid #cbd5e1;
+            transition: all 0.2s ease;
+        }
+
+        .input-group:focus-within {
+            border-color: var(--brand-primary);
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.15);
+        }
+
+        .input-group-text {
+            background-color: #f8fafc;
+            border: none;
+            color: #64748b;
+            padding-left: 1rem;
+            padding-right: 0.85rem;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0.75rem 0.85rem;
+            font-size: 0.95rem;
+            color: #0f172a;
+            background-color: #ffffff;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            border: none;
+            border-radius: 0.625rem;
+            padding: 0.85rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(13, 110, 253, 0.35);
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, #0b5ed7 0%, #094bb5 100%);
+            box-shadow: 0 6px 20px rgba(13, 110, 253, 0.45);
+            transform: translateY(-1px);
+            color: #ffffff;
+        }
+
+        .card-divider {
+            height: 1px;
+            background: #e2e8f0;
+            margin: 1.5rem 0 1.25rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.55);
+            font-size: 0.8125rem;
+            margin-top: 1.75rem;
+        }
+    </style>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <%--for blue color = style="background-color: #0b4e47;"--%>
-        <div class="header" style="background-color: black;">
-            <div class="container">
-                <div class="logo">
-                    <%--<a href="#">GreenHRM</a>--%>
-                   <%-- <img src="../images/greenhrm.png" title="GreenHRM" alt="GreenHRM" />--%>
-                     <img src="../public/common/images/straight_logo_greenhrm.png" class="logo-lg logo-light" alt="GreenHRM Solutions | Breaking Stereotypes Logo" width="188" height="50" />
-                </div>
-                <div class="header-right">
-                    <%--			<a class="account" href="#">Admin Login</a>&nbsp;&nbsp;
-			<a class="account" href="#">Vendor Login</a>&nbsp;&nbsp;--%>
-                    <!--<a class="account" href="#">Register Now!</a>-->
-                    <!-- Large modal -->
+<body class="login-page">
+    <form id="form1" runat="server" class="login-wrapper">
+        <div class="login-card">
+            <!-- Brand & Heading -->
+            <div class="brand-header">
+                <a href="../default.aspx" title="Go to Homepage" class="d-inline-block">
+                    <div class="brand-logo-wrap">
+                        <img src="../public/common/images/ElectroSolHeader3.png" alt="Electro Solutions Logo" />
+                    </div>
+                </a>
+                <h1 class="login-title">Reset Password</h1>
+                <p class="login-subtitle">Enter your registered email to receive your login credentials</p>
+            </div>
 
+            <!-- Messages -->
+            <div class="text-center mb-3">
+                <asp:Label CssClass="text-success fw-bold small d-block" ID="lblMsg" runat="server" />
+                <asp:Label CssClass="text-danger fw-bold small d-block" ID="lblError" runat="server" />
+            </div>
+
+            <!-- Email Input -->
+            <div class="mb-4">
+                <label class="form-label" for="txtEmail">
+                    <i class="fa fa-envelope text-primary me-1"></i> Registered Email Address
+                </label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-at"></i></span>
+                    <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server" 
+                        placeholder="name@example.com" TextMode="Email" autocomplete="email">
+                    </asp:TextBox>
                 </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mb-2">
+                <asp:Button ID="btnSubmit" runat="server" Text="Send Password Details" 
+                    Cssclass="btn-submit w-100 rounded-pill" OnClick="btnSubmit_Click">
+                </asp:Button>
+            </div>
+
+            <div class="card-divider"></div>
+
+            <!-- Back to Login -->
+            <div class="text-center">
+                <a href="login.aspx" class="text-decoration-none text-primary fw-semibold small d-inline-flex align-items-center">
+                    <i class="fa fa-arrow-left me-1"></i> Back to Login
+                </a>
             </div>
         </div>
 
-        <section>
-
-            <div id="page-wrapper" class="sign-in-wrapper">
-                <div class="graphs">
-                    <div class="sign-in-form">
-                        <div class="sign-in-form-top">
-                            <h1>Forgot Password</h1>
-                        </div>
-                        <div class="signin">
-                            <div class="log-input" style="margin-top: -15px;">
-                                <div class="log-input-left">
-                                    Enter Your Email
-                                   <asp:TextBox ID="txtEmail" runat="server"  class="user"></asp:TextBox>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click"></asp:Button>
-                            <asp:Label CssClass="text-primary" ID="lblMsg" runat="server" Font-Bold="True" />
-                             <asp:Label CssClass="text-danger" ID="lblError" runat="server" Font-Bold="True" />
-                            
-                            <div class="signin-rit">
-                                <div class="clearfix"></div>
-                            </div>
-                         </div>
-                        <div class="new_people">
-                            <a href="login.aspx">Back to Login</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!--footer section start-->
-            <footer class="diff" style="height: 25px;">
-                <p class="text-center">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</p>
-            </footer>
-            <!--footer section end-->
-        </section>
+        <div class="footer-note">
+            &copy; <%= DateTime.Now.Year %> <strong>Electro Solutions</strong> &bull; All Rights Reserved
+        </div>
     </form>
 </body>
 </html>

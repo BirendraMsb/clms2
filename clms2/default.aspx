@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="clms2._default" %>
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="clms2._default" %>
 
 <!DOCTYPE html>
 
@@ -95,8 +95,8 @@
                     <div class="container flex-lg-row flex-nowrap align-items-center" style="padding: 8px;">
                         <div class="navbar-brand w-100">
                             <%--<a href="#" aria-label="Website">--%>
-                            <img class="logo-dark navb-img" src="images/electro_sol1.png" style="height:40px;width:100px" alt="" title="" />
-                            <img class="logo-light navb-img " src="images/electro_sol1.png" style="height:40px;width:100px" alt="" title=""  />
+                            <img class="logo-dark navb-img" src="images/ElectroSolHeader3.png" style="height:50px;width:188px" alt="" title="" />
+                            <img class="logo-light navb-img " src="images/ElectroSolHeader3.png" style="height:50px;width:188px" alt="" title=""  />
                           
                             <%--<img class="logo-dark navb-img" src="images/greenhrmwhite.png" alt="" title="" />--%>
                             <%--<img class="logo-light navb-img" src="images/ghrm.png" alt="" title="" />--%>
@@ -145,72 +145,84 @@ and intangible benefits to Service Providers/Contractors/Contract Workers and Pr
             </section>
 
             <section class="wrapper bg-soft-primary" id="MissionStatement">
-                <div class="container py-14 py-md-16">
-
-                    <div class="row gx-lg-8 gx-xl-12 gy-6 align-items-center" style="margin-top: -5rem; margin-bottom: -50rem;">
-
-                        <table width="100%" border="0">
-                            <tr>
-                                <td align="center">
-                                    <img src="images/Contract_Onboarding.png" alt="" title="" style="width: 110px; height: auto;" /></td>
-                                <td align="center">
-                                    <img src="images/onboarding_contract_labour.png" alt="" title="" style="width: 110px; height: auto;" /></td>
-                                <td align="center">
-                                    <img src="images/Attendance_mgmt.png" alt="" title="" style="width: 110px; height: auto;" /></td>
-                                <td align="center">
-                                    <img src="images/Payroll_Management.png" alt="" title="" style="width: 110px; height: auto;" /></td>
-                                <td align="center">
-                                    <img src="images/statutory_compliance.png" alt="" title="" style="width: 110px; height: auto;" /></td>
-                                <td align="center">
-                                    <img src="images/offboarding_contract.png" alt="" title="" style="width: 110px; height: auto;" /></td>
-                                <td align="center">
-                                    <img src="images/HR-IS.png" alt="" title="" style="width: 110px; height: auto;" /></td>
-                            </tr>
-                            <tr>
-                                <td align="center"><a href="login/login.aspx">Contractors Onboarding</a></td>
-                                <td align="center">Workers Onboarding</td>
-                                <td align="center">Attendance Management</td>
-                                <td align="center">Payroll Management</td>
-                                <td align="center">Compliance Management</td>
-                                <td align="center">Workers Offboarding</td>
-                                <td align="center">HRIS Management</td>
-                            </tr>
-                        </table>
-
+                <div class="container py-10 py-md-12">
+                    <div class="row text-center mb-6">
+                        <div class="col-12">
+                            <h3 class="display-6 fw-bold text-dark">Core Lifecycle Capabilities</h3>
+                            <p class="text-muted">Integrated, real-time lifecycle management for contract workforce</p>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-7 g-4 text-center justify-content-center">
+                        <div class="col">
+                            <a href="login/login.aspx" class="text-decoration-none text-dark">
+                                <div class="card h-100 p-3 shadow-sm border-0 rounded-4 transition-card bg-white">
+                                    <img src="images/Contract_Onboarding.png" alt="Contractors Onboarding" class="mx-auto mb-2" style="width: 72px; height: auto;" />
+                                    <div class="fw-bold small text-primary">Contractors Onboarding</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
+                                <img src="images/onboarding_contract_labour.png" alt="Workers Onboarding" class="mx-auto mb-2" style="width: 72px; height: auto;" />
+                                <div class="fw-bold small text-dark">Workers Onboarding</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
+                                <img src="images/Attendance_mgmt.png" alt="Attendance Management" class="mx-auto mb-2" style="width: 72px; height: auto;" />
+                                <div class="fw-bold small text-dark">Attendance Management</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
+                                <img src="images/Payroll_Management.png" alt="Payroll Management" class="mx-auto mb-2" style="width: 72px; height: auto;" />
+                                <div class="fw-bold small text-dark">Payroll Management</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
+                                <img src="images/statutory_compliance.png" alt="Compliance Management" class="mx-auto mb-2" style="width: 72px; height: auto;" />
+                                <div class="fw-bold small text-dark">Compliance Management</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
+                                <img src="images/offboarding_contract.png" alt="Workers Offboarding" class="mx-auto mb-2" style="width: 72px; height: auto;" />
+                                <div class="fw-bold small text-dark">Workers Offboarding</div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
+                                <img src="images/HR-IS.png" alt="HRIS Management" class="mx-auto mb-2" style="width: 72px; height: auto;" />
+                                <div class="fw-bold small text-dark">HRIS Analytics</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
             <section class="wrapper bg-light">
-                <div class="container py-14 py-md-16" style="background-color: ffffff; padding-bottom: -100px;">
-
-                    <div class="row gx-lg-7 gx-xl-12 gy-10 align-items-center" style="margin-top: -7rem;">
-                        <div class="col-lg-12 order-lg-2" style="font-size: 12px">
-                            <center><asp:Button ID="cmdLogin" runat="server" Text="Click Here to Login" Width="200px" class="btn btn-info" OnClick="cmdLogin_Click"></asp:Button></center>
-                            <br />
-                            <br />
-                            <strong>Disclaimer : </strong>
-                            Contents, concept, template, logo, tagline, method and software, 
-                 comprised in and associated with CLMS are proprietary to 
-                 Electro Solutions and any unauthorized use or disclosure thereof is strictly prohibited.<br />
-                            <p style="text-align: center"><strong>Plateform : Dot Net <span>| </span>Technology : ASP.NET <span>| </span>Ver : 4.5 </strong></p>
+                <div class="container py-10 py-md-12">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-lg-8">
+                            <div class="mb-5">
+                                <asp:Button ID="cmdLogin" runat="server" Text="Sign In to CLMS Portal" CssClass="btn btn-primary btn-lg px-5 py-3 fw-bold shadow-lg rounded-pill" OnClick="cmdLogin_Click"></asp:Button>
+                            </div>
+                            <div class="card bg-white p-4 border rounded-3 shadow-sm text-start" style="font-size: 13px;">
+                                <strong class="text-dark"><i class="fa fa-shield-alt text-primary me-1"></i> Proprietary Notice:</strong>
+                                <p class="text-muted mb-2 mt-1">
+                                    Contents, concept, template, logo, tagline, method and software comprised in and associated with CLMS are proprietary to 
+                                    <strong>Electro Solutions</strong> and any unauthorized use or disclosure thereof is strictly prohibited.
+                                </p>
+                                <div class="text-center pt-2 border-top text-secondary small">
+                                    <strong>Platform:</strong> .NET Framework 4.8 <span class="mx-2">&bull;</span> 
+                                    <strong>Technology:</strong> ASP.NET Web Forms <span class="mx-2">&bull;</span> 
+                                    <strong>Security:</strong> Enterprise Role-Based Access
+                                </div>
+                            </div>
                         </div>
-
-                    </div>
-                    <div class="text-right">
-
-                        <p>
-                            <br />
-                        </p>
-                        <p>
-                            <br />
-                        </p>
-                        <p>
-                            <br />
-                        </p>
                     </div>
                 </div>
-
             </section>
         </div>
 

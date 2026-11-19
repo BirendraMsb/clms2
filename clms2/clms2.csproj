@@ -250,6 +250,10 @@
     <Content Include="public\common\css\bootstrap\bootstrap.rtl.min.css.map" />
     <Content Include="public\common\css\bootswatchTheme.css" />
     <Content Include="public\common\css\commoncss.min.css" />
+    <Content Include="public\common\images\ElectroSolHeader2-removebg.png" />
+    <Content Include="public\common\images\ElectroSolHeader2.png" />
+    <Content Include="public\common\images\ElectroSolHeader3.png" />
+    <Content Include="public\common\images\ElectSolHeader1.png" />
     <Content Include="public\common\images\logoicon\electro_sol.png" />
     <Content Include="public\common\images\logoicon\electro_sol1.png" />
     <Content Include="public\common\vendors\datatables\Buttons-2.2.3\css\common.scss" />

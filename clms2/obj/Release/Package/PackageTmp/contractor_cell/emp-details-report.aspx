@@ -7,8 +7,8 @@
     <title>CLMS | Employee | Details</title>
     <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
-    <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
-    <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
+    <meta content="Electro Solutions | Breaking Stereotypes" name="description" />
+    <meta content="Electro Solutions | Breaking Stereotypes" name="author" />
 
     <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
     <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
@@ -72,7 +72,7 @@
                             <div class="navbar-brand w-40">
                                 <a class="navbar-brand" href="dashboard.aspx">
                                     <span>
-                                        <img src="../public/common/images/straight_logo_greenhrm.png" class="logo-lg logo-light" alt="GreenHRM Solutions | Breaking Stereotypes Logo" width="188" height="50" />
+                                        <img src="../public/common/images/ElectroSolHeader3.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />
                                     </span>
                                 </a>
                             </div>
@@ -382,9 +382,9 @@
                                                         <asp:BoundField DataField="ifs_code" HeaderText="IFSC" SortExpression="ifs_code" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="emergency_contact_person_name" HeaderText="In case of Emergency Contact Person Name" SortExpression="emergency_contact_person_name" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="ecpn_ph_no" HeaderText="Contact Person Ph. No." SortExpression="ecpn_ph_no" ItemStyle-Wrap="false"></asp:BoundField>
-                                                        <asp:BoundField DataField="security_approval" HeaderText="Dept Approval" SortExpression="dept_approval" ItemStyle-Wrap="false"></asp:BoundField>
-                                                        <asp:BoundField DataField="security_approval" HeaderText="HR Approval" SortExpression="hr_approval" ItemStyle-Wrap="false"></asp:BoundField>
-                                                        <asp:BoundField DataField="security_approval" HeaderText="Safety Approval" SortExpression="safety_approval" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="dept_approval" HeaderText="Dept Approval" SortExpression="dept_approval" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="hr_approval" HeaderText="HR Approval" SortExpression="hr_approval" ItemStyle-Wrap="false"></asp:BoundField>
+                                                        <asp:BoundField DataField="safety_approval" HeaderText="Safety Approval" SortExpression="safety_approval" ItemStyle-Wrap="false"></asp:BoundField>
                                                         <asp:BoundField DataField="security_approval" HeaderText="Security Approval" SortExpression="security_approval" ItemStyle-Wrap="false"></asp:BoundField>
 
                                                         <%--   <asp:CommandField ShowSelectButton="True" ButtonType="Image" SelectImageUrl="../images/select.png" HeaderText="Select">
@@ -413,7 +413,7 @@
                                         </div>
                                         <div></div>
                                         <div style="text-align-last: center">
-                                            <asp:LinkButton ID="lbPrint" PostBackUrl="~/contractor_cell/emp-details-print.aspx" runat="server" Font-Bold="True" Font-Underline="True" ForeColor="Blue">Print</asp:LinkButton>
+                                            <asp:LinkButton ID="lbPrint" PostBackUrl="~/contractor_cell/emp-details-print.aspx" runat="server" Font-Bold="True" Font-Underline="True" Visible="false" ForeColor="Blue">Print</asp:LinkButton>
                                         </div>
                                         <asp:Label ID="lblID" runat="server" Text="" Visible="false"></asp:Label>
 
@@ -429,7 +429,7 @@
                     <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
                         <div class="container-fluid">
                             <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved</div>
+                                <div class="text-light ">&copy; 2022 | Electro Solutions | All Rights Reserved</div>
 
                             </div>
                         </div>

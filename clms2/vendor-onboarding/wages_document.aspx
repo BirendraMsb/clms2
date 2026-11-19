@@ -7,55 +7,447 @@
     <title></title>
     <link rel="icon" href="public/common/icons/favicon.ico" type="icon/png" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
-    <meta content="GreenHRM Solutions | Breaking Stereotypes" name="description" />
-    <meta content="GreenHRM Solutions | Breaking Stereotypes" name="author" />
+    <meta content="Electro Solutions | Breaking Stereotypes" name="description" />
+    <meta content="Electro Solutions | Breaking Stereotypes" name="author" />
 
-    <link href="~/public/common/css/bootswatchTheme.css" rel="stylesheet" />
-    <link rel="icon" href="../public/common/icons/favicon.ico" type="icon/png" />
+        <%-- <link href="../public/common/css/bootswatchTheme.css" rel="stylesheet" /> --%>
+    <link rel="icon" href="/public/common/icons/favicon.ico" type="icon/png" />
     <link rel="stylesheet" href="../public/newfront/jquery-ui/jquery-ui.min.css" />
     <link rel="stylesheet" href="../public/newfront/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../public/newfront/datatables/datatables.min.css" />
     <link rel="stylesheet" href="../public/newfront/assets/css/icons.min.css" />
-    <link rel="stylesheet" href="../public/newfront/assets/css/app.min.css" />
-    <link rel="stylesheet" href="../public/common/css/commoncss.min.css" />
-    <link rel="apple-touch-icon" sizes="57x57" href="../public/common/icons/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="../public/common/icons/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="../public/common/icons/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="../public/common/icons/apple-icon-76x76.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="../public/common/icons/apple-icon-114x114.png" />
-    <link rel="apple-touch-icon" sizes="120x120" href="../public/common/icons/apple-icon-120x120.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="../public/common/icons/apple-icon-144x144.png" />
-    <link rel="apple-touch-icon" sizes="152x152" href="../public/common/icons/apple-icon-152x152.png" />
-    <link rel="apple-touch-icon" sizes="180x180" href="../public/common/icons/apple-icon-180x180.png" />
-    <link rel="icon" type="image/png" sizes="192x192" href="../public/common/icons/android-icon-192x192.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="../public/common/icons/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="../public/common/icons/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="../public/common/icons/favicon-16x16.png" />
+    <link rel="stylesheet" href="../public/newfront/assets/css/app.min.css?v=3.1" />
+    <link rel="stylesheet" href="../public/common/css/commoncss.min.css?v=3.1" />
 
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="ms-icon-144x144.png" />
-    <meta name="theme-color" content="#ffffff" />
     <style>
-        .nav-link {
-            padding: 0.32rem 0.75rem;
+        .nav-link { padding: 0.32rem 0.75rem; }
+        .bg-dark { background-color: #292e40 !important; }
+        .btn-round-action {
+            border-radius: 50px !important;
+            padding: 10px 32px !important;
+            font-size: 0.95rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.4px !important;
+            min-width: 140px !important;
+            cursor: pointer !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            text-transform: none !important;
+            border: 1px solid transparent !important;
+            outline: none !important;
+        }
+        .btn-round-action:hover { transform: translateY(-2px) !important; }
+        .btn-action-save {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+            color: #ffffff !important;
+            border-color: #1d4ed8 !important;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.32) !important;
+        }
+        .btn-action-save:hover {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%) !important;
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.48) !important;
+            color: #ffffff !important;
+        }
+        .btn-action-cancel {
+            background: #ffffff !important;
+            color: #475569 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.05) !important;
+        }
+        .btn-action-cancel:hover {
+            background: #f1f5f9 !important;
+            border-color: #94a3b8 !important;
+            color: #0f172a !important;
+        }
+        .card-entry {
+            background: #ffffff;
+            border-radius: 1rem !important;
+            border: 1px solid #e2e8f0 !important;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08) !important;
+            overflow: hidden;
+            margin-bottom: 140px !important;
+            width: 100% !important;
+        }
+        .card-entry-header {
+            background: linear-gradient(135deg, #090e1a 0%, #0f172a 45%, #1e293b 100%) !important;
+            color: #ffffff;
+            padding: 1.25rem 1.75rem;
+            padding-left: 50px !important;
+            padding-right: 50px !important;
+            border-top-left-radius: 1rem !important;
+            border-top-right-radius: 1rem !important;
+            border-bottom: 2px solid transparent;
+            border-image: linear-gradient(90deg, #38bdf8 0%, #3b82f6 50%, #6366f1 100%) 1;
+        }
+        .card-entry-body {
+            padding-left: 50px !important;
+            padding-right: 50px !important;
+            padding-bottom: 120px !important;
+            padding-top: 1.5rem !important;
+        }
+        .form-section-header {
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #0f172a;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .form-label {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 0.4rem;
+        }
+        .form-control, .form-select {
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 0.5rem !important;
+            padding: 0.55rem 0.85rem !important;
+            font-size: 0.88rem !important;
+            color: #0f172a !important;
+            background-color: #ffffff;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #3b82f6 !important;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15) !important;
+        }
+        .input-group-text {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-radius: 0.5rem 0 0 0.5rem !important;
+            color: #64748b;
+        }
+        .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+            border-top-left-radius: 0 !important;
+            border-bottom-left-radius: 0 !important;
+        }
+        .form-two-column-row {
+            margin-left: -17.5px;
+            margin-right: -17.5px;
+        }
+        .form-two-column-row > [class*="col-"] {
+            padding-left: 17.5px;
+            padding-right: 17.5px;
+        }
+    /* Menu Bar (Navbar) Solid Black Theme */
+        html body nav.navbar,
+        html body nav.navbar.bg-dark,
+        html body nav.navbar.transparent,
+        html body nav.navbar.transparent.bg-dark,
+        html body .navbar.fixed-top,
+        .navbar.bg-dark,
+        .navbar.transparent {
+            background: #000000 !important;
+            background-color: #000000 !important;
+            border-bottom: 2px solid #222222 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
         }
 
-        .bg-dark {
-            background-color: #292e40 !important;
+        /* Ensure navbar inner container-fluid is strictly transparent and never white */
+        html body nav.navbar .container-fluid,
+        html body .navbar .container-fluid,
+        nav.navbar .container-fluid,
+        .navbar .container-fluid {
+            background: transparent !important;
+            background-color: transparent !important;
         }
 
-        .icon-svg, .icon-svg.icon-svg-lg {
-            width: 3rem;
-            height: 3rem;
+        /* Menu Bar Navigation Links - Crisp White on Black */
+        html body nav.navbar .navbar-nav .nav-link,
+        html body nav.navbar .nav-link {
+            color: #ffffff !important;
+            font-size: 0.92rem !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.02em !important;
+            padding: 0.5rem 0.85rem !important;
+            opacity: 1 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
         }
 
-        img, svg {
-            vertical-align: middle;
+        html body nav.navbar .navbar-nav .nav-link:hover,
+        html body nav.navbar .navbar-nav .nav-link:focus,
+        html body nav.navbar .navbar-nav .show > .nav-link {
+            color: #38bdf8 !important;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-radius: 0.375rem !important;
         }
 
-            svg:not(:root) {
-                overflow: hidden;
+        html body nav.navbar .nav-link .fa-angle-down,
+        html body nav.navbar .nav-link span.fa-angle-down {
+            color: #38bdf8 !important;
+            font-size: 0.8rem !important;
+            margin-left: 0.35rem !important;
+        }
+
+        /* Dropdown Menus - Solid Black Background */
+        html body nav.navbar .nav-item.dropdown,
+        html body nav.navbar .dropdown {
+            position: relative !important;
+        }
+
+        html body nav.navbar .dropdown-menu {
+            position: absolute !important;
+            top: 100% !important;
+            left: 0 !important;
+            margin: 0 !important;
+            z-index: 99999 !important;
+            background: #000000 !important;
+            background-color: #000000 !important;
+            border: 1px solid #333333 !important;
+            border-radius: 0.5rem !important;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.85) !important;
+            padding: 0.5rem 0.35rem !important;
+            min-width: 235px !important;
+        }
+
+        html body nav.navbar .dropdown-menu::before {
+            content: '' !important;
+            position: absolute !important;
+            top: -12px !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 12px !important;
+            background: transparent !important;
+        }
+
+        html body nav.navbar .dropdown-menu:not(.show) {
+            display: none;
+        }
+
+        html body nav.navbar .dropdown-menu.show,
+        html body nav.navbar .nav-item.dropdown.show > .dropdown-menu,
+        html body nav.navbar .dropdown.show > .dropdown-menu {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+
+        html body nav.navbar .dropdown-item {
+            color: #ffffff !important;
+            font-size: 0.86rem !important;
+            font-weight: 500 !important;
+            padding: 0.55rem 0.85rem !important;
+            border-radius: 0.35rem !important;
+            margin-bottom: 0.15rem !important;
+            transition: all 0.15s ease !important;
+            display: flex !important;
+            align-items: center !important;
+            background: transparent !important;
+        }
+
+        html body nav.navbar .dropdown-item i,
+        html body nav.navbar .dropdown-item i.fa,
+        html body nav.navbar .dropdown-item i.fa-angle-right {
+            color: #38bdf8 !important;
+            margin-right: 0.55rem !important;
+            font-size: 0.72rem !important;
+        }
+
+        html body nav.navbar .dropdown-item:hover,
+        html body nav.navbar .dropdown-item:focus {
+            color: #ffffff !important;
+            background-color: #222222 !important;
+            transform: translateX(4px) !important;
+        }
+
+        html body nav.navbar .dropdown-item:hover i,
+        html body nav.navbar .dropdown-item:hover i.fa-angle-right {
+            color: #7dd3fc !important;
+        }
+
+        html body nav.navbar .dropdown-divider {
+            border-top: 1px solid #333333 !important;
+            margin: 0.4rem 0 !important;
+        }
+
+        @media (min-width: 992px) {
+            html body nav.navbar .nav-item.dropdown:hover > .dropdown-menu,
+            html body nav.navbar .dropdown:hover > .dropdown-menu {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
             }
+            html body nav.navbar .nav-item.dropdown:hover > .nav-link .fa-angle-down,
+            html body nav.navbar .dropdown:hover > .nav-link .fa-angle-down,
+            html body nav.navbar .nav-item.dropdown:hover .nav-link span.fa-angle-down {
+                transform: rotate(180deg) !important;
+                color: #38bdf8 !important;
+                opacity: 1 !important;
+            }
+        }
+
+        /* ========================================================
+           Mobile Navbar Collapse System (Strict ID + Class Rules)
+           ======================================================== */
+        @media (max-width: 991.98px) {
+            html body nav.navbar .container-fluid {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding-left: 12px !important;
+                padding-right: 12px !important;
+            }
+
+            html body nav.navbar .navbar-brand.w-40,
+            html body nav.navbar .navbar-brand {
+                width: auto !important;
+                max-width: 75% !important;
+                margin-right: 0 !important;
+                padding: 0 !important;
+            }
+
+            html body nav.navbar .navbar-brand img {
+                max-width: 100% !important;
+                height: auto !important;
+                max-height: 38px !important;
+            }
+
+            /* STRICTLY HIDE collapsed navbar by default on mobile */
+            html body nav.navbar #navbarColor02:not(.show),
+            html body nav.navbar .navbar-collapse:not(.show),
+            nav.navbar #navbarColor02:not(.show),
+            nav.navbar .navbar-collapse:not(.show),
+            #navbarColor02:not(.show),
+            .navbar-collapse:not(.show) {
+                display: none !important;
+            }
+
+            /* STRICTLY DISPLAY navbar when toggled open on mobile */
+            html body nav.navbar #navbarColor02.show,
+            html body nav.navbar .navbar-collapse.show,
+            nav.navbar #navbarColor02.show,
+            nav.navbar .navbar-collapse.show,
+            #navbarColor02.show,
+            .navbar-collapse.show {
+                display: block !important;
+                background-color: #000000 !important;
+                padding: 12px 16px !important;
+                margin-top: 8px !important;
+                border-top: 1px solid #222222 !important;
+                border-radius: 0 0 6px 6px !important;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7) !important;
+                max-height: 80vh !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            /* Mobile hamburger toggler button */
+            html body nav.navbar .navbar-toggler,
+            nav.navbar .navbar-toggler,
+            .navbar .navbar-toggler {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                padding: 6px 10px !important;
+                border: 1px solid rgba(255, 255, 255, 0.6) !important;
+                border-radius: 4px !important;
+                background-color: transparent !important;
+                color: #ffffff !important;
+                cursor: pointer !important;
+                margin-left: auto !important;
+            }
+
+            html body nav.navbar .navbar-toggler:focus,
+            nav.navbar .navbar-toggler:focus,
+            .navbar .navbar-toggler:focus {
+                box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.35) !important;
+                outline: none !important;
+            }
+
+            /* Mobile Sub-menu (Dropdown Menu) Styling */
+            html body nav.navbar .navbar-collapse .dropdown-menu {
+                position: static !important;
+                float: none !important;
+                display: none !important;
+                width: 100% !important;
+                background-color: #111111 !important;
+                border: 1px solid #2a2a2a !important;
+                border-radius: 6px !important;
+                box-shadow: none !important;
+                margin-top: 4px !important;
+                margin-bottom: 8px !important;
+                padding: 4px 8px !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            /* Mobile Sub-menu Visible State */
+            html body nav.navbar .navbar-collapse .dropdown-menu.show,
+            html body nav.navbar .navbar-collapse .nav-item.dropdown.show > .dropdown-menu,
+            html body nav.navbar .navbar-collapse .dropdown.show > .dropdown-menu {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            /* Mobile Sub-menu Items */
+            html body nav.navbar .navbar-collapse .dropdown-menu .dropdown-item {
+                padding: 8px 12px !important;
+                color: #e2e8f0 !important;
+                font-size: 0.88rem !important;
+                display: flex !important;
+                align-items: center !important;
+                border-bottom: 1px solid #1e1e1e !important;
+                background: transparent !important;
+                white-space: normal !important;
+            }
+
+            html body nav.navbar .navbar-collapse .dropdown-menu .dropdown-item:last-child {
+                border-bottom: none !important;
+            }
+
+            html body nav.navbar .navbar-collapse .dropdown-menu .dropdown-item:hover,
+            html body nav.navbar .navbar-collapse .dropdown-menu .dropdown-item:focus {
+                background-color: #222222 !important;
+                color: #38bdf8 !important;
+            }
+
+            /* Caret icon rotation when dropdown is open */
+            html body nav.navbar .dropdown.show > .nav-link .fa-angle-down,
+            html body nav.navbar .dropdown.show > .nav-link span.fa-angle-down,
+            html body nav.navbar .nav-item.show > .nav-link .fa-angle-down,
+            html body nav.navbar .nav-item.show > .nav-link span.fa-angle-down {
+                transform: rotate(180deg) !important;
+                color: #38bdf8 !important;
+            }
+
+            /* Right side controls */
+            html body nav.navbar .navbar-collapse .d-flex {
+                flex-wrap: wrap !important;
+                gap: 8px !important;
+                margin-top: 12px !important;
+                padding-top: 10px !important;
+                border-top: 1px solid #222222 !important;
+            }
+        }
+
+        @media (min-width: 992px) {
+            html body nav.navbar #navbarColor02,
+            html body nav.navbar .navbar-collapse,
+            nav.navbar #navbarColor02,
+            nav.navbar .navbar-collapse,
+            #navbarColor02,
+            .navbar-collapse {
+                display: flex !important;
+                flex-basis: auto !important;
+            }
+
+            html body nav.navbar .navbar-toggler,
+            nav.navbar .navbar-toggler,
+            .navbar .navbar-toggler {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -67,13 +459,13 @@
         <table class="table">
             <tr>
                 <td>
-                    <nav class="navbar fixed-top navbar-expand-lg transparent navbar-dark bg-dark">
-                        <div class="container-fluid">
+                    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="background-color: #000000 !important; background: #000000 !important;">
+                        <div class="container-fluid" style="background: transparent !important; background-color: transparent !important;">
                             <%-- <a class="navbar-brand" href="#">clms</a>--%>
                             <div class="navbar-brand w-40">
                                 <a class="navbar-brand" href="dashboard.aspx">
                                     <span>
-                                        <img src="../public/common/images/straight_logo_greenhrm.png" class="logo-lg logo-light" alt="GreenHRM Solutions | Breaking Stereotypes Logo" width="188" height="50" />
+                                        <%--<img src="../public/common/images/ElectroSolHeader3.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />--%>
                                     </span>
                                 </a>
                             </div>
@@ -362,14 +754,14 @@
                             </div>
                         </li>--%>
                                 </ul>
-                                <form class="d-flex">
-                                    <asp:Label ID="lblDate" runat="server" class="form-control bg-dark" Text="Date" Style="color: white; font-size: 15px; width: auto"></asp:Label>
+                                <div class="d-flex">
+                                    <asp:Label ID="lblDate" runat="server" class="form-control bg-dark" Text="Date" Style="color: #ffffff !important; font-size: 15px; width: auto; font-weight: 600;"></asp:Label>
                                     &nbsp;&nbsp;
                          <img src="../images/k2.png" alt="Department" width="50" height="50" />&nbsp;&nbsp;  
                        <asp:Label ID="lblUser" runat="server" Text="" Style="color: #FFFFCC; font-size: 15px"></asp:Label>&nbsp;&nbsp;
                      <%-- <input class="form-control me-sm-2" type="search" placeholder="Search">--%>
                                     <%--  <button class="btn btn-secondary my-2 my-sm-0" type="submit" fdprocessedid="i5uef7">Search</button>--%>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </nav>
@@ -388,232 +780,252 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card shadow border">
-                                    <div class="card-heading bg-dark text-white p-3 d-flex justify-content-between ">Wages Document Uploading</div>
-                                    <div class="card-body">
-                                        <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
-                                        <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
-                                        <div class="row">
-                                            <%--  <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>Work Order</label>
-                                                    <asp:DropDownList ID="ddlWorkdOrder" runat="server" class="form-control"></asp:DropDownList>
-                                                </div>
-                                            </div>--%>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>Vendor Code</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtVendorCode" runat="server" class="form-control"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtVendorCode" ErrorMessage="* Pls Enter Vendor Code" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-
-                                                </div>
+                                                                <div class="card card-entry my-4">
+                                    <div class="card-entry-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="header-icon-box bg-white bg-opacity-10 text-white rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                                                <i class="fa fa-file-invoice-dollar fa-lg"></i>
                                             </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>Month</label><label class="text-danger">*</label>
-                                                    <asp:DropDownList ID="ddlMonth" runat="server" class="form-control" AutoPostBack="true"  MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
-                                                        <%-- <asp:ListItem>Select</asp:ListItem>--%>
-                                                        <%--<asp:ListItem Value="1">Jan</asp:ListItem>--%>
-                                                    </asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlMonth" ErrorMessage="* Select Month" ForeColor="#CC3300" InitialValue="Select"></asp:RequiredFieldValidator>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>Year</label><label class="text-danger">*</label>
-                                                    <asp:DropDownList ID="ddlYear" runat="server" class="form-control" MaxLength="50"></asp:DropDownList>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlYear" ErrorMessage="* Select Year" ForeColor="#CC3300" InitialValue="Select"></asp:RequiredFieldValidator>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Total Valid Gate Pass</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtTotValidGP" runat="server" class="form-control" TextMode="SingleLine"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtTotValidGP" ErrorMessage="* Pls Enter Total Valid GP" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtTotValidGP" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>No of Emp Paid</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtNoOfEmpPaid" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtNoOfEmpPaid" ErrorMessage="* Pls Enter No of Emp Paid" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtNoOfEmpPaid" runat="server" ErrorMessage="Only Numbers  Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
-                                                </div>
+                                            <div>
+                                                <h5 class="mb-0 text-white fw-bold">Wages Document Uploading</h5>
+                                                <small class="text-white-50">Upload Monthly PF, ESIC &amp; Bank Statement Documents</small>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Man Days</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtManDays" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtManDays" ErrorMessage="* Pls Enter Man Days" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtManDays" runat="server" ErrorMessage="Only Numbers  Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Gross Wages Paid</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtGrossWagesPaid" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtGrossWagesPaid" ErrorMessage="* Pls Enter Gross Wages Paid" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="txtGrossWagesPaid" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>PF Amount Deposited</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtPFAmountDeposited" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtPFAmountDeposited" ErrorMessage="* Pls Enter PF Amount Deposited" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtPFAmountDeposited" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>PF Challan Number</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtPFChallanNo" runat="server" class="form-control" MaxLength="50"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtPFChallanNo" ErrorMessage="* Pls Enter PF Challan Number" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <%-- <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ControlToValidate="txtPFChallanNo" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>--%>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>PF Challan Date</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtPFChallanDate" runat="server" class="form-control" MaxLength="6"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtPFChallanDate" ErrorMessage="* Pls EnterU PF Challan Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtPFChallanDate" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>ESI Amount Deposited</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtEsiAmtDeposited" runat="server" class="form-control"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtEsiAmtDeposited" ErrorMessage="* Pls Enter ESI Amount Deposited" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtEsiAmtDeposited" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>ESI Challan Number.</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtEsiChallanNo" runat="server" class="form-control"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtEsiChallanNo" ErrorMessage="* Pls Enter ESI Challan Number" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <%-- <asp:RegularExpressionValidator ID="RegularExpressionValidator9" ControlToValidate="txtAnnualBonusPrevYear" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$"></asp:RegularExpressionValidator>--%>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <div class="form-group mb-3">
-                                                    <label>ESI Challan Date</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtEsiChallanDate" runat="server" class="form-control"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtEsiChallanDate" ErrorMessage="* Pls Enter ESI Challan Date" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtEsiChallanDate" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000"></asp:RegularExpressionValidator>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>ESI Contribution (In No)</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtEsiContribution" runat="server" class="form-control"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtEsiContribution" ErrorMessage="* Pls Enter ESI Contribution" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator11" ControlToValidate="txtEsiContribution" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>PF Contribution (In No)</label><label class="text-danger">*</label>
-                                                    <asp:TextBox ID="txtPFContribution" runat="server" class="form-control" MaxLength="10"></asp:TextBox>
-                                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtPFContribution" ErrorMessage="* Pls Enter PF Contricution" ForeColor="#CC3300"></asp:RequiredFieldValidator>
-                                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator12" ControlToValidate="txtPFContribution" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$"></asp:RegularExpressionValidator>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Upload PF Challan PDF </label>
-                                                    <br />
-                                                    <asp:FileUpload ID="PFChallanUpload" runat="server"></asp:FileUpload>
-                                                    <asp:Label ID="lblPFfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Upload ESIC Challan PDF </label>
-                                                    <br />
-                                                    <asp:FileUpload ID="EsicChallanUpload" runat="server"></asp:FileUpload>
-                                                    <asp:Label ID="lblESICfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Upload Bank Statement PDF </label>
-                                                    <br />
-                                                    <asp:FileUpload ID="BankStatementUpload" runat="server"></asp:FileUpload>
-                                                    <asp:Label ID="lblBansStatementfileSizeMsg" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Upload PF ECR PDF </label>
-                                                    <br />
-                                                    <asp:FileUpload ID="PFEcrUpload" runat="server"></asp:FileUpload>
-                                                    <asp:Label ID="lblPFEcrFileSize" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <div class="form-group mb-3">
-                                                    <label>Upload ESI ECR PDF </label>
-                                                    <br />
-                                                    <asp:FileUpload ID="EsiEcrUpload" runat="server"></asp:FileUpload>
-                                                    <asp:Label ID="lblEsiEcrFileSize" ForeColor="Red" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <hr class="my-3" />
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                    <asp:Button ID="cmdSave" runat="server" Text="Save" Width="100px" class="btn btn-info" OnClick="cmdSave_Click"></asp:Button>
-                                                    <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-danger"></asp:Button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group mb-3">
-                                                    <%--<asp:LinkButton ID="btnDownloadPF" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandPF_Click">download UAN</asp:LinkButton>
-                                                    <asp:LinkButton ID="btnDownloadEsic" runat="server" CssClass="btn btn-primary" OnClick="btnDownloandEsic_Click">download ESIC</asp:LinkButton><br />--%>
-                                                    <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="X-Large" ForeColor="blue" Font-Bold="True"></asp:Label><br />
-                                                    <asp:Label ID="lblMSGError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label><br />
-                                                </div>
-                                            </div>
+                                        <div>
+                                            <span class="badge bg-primary bg-opacity-25 text-white border border-light border-opacity-25 px-3 py-2 rounded-pill font-monospace" style="font-size: 0.75rem;">
+                                                <i class="fa fa-shield-alt me-1"></i>Statutory Compliance
+                                            </span>
                                         </div>
                                     </div>
+
+                                    <div class="card-entry-body">
+                                        <asp:TextBox ID="txtID" runat="server" Visible="false" class="form-control"></asp:TextBox>
+                                        <asp:TextBox ID="txtID1" runat="server" Visible="false" class="form-control"></asp:TextBox>
+
+                                        <%-- Notification / Status Alerts --%>
+                                        <div class="mb-3">
+                                            <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="Large" ForeColor="blue" Font-Bold="True"></asp:Label>
+                                            <asp:Label ID="lblMSGError" runat="server" Text="" Font-Size="Small" ForeColor="Red" Font-Bold="True"></asp:Label>
+                                        </div>
+
+                                        <%-- Section 1: Period & Wage Summary --%>
+                                        <div class="form-section-header">
+                                            <i class="fa fa-calendar-alt text-primary me-2"></i>Wage Period &amp; Man Days Summary
+                                        </div>
+
+                                        <div class="row form-two-column-row">
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtVendorCode">Vendor Code <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                                                    <asp:TextBox ID="txtVendorCode" runat="server" class="form-control" placeholder="Vendor Code"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtVendorCode" ErrorMessage="* Pls Enter Vendor Code" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <div class="row g-2">
+                                                    <div class="col-6">
+                                                        <label class="form-label" for="ddlMonth">Month <span class="text-danger">*</span></label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                                                            <asp:DropDownList ID="ddlMonth" runat="server" class="form-select" AutoPostBack="true" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged"></asp:DropDownList>
+                                                        </div>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="ddlMonth" ErrorMessage="* Select Month" ForeColor="#CC3300" InitialValue="Select" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <label class="form-label" for="ddlYear">Year <span class="text-danger">*</span></label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-text"><i class="fa fa-calendar-check"></i></span>
+                                                            <asp:DropDownList ID="ddlYear" runat="server" class="form-select" MaxLength="50"></asp:DropDownList>
+                                                        </div>
+                                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="ddlYear" ErrorMessage="* Select Year" ForeColor="#CC3300" InitialValue="Select" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtTotValidGP">Total Valid Gate Pass <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-ticket-alt"></i></span>
+                                                    <asp:TextBox ID="txtTotValidGP" runat="server" class="form-control" placeholder="Total Valid Gate Passes"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtTotValidGP" ErrorMessage="* Pls Enter Total Valid GP" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ControlToValidate="txtTotValidGP" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtNoOfEmpPaid">No of Employees Paid <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-users"></i></span>
+                                                    <asp:TextBox ID="txtNoOfEmpPaid" runat="server" class="form-control" MaxLength="10" placeholder="Number of employees"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txtNoOfEmpPaid" ErrorMessage="* Pls Enter No of Emp Paid" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="txtNoOfEmpPaid" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtManDays">Man Days <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-user-clock"></i></span>
+                                                    <asp:TextBox ID="txtManDays" runat="server" class="form-control" MaxLength="10" placeholder="Total Man Days"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="txtManDays" ErrorMessage="* Pls Enter Man Days" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ControlToValidate="txtManDays" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtGrossWagesPaid">Gross Wages Paid (₹) <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-rupee-sign"></i></span>
+                                                    <asp:TextBox ID="txtGrossWagesPaid" runat="server" class="form-control" MaxLength="50" placeholder="0.00"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="txtGrossWagesPaid" ErrorMessage="* Pls Enter Gross Wages Paid" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ControlToValidate="txtGrossWagesPaid" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+                                        </div>
+
+                                        <%-- Section 2: Provident Fund Compliance --%>
+                                        <hr class="my-4 border-2" />
+                                        <div class="form-section-header">
+                                            <i class="fa fa-piggy-bank text-primary me-2"></i>Provident Fund (PF) Compliance
+                                        </div>
+
+                                        <div class="row form-two-column-row">
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtPFAmountDeposited">PF Amount Deposited (₹) <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-coins"></i></span>
+                                                    <asp:TextBox ID="txtPFAmountDeposited" runat="server" class="form-control" MaxLength="50" placeholder="0.00"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator8" runat="server" ControlToValidate="txtPFAmountDeposited" ErrorMessage="* Pls Enter PF Amount Deposited" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ControlToValidate="txtPFAmountDeposited" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtPFContribution">PF Contribution (In No) <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-calculator"></i></span>
+                                                    <asp:TextBox ID="txtPFContribution" runat="server" class="form-control" MaxLength="10" placeholder="Contribution count"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtPFContribution" ErrorMessage="* Pls Enter PF Contribution" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator12" ControlToValidate="txtPFContribution" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtPFChallanNo">PF Challan Number <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-receipt"></i></span>
+                                                    <asp:TextBox ID="txtPFChallanNo" runat="server" class="form-control" MaxLength="50" placeholder="PF Challan No"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="txtPFChallanNo" ErrorMessage="* Pls Enter PF Challan Number" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtPFChallanDate">PF Challan Date <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
+                                                    <asp:TextBox ID="txtPFChallanDate" runat="server" class="form-control" MaxLength="10" placeholder="DD-MM-YYYY"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="txtPFChallanDate" ErrorMessage="* Pls Enter PF Challan Date" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtPFChallanDate" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="PFChallanUpload">Upload PF Challan PDF</label>
+                                                <asp:FileUpload ID="PFChallanUpload" runat="server" CssClass="form-control"></asp:FileUpload>
+                                                <asp:Label ID="lblPFfileSizeMsg" ForeColor="#dc2626" Font-Size="X-Small" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="PFEcrUpload">Upload PF ECR PDF</label>
+                                                <asp:FileUpload ID="PFEcrUpload" runat="server" CssClass="form-control"></asp:FileUpload>
+                                                <asp:Label ID="lblPFEcrFileSize" ForeColor="#dc2626" Font-Size="X-Small" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                            </div>
+                                        </div>
+
+                                        <%-- Section 3: ESIC & Bank Statement Compliance --%>
+                                        <hr class="my-4 border-2" />
+                                        <div class="form-section-header">
+                                            <i class="fa fa-heartbeat text-primary me-2"></i>ESI &amp; Bank Statement Compliance
+                                        </div>
+
+                                        <div class="row form-two-column-row">
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtEsiAmtDeposited">ESI Amount Deposited (₹) <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-coins"></i></span>
+                                                    <asp:TextBox ID="txtEsiAmtDeposited" runat="server" class="form-control" placeholder="0.00"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="txtEsiAmtDeposited" ErrorMessage="* Pls Enter ESI Amount Deposited" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator8" ControlToValidate="txtEsiAmtDeposited" runat="server" ErrorMessage="Only Numbers with two decimal Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{2})?$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtEsiContribution">ESI Contribution (In No) <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-calculator"></i></span>
+                                                    <asp:TextBox ID="txtEsiContribution" runat="server" class="form-control" placeholder="Contribution count"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="txtEsiContribution" ErrorMessage="* Pls Enter ESI Contribution" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator11" ControlToValidate="txtEsiContribution" runat="server" ErrorMessage="Only Numbers Allowed" ForeColor="#CC0000" ValidationExpression="^(\d{1,18})(.\d{0})?$" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtEsiChallanNo">ESI Challan Number <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-receipt"></i></span>
+                                                    <asp:TextBox ID="txtEsiChallanNo" runat="server" class="form-control" placeholder="ESI Challan No"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator12" runat="server" ControlToValidate="txtEsiChallanNo" ErrorMessage="* Pls Enter ESI Challan Number" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="txtEsiChallanDate">ESI Challan Date <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i class="fa fa-calendar-alt"></i></span>
+                                                    <asp:TextBox ID="txtEsiChallanDate" runat="server" class="form-control" placeholder="DD-MM-YYYY"></asp:TextBox>
+                                                </div>
+                                                <asp:RequiredFieldValidator ID="RequiredFieldValidator13" runat="server" ControlToValidate="txtEsiChallanDate" ErrorMessage="* Pls Enter ESI Challan Date" ForeColor="#CC3300" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator ID="RegularExpressionValidator10" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtEsiChallanDate" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#CC0000" Display="Dynamic"></asp:RegularExpressionValidator>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="EsicChallanUpload">Upload ESIC Challan PDF</label>
+                                                <asp:FileUpload ID="EsicChallanUpload" runat="server" CssClass="form-control"></asp:FileUpload>
+                                                <asp:Label ID="lblESICfileSizeMsg" ForeColor="#dc2626" Font-Size="X-Small" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="EsiEcrUpload">Upload ESI ECR PDF</label>
+                                                <asp:FileUpload ID="EsiEcrUpload" runat="server" CssClass="form-control"></asp:FileUpload>
+                                                <asp:Label ID="lblEsiEcrFileSize" ForeColor="#dc2626" Font-Size="X-Small" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <label class="form-label" for="BankStatementUpload">Upload Bank Statement PDF</label>
+                                                <asp:FileUpload ID="BankStatementUpload" runat="server" CssClass="form-control"></asp:FileUpload>
+                                                <asp:Label ID="lblBansStatementfileSizeMsg" ForeColor="#dc2626" Font-Size="X-Small" runat="server" Text="File size should not be more than 100 KB"></asp:Label>
+                                            </div>
+
+                                            <div class="col-md-6 col-12 mb-3">
+                                                <%-- Balanced spacer column --%>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 text-center py-3 d-flex justify-content-center gap-3">
+                                                <asp:Button ID="cmdSave" runat="server" Text="Save Documents" class="btn btn-round-action btn-action-save" OnClick="cmdSave_Click"></asp:Button>
+                                                <asp:Button ID="cmdCancel" runat="server" Text="Cancel" class="btn btn-round-action btn-action-cancel" CausesValidation="false"></asp:Button>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-bottom-spacer" style="height: 140px;"></div>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
                             </div>
                         </div>
                     </div>
@@ -624,7 +1036,7 @@
                     <footer class="py-3 bg-dark mt-auto navbar-fixed-bottom">
                         <div class="container-fluid">
                             <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | GreenHRM Solutions | All Rights Reserved </div>
+                                <div class="text-light ">&copy; 2022 | Electro Solutions | All Rights Reserved </div>
                             </div>
                         </div>
                     </footer>
@@ -634,10 +1046,10 @@
 
         <script type="text/jscript" src="../public/newfront/js/jquery.min.js"></script>
         <script type="text/jscript" src="../public/newfront/jquery-ui/jquery-ui.min.js" defer></script>
-        <script type="text/jscript" src="../public/newfront/assets/js/app.js" defer></script>
+        <script type="text/jscript" src="../public/newfront/assets/js/app.js?v=3.1" defer></script>
         <script type="text/jscript" src="../public/newfront/datatables/datatables.min.js" defer></script>
         <script type="text/jscript" src="../public/newfront/js/jquery.validate.min.js"></script>
-        <%--  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>--%>
+        <%--  <script type="text/jscript" src="../public/newfront/assets/js/bootstrap.bundle.min.js?v=3.1"></script>--%>
 
         <script type="text/jscript" defer>
             $(window).on("load", function () {
@@ -712,6 +1124,77 @@
                 $('#GvWod').DataTable({ responsive: true });
             });
         </script>
+<script type="text/javascript">
+            $(document).ready(function () {
+                // Ensure mobile navbar is explicitly closed on page load for small screens
+                if ($(window).width() < 992) {
+                    $('#navbarColor02').removeClass('show');
+                    $('.navbar-toggler').attr('aria-expanded', 'false');
+                }
+
+                // Smooth toggler for mobile hamburger button
+                $('.navbar-toggler').off('click').on('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var target = $(this).attr('data-bs-target') || $(this).attr('data-target') || '#navbarColor02';
+                    var $menu = $(target);
+                    $menu.toggleClass('show');
+                    var isOpen = $menu.hasClass('show');
+                    $(this).attr('aria-expanded', isOpen ? 'true' : 'false');
+                });
+
+                // Dropdown sub-menu click handling for mobile and touch devices
+                $(document).off('click.navDropdown', '.navbar .dropdown-toggle').on('click.navDropdown', '.navbar .dropdown-toggle', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var $toggle = $(this);
+                    var $dropdown = $toggle.closest('.dropdown');
+                    var $menu = $dropdown.children('.dropdown-menu');
+                    var isCurrentlyOpen = $menu.hasClass('show') || $dropdown.hasClass('show');
+
+                    // Close sibling dropdowns
+                    $dropdown.siblings('.dropdown').removeClass('show').children('.dropdown-menu').removeClass('show');
+                    $dropdown.siblings('.dropdown').find('.dropdown-toggle').attr('aria-expanded', 'false');
+
+                    if (!isCurrentlyOpen) {
+                        $dropdown.addClass('show');
+                        $menu.addClass('show');
+                        $toggle.attr('aria-expanded', 'true');
+                    } else {
+                        $dropdown.removeClass('show');
+                        $menu.removeClass('show');
+                        $toggle.attr('aria-expanded', 'false');
+                    }
+                });
+
+                // Close dropdowns and mobile menu on outside click
+                $(document).off('click.navDoc').on('click.navDoc', function (e) {
+                    if (!$(e.target).closest('.navbar .dropdown').length) {
+                        $('.navbar .dropdown, .navbar .dropdown-menu').removeClass('show');
+                        $('.navbar .dropdown-toggle').attr('aria-expanded', 'false');
+                    }
+                    if ($(window).width() < 992) {
+                        if (!$(e.target).closest('nav.navbar').length) {
+                            $('#navbarColor02').removeClass('show');
+                            $('.navbar-toggler').attr('aria-expanded', 'false');
+                        }
+                    }
+                });
+
+                // Close mobile menu when navigating non-dropdown links
+                $('.navbar-collapse a:not(.dropdown-toggle):not(.dropdown-item)').on('click', function () {
+                    if ($(window).width() < 992) {
+                        $('#navbarColor02').removeClass('show');
+                        $('.navbar-toggler').attr('aria-expanded', 'false');
+                    }
+                });
+
+                $('.navbar .dropdown-menu a.dropdown-item').on('click', function (e) {
+                    e.stopPropagation();
+                });
+            });
+        </script>
+
     </form>
 </body>
 </html>

@@ -392,6 +392,230 @@
             border: none !important;
             padding: 0 !important;
         }
+
+        /* ========================================================
+           Gate Pass Card & Interactive Bootstrap Styling
+           ======================================================== */
+        .gp-container {
+            max-width: 760px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .gp-toolbar-card {
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .gp-card {
+            background: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gp-card:hover {
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+        }
+
+        /* Header Banner */
+        .gp-header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #ffffff;
+            padding: 1.25rem 1.5rem;
+            border-bottom: 3px solid #38bdf8;
+            position: relative;
+        }
+
+        .gp-header-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            margin: 0;
+        }
+
+        .gp-header-subtitle {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 0;
+        }
+
+        .gp-timing-bar {
+            background: #f1f5f9;
+            color: #334155;
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .gp-badge-meta {
+            background: #f8fafc;
+            border-bottom: 1px dashed #cbd5e1;
+            padding: 0.85rem 1.5rem;
+        }
+
+        .gp-meta-label {
+            color: #64748b;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .gp-meta-value {
+            color: #0f172a;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        /* Photo and Details */
+        .gp-body {
+            padding: 1.5rem;
+        }
+
+        .gp-photo-container {
+            text-align: center;
+            padding: 0.5rem;
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            min-height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gp-photo {
+            width: 140px;
+            height: 165px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            background: #e2e8f0;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .gp-emp-name {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+        }
+
+        .gp-field-list {
+            margin-top: 0.5rem;
+        }
+
+        .gp-field-row {
+            display: flex;
+            align-items: baseline;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            font-size: 0.88rem;
+        }
+
+        .gp-field-row:last-child {
+            border-bottom: none;
+        }
+
+        .gp-field-label {
+            width: 38%;
+            font-weight: 600;
+            color: #475569;
+            flex-shrink: 0;
+        }
+
+        .gp-field-sep {
+            width: 4%;
+            color: #94a3b8;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .gp-field-val {
+            width: 58%;
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        /* Footer Section */
+        .gp-footer {
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 0.85rem 1.5rem;
+        }
+
+        .gp-signatory-box {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+
+        .gp-signatory-line {
+            border-top: 1px solid #94a3b8;
+            width: 140px;
+            display: inline-block;
+            margin-top: 25px;
+            margin-bottom: 4px;
+        }
+
+        .bg-success-subtle { background-color: #d1fae5 !important; color: #065f46 !important; }
+        .bg-danger-subtle { background-color: #fee2e2 !important; color: #991b1b !important; }
+        .bg-secondary-subtle { background-color: #f1f5f9 !important; color: #475569 !important; }
+        .bg-info-subtle { background-color: #e0f2fe !important; color: #0369a1 !important; }
+
+        /* Print Styles */
+        @media print {
+            body {
+                padding-top: 0 !important;
+                background: #ffffff !important;
+            }
+            nav.navbar,
+            .gp-toolbar-card,
+            footer,
+            .footer,
+            .no-print {
+                display: none !important;
+            }
+            .gp-container {
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .gp-card {
+                border: 2px solid #000000 !important;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .gp-header {
+                background: #1e293b !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .gp-timing-bar,
+            .gp-badge-meta,
+            .gp-footer {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">

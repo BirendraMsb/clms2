@@ -594,17 +594,10 @@
                                                         <ControlStyle Width="70px" />
                                                         <ItemStyle Width="10px" Wrap="False" />
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="Emp Code">
+                                                    <asp:TemplateField HeaderText="Emp Code" SortExpression="emp_code">
                                                         <ItemTemplate>
-                                                            <asp:LinkButton ID="lnkEmpCode" runat="server" Text='<%# Eval("emp_code") %>' CommandName="Edit" ForeColor="#0d6efd" Font-Bold="True" ToolTip="Click to edit / approve attendance"></asp:LinkButton>
+                                                            <asp:Label ID="lbl_emp_code" runat="server" Text='<%# Eval("emp_code") %>'></asp:Label>
                                                         </ItemTemplate>
-                                                        <EditItemTemplate>
-                                                            <asp:Label ID="lbl_emp_code" runat="server" Text='<%# Eval("emp_code") %>' Font-Bold="True"></asp:Label>
-                                                            <div class="mt-1 d-flex gap-1">
-                                                                <asp:Button ID="btn_Update_Emp" class="btn btn-primary btn-sm rounded-pill" runat="server" Text="Update" CommandName="Update" />
-                                                                <asp:Button ID="btn_Cancel_Emp" class="btn btn-secondary btn-sm rounded-pill" runat="server" Text="Cancel" CommandName="Cancel" />
-                                                            </div>
-                                                        </EditItemTemplate>
                                                         <ControlStyle Width="150px" />
                                                         <ItemStyle Wrap="False" />
                                                     </asp:TemplateField>

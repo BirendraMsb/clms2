@@ -384,6 +384,8 @@
 
         body > form > table.table {
             width: 100% !important;
+            min-width: 100% !important;
+            table-layout: fixed !important;
             margin-bottom: 0 !important;
             border: none !important;
         }
@@ -397,10 +399,12 @@
            Gate Pass Card & Interactive Bootstrap Styling
            ======================================================== */
         .gp-wrapper {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 0 15px;
+            width: 100% !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            padding: 0 15px !important;
+            box-sizing: border-box !important;
         }
 
         .gp-container {

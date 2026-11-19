@@ -118,6 +118,32 @@
             border-top-left-radius: 0 !important;
             border-bottom-left-radius: 0 !important;
         }
+                .bonus-param-row {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: flex-end !important;
+            gap: 10px !important;
+            margin-bottom: 2rem !important;
+            clear: both !important;
+        }
+
+        .bonus-param-row > div {
+            float: none !important;
+            margin-bottom: 0 !important;
+        }
+
+        .bonus-param-row::after {
+            content: "" !important;
+            display: table !important;
+            clear: both !important;
+        }
+
+        .param-col-wo { flex: 2 1 200px; max-width: 250px; }
+        .param-col-bonus { flex: 1.5 1 130px; max-width: 160px; }
+        .param-col-month { flex: 1 1 85px; max-width: 105px; }
+        .param-col-year { flex: 1 1 95px; max-width: 110px; }
+        .param-col-btn { flex: 0 0 auto; margin-left: auto; }
+
         .form-two-column-row {
             margin-left: -17.5px;
             margin-right: -17.5px;
@@ -805,8 +831,8 @@
                                             <i class="fa fa-sliders-h text-primary me-2"></i>Select Work Order &amp; Bonus Parameters
                                         </div>
 
-                                        <div class="row g-2 align-items-end mb-3">
-                                            <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                                        <div class="bonus-param-row">
+                                            <div class="param-col-wo">
                                                 <label class="form-label fw-semibold text-dark text-nowrap" for="ddlWorkdOrder">Work Order Number <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <span class="input-group-text"><i class="fa fa-file-contract"></i></span>
@@ -815,17 +841,17 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-xl-2 col-lg-2 col-md-6 col-12">
+                                            <div class="param-col-bonus">
                                                 <label class="form-label fw-semibold text-dark text-nowrap" for="txtBonusPercent">Bonus Percentage (%) <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <span class="input-group-text"><i class="fa fa-percentage"></i></span>
-                                                    <asp:TextBox ID="txtBonusPercent" runat="server" class="form-control" placeholder="e.g. 8.33 to 20"></asp:TextBox>
+                                                    <asp:TextBox ID="txtBonusPercent" runat="server" class="form-control" placeholder="8.33 to 20"></asp:TextBox>
                                                 </div>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter Bonus in %" ForeColor="#dc2626" Display="Dynamic"></asp:RequiredFieldValidator>
-                                                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter Value between 8.33% to 20%" ForeColor="#dc2626" MinimumValue="8.33" MaximumValue="20" SetFocusOnError="true" Type="Double" Display="Dynamic"></asp:RangeValidator>
+                                                <asp:RangeValidator ID="RangeValidator1" runat="server" ControlToValidate="txtBonusPercent" ErrorMessage="Enter 8.33% to 20%" ForeColor="#dc2626" MinimumValue="8.33" MaximumValue="20" SetFocusOnError="true" Type="Double" Display="Dynamic"></asp:RangeValidator>
                                             </div>
 
-                                            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-6 col-6">
+                                            <div class="param-col-month">
                                                 <label class="form-label fw-semibold text-dark text-nowrap" for="ddlMonthFrom">Month From <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <asp:DropDownList ID="ddlMonthFrom" runat="server" class="form-select px-2" AutoPostBack="true" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
@@ -834,14 +860,14 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-6 col-6">
+                                            <div class="param-col-year">
                                                 <label class="form-label fw-semibold text-dark text-nowrap" for="ddlYearFrom">Year From <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <asp:DropDownList ID="ddlYearFrom" runat="server" class="form-select px-2" MaxLength="50"></asp:DropDownList>
                                                 </div>
                                             </div>
 
-                                            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-6 col-6">
+                                            <div class="param-col-month">
                                                 <label class="form-label fw-semibold text-dark text-nowrap" for="ddlMonthTo">Month To <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <asp:DropDownList ID="ddlMonthTo" runat="server" class="form-select px-2" AutoPostBack="true" MaxLength="150" OnSelectedIndexChanged="ddlMonth_SelectedIndexChanged">
@@ -850,20 +876,20 @@
                                                 </div>
                                             </div>
 
-                                            <div class="col-xl-1 col-lg-1 col-md-3 col-sm-6 col-6">
+                                            <div class="param-col-year">
                                                 <label class="form-label fw-semibold text-dark text-nowrap" for="ddlYearTo">Year To <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <asp:DropDownList ID="ddlYearTo" runat="server" class="form-select px-2" MaxLength="50"></asp:DropDownList>
                                                 </div>
                                             </div>
 
-                                            <div class="col-xl-auto col-lg-auto col-md-auto col-12 ms-xl-auto ms-lg-auto">
-                                                <asp:Button ID="cmdProcess" runat="server" Text="Process Bonus" class="btn btn-round-action btn-action-save text-nowrap shadow-sm" style="padding: 7px 22px !important; height: 38px; display: inline-flex; align-items: center; justify-content: center;" OnClick="cmdProcess_Click"></asp:Button>
+                                            <div class="param-col-btn">
+                                                <asp:Button ID="cmdProcess" runat="server" Text="Process Bonus" class="btn btn-round-action btn-action-save text-nowrap shadow-sm" style="padding: 7px 20px !important; height: 38px; display: inline-flex; align-items: center; justify-content: center;" OnClick="cmdProcess_Click"></asp:Button>
                                             </div>
                                         </div>
 
                                         <%-- Section 2: Calculated Bonus GridView --%>
-                                        <hr class="my-4 border-2" />
+                                        <hr class="my-4 border-2" style="clear: both !important; margin-top: 2rem !important;" />
                                         <div class="form-section-header">
                                             <i class="fa fa-list-alt text-primary me-2"></i>Annual Bonus Calculation Register
                                         </div>

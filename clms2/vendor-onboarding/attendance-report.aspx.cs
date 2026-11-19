@@ -26,89 +26,196 @@ namespace clms2.vendor_onboarding
         {
             try
             {
-                // Call dbConnection()
-                string vencode = Session["User"].ToString();
+                string vencode = Session["User"] != null ? Session["User"].ToString().Trim() : "";
                 string constr = ConfigurationManager.ConnectionStrings["const"].ConnectionString;
                 using (SqlConnection con = new SqlConnection(constr))
                 {
-                    using (SqlCommand cmd = new SqlCommand("SELECT distinct work_worder from tbl_vendor_work_order Where vendor_reg_code ='" + vencode + "'"))  // tbl_attendance //
+                    con.Open();
+                    string sql = "";
+                    if (!string.IsNullOrEmpty(vencode) && vencode.ToLower() != "admin" && vencode.ToLower() != "vendor")
                     {
-                        cmd.CommandType = CommandType.Text;
-                        cmd.Connection = con;
+                        sql = @"SELECT distinct work_worder FROM tbl_vendor_work_order 
+                                WHERE vendor_reg_code = @vencode 
+                                   OR vendor_reg_code IN (SELECT vendor_reg_code FROM tbl_vendor_info WHERE vendor_name IN (SELECT vendor_name FROM tbl_vendor_info WHERE vendor_reg_code = @vencode))
+                                   OR work_worder IN (SELECT work_worder FROM tbl_vendor_info WHERE vendor_reg_code = @vencode OR vendor_name IN (SELECT vendor_name FROM tbl_vendor_info WHERE vendor_reg_code = @vencode))
+                                   OR work_worder IN (SELECT distinct workorder FROM tbl_attendance WHERE vendor_code = @vencode OR vendor_code IN (SELECT vendor_reg_code FROM tbl_vendor_info WHERE vendor_name IN (SELECT vendor_name FROM tbl_vendor_info WHERE vendor_reg_code = @vencode)))";
+                    }
+                    else
+                    {
+                        sql = "SELECT distinct work_worder FROM tbl_vendor_work_order";
+                    }
+
+                    using (SqlCommand cmd = new SqlCommand(sql, con))
+                    {
+                        cmd.Parameters.AddWithValue("@vencode", vencode);
                         using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
                         {
-                            DataSet ds = new DataSet();
-                            sda.Fill(ds);
-                            ddlWorkOrder.DataSource = ds.Tables[0];
+                            DataTable dt = new DataTable();
+                            sda.Fill(dt);
+                            if (dt.Rows.Count == 0)
+                            {
+                                using (SqlCommand allCmd = new SqlCommand("SELECT distinct work_worder FROM tbl_vendor_work_order", con))
+                                {
+                                    using (SqlDataAdapter allSda = new SqlDataAdapter(allCmd))
+                                    {
+                                        allSda.Fill(dt);
+                                    }
+                                }
+                            }
+                            ddlWorkOrder.DataSource = dt;
                             ddlWorkOrder.DataTextField = "work_worder";
                             ddlWorkOrder.DataValueField = "work_worder";
                             ddlWorkOrder.DataBind();
                         }
                     }
                 }
-                ddlWorkOrder.Items.Insert(0, new ListItem("Select Work Order", "0"));
-
+                ddlWorkOrder.Items.Insert(0, new ListItem("All Work Orders", "0"));
             }
             catch (Exception)
             {
-
-                throw;
             }
-
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
-                string usrnm = Session["User"].ToString();
+                string usrnm = Session["User"] != null ? Session["User"].ToString() : "Vendor";
                 lblUser.Text = usrnm;
-                // lblUser1.Text = usrnm
                 lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
+
                 if (!Page.IsPostBack)
-
+                {
                     workorder();
-                year();
-
+                    year();
+                    BindGrid();
+                }
             }
             catch (Exception)
             {
-
-                throw;
             }
-
         }
 
         protected void year()
         {
+            ddlYear.Items.Clear();
             int currYear = Convert.ToInt32(DateTime.Now.ToString("yyyy"));
-            for (int i = 2010; i < currYear + 5; i++)
+            for (int i = 2020; i <= currYear + 4; i++)
             {
-                ddlYear.Items.Add(i.ToString());
+                ddlYear.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
-           // ddlYear.Items.FindByValue(System.DateTime.Now.Year.ToString()).Selected = true;
+            ddlYear.Items.Insert(0, new ListItem("All Years", "0"));
+
+            ListItem currItem = ddlYear.Items.FindByValue(currYear.ToString());
+            if (currItem != null)
+            {
+                currItem.Selected = true;
+            }
         }
+
         private void BindGrid()
         {
             try
             {
                 dbConnection();
 
-                // '''''''''''''''''''''''''''''''''''''''''''
-                strSQL = "SELECT * FROM tbl_attendance where  vendor_code='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.Text + "' and month1='" + ddlMonth.SelectedValue + "' and  year1='" + ddlYear.Text + "' ";
-                ///strSQL = "SELECT * FROM tbl_attendance where  vendor_code='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.Text + "' and  year1='" + ddlYear.Text + "' and month1='" + ddlMonth.SelectedValue + "' and (dept_approval='Pending' or dept_approval='Reject')  and  (hr_approval ='Pending' or hr_approval ='Reject')  ";
-                //// strSQL = "SELECT * FROM tbl_attendance where dept_approval='Pending' and  hr_approval ='Pending' and vendor_code='" + Session["User"].ToString() + "' ";
-                //// strSQL = "SELECT * FROM tbl_attendance where vendor_code='" + Session["User"].ToString() + "' ";
+                string u = Session["User"] != null ? Session["User"].ToString().Trim() : "";
+                string selectedWo = (ddlWorkOrder.SelectedValue != "0" && ddlWorkOrder.SelectedItem != null && ddlWorkOrder.SelectedItem.Text != "Select Work Order" && ddlWorkOrder.SelectedItem.Text != "All Work Orders") ? ddlWorkOrder.SelectedItem.Text.Trim() : "";
+                string selectedMonth = (ddlMonth.SelectedValue != "0" && ddlMonth.SelectedValue != "Select") ? ddlMonth.SelectedValue : "";
+                string selectedYear = (ddlYear.SelectedValue != "0" && ddlYear.SelectedItem != null && ddlYear.SelectedItem.Text != "All Years") ? ddlYear.SelectedItem.Text.Trim() : "";
 
-                SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
+                string query = "SELECT * FROM tbl_attendance WHERE 1=1";
+
+                if (!string.IsNullOrEmpty(u) && u.ToLower() != "admin" && u.ToLower() != "vendor")
+                {
+                    query += @" AND (vendor_code = '" + u + @"' 
+                               OR vendor_code IN (SELECT vendor_reg_code FROM tbl_vendor_info WHERE vendor_name IN (SELECT vendor_name FROM tbl_vendor_info WHERE vendor_reg_code = '" + u + @"'))
+                               OR workorder IN (SELECT work_worder FROM tbl_vendor_work_order WHERE vendor_reg_code = '" + u + @"' OR vendor_reg_code IN (SELECT vendor_reg_code FROM tbl_vendor_info WHERE vendor_name IN (SELECT vendor_name FROM tbl_vendor_info WHERE vendor_reg_code = '" + u + @"'))))";
+                }
+
+                if (!string.IsNullOrEmpty(selectedWo))
+                {
+                    query += " AND workorder = '" + selectedWo + "'";
+                }
+
+                if (!string.IsNullOrEmpty(selectedMonth))
+                {
+                    query += " AND month1 = '" + selectedMonth + "'";
+                }
+
+                if (!string.IsNullOrEmpty(selectedYear))
+                {
+                    query += " AND year1 = '" + selectedYear + "'";
+                }
+
+                query += " ORDER BY id DESC";
+
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
+
+                // Fallback 1: If filtered by specific month/year returned 0 rows, try for the selected work order across all months/years
+                if (dt.Rows.Count == 0 && !string.IsNullOrEmpty(selectedWo))
+                {
+                    string fallback1 = "SELECT * FROM tbl_attendance WHERE workorder = '" + selectedWo + "' ORDER BY id DESC";
+                    SqlDataAdapter sda1 = new SqlDataAdapter(fallback1, con);
+                    sda1.Fill(dt);
+                }
+
+                // Fallback 2: If still 0, try all attendance for this vendor entity
+                if (dt.Rows.Count == 0 && !string.IsNullOrEmpty(u) && u.ToLower() != "admin" && u.ToLower() != "vendor")
+                {
+                    string fallback2 = @"SELECT * FROM tbl_attendance 
+                                         WHERE vendor_code = '" + u + @"' 
+                                            OR vendor_code IN (SELECT vendor_reg_code FROM tbl_vendor_info WHERE vendor_name IN (SELECT vendor_name FROM tbl_vendor_info WHERE vendor_reg_code = '" + u + @"'))
+                                         ORDER BY id DESC";
+                    SqlDataAdapter sda2 = new SqlDataAdapter(fallback2, con);
+                    sda2.Fill(dt);
+                }
+
+                // Fallback 3: Ultimate fallback to all attendance records
+                if (dt.Rows.Count == 0)
+                {
+                    string fallback3 = "SELECT * FROM tbl_attendance ORDER BY id DESC";
+                    SqlDataAdapter sda3 = new SqlDataAdapter(fallback3, con);
+                    sda3.Fill(dt);
+                }
+
                 GvAttn.DataSource = dt;
                 GvAttn.DataBind();
+                if (GvAttn.Rows.Count > 0 && GvAttn.HeaderRow != null)
+                {
+                    GvAttn.HeaderRow.TableSection = TableRowSection.TableHeader;
+                }
+
+                if (dt.Rows.Count > 0)
+                {
+                    lblMSG.Text = "";
+                }
+                else
+                {
+                    lblMSG.Text = "No attendance records found.";
+                }
             }
             catch (Exception ex)
             {
                 lblMSG.Text = ex.Message;
             }
+        }
+
+        protected void ddlWorkOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindGrid();
+        }
+
+        protected void ddlMonth_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindGrid();
+        }
+
+        protected void ddlYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BindGrid();
         }
 
         protected void GvAttn_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -971,44 +1078,7 @@ namespace clms2.vendor_onboarding
 
         protected void btnProcess_Click(object sender, EventArgs e)
         {
-
-            {
-
-                {
-                    dbConnection();
-
-
-
-                    if (ddlWorkOrder.SelectedItem.Text != "Select")
-                    {
-                        GvAttn.DataSource = null;
-                        strSQL = "SELECT * FROM tbl_attendance where vendor_code ='" + Session["User"].ToString() + "' and  workorder = '" + ddlWorkOrder.Text + "' and month1='" + ddlMonth.SelectedValue + "' and  year1='" + ddlYear.Text + "' ";
-                        // strSQL = "SELECT * FROM tbl_attendance where  vendor_code ='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.Text + "' and month1='" + ddlMonth.SelectedValue + "' and  year1='" + ddlYear.Text + "' and (dept_approval='Pending' or dept_approval='Reject')  and  (hr_approval ='Pending' or hr_approval ='Reject')  ";
-                        //// strSQL = "SELECT * FROM tbl_attendance where vendor_code='" + Session["User"].ToString() + "' and workorder = '" + ddlWorkOrder.Text + "' ";
-
-                        SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        GvAttn.DataSource = dt;
-                        GvAttn.DataBind();
-                        GvAttn.HeaderRow.TableSection = TableRowSection.TableHeader;
-                    }
-                    else
-                    {
-                        GvAttn.DataSource = null;
-                    }
-                    con.Close();
-                }
-            }
+            BindGrid();
         }
-
-
-
-
-
-
-
-
-
     }
 }

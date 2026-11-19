@@ -694,7 +694,7 @@
             </tr>
             <tr>
                 <td>
-                    <div class="page-wrapper">
+                    <div class="page-wrapper" style="margin-top: 110px !important;">
                         <div class="page-content-tab">
                             <div class="container-fluid">
 
@@ -707,7 +707,7 @@
 
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: scroll; width: 80%">
+                                        <div class="table-responsive" style="overflow: auto; width: 100%;">
                                             <%--========================================================================================--%>
                                              <asp:Label ID="lblMSG" runat="server" Text="" Font-Size="15" ForeColor="Red"></asp:Label>
                                             <asp:Label ID="lblVendorName" runat="server" Text="" Font-Size="15" ForeColor="Blue"></asp:Label>
@@ -1308,9 +1308,9 @@
                                                 </Columns>
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                                <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
+                                                <HeaderStyle CssClass="myheader" BackColor="#343a40" Height="35px" Font-Bold="True" ForeColor="White" />
                                                 <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                                <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
+                                                <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
                                                 <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
                                                 <SortedAscendingCellStyle BackColor="#F1F1F1" />
                                                 <SortedAscendingHeaderStyle BackColor="#0000A9" />

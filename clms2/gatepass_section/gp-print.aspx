@@ -183,6 +183,21 @@
             color: #7dd3fc !important;
         }
 
+        html body nav.navbar .dropdown-item.disabled,
+        html body nav.navbar .dropdown-item:disabled {
+            color: #64748b !important;
+            opacity: 0.5 !important;
+            pointer-events: none !important;
+            cursor: not-allowed !important;
+            background: transparent !important;
+            transform: none !important;
+        }
+
+        html body nav.navbar .dropdown-item.disabled i,
+        html body nav.navbar .dropdown-item.disabled i.fa {
+            color: #64748b !important;
+        }
+
         html body nav.navbar .dropdown-divider {
             border-top: 1px solid #333333 !important;
             margin: 0.4rem 0 !important;
@@ -681,9 +696,7 @@
                                                 </a>
                                             </li>
                                              <li>
-                                                <a class="dropdown-item" href="gp-print1.aspx">
-                                                    <i class="fa fa-angle-right me-1"></i>Gate Pass Print
-                                                </a>
+                                                <a class="dropdown-item disabled" href="javascript:void(0);" tabindex="-1" aria-disabled="true" style="pointer-events: none; opacity: 0.5; color: #64748b !important; cursor: not-allowed;"><i class="fa fa-angle-right me-1" style="color: #64748b !important;"></i>Gate Pass Print</a>
                                             </li>
                                         </ul>
                                     </li>

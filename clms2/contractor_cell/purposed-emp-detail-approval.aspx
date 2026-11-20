@@ -477,104 +477,38 @@
             padding: 0.5rem 0 3rem 0 !important;
             overflow: visible !important;
         }
-
-        /* DataTables Navigation Pagination - Beautifully Centered */
-        .dataTables_wrapper .dataTables_paginate {
-            float: none !important;
-            text-align: center !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            flex-wrap: wrap !important;
-            margin: 1.25rem auto 1rem auto !important;
-            padding: 0.75rem 0 !important;
-            width: 100% !important;
-            clear: both !important;
-            position: relative !important;
-        }
-
-        .dataTables_wrapper .dataTables_paginate .paginate_button {
-            border-radius: 50px !important;
-            padding: 0.4rem 0.9rem !important;
-            font-size: 0.9rem !important;
-            font-weight: 600 !important;
-            margin: 0 4px !important;
-            cursor: pointer !important;
-            border: 1.5px solid #cbd5e1 !important;
-            background: #ffffff !important;
-            color: #0f172a !important;
-            transition: all 0.25s ease !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            min-width: 38px !important;
-            height: 38px !important;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
-        }
-
-        .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled) {
-            background: #e0f2fe !important;
-            color: #0284c7 !important;
-            border-color: #38bdf8 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
-        }
-
-        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
-        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-            background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%) !important;
-            color: #ffffff !important;
-            border-color: #0d6efd !important;
-            font-weight: 700 !important;
-            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.35) !important;
-            transform: scale(1.05) !important;
-        }
-
-        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
-        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
-            color: #94a3b8 !important;
-            border-color: #e2e8f0 !important;
-            background: #f8fafc !important;
-            cursor: not-allowed !important;
-            opacity: 0.65 !important;
-            box-shadow: none !important;
-        }
-
-        .dataTables_wrapper .dataTables_info {
-            padding: 0.75rem 0 !important;
-            text-align: center !important;
-            font-size: 0.88rem !important;
-            color: #64748b !important;
-            float: none !important;
-            width: 100% !important;
-        }
-
         /* ================================================================= */
-        /* Modern Attractive Centered Pagination for GvEmp GridView          */
+        /* Navigation Buttons Positioned Directly Below 'Caste' Column       */
         /* ================================================================= */
-        #gvEmpPagerOutside {
-            background: #f8fafc !important;
-            border-top: 1px solid #e2e8f0 !important;
-            border-bottom-left-radius: 0.5rem !important;
-            border-bottom-right-radius: 0.5rem !important;
-            padding: 1rem !important;
-            width: 100% !important;
-            margin: 0 auto !important;
+        .GridPager,
+        .GridPager td,
+        tr.GridPager,
+        tr.GridPager td,
+        #GvEmp tr.GridPager,
+        #GvEmp tr.GridPager td,
+        #GvEmp tr:last-child td[colspan] {
+            text-align: left !important;
+            vertical-align: middle !important;
+            padding: 0.85rem 0.5rem !important;
+            background-color: #f8fafc !important;
+            border-top: 2px solid #e2e8f0 !important;
         }
 
-        #gvEmpPagerOutside table,
+        /* Default position directly under Caste column (~880px from left) */
         .GridPager table,
         #GvEmp tr.GridPager table,
         #GvEmp td[colspan] > table {
-            margin: 0 auto !important;
-            text-align: center !important;
+            position: relative !important;
+            left: 880px !important;
+            transform: translateX(-50%) !important;
+            display: inline-table !important;
+            margin: 0 !important;
             border-collapse: separate !important;
             border-spacing: 6px !important;
             border: none !important;
             background: transparent !important;
         }
 
-        #gvEmpPagerOutside table td,
         .GridPager table td,
         #GvEmp tr.GridPager table td {
             padding: 0 3px !important;
@@ -583,13 +517,34 @@
             vertical-align: middle !important;
         }
 
+        /* DataTables pagination aligned below Caste */
+        .dataTables_wrapper .dataTables_paginate {
+            float: none !important;
+            text-align: left !important;
+            display: inline-flex !important;
+            position: relative !important;
+            left: 880px !important;
+            transform: translateX(-50%) !important;
+            margin: 1rem 0 !important;
+            padding: 0.5rem 0 !important;
+            clear: both !important;
+        }
+
+        .dataTables_wrapper .dataTables_info {
+            padding: 0.75rem 0 !important;
+            text-align: left !important;
+            padding-left: 1rem !important;
+            font-size: 0.88rem !important;
+            color: #64748b !important;
+            float: none !important;
+        }
+
         /* Common Page Button Styling (Pill Style) */
-        #gvEmpPagerOutside table td a,
-        #gvEmpPagerOutside table td span,
         .GridPager table td a,
         .GridPager table td span,
         #GvEmp tr.GridPager table td a,
-        #GvEmp tr.GridPager table td span {
+        #GvEmp tr.GridPager table td span,
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
@@ -606,12 +561,14 @@
             transition: all 0.25s ease !important;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
             cursor: pointer !important;
+            margin: 0 3px !important;
         }
 
         /* Active / Current Page Number (Vibrant Blue Gradient) */
-        #gvEmpPagerOutside table td span,
         .GridPager table td span,
-        #GvEmp tr.GridPager table td span {
+        #GvEmp tr.GridPager table td span,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
             background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%) !important;
             color: #ffffff !important;
             border-color: #0d6efd !important;
@@ -622,9 +579,9 @@
         }
 
         /* Inactive Page Numbers on Hover */
-        #gvEmpPagerOutside table td a:hover,
         .GridPager table td a:hover,
-        #GvEmp tr.GridPager table td a:hover {
+        #GvEmp tr.GridPager table td a:hover,
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled) {
             background-color: #e0f2fe !important;
             color: #0284c7 !important;
             border-color: #38bdf8 !important;
@@ -632,28 +589,14 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
         }
 
-        /* Fallback for Table-Internal GridPager row */
-        .GridPager,
-        .GridPager td,
-        tr.GridPager,
-        tr.GridPager td,
-        #GvEmp tr.GridPager,
-        #GvEmp tr.GridPager td,
-        #GvEmp tr:last-child td[colspan] {
-            text-align: center !important;
-            vertical-align: middle !important;
-            padding: 0.85rem 0.5rem !important;
-            background-color: #f8fafc !important;
-            border-top: 2px solid #e2e8f0 !important;
-        }
-
-        .GridPager table,
-        #GvEmp tr.GridPager table {
-            position: sticky !important;
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-            display: inline-table !important;
-            z-index: 10 !important;
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+            color: #94a3b8 !important;
+            border-color: #e2e8f0 !important;
+            background: #f8fafc !important;
+            cursor: not-allowed !important;
+            opacity: 0.65 !important;
+            box-shadow: none !important;
         }
     </style>
 </head>
@@ -1244,8 +1187,7 @@
                                             <%--  <asp:HiddenField ID="hfCount" runat="server" Value = "0" />--%>
                                             <%--========================================================================================--%>
                                         </div>
-                                        <!-- Centered Pagination Container (Outside horizontal scroll) -->
-                                        <div id="gvEmpPagerOutside" class="d-flex justify-content-center align-items-center py-3"></div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1304,23 +1246,70 @@
             });
         </script>
         <script type="text/javascript">
-            function centerGvEmpPager() {
-                var $pagerTable = $('#GvEmp tr.GridPager td table, #GvEmp td[colspan] > table');
-                if ($pagerTable.length > 0) {
-                    $('#gvEmpPagerOutside').empty().append($pagerTable).show();
-                    $('#GvEmp tr.GridPager').hide();
-                } else if ($('#gvEmpPagerOutside table').length === 0) {
-                    $('#gvEmpPagerOutside').hide();
+            function alignPagerBelowCaste() {
+                var $table = $('#GvEmp');
+                // Find Caste column header
+                var $casteTh = $table.find('th').filter(function () {
+                    return $(this).text().trim().toLowerCase() === 'caste';
+                });
+                if ($casteTh.length === 0) {
+                    $casteTh = $table.find('th:contains("Caste")').first();
+                }
+
+                // Default offset if not measured yet
+                var casteCenter = 880;
+                if ($casteTh.length > 0 && $casteTh.is(':visible')) {
+                    var thPos = $casteTh.position();
+                    if (thPos && thPos.left > 0) {
+                        casteCenter = thPos.left + ($casteTh.outerWidth() / 2);
+                    }
+                }
+
+                // 1. Align ASP.NET GridView Native Pager Table
+                var $gridPagerTable = $('#GvEmp tr.GridPager td table, #GvEmp td[colspan] > table');
+                if ($gridPagerTable.length > 0) {
+                    $('#GvEmp tr.GridPager td').css({
+                        'text-align': 'left',
+                        'padding-left': '0'
+                    });
+                    $gridPagerTable.css({
+                        'display': 'inline-table',
+                        'position': 'relative',
+                        'left': casteCenter + 'px',
+                        'transform': 'translateX(-50%)',
+                        'margin': '0'
+                    });
+                }
+
+                // 2. Align DataTables pagination if active
+                var $dtPaginate = $('.dataTables_paginate');
+                if ($dtPaginate.length > 0) {
+                    $dtPaginate.css({
+                        'float': 'none',
+                        'display': 'inline-flex',
+                        'position': 'relative',
+                        'left': casteCenter + 'px',
+                        'transform': 'translateX(-50%)',
+                        'margin': '0.75rem 0'
+                    });
+                    $dtPaginate.parent().css({
+                        'text-align': 'left'
+                    });
                 }
             }
 
             $(window).on("load", function () {
                 $('#GvEmp').DataTable({ responsive: true });
-                centerGvEmpPager();
+                alignPagerBelowCaste();
+                setTimeout(alignPagerBelowCaste, 300);
             });
 
             $(document).ready(function () {
-                centerGvEmpPager();
+                alignPagerBelowCaste();
+            });
+
+            $(window).on('resize', function () {
+                alignPagerBelowCaste();
             });
         </script>
 

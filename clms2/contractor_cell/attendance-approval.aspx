@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="attendance-approval.aspx.cs"
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="attendance-approval.aspx.cs"
     Inherits="clms2.contractor_cell.attendance_approval" %>
 
     <!DOCTYPE html>
@@ -62,9 +62,139 @@
             }
 
             .gridview-container {
-                overflow: auto;
-                width: 700px;
-                /* set your desired width here */
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+
+            .table-responsive {
+                width: 100% !important;
+                max-width: 100% !important;
+                overflow-x: auto !important;
+            }
+
+            .dataTables_wrapper {
+                position: relative !important;
+                padding: 0.5rem 0 3rem 0 !important;
+                overflow: visible !important;
+                width: 100% !important;
+            }
+
+            /* ================================================================= */
+            /* Navigation Buttons & Page Number Styling                           */
+            /* ================================================================= */
+            .GridPager,
+            .GridPager td,
+            tr.GridPager,
+            tr.GridPager td,
+            #GvAttn tr.GridPager,
+            #GvAttn tr.GridPager td,
+            #GvAttn tr:last-child td[colspan] {
+                text-align: center !important;
+                vertical-align: middle !important;
+                padding: 0.85rem 0.5rem !important;
+                background-color: #f8fafc !important;
+                border-top: 2px solid #e2e8f0 !important;
+            }
+
+            .GridPager table,
+            #GvAttn tr.GridPager table,
+            #GvAttn td[colspan] > table {
+                position: relative !important;
+                display: inline-table !important;
+                margin: 0 auto !important;
+                border-collapse: separate !important;
+                border-spacing: 14px 4px !important; /* Generous space between page numbers */
+                border: none !important;
+                background: transparent !important;
+            }
+
+            .GridPager table td,
+            #GvAttn tr.GridPager table td {
+                padding: 0 4px !important;
+                border: none !important;
+                background: transparent !important;
+                vertical-align: middle !important;
+            }
+
+            /* DataTables pagination centered */
+            .dataTables_wrapper .dataTables_paginate {
+                float: none !important;
+                text-align: center !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                margin: 1.5rem auto !important;
+                padding: 0.5rem 0 !important;
+                clear: both !important;
+            }
+
+            .dataTables_wrapper .dataTables_info {
+                padding: 0.75rem 0 !important;
+                text-align: left !important;
+                padding-left: 1rem !important;
+                font-size: 0.88rem !important;
+                color: #64748b !important;
+                float: none !important;
+            }
+
+            /* Large Page Number Buttons with Generous Spacing */
+            .GridPager table td a,
+            .GridPager table td span,
+            #GvAttn tr.GridPager table td a,
+            #GvAttn tr.GridPager table td span,
+            .dataTables_wrapper .dataTables_paginate .paginate_button {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-width: 46px !important; /* Bigger button width */
+                height: 46px !important;    /* Bigger button height */
+                padding: 0.5rem 1.15rem !important; /* Generous button padding */
+                margin: 0 8px !important;   /* Generous space between buttons */
+                border-radius: 50px !important;
+                border: 2px solid #cbd5e1 !important;
+                background-color: #ffffff !important;
+                color: #0f172a !important;
+                text-decoration: none !important;
+                font-weight: 700 !important;
+                font-size: 1.15rem !important; /* Bigger font size */
+                transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08) !important;
+                cursor: pointer !important;
+            }
+
+            /* Active / Current Page Number (Big, Vibrant Blue Gradient Pill) */
+            .GridPager table td span,
+            #GvAttn tr.GridPager table td span,
+            .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+            .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+                background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%) !important;
+                color: #ffffff !important;
+                border-color: #0d6efd !important;
+                font-weight: 800 !important;
+                box-shadow: 0 5px 14px rgba(13, 110, 253, 0.4) !important;
+                transform: scale(1.1) !important; /* Highlighted larger scale */
+                cursor: default !important;
+            }
+
+            /* Inactive Page Numbers on Hover */
+            .GridPager table td a:hover,
+            #GvAttn tr.GridPager table td a:hover,
+            .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled) {
+                background-color: #e0f2fe !important;
+                color: #0284c7 !important;
+                border-color: #38bdf8 !important;
+                transform: translateY(-3px) scale(1.05) !important;
+                box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12) !important;
+            }
+
+            .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+            .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+                color: #94a3b8 !important;
+                border-color: #e2e8f0 !important;
+                background: #f8fafc !important;
+                cursor: not-allowed !important;
+                opacity: 0.65 !important;
+                box-shadow: none !important;
             }
 
 
@@ -732,7 +862,7 @@
                                                         <asp:Label ID="lblVendorName" runat="server" Text=""
                                                             Font-Size="15" ForeColor="Blue"></asp:Label>
 
-                                                        <asp:GridView ID="GvAttn" runat="server"
+                                                        <asp:GridView ID="GvAttn" runat="server" AllowPaging="True" PageSize="5"
                                                             CssClass="gridview-container" AutoGenerateColumns="False"
                                                             BackColor="White" BorderColor="#999999" BorderStyle="None"
                                                             BorderWidth="1px" CellPadding="3" GridLines="Vertical"
@@ -1618,10 +1748,8 @@
                                                             <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                                             <HeaderStyle CssClass="myheader" BackColor="#eeeeee"
                                                                 Height="30px" Font-Bold="True" ForeColor="White" />
-                                                            <PagerStyle CssClass="GridPager" BackColor="#999999"
-                                                                ForeColor="#0033CC" HorizontalAlign="Center"
-                                                                BorderColor="#FF9900" Font-Bold="True"
-                                                                Font-Size="X-Large" />
+                                                            <PagerSettings Mode="NumericFirstLast" PageButtonCount="10" FirstPageText="&laquo; First" LastPageText="Last &raquo;" NextPageText="Next &rsaquo;" PreviousPageText="&lsaquo; Prev" Position="Bottom" />
+                                                            <PagerStyle CssClass="GridPager" HorizontalAlign="Center" />
                                                             <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
                                                             <SelectedRowStyle BackColor="#008A8C" Font-Bold="True"
                                                                 ForeColor="Black" />
@@ -1770,7 +1898,41 @@
                                 });
                             });
                         </script>
-        </form>
+                                <script type="text/javascript">
+                            function ensurePageNumbersVisible() {
+                                // If DataTables initialized, ensure full pagination with numbers
+                                var $dtPaginate = $('.dataTables_paginate');
+                                if ($dtPaginate.length > 0 && $dtPaginate.find('.paginate_button').length === 0) {
+                                    $dtPaginate.html('<span><a class="paginate_button current">1</a></span>').show();
+                                }
+
+                                // If native GridView pager is missing because records <= pageSize, show page 1 indicator
+                                if ($('#GvAttn tr.GridPager').length === 0 && $('#GvAttn tbody tr').length > 0) {
+                                    var $lastTr = $('#GvAttn tbody tr:last');
+                                    var cols = $lastTr.children('td, th').length || 50;
+                                    var fallbackPager = '<tr class="GridPager"><td colspan="' + cols + '"><table><tbody><tr><td><span class="paginate_button current">1</span></td></tr></tbody></table></td></tr>';
+                                    $('#GvAttn tbody').append(fallbackPager);
+                                }
+                            }
+
+                            $(window).on("load", function () {
+                                if ($.fn.DataTable && $('#GvAttn').length && !$.fn.DataTable.isDataTable('#GvAttn')) {
+                                    $('#GvAttn').DataTable({
+                                        responsive: false,
+                                        scrollX: true,
+                                        autoWidth: false,
+                                        pageLength: 5,
+                                        lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                                        pagingType: "full_numbers"
+                                    });
+                                }
+                                ensurePageNumbersVisible();
+                                setTimeout(function () {
+                                    ensurePageNumbersVisible();
+                                }, 300);
+                            });
+                        </script>
+                        </form>
     </body>
 
     </html>

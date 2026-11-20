@@ -397,6 +397,120 @@
                 display: none !important;
             }
         }
+
+        /* ================================================================= */
+        /* Large, Generously Spaced Navigation Page Buttons for GvEmp        */
+        /* ================================================================= */
+        .GridPager,
+        .GridPager td,
+        tr.GridPager,
+        tr.GridPager td,
+        #GvEmp tr.GridPager,
+        #GvEmp tr.GridPager td,
+        #GvEmp tr:last-child td[colspan] {
+            text-align: left !important;
+            vertical-align: middle !important;
+            padding: 1.25rem 0.5rem !important;
+            background-color: #f8fafc !important;
+            border-top: 2px solid #e2e8f0 !important;
+        }
+
+        /* Spacious Pager Table */
+        .GridPager table,
+        #GvEmp tr.GridPager table,
+        #GvEmp td[colspan] > table {
+            position: relative !important;
+            left: 800px !important;
+            transform: translateX(-50%) !important;
+            display: inline-table !important;
+            margin: 0 !important;
+            border-collapse: separate !important;
+            border-spacing: 14px 4px !important; /* Generous space between page numbers */
+            border: none !important;
+            background: transparent !important;
+        }
+
+        .GridPager table td,
+        #GvEmp tr.GridPager table td {
+            padding: 0 4px !important;
+            border: none !important;
+            background: transparent !important;
+            vertical-align: middle !important;
+        }
+
+        /* Large Page Number Buttons with Generous Spacing */
+        .GridPager table td a,
+        .GridPager table td span,
+        #GvEmp tr.GridPager table td a,
+        #GvEmp tr.GridPager table td span,
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 46px !important; /* Bigger button width */
+            height: 46px !important;    /* Bigger button height */
+            padding: 0.5rem 1.15rem !important; /* Generous button padding */
+            margin: 0 8px !important;   /* Generous space between buttons */
+            border-radius: 50px !important;
+            border: 2px solid #cbd5e1 !important;
+            background-color: #ffffff !important;
+            color: #0f172a !important;
+            text-decoration: none !important;
+            font-weight: 700 !important;
+            font-size: 1.15rem !important; /* Bigger font size */
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08) !important;
+            cursor: pointer !important;
+        }
+
+        /* Active / Current Page Number (Big, Vibrant Blue Gradient Pill) */
+        .GridPager table td span,
+        #GvEmp tr.GridPager table td span,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+            background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%) !important;
+            color: #ffffff !important;
+            border-color: #0d6efd !important;
+            font-weight: 800 !important;
+            box-shadow: 0 5px 14px rgba(13, 110, 253, 0.4) !important;
+            transform: scale(1.1) !important; /* Highlighted larger scale */
+            cursor: default !important;
+        }
+
+        /* Inactive Page Numbers on Hover */
+        .GridPager table td a:hover,
+        #GvEmp tr.GridPager table td a:hover,
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled) {
+            background-color: #e0f2fe !important;
+            color: #0284c7 !important;
+            border-color: #38bdf8 !important;
+            transform: translateY(-3px) scale(1.05) !important;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        /* DataTables Pagination Alignment & Spacing */
+        .dataTables_wrapper .dataTables_paginate {
+            float: none !important;
+            text-align: left !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            position: relative !important;
+            left: 800px !important;
+            transform: translateX(-50%) !important;
+            margin: 1.5rem 0 !important;
+            padding: 0.5rem 0 !important;
+            clear: both !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+            color: #94a3b8 !important;
+            border-color: #e2e8f0 !important;
+            background: #f8fafc !important;
+            cursor: not-allowed !important;
+            opacity: 0.6 !important;
+            box-shadow: none !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -968,7 +1082,7 @@
                                                 <AlternatingRowStyle BackColor="#FFFFFF" />
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                                 <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="#0033CC" HorizontalAlign="Center" BorderColor="#FF9900" Font-Bold="True" Font-Size="X-Large" />
+                                                <PagerStyle CssClass="GridPager" HorizontalAlign="Center" />
                                                 <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
                                                 <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
                                                 <SortedAscendingCellStyle BackColor="#F1F1F1" />
@@ -1171,9 +1285,64 @@
             }
         });
     </script>
-    <script type="text/jscript">
+    <script type="text/javascript">
+        function alignPagerBelowCaste() {
+            var $table = $('#GvEmp');
+            var $casteTh = $table.find('th').filter(function () {
+                return $(this).text().trim().toLowerCase() === 'caste';
+            });
+            if ($casteTh.length === 0) {
+                $casteTh = $table.find('th:contains("Caste")').first();
+            }
+
+            var casteCenter = 800;
+            if ($casteTh.length > 0 && $casteTh.is(':visible')) {
+                var thPos = $casteTh.position();
+                if (thPos && thPos.left > 0) {
+                    casteCenter = thPos.left + ($casteTh.outerWidth() / 2);
+                }
+            }
+
+            var $gridPagerTable = $('#GvEmp tr.GridPager td table, #GvEmp td[colspan] > table');
+            if ($gridPagerTable.length > 0) {
+                $('#GvEmp tr.GridPager td').css({
+                    'text-align': 'left',
+                    'padding-left': '0'
+                });
+                $gridPagerTable.css({
+                    'display': 'inline-table',
+                    'position': 'relative',
+                    'left': casteCenter + 'px',
+                    'transform': 'translateX(-50%)',
+                    'margin': '0'
+                });
+            }
+
+            var $dtPaginate = $('.dataTables_paginate');
+            if ($dtPaginate.length > 0) {
+                $dtPaginate.css({
+                    'float': 'none',
+                    'display': 'inline-flex',
+                    'position': 'relative',
+                    'left': casteCenter + 'px',
+                    'transform': 'translateX(-50%)',
+                    'margin': '1rem 0'
+                });
+            }
+        }
+
         $(window).on("load", function () {
             $('#GvEmp').DataTable({ responsive: true });
+            alignPagerBelowCaste();
+            setTimeout(alignPagerBelowCaste, 300);
+        });
+
+        $(document).ready(function () {
+            alignPagerBelowCaste();
+        });
+
+        $(window).on('resize', function () {
+            alignPagerBelowCaste();
         });
     </script>
 </body>

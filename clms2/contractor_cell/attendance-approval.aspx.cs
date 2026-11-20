@@ -80,7 +80,7 @@ namespace clms2.contractor_cell
         protected void GvAttn_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GvAttn.PageIndex = e.NewPageIndex;
-            GvAttn.DataBind();
+            BindGrid();
         }
 
         private void BindGrid()

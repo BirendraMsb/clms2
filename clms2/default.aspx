@@ -95,17 +95,87 @@
             max-width: 780px;
         }
 
+        /* Hero Right-side Feature Box */
+        .hero-feature-card {
+            background-color: #0f172a !important;
+            background: rgba(15, 23, 42, 0.92) !important;
+            border: 1px solid rgba(255, 255, 255, 0.22) !important;
+            border-radius: 1.25rem;
+            padding: 1.75rem;
+            color: #ffffff !important;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .hero-feature-card .card-badge-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #0d6efd, #0284c7);
+            color: #ffffff !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .hero-feature-card .card-brand-title {
+            color: #ffffff !important;
+            font-size: 1.1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero-feature-card .card-brand-subtitle {
+            color: #38bdf8 !important;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .hero-feature-card .card-lead-text {
+            color: #e2e8f0 !important;
+            font-size: 0.92rem;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .hero-feature-card .card-list-item {
+            color: #f8fafc !important;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .hero-feature-card .card-list-item i {
+            color: #38bdf8 !important;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+
         /* Metrics Bar */
         .metric-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background-color: #0f172a !important;
+            background: rgba(15, 23, 42, 0.85) !important;
+            border: 1px solid rgba(255, 255, 255, 0.18) !important;
             border-radius: 1rem;
             padding: 1.25rem 1rem;
             transition: transform 0.25s ease, background-color 0.25s ease;
         }
         .metric-card:hover {
             transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(15, 23, 42, 0.95) !important;
+            border-color: rgba(56, 189, 248, 0.4) !important;
+        }
+        .metric-card .metric-title {
+            color: #ffffff !important;
+            font-weight: 700;
+        }
+        .metric-card .metric-subtitle {
+            color: #94a3b8 !important;
+            font-size: 0.85rem;
         }
 
         /* Capability Cards */
@@ -308,31 +378,35 @@
                     </div>
 
                     <div class="col-lg-4">
-                        <div class="p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-15 shadow-lg backdrop-blur">
-                            <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom border-white border-opacity-10">
-                                <div class="bg-primary text-white rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
-                                    <i class="bi bi-building-check fs-5"></i>
+                        <div class="hero-feature-card">
+                            <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom border-white border-opacity-15">
+                                <div class="card-badge-icon">
+                                    <i class="bi bi-building-check"></i>
                                 </div>
                                 <div>
-                                    <div class="text-white fw-bold">Electro Solutions</div>
-                                    <div class="text-white-50 small">Enterprise CLM Services</div>
+                                    <div class="card-brand-title">Electro Solutions</div>
+                                    <div class="card-brand-subtitle">Enterprise CLM Services</div>
                                 </div>
                             </div>
-                            <p class="text-light small mb-3">
+                            <p class="card-lead-text">
                                 Comprehensive start-to-end workforce management supporting:
                             </p>
-                            <ul class="list-unstyled text-light small d-flex flex-column gap-2 mb-0">
-                                <li class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-check2-circle text-info"></i> Contractor Onboarding & KYC
+                            <ul class="list-unstyled mb-0 d-flex flex-column gap-2">
+                                <li class="card-list-item">
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span>Contractor Onboarding & KYC</span>
                                 </li>
-                                <li class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-check2-circle text-info"></i> Biometric Attendance Integration
+                                <li class="card-list-item">
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span>Biometric Attendance Integration</span>
                                 </li>
-                                <li class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-check2-circle text-info"></i> Automated Wage & Statutory Checks
+                                <li class="card-list-item">
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span>Automated Wage & Statutory Checks</span>
                                 </li>
-                                <li class="d-flex align-items-center gap-2">
-                                    <i class="bi bi-check2-circle text-info"></i> Multi-tier Safety & Admin Approvals
+                                <li class="card-list-item">
+                                    <i class="bi bi-check2-circle"></i>
+                                    <span>Multi-tier Safety & Admin Approvals</span>
                                 </li>
                             </ul>
                         </div>
@@ -344,29 +418,29 @@
                     <div class="col">
                         <div class="metric-card text-center">
                             <div class="fs-4 text-info mb-1"><i class="bi bi-speedometer2"></i></div>
-                            <div class="fw-bold text-white">Real-Time Tracking</div>
-                            <div class="text-white-50 small">Live deployment visibility</div>
+                            <div class="metric-title">Real-Time Tracking</div>
+                            <div class="metric-subtitle">Live deployment visibility</div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="metric-card text-center">
                             <div class="fs-4 text-success mb-1"><i class="bi bi-patch-check"></i></div>
-                            <div class="fw-bold text-white">100% Compliance</div>
-                            <div class="text-white-50 small">PF, ESIC & CLRA regulations</div>
+                            <div class="metric-title">100% Compliance</div>
+                            <div class="metric-subtitle">PF, ESIC & CLRA regulations</div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="metric-card text-center">
                             <div class="fs-4 text-warning mb-1"><i class="bi bi-pie-chart"></i></div>
-                            <div class="fw-bold text-white">Unified HRIS</div>
-                            <div class="text-white-50 small">Accurate, audit-ready data</div>
+                            <div class="metric-title">Unified HRIS</div>
+                            <div class="metric-subtitle">Accurate, audit-ready data</div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="metric-card text-center">
                             <div class="fs-4 text-primary mb-1"><i class="bi bi-shield-lock"></i></div>
-                            <div class="fw-bold text-white">Role-Based Security</div>
-                            <div class="text-white-50 small">Segregated department access</div>
+                            <div class="metric-title">Role-Based Security</div>
+                            <div class="metric-subtitle">Segregated department access</div>
                         </div>
                     </div>
                 </div>

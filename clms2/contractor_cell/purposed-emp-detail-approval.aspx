@@ -478,14 +478,182 @@
             overflow: visible !important;
         }
 
+        /* DataTables Navigation Pagination - Beautifully Centered */
         .dataTables_wrapper .dataTables_paginate {
-            margin-top: 1.5rem !important;
-            margin-bottom: 1.5rem !important;
+            float: none !important;
+            text-align: center !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            flex-wrap: wrap !important;
+            margin: 1.25rem auto 1rem auto !important;
+            padding: 0.75rem 0 !important;
+            width: 100% !important;
+            clear: both !important;
+            position: relative !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            border-radius: 50px !important;
+            padding: 0.4rem 0.9rem !important;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            margin: 0 4px !important;
+            cursor: pointer !important;
+            border: 1.5px solid #cbd5e1 !important;
+            background: #ffffff !important;
+            color: #0f172a !important;
+            transition: all 0.25s ease !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 38px !important;
+            height: 38px !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled) {
+            background: #e0f2fe !important;
+            color: #0284c7 !important;
+            border-color: #38bdf8 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+            background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%) !important;
+            color: #ffffff !important;
+            border-color: #0d6efd !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.35) !important;
+            transform: scale(1.05) !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+            color: #94a3b8 !important;
+            border-color: #e2e8f0 !important;
+            background: #f8fafc !important;
+            cursor: not-allowed !important;
+            opacity: 0.65 !important;
+            box-shadow: none !important;
         }
 
         .dataTables_wrapper .dataTables_info {
-            padding-top: 1.5rem !important;
-            padding-bottom: 1.5rem !important;
+            padding: 0.75rem 0 !important;
+            text-align: center !important;
+            font-size: 0.88rem !important;
+            color: #64748b !important;
+            float: none !important;
+            width: 100% !important;
+        }
+
+        /* ================================================================= */
+        /* Modern Attractive Centered Pagination for GvEmp GridView          */
+        /* ================================================================= */
+        #gvEmpPagerOutside {
+            background: #f8fafc !important;
+            border-top: 1px solid #e2e8f0 !important;
+            border-bottom-left-radius: 0.5rem !important;
+            border-bottom-right-radius: 0.5rem !important;
+            padding: 1rem !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        #gvEmpPagerOutside table,
+        .GridPager table,
+        #GvEmp tr.GridPager table,
+        #GvEmp td[colspan] > table {
+            margin: 0 auto !important;
+            text-align: center !important;
+            border-collapse: separate !important;
+            border-spacing: 6px !important;
+            border: none !important;
+            background: transparent !important;
+        }
+
+        #gvEmpPagerOutside table td,
+        .GridPager table td,
+        #GvEmp tr.GridPager table td {
+            padding: 0 3px !important;
+            border: none !important;
+            background: transparent !important;
+            vertical-align: middle !important;
+        }
+
+        /* Common Page Button Styling (Pill Style) */
+        #gvEmpPagerOutside table td a,
+        #gvEmpPagerOutside table td span,
+        .GridPager table td a,
+        .GridPager table td span,
+        #GvEmp tr.GridPager table td a,
+        #GvEmp tr.GridPager table td span {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 38px !important;
+            height: 38px !important;
+            padding: 0.35rem 0.85rem !important;
+            border-radius: 50px !important;
+            border: 1.5px solid #cbd5e1 !important;
+            background-color: #ffffff !important;
+            color: #0f172a !important;
+            text-decoration: none !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            transition: all 0.25s ease !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+            cursor: pointer !important;
+        }
+
+        /* Active / Current Page Number (Vibrant Blue Gradient) */
+        #gvEmpPagerOutside table td span,
+        .GridPager table td span,
+        #GvEmp tr.GridPager table td span {
+            background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%) !important;
+            color: #ffffff !important;
+            border-color: #0d6efd !important;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.35) !important;
+            cursor: default !important;
+            transform: scale(1.05) !important;
+        }
+
+        /* Inactive Page Numbers on Hover */
+        #gvEmpPagerOutside table td a:hover,
+        .GridPager table td a:hover,
+        #GvEmp tr.GridPager table td a:hover {
+            background-color: #e0f2fe !important;
+            color: #0284c7 !important;
+            border-color: #38bdf8 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
+        }
+
+        /* Fallback for Table-Internal GridPager row */
+        .GridPager,
+        .GridPager td,
+        tr.GridPager,
+        tr.GridPager td,
+        #GvEmp tr.GridPager,
+        #GvEmp tr.GridPager td,
+        #GvEmp tr:last-child td[colspan] {
+            text-align: center !important;
+            vertical-align: middle !important;
+            padding: 0.85rem 0.5rem !important;
+            background-color: #f8fafc !important;
+            border-top: 2px solid #e2e8f0 !important;
+        }
+
+        .GridPager table,
+        #GvEmp tr.GridPager table {
+            position: sticky !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            display: inline-table !important;
+            z-index: 10 !important;
         }
     </style>
 </head>
@@ -1065,7 +1233,7 @@
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                                 <%-- <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />--%>
                                                 <HeaderStyle BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                                <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="#0033CC" HorizontalAlign="Center" BorderColor="#FF9900" Font-Bold="True" Font-Size="X-Large" />
+                                                <PagerStyle CssClass="GridPager" HorizontalAlign="Center" />
                                                 <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
                                                 <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
                                                 <SortedAscendingCellStyle BackColor="#F1F1F1" />
@@ -1076,6 +1244,8 @@
                                             <%--  <asp:HiddenField ID="hfCount" runat="server" Value = "0" />--%>
                                             <%--========================================================================================--%>
                                         </div>
+                                        <!-- Centered Pagination Container (Outside horizontal scroll) -->
+                                        <div id="gvEmpPagerOutside" class="d-flex justify-content-center align-items-center py-3"></div>
                                     </div>
                                 </div>
                             </div>
@@ -1133,9 +1303,24 @@
                 });
             });
         </script>
-        <script type="text/jscript">
+        <script type="text/javascript">
+            function centerGvEmpPager() {
+                var $pagerTable = $('#GvEmp tr.GridPager td table, #GvEmp td[colspan] > table');
+                if ($pagerTable.length > 0) {
+                    $('#gvEmpPagerOutside').empty().append($pagerTable).show();
+                    $('#GvEmp tr.GridPager').hide();
+                } else if ($('#gvEmpPagerOutside table').length === 0) {
+                    $('#gvEmpPagerOutside').hide();
+                }
+            }
+
             $(window).on("load", function () {
                 $('#GvEmp').DataTable({ responsive: true });
+                centerGvEmpPager();
+            });
+
+            $(document).ready(function () {
+                centerGvEmpPager();
             });
         </script>
 

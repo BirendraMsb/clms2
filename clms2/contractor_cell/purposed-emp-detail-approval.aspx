@@ -504,14 +504,14 @@
             display: inline-table !important;
             margin: 0 !important;
             border-collapse: separate !important;
-            border-spacing: 6px !important;
+            border-spacing: 14px 4px !important; /* Generous space between page numbers */
             border: none !important;
             background: transparent !important;
         }
 
         .GridPager table td,
         #GvEmp tr.GridPager table td {
-            padding: 0 3px !important;
+            padding: 0 4px !important;
             border: none !important;
             background: transparent !important;
             vertical-align: middle !important;
@@ -522,10 +522,11 @@
             float: none !important;
             text-align: left !important;
             display: inline-flex !important;
+            align-items: center !important;
             position: relative !important;
             left: 880px !important;
             transform: translateX(-50%) !important;
-            margin: 1rem 0 !important;
+            margin: 1.5rem 0 !important;
             padding: 0.5rem 0 !important;
             clear: both !important;
         }
@@ -539,7 +540,7 @@
             float: none !important;
         }
 
-        /* Common Page Button Styling (Pill Style) */
+        /* Large Page Number Buttons with Generous Spacing */
         .GridPager table td a,
         .GridPager table td span,
         #GvEmp tr.GridPager table td a,
@@ -548,23 +549,23 @@
             display: inline-flex !important;
             align-items: center !important;
             justify-content: center !important;
-            min-width: 38px !important;
-            height: 38px !important;
-            padding: 0.35rem 0.85rem !important;
+            min-width: 46px !important; /* Bigger button width */
+            height: 46px !important;    /* Bigger button height */
+            padding: 0.5rem 1.15rem !important; /* Generous button padding */
+            margin: 0 8px !important;   /* Generous space between buttons */
             border-radius: 50px !important;
-            border: 1.5px solid #cbd5e1 !important;
+            border: 2px solid #cbd5e1 !important;
             background-color: #ffffff !important;
             color: #0f172a !important;
             text-decoration: none !important;
-            font-weight: 600 !important;
-            font-size: 0.95rem !important;
-            transition: all 0.25s ease !important;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+            font-weight: 700 !important;
+            font-size: 1.15rem !important; /* Bigger font size */
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08) !important;
             cursor: pointer !important;
-            margin: 0 3px !important;
         }
 
-        /* Active / Current Page Number (Vibrant Blue Gradient) */
+        /* Active / Current Page Number (Big, Vibrant Blue Gradient Pill) */
         .GridPager table td span,
         #GvEmp tr.GridPager table td span,
         .dataTables_wrapper .dataTables_paginate .paginate_button.current,
@@ -572,10 +573,10 @@
             background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%) !important;
             color: #ffffff !important;
             border-color: #0d6efd !important;
-            font-weight: 700 !important;
-            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.35) !important;
+            font-weight: 800 !important;
+            box-shadow: 0 5px 14px rgba(13, 110, 253, 0.4) !important;
+            transform: scale(1.1) !important; /* Highlighted larger scale */
             cursor: default !important;
-            transform: scale(1.05) !important;
         }
 
         /* Inactive Page Numbers on Hover */
@@ -585,8 +586,8 @@
             background-color: #e0f2fe !important;
             color: #0284c7 !important;
             border-color: #38bdf8 !important;
-            transform: translateY(-2px) !important;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12) !important;
+            transform: translateY(-3px) scale(1.05) !important;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12) !important;
         }
 
         .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
@@ -860,7 +861,7 @@
                                             <%--<asp:Button ID="btnGenerate_GP" runat="server" Text="Generate GP" class="btn bg-purple rounded-pill" OnClick="OpenWindow" />--%>
 
                                             <asp:GridView ID="GvEmp" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowCancelingEdit="GvEmp_RowCancelingEdit" OnRowDataBound="GvEmp_RowDataBound" OnRowEditing="GvEmp_RowEditing" OnRowUpdating="GvEmp_RowUpdating">
+                                                GridLines="Vertical" AllowPaging="true" PageSize="5" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowCancelingEdit="GvEmp_RowCancelingEdit" OnRowDataBound="GvEmp_RowDataBound" OnRowEditing="GvEmp_RowEditing" OnRowUpdating="GvEmp_RowUpdating">
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                 <Columns>
                                                     <asp:TemplateField HeaderText="Sl. No">
@@ -1176,6 +1177,7 @@
                                                 <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                                 <%-- <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />--%>
                                                 <HeaderStyle BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
+                                                <PagerSettings Mode="NumericFirstLast" PageButtonCount="10" FirstPageText="&laquo; First" LastPageText="Last &raquo;" NextPageText="Next &rsaquo;" PreviousPageText="&lsaquo; Prev" Position="Bottom" />
                                                 <PagerStyle CssClass="GridPager" HorizontalAlign="Center" />
                                                 <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
                                                 <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
@@ -1298,10 +1300,39 @@
                 }
             }
 
+            function ensurePageNumbersVisible() {
+                // If DataTables initialized, ensure full pagination with numbers
+                var $dtPaginate = $('.dataTables_paginate');
+                if ($dtPaginate.length > 0 && $dtPaginate.find('.paginate_button').length === 0) {
+                    $dtPaginate.html('<span><a class="paginate_button current">1</a></span>').show();
+                }
+
+                // If native GridView pager is missing because records <= pageSize, show page 1 indicator
+                if ($('#GvEmp tr.GridPager').length === 0 && $('#GvEmp tbody tr').length > 0) {
+                    var $lastTr = $('#GvEmp tbody tr:last');
+                    var cols = $lastTr.children('td, th').length || 19;
+                    var fallbackPager = '<tr class="GridPager"><td colspan="' + cols + '"><table><tbody><tr><td><span class="paginate_button current">1</span></td></tr></tbody></table></td></tr>';
+                    $('#GvEmp tbody').append(fallbackPager);
+                }
+            }
+
             $(window).on("load", function () {
-                $('#GvEmp').DataTable({ responsive: true });
+                if ($.fn.DataTable && $('#GvEmp').length && !$.fn.DataTable.isDataTable('#GvEmp')) {
+                    $('#GvEmp').DataTable({
+                        responsive: false,
+                        scrollX: true,
+                        autoWidth: false,
+                        pageLength: 5,
+                        lengthMenu: [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+                        pagingType: "full_numbers"
+                    });
+                }
+                ensurePageNumbersVisible();
                 alignPagerBelowCaste();
-                setTimeout(alignPagerBelowCaste, 300);
+                setTimeout(function () {
+                    ensurePageNumbersVisible();
+                    alignPagerBelowCaste();
+                }, 300);
             });
 
             $(document).ready(function () {

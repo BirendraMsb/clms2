@@ -401,6 +401,28 @@
         /* ================================================================= */
         /* Large, Generously Spaced Navigation Page Buttons for GvEmp        */
         /* ================================================================= */
+        .table-responsive {
+            width: 100% !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+
+        #GvEmp {
+            width: 100% !important;
+            min-width: 100% !important;
+            margin-bottom: 0 !important;
+        }
+
+        #GvEmp thead th {
+            white-space: nowrap !important;
+            vertical-align: middle !important;
+        }
+
+        #GvEmp tbody td {
+            white-space: nowrap !important;
+            vertical-align: middle !important;
+        }
+
         .GridPager,
         .GridPager td,
         tr.GridPager,
@@ -761,14 +783,14 @@
                                         <%--<span><a href="work-order-entry.aspx" class="text-white">Add New</a></span>--%>
                                     </div>
                                     <div class="card-body">
-                                        <div class="table-responsive" style="overflow: scroll; width: 80%">
+                                        <div class="table-responsive" style="width: 100% !important; overflow-x: auto !important;">
                                             <%--========================================================================================--%>
                                             <%--    <asp:Button ID="CheckAll" runat="server" Text="Check All" class="btn btn-info rounded-pill" />
                                 <asp:Button ID="UncheckAll" runat="server" Text="Uncheck All" class="btn btn-info rounded-pill" />--%>
 
                                             <%--<asp:Button ID="btnGenerate_GP" runat="server" Text="Generate GP" class="btn bg-purple rounded-pill" OnClick="OpenWindow" />--%>
                                             <asp:GridView ID="GvEmp" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                GridLines="Vertical" AllowPaging="True" PageSize="5" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowCancelingEdit="GvEmp_RowCancelingEdit" OnRowDataBound="GvEmp_RowDataBound" OnRowEditing="GvEmp_RowEditing" OnRowUpdating="GvEmp_RowUpdating">
+                                                GridLines="Vertical" AllowPaging="True" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="True" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowCancelingEdit="GvEmp_RowCancelingEdit" OnRowDataBound="GvEmp_RowDataBound" OnRowEditing="GvEmp_RowEditing" OnRowUpdating="GvEmp_RowUpdating">
 
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                 <Columns>
@@ -1332,7 +1354,15 @@
         }
 
         $(window).on("load", function () {
-            $('#GvEmp').DataTable({ responsive: true });
+                        if ($.fn.DataTable && $('#GvEmp').length && !$.fn.DataTable.isDataTable('#GvEmp')) {
+                $('#GvEmp').DataTable({
+                    responsive: false,
+                    scrollX: true,
+                    autoWidth: false,
+                    pageLength: 10,
+                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+                });
+            }
             alignPagerBelowCaste();
             setTimeout(alignPagerBelowCaste, 300);
         });

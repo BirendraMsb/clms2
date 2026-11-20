@@ -300,6 +300,71 @@
             box-shadow: 0 14px 22px -4px rgba(13, 110, 253, 0.45);
         }
 
+        /* Small Portal CTA Card */
+        .portal-cta-card {
+            background: linear-gradient(145deg, #f0f7ff 0%, #e0f2fe 100%);
+            border: 1.5px solid #bae6fd;
+            border-radius: 1.25rem;
+            box-shadow: 0 10px 22px -5px rgba(2, 132, 199, 0.16);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portal-cta-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #0d6efd, #06b6d4);
+        }
+
+        .portal-cta-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 28px -4px rgba(2, 132, 199, 0.25);
+            border-color: #7dd3fc;
+        }
+
+        .cta-icon-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%);
+            color: #ffffff !important;
+            font-size: 1.35rem;
+            box-shadow: 0 6px 14px rgba(13, 110, 253, 0.28);
+        }
+
+        .btn-portal-launch {
+            background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%);
+            color: #ffffff !important;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+            border: none;
+            letter-spacing: 0.02em;
+            box-shadow: 0 8px 18px -2px rgba(13, 110, 253, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .btn-portal-launch:hover {
+            background: linear-gradient(135deg, #0b5ed7 0%, #0369a1 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px -2px rgba(13, 110, 253, 0.45);
+            color: #ffffff !important;
+        }
+
+        .btn-portal-launch i {
+            transition: transform 0.2s ease;
+        }
+
+        .btn-portal-launch:hover i {
+            transform: translateX(4px);
+        }
+
         /* Footer */
         .clms-footer {
             background-color: #0f172a;
@@ -664,11 +729,22 @@
                                 <span class="badge bg-danger-subtle text-danger border px-3 py-2 rounded-pill"><i class="bi bi-door-open me-1"></i> Gatepass Section</span>
                             </div>
                         </div>
-                        <div class="col-lg-4 text-lg-end">
-                            <a href="login/login.aspx" class="btn btn-clms-primary btn-lg w-100 w-lg-auto d-inline-flex align-items-center justify-content-center gap-2">
-                                <i class="bi bi-box-arrow-in-right"></i>
-                                <span>Go to Login Portal</span>
-                            </a>
+                        <div class="col-lg-4">
+                            <div class="portal-cta-card p-3 p-xl-4 text-center">
+                                <div class="d-inline-flex align-items-center justify-content-center cta-icon-circle mb-2">
+                                    <i class="bi bi-shield-lock-fill"></i>
+                                </div>
+                                <h6 class="fw-bold text-dark mb-1">Single Sign-On Portal</h6>
+                                <p class="text-muted small mb-3">Role-based departmental access</p>
+                                <a href="login/login.aspx" class="btn btn-portal-launch w-100 d-inline-flex align-items-center justify-content-center gap-2">
+                                    <span>Access CLMS Portal</span>
+                                    <i class="bi bi-arrow-right-circle-fill"></i>
+                                </a>
+                                <div class="mt-2 pt-2 border-top border-info border-opacity-25 d-flex justify-content-center align-items-center gap-1 text-muted" style="font-size: 11px;">
+                                    <i class="bi bi-patch-check-fill text-success"></i>
+                                    <span>SSL 256-Bit Encrypted &bull; Secure</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,261 +1,632 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="clms2._default" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contract Labour Management System (CLMS) | Electro Solutions</title>
     <link rel="shortcut icon" href="public/common/icons/favicon.ico" />
-    <link rel="stylesheet" href="public/webfront/website/assets/css/main.min.css" />
-    <link rel="preload" href="public/webfront/website/assets/css/fonts/urbanist.css" />
-    <meta property="og:url" content="index.html">
-    <meta property="og:type" content="HR Solutions and Services">
-    <meta property="og:title" content="Organization Profile">
-    <meta property="og:description" content="Electro Solutions has defined its Mission, Vision & Core Values to bring clarity to all our stakeholders.">
-    <meta property="og:image" content="public/webfront/website/assets/img/websocial/Facebook_Banner.html">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@greenhrmsolutions">
-    <meta name="twitter:creator" content="@greenhrmsolutions">
-    <meta property="og:site_name" content="greenhrm.in">
-    <link rel="apple-touch-icon" sizes="57x57" href="public/common/icons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="public/common/icons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="public/common/icons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="public/common/icons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="public/common/icons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="public/common/icons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="public/common/icons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="public/common/icons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="public/common/icons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="public/common/icons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="public/common/icons/android-icon-512x512.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="public/common/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="public/common/icons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="public/common/icons/favicon-16x16.png">
-    <link rel="manifest" href="manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Bootstrap 5.3 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <!-- Local Fallback for Bootstrap -->
+    <link rel="stylesheet" href="public/newfront/assets/css/bootstrap.min.css" />
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
     <style>
-        .textjustify {
-            text-align: justify !important;
+        :root {
+            --clms-primary: #0d6efd;
+            --clms-primary-dark: #0a58ca;
+            --clms-navy: #0f172a;
+            --clms-surface: #f8fafc;
+            --clms-accent: #0284c7;
         }
 
-        @media (max-width:992px) {
-            .textjustifymd {
-                text-align: left !important;
-            }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            color: #334155;
+            background-color: #ffffff;
+            overflow-x: hidden;
         }
 
-        @media (max-width:767px) {
-            .textjustifysm {
-                text-align: left !important;
-            }
+        /* Modern Glass Navbar */
+        .clms-navbar {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background-color: rgba(15, 23, 42, 0.92);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
         }
 
-        @media (max-width:578px) {
-            .ps-sm-0 {
-                padding-left: 0 !important;
-            }
+        .navbar-brand-img {
+            max-height: 48px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
+            background: #ffffff;
+            padding: 4px 8px;
+        }
 
-            .pe-sm-0 {
-                padding-right: 0 !important;
-            }
+        /* Hero Section */
+        .hero-section {
+            background: radial-gradient(circle at 10% 20%, rgba(13, 110, 253, 0.15) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(2, 132, 199, 0.15) 0%, transparent 40%),
+                        linear-gradient(135deg, #0b132b 0%, #1c2541 100%);
+            color: #ffffff;
+            padding-top: 8rem;
+            padding-bottom: 5rem;
+            position: relative;
+        }
 
-            .ptsm5 {
-                padding-top: 3rem !important;
-            }
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #93c5fd;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
 
-            .mb-sm-6 {
-                margin-bottom: 0 !important;
-            }
+        .hero-title {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            color: #cbd5e1;
+            line-height: 1.7;
+            max-width: 780px;
+        }
+
+        /* Metrics Bar */
+        .metric-card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 1rem;
+            padding: 1.25rem 1rem;
+            transition: transform 0.25s ease, background-color 0.25s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Capability Cards */
+        .capability-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.25rem;
+            padding: 1.75rem 1.25rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .capability-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--clms-primary), var(--clms-accent));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .capability-card:hover {
+            transform: translateY(-6px);
+            border-color: #cbd5e1;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+        }
+
+        .capability-card:hover::before {
+            opacity: 1;
+        }
+
+        .capability-img-wrapper {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.25rem auto;
+            border-radius: 1rem;
+            background-color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .capability-card:hover .capability-img-wrapper {
+            transform: scale(1.08);
+            background-color: #e0f2fe;
+        }
+
+        .capability-img {
+            max-width: 52px;
+            max-height: 52px;
+            object-fit: contain;
+        }
+
+        /* Section Title Styling */
+        .section-eyebrow {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--clms-primary);
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #0f172a;
+            letter-spacing: -0.02em;
+        }
+
+        /* Feature Highlight Cards */
+        .feature-box {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            border: 1px solid #e2e8f0;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            border-color: #bfdbfe;
+            box-shadow: 0 12px 20px -5px rgba(13, 110, 253, 0.08);
+        }
+
+        .feature-icon-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #eff6ff;
+            color: #2563eb;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Custom Login Button */
+        .btn-clms-primary {
+            background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%);
+            border: none;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.85rem 2rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 18px -4px rgba(13, 110, 253, 0.35);
+            transition: all 0.25s ease;
+        }
+
+        .btn-clms-primary:hover {
+            background: linear-gradient(135deg, #0b5ed7 0%, #0369a1 100%);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 14px 22px -4px rgba(13, 110, 253, 0.45);
+        }
+
+        /* Footer */
+        .clms-footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
         }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SX5ZN713JP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-SX5ZN713JP');
-    </script>
-
 </head>
 <body>
     <form id="form1" runat="server">
-        <%--  <div class="loading">
-            <div class="loader"></div>
-        </div>--%>
-        <div class="content-wrapper">
-            <header class="wrapper bg-soft-primary">
-                <nav class="navbar navbar-expand-lg center-nav transparent bg-greenhrm position-absolute navbar-dark">
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg clms-navbar fixed-top">
+            <div class="container py-1">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="default.aspx">
+                    <img src="images/ElectroSolHeader3.png" alt="Electro Solutions" class="navbar-brand-img" />
+                    <span class="d-none d-sm-inline-block text-white fw-bold ps-2 border-start border-secondary small">
+                        CLMS PORTAL
+                    </span>
+                </a>
+                
+                <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-2 text-white"></i>
+                </button>
 
-                    <div class="container flex-lg-row flex-nowrap align-items-center" style="padding: 8px;">
-                        <div class="navbar-brand w-100">
-                            <%--<a href="#" aria-label="Website">--%>
-                            <img class="logo-dark navb-img" src="images/ElectroSolHeader3.png" style="height:50px;width:188px" alt="" title="" />
-                            <img class="logo-light navb-img " src="images/ElectroSolHeader3.png" style="height:50px;width:188px" alt="" title=""  />
-                          
-                            <%--<img class="logo-dark navb-img" src="images/greenhrmwhite.png" alt="" title="" />--%>
-                            <%--<img class="logo-light navb-img" src="images/ghrm.png" alt="" title="" />--%>
-                            <%--<img class="logo-dark navb-img" src="public/webfront/website/assets/img/weblogo/greenhrmcolor.svg" srcset="http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@2x.svg 2x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@3x.svg 3x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@4x.svg 4x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@5x.svg 5x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmcolor@6x.svg 6x" alt="" width="233" height="70">
-						<img class="logo-light navb-img" src="public/webfront/website/assets/img/weblogo/greenhrmwhite.svg" srcset="http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@2x.svg 2x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@3x.svg 3x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@4x.svg 4x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@5x.svg 5x, http://localhost:2873/public/webfront/website/assets/img/weblogo/greenhrmwhite@6x.svg 6x" alt="" width="233" height="70">--%>
-                            <%--</a>--%>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-2 gap-lg-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-light opacity-75 opacity-100-hover" href="#capabilities">Capabilities</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light opacity-75 opacity-100-hover" href="#features">Key Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light opacity-75 opacity-100-hover" href="#roles">Portal Access</a>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+                            <a href="login/login.aspx" class="btn btn-primary btn-sm px-3 py-2 rounded-pill fw-semibold shadow-sm d-inline-flex align-items-center gap-2">
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                <span>Sign In</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero-section">
+            <div class="container position-relative">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-8">
+                        <span class="badge hero-badge px-3 py-2 rounded-pill mb-3 d-inline-flex align-items-center gap-2">
+                            <i class="bi bi-shield-check text-info"></i>
+                            <span>Centralized Workforce Governance</span>
+                        </span>
+                        
+                        <h1 class="hero-title mb-3">
+                            Contract Labour <br />
+                            <span class="hero-gradient-text">Management System</span>
+                        </h1>
+                        
+                        <p class="hero-subtitle mb-4">
+                            An IT-enabled, centralized contract workforce lifecycle management platform by <strong>Electro Solutions</strong>. 
+                            Delivers complete transparency between enterprise and contractor records, automated statutory compliance, 
+                            and real-time HRIS analytics from a single unified source.
+                        </p>
+
+                        <div class="d-flex flex-wrap align-items-center gap-3 pt-2">
+                            <asp:Button ID="cmdLogin" runat="server" Text="Sign In to CLMS Portal" CssClass="btn btn-clms-primary btn-lg" OnClick="cmdLogin_Click" />
+                            <a href="#capabilities" class="btn btn-outline-light btn-lg px-4 rounded-3 d-inline-flex align-items-center gap-2">
+                                <span>Explore Lifecycle</span>
+                                <i class="bi bi-arrow-down-short fs-5"></i>
+                            </a>
                         </div>
-                        <div class="navbar-collapse offcanvas offcanvas-nav offcanvas-start">
-                            <div class="offcanvas-header d-lg-none">
-                                <div class="text-white fs-21 mb-0">Electro Solutions</div>
-                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="p-4 rounded-4 bg-white bg-opacity-10 border border-white border-opacity-15 shadow-lg backdrop-blur">
+                            <div class="d-flex align-items-center gap-3 mb-3 pb-3 border-bottom border-white border-opacity-10">
+                                <div class="bg-primary text-white rounded-circle p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                                    <i class="bi bi-building-check fs-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-white fw-bold">Electro Solutions</div>
+                                    <div class="text-white-50 small">Enterprise CLM Services</div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="navbar-other w-100 d-flex ms-auto d-block d-sm-none">
-                            <ul class="navbar-nav flex-row align-items-center ms-auto">
-                                <li class="nav-item d-lg-none">
-                                    <button class="hamburger offcanvas-nav-btn" aria-label="Hamburger Menu"><span aria-hidden="true"></span></button>
+                            <p class="text-light small mb-3">
+                                Comprehensive start-to-end workforce management supporting:
+                            </p>
+                            <ul class="list-unstyled text-light small d-flex flex-column gap-2 mb-0">
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-check2-circle text-info"></i> Contractor Onboarding & KYC
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-check2-circle text-info"></i> Biometric Attendance Integration
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-check2-circle text-info"></i> Automated Wage & Statutory Checks
+                                </li>
+                                <li class="d-flex align-items-center gap-2">
+                                    <i class="bi bi-check2-circle text-info"></i> Multi-tier Safety & Admin Approvals
                                 </li>
                             </ul>
                         </div>
                     </div>
-                </nav>
-            </header>
+                </div>
 
-            <section class="wrapper bg-light">
-                <div class="container py-14 py-md-15">
-                    <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center" style="margin-top: -3rem; margin-bottom: -5rem;">
-
-                        <div class="col-lg-12">
-                            <h2>Contract Labour Management System</h2>
-                            <p align="justify">
-                                <strong>CLM Services from Electro Solutions is an IT enabled,</strong>
-                                one of the most innovatively designed, cost effective, start to end centralised contract 
-labour lifecycle management services. It’s a real time solution giving complete visibility of 
-the contract, bringing in transparency between company & contractor records, with many management 
-controls for better administration. It also provides periodic HRIS as per organisational thrust areas, 
-with reliable data from single source is one of the high points of this services. 
-Icing on the top is we support you with Manpower, Software, Hardware, Consumables all under one roof. 
-It’s a win-win solution for all the stakeholders as it minimises business risk and provide many tangible 
-and intangible benefits to Service Providers/Contractors/Contract Workers and Principal Employers.
-                            </p>
-
+                <!-- Highlights Strip -->
+                <div class="row row-cols-2 row-cols-md-4 g-3 mt-5">
+                    <div class="col">
+                        <div class="metric-card text-center">
+                            <div class="fs-4 text-info mb-1"><i class="bi bi-speedometer2"></i></div>
+                            <div class="fw-bold text-white">Real-Time Tracking</div>
+                            <div class="text-white-50 small">Live deployment visibility</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="metric-card text-center">
+                            <div class="fs-4 text-success mb-1"><i class="bi bi-patch-check"></i></div>
+                            <div class="fw-bold text-white">100% Compliance</div>
+                            <div class="text-white-50 small">PF, ESIC & CLRA regulations</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="metric-card text-center">
+                            <div class="fs-4 text-warning mb-1"><i class="bi bi-pie-chart"></i></div>
+                            <div class="fw-bold text-white">Unified HRIS</div>
+                            <div class="text-white-50 small">Accurate, audit-ready data</div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="metric-card text-center">
+                            <div class="fs-4 text-primary mb-1"><i class="bi bi-shield-lock"></i></div>
+                            <div class="fw-bold text-white">Role-Based Security</div>
+                            <div class="text-white-50 small">Segregated department access</div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </header>
 
-            <section class="wrapper bg-soft-primary" id="MissionStatement">
-                <div class="container py-10 py-md-12">
-                    <div class="row text-center mb-6">
-                        <div class="col-12">
-                            <h3 class="display-6 fw-bold text-dark">Core Lifecycle Capabilities</h3>
-                            <p class="text-muted">Integrated, real-time lifecycle management for contract workforce</p>
+        <!-- Core Lifecycle Capabilities Section -->
+        <section id="capabilities" class="py-5 bg-light">
+            <div class="container py-4">
+                <div class="text-center max-w-700 mx-auto mb-5">
+                    <div class="section-eyebrow mb-2">Full Spectrum Administration</div>
+                    <h2 class="section-title mb-3">Core Workforce Lifecycle Modules</h2>
+                    <p class="text-secondary">
+                        Integrated modules enabling complete control over every stage of contract engagement from initial vendor verification to final exit settlement.
+                    </p>
+                </div>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+                    <!-- 1. Contractors Onboarding -->
+                    <div class="col">
+                        <a href="login/login.aspx" class="text-decoration-none">
+                            <div class="capability-card text-center">
+                                <div>
+                                    <div class="capability-img-wrapper">
+                                        <img src="images/Contract_Onboarding.png" alt="Contractors Onboarding" class="capability-img" />
+                                    </div>
+                                    <h5 class="fw-bold text-dark mb-2">Contractors Onboarding</h5>
+                                    <p class="text-muted small mb-3">
+                                        Vendor registration, work order allotment, statutory license validation & documentation.
+                                    </p>
+                                </div>
+                                <span class="badge bg-primary-subtle text-primary py-2 px-3 rounded-pill fw-semibold small">
+                                    Access Module <i class="bi bi-arrow-right ms-1"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- 2. Workers Onboarding -->
+                    <div class="col">
+                        <div class="capability-card text-center">
+                            <div>
+                                <div class="capability-img-wrapper">
+                                    <img src="images/onboarding_contract_labour.png" alt="Workers Onboarding" class="capability-img" />
+                                </div>
+                                <h5 class="fw-bold text-dark mb-2">Workers Onboarding</h5>
+                                <p class="text-muted small mb-3">
+                                    KYC records, police verification, age/domicile proof, and digital gatepass generation.
+                                </p>
+                            </div>
+                            <span class="text-secondary small fw-medium">Safety & Medical Verified</span>
                         </div>
                     </div>
-                    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-7 g-4 text-center justify-content-center">
-                        <div class="col">
-                            <a href="login/login.aspx" class="text-decoration-none text-dark">
-                                <div class="card h-100 p-3 shadow-sm border-0 rounded-4 transition-card bg-white">
-                                    <img src="images/Contract_Onboarding.png" alt="Contractors Onboarding" class="mx-auto mb-2" style="width: 72px; height: auto;" />
-                                    <div class="fw-bold small text-primary">Contractors Onboarding</div>
+
+                    <!-- 3. Attendance Management -->
+                    <div class="col">
+                        <div class="capability-card text-center">
+                            <div>
+                                <div class="capability-img-wrapper">
+                                    <img src="images/Attendance_mgmt.png" alt="Attendance Management" class="capability-img" />
                                 </div>
+                                <h5 class="fw-bold text-dark mb-2">Attendance Management</h5>
+                                <p class="text-muted small mb-3">
+                                    Daily attendance logs, shift rosters, overtime controls, and biometric hardware sync.
+                                </p>
+                            </div>
+                            <span class="text-secondary small fw-medium">Real-Time Shift Sync</span>
+                        </div>
+                    </div>
+
+                    <!-- 4. Payroll Management -->
+                    <div class="col">
+                        <div class="capability-card text-center">
+                            <div>
+                                <div class="capability-img-wrapper">
+                                    <img src="images/Payroll_Management.png" alt="Payroll Management" class="capability-img" />
+                                </div>
+                                <h5 class="fw-bold text-dark mb-2">Payroll Management</h5>
+                                <p class="text-muted small mb-3">
+                                    Automated wage calculations, wage register generation (Form 17), and payment proofs.
+                                </p>
+                            </div>
+                            <span class="text-secondary small fw-medium">Statutory Wage Audits</span>
+                        </div>
+                    </div>
+
+                    <!-- 5. Compliance Management -->
+                    <div class="col">
+                        <div class="capability-card text-center">
+                            <div>
+                                <div class="capability-img-wrapper">
+                                    <img src="images/statutory_compliance.png" alt="Compliance Management" class="capability-img" />
+                                </div>
+                                <h5 class="fw-bold text-dark mb-2">Compliance Management</h5>
+                                <p class="text-muted small mb-3">
+                                    Provident Fund (PF), ESIC monthly returns, insurance coverage, and labor law filings.
+                                </p>
+                            </div>
+                            <span class="text-secondary small fw-medium">100% Audit Readiness</span>
+                        </div>
+                    </div>
+
+                    <!-- 6. Workers Offboarding -->
+                    <div class="col">
+                        <div class="capability-card text-center">
+                            <div>
+                                <div class="capability-img-wrapper">
+                                    <img src="images/offboarding_contract.png" alt="Workers Offboarding" class="capability-img" />
+                                </div>
+                                <h5 class="fw-bold text-dark mb-2">Workers Offboarding</h5>
+                                <p class="text-muted small mb-3">
+                                    Structured clearance processes, gate pass deactivation, and full & final settlement records.
+                                </p>
+                            </div>
+                            <span class="text-secondary small fw-medium">Controlled Clearances</span>
+                        </div>
+                    </div>
+
+                    <!-- 7. HRIS Analytics -->
+                    <div class="col">
+                        <div class="capability-card text-center">
+                            <div>
+                                <div class="capability-img-wrapper">
+                                    <img src="images/HR-IS.png" alt="HRIS Analytics" class="capability-img" />
+                                </div>
+                                <h5 class="fw-bold text-dark mb-2">HRIS & Analytics</h5>
+                                <p class="text-muted small mb-3">
+                                    Headcount analytics, contractor performance KPIs, and periodic statutory management reporting.
+                                </p>
+                            </div>
+                            <span class="text-secondary small fw-medium">Executive Dashboards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Features Section -->
+        <section id="features" class="py-5 bg-white">
+            <div class="container py-4">
+                <div class="row align-items-center mb-5">
+                    <div class="col-lg-7">
+                        <div class="section-eyebrow mb-2">Enterprise Advantages</div>
+                        <h2 class="section-title">Built for Reliability, Scalability & Compliance</h2>
+                    </div>
+                    <div class="col-lg-5">
+                        <p class="text-secondary mb-0">
+                            Our system eliminates compliance exposure, reduces vendor disputes, and automates administrative bottlenecks through digital verification pipelines.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-box h-100">
+                            <div class="feature-icon-circle">
+                                <i class="bi bi-file-earmark-check"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Form 16 & Form 17</h5>
+                            <p class="text-secondary small mb-0">
+                                Generate official statutory registers, employment cards, and wage payment statements in one click.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-box h-100">
+                            <div class="feature-icon-circle">
+                                <i class="bi bi-qr-code-scan"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Gate Pass Control</h5>
+                            <p class="text-secondary small mb-0">
+                                Digital gate pass issuance with photo verification and automatic expiry control based on contract tenure.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-box h-100">
+                            <div class="feature-icon-circle">
+                                <i class="bi bi-shield-shaded"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Safety Approvals</h5>
+                            <p class="text-secondary small mb-0">
+                                Mandatory safety training, medical certificate verification, and PPE allotment tracking prior to site access.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-box h-100">
+                            <div class="feature-icon-circle">
+                                <i class="bi bi-diagram-3"></i>
+                            </div>
+                            <h5 class="fw-bold text-dark mb-2">Departmental Workflows</h5>
+                            <p class="text-secondary small mb-0">
+                                Automated multi-stage sign-offs between Contractor Cell, User Department, Safety, and Plant Head.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role Access Quick Guide -->
+        <section id="roles" class="py-5 bg-light border-top border-bottom">
+            <div class="container py-3">
+                <div class="card border-0 rounded-4 shadow-sm p-4 p-md-5 bg-white">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-8">
+                            <h4 class="fw-bold text-dark mb-2">Authorized Departmental Access</h4>
+                            <p class="text-muted mb-3">
+                                CLMS provides strict role-based separation of duties to ensure integrity across departments:
+                            </p>
+                            <div class="d-flex flex-wrap gap-2">
+                                <span class="badge bg-secondary-subtle text-dark border px-3 py-2 rounded-pill"><i class="bi bi-person-gear me-1"></i> System Admin</span>
+                                <span class="badge bg-primary-subtle text-primary border px-3 py-2 rounded-pill"><i class="bi bi-briefcase me-1"></i> Contractor Cell</span>
+                                <span class="badge bg-success-subtle text-success border px-3 py-2 rounded-pill"><i class="bi bi-shield-check me-1"></i> Safety Dept</span>
+                                <span class="badge bg-info-subtle text-info border px-3 py-2 rounded-pill"><i class="bi bi-building me-1"></i> User Department</span>
+                                <span class="badge bg-warning-subtle text-warning-emphasis border px-3 py-2 rounded-pill"><i class="bi bi-person-badge me-1"></i> Vendor / Contractor</span>
+                                <span class="badge bg-danger-subtle text-danger border px-3 py-2 rounded-pill"><i class="bi bi-door-open me-1"></i> Gatepass Section</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 text-lg-end">
+                            <a href="login/login.aspx" class="btn btn-clms-primary btn-lg w-100 w-lg-auto d-inline-flex align-items-center justify-content-center gap-2">
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                <span>Go to Login Portal</span>
                             </a>
                         </div>
-                        <div class="col">
-                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
-                                <img src="images/onboarding_contract_labour.png" alt="Workers Onboarding" class="mx-auto mb-2" style="width: 72px; height: auto;" />
-                                <div class="fw-bold small text-dark">Workers Onboarding</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
-                                <img src="images/Attendance_mgmt.png" alt="Attendance Management" class="mx-auto mb-2" style="width: 72px; height: auto;" />
-                                <div class="fw-bold small text-dark">Attendance Management</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
-                                <img src="images/Payroll_Management.png" alt="Payroll Management" class="mx-auto mb-2" style="width: 72px; height: auto;" />
-                                <div class="fw-bold small text-dark">Payroll Management</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
-                                <img src="images/statutory_compliance.png" alt="Compliance Management" class="mx-auto mb-2" style="width: 72px; height: auto;" />
-                                <div class="fw-bold small text-dark">Compliance Management</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
-                                <img src="images/offboarding_contract.png" alt="Workers Offboarding" class="mx-auto mb-2" style="width: 72px; height: auto;" />
-                                <div class="fw-bold small text-dark">Workers Offboarding</div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100 p-3 shadow-sm border-0 rounded-4 bg-white">
-                                <img src="images/HR-IS.png" alt="HRIS Management" class="mx-auto mb-2" style="width: 72px; height: auto;" />
-                                <div class="fw-bold small text-dark">HRIS Analytics</div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="wrapper bg-light">
-                <div class="container py-10 py-md-12">
-                    <div class="row justify-content-center text-center">
-                        <div class="col-lg-8">
-                            <div class="mb-5">
-                                <asp:Button ID="cmdLogin" runat="server" Text="Sign In to CLMS Portal" CssClass="btn btn-primary btn-lg px-5 py-3 fw-bold shadow-lg rounded-pill" OnClick="cmdLogin_Click"></asp:Button>
-                            </div>
-                            <div class="card bg-white p-4 border rounded-3 shadow-sm text-start" style="font-size: 13px;">
-                                <strong class="text-dark"><i class="fa fa-shield-alt text-primary me-1"></i> Proprietary Notice:</strong>
-                                <p class="text-muted mb-2 mt-1">
-                                    Contents, concept, template, logo, tagline, method and software comprised in and associated with CLMS are proprietary to 
-                                    <strong>Electro Solutions</strong> and any unauthorized use or disclosure thereof is strictly prohibited.
-                                </p>
-                                <div class="text-center pt-2 border-top text-secondary small">
-                                    <strong>Platform:</strong> .NET Framework 4.8 <span class="mx-2">&bull;</span> 
-                                    <strong>Technology:</strong> ASP.NET Web Forms <span class="mx-2">&bull;</span> 
-                                    <strong>Security:</strong> Enterprise Role-Based Access
-                                </div>
-                            </div>
+        <!-- Footer -->
+        <footer class="clms-footer py-4">
+            <div class="container">
+                <div class="row align-items-center gy-3">
+                    <div class="col-md-6 text-center text-md-start">
+                        <div class="text-white fw-bold mb-1">Electro Solutions &bull; CLMS</div>
+                        <div class="small">
+                            &copy; <%= DateTime.Now.Year %> Electro Solutions. All Rights Reserved.
                         </div>
                     </div>
+                    <div class="col-md-6 text-center text-md-end small">
+                        <span>Platform: ASP.NET (.NET 4.8)</span>
+                        <span class="mx-2">&bull;</span>
+                        <span>Enterprise Workforce Portal</span>
+                    </div>
                 </div>
-            </section>
-        </div>
-
-        <footer class="bg-navy text-inverse">
-            &copy; Electro Solutions | All Rights Reserved 
+                <div class="mt-3 pt-3 border-top border-secondary border-opacity-25 text-center small text-secondary">
+                    <em>Notice: Contents, concepts, modules, and software comprised in CLMS are proprietary to Electro Solutions. Unauthorized access is strictly prohibited.</em>
+                </div>
+            </div>
         </footer>
-        <script src="public/webfront/website/assets/js/primary.min.js"></script>
-        <script> $("h2").addClass("display-5 mb-3"); $(".icon-list.bullet-bg li").append("<i class='uil uil-check'></i> ");</script>
-        <script>
-            $(window).on("load", function () {
-                $('.loading').fadeOut(1000);
-                tool_tip();
-                $('a[href="#"]').on("click", function (e) {
-                    e.preventDefault ? e.preventDefault() :
-                e.returnValue = false
-                });
-                $(".alert").fadeTo(5000, 500).slideUp(500, function () {
-                    $(".alert").slideUp(500);
-                });
-                function tool_tip() {
-                    $('[data-bs-toggle="tooltip"]').tooltip({ container: 'body' });
-                }
-                function fademeout() {
-                    $(".loading").fadeOut(1000);
-                }
-                $(document).ajaxSend(function () {
-                    fademeout();
-                });
-                $(document).ajaxComplete(function () {
-                    tool_tip();
-                });
-            });
-        </script>
+
+        <!-- Bootstrap 5.3 Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Local fallback -->
+        <script src="public/newfront/assets/js/bootstrap.bundle.min.js"></script>
     </form>
 </body>
 </html>

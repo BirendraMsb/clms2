@@ -178,64 +178,135 @@
             font-size: 0.85rem;
         }
 
-        /* Capability Cards */
+        /* Enhanced Core Capability Cards */
         .capability-card {
             background: #ffffff;
             border: 1px solid #e2e8f0;
-            border-radius: 1.25rem;
-            padding: 1.75rem 1.25rem;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            border-radius: 1.5rem;
+            padding: 1.75rem 1.35rem 1.5rem 1.35rem;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
         }
 
-        .capability-card::before {
+        .capability-card::after {
             content: "";
             position: absolute;
-            top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--clms-primary), var(--clms-accent));
+            background: linear-gradient(90deg, #0d6efd, #06b6d4);
             opacity: 0;
             transition: opacity 0.3s ease;
         }
 
         .capability-card:hover {
-            transform: translateY(-6px);
-            border-color: #cbd5e1;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px -8px rgba(13, 110, 253, 0.16), 0 8px 16px -6px rgba(13, 110, 253, 0.08);
         }
 
-        .capability-card:hover::before {
+        .capability-card:hover::after {
             opacity: 1;
         }
 
+        .capability-step-badge {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.8rem;
+            border-radius: 2rem;
+            display: inline-block;
+            margin-bottom: 1.15rem;
+        }
+
         .capability-img-wrapper {
-            width: 80px;
-            height: 80px;
+            width: 86px;
+            height: 86px;
             margin: 0 auto 1.25rem auto;
-            border-radius: 1rem;
-            background-color: #f1f5f9;
+            border-radius: 1.25rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease;
+            transition: all 0.35s ease;
+            position: relative;
         }
 
         .capability-card:hover .capability-img-wrapper {
-            transform: scale(1.08);
-            background-color: #e0f2fe;
+            transform: scale(1.1) rotate(2deg);
         }
 
         .capability-img {
-            max-width: 52px;
-            max-height: 52px;
+            max-width: 56px;
+            max-height: 56px;
             object-fit: contain;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Color-Themed Variants */
+        .mod-blue .capability-img-wrapper { background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); }
+        .mod-blue .capability-step-badge { background: #dbeafe; color: #1d4ed8; }
+        .mod-blue:hover { border-color: #60a5fa; }
+
+        .mod-indigo .capability-img-wrapper { background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%); }
+        .mod-indigo .capability-step-badge { background: #e0e7ff; color: #4338ca; }
+        .mod-indigo:hover { border-color: #818cf8; }
+
+        .mod-teal .capability-img-wrapper { background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%); }
+        .mod-teal .capability-step-badge { background: #ccfbf1; color: #0f766e; }
+        .mod-teal:hover { border-color: #2dd4bf; }
+
+        .mod-emerald .capability-img-wrapper { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); }
+        .mod-emerald .capability-step-badge { background: #d1fae5; color: #047857; }
+        .mod-emerald:hover { border-color: #34d399; }
+
+        .mod-amber .capability-img-wrapper { background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); }
+        .mod-amber .capability-step-badge { background: #fef3c7; color: #b45309; }
+        .mod-amber:hover { border-color: #fbbf24; }
+
+        .mod-rose .capability-img-wrapper { background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); }
+        .mod-rose .capability-step-badge { background: #ffe4e6; color: #be123c; }
+        .mod-rose:hover { border-color: #fb7185; }
+
+        .mod-purple .capability-img-wrapper { background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%); }
+        .mod-purple .capability-step-badge { background: #f3e8ff; color: #7e22ce; }
+        .mod-purple:hover { border-color: #c084fc; }
+
+        .mod-portal {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            border-color: #334155;
+            color: #ffffff;
+        }
+        .mod-portal .capability-step-badge { background: rgba(56, 189, 248, 0.2); color: #38bdf8; }
+        .mod-portal:hover { border-color: #38bdf8; box-shadow: 0 20px 30px -8px rgba(56, 189, 248, 0.3); }
+        .mod-portal .capability-img-wrapper { background: rgba(255, 255, 255, 0.08); }
+        .mod-portal h5 { color: #ffffff !important; }
+        .mod-portal p { color: #94a3b8 !important; }
+
+        .capability-badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.45rem 0.9rem;
+            border-radius: 2rem;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            transition: all 0.25s ease;
+        }
+
+        .capability-card:hover .capability-badge-pill {
+            background: #ffffff;
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
         }
 
         /* Section Title Styling */
@@ -526,117 +597,170 @@
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
                     <!-- 1. Contractors Onboarding -->
                     <div class="col">
-                        <a href="login/login.aspx" class="text-decoration-none">
-                            <div class="capability-card text-center">
-                                <div>
-                                    <div class="capability-img-wrapper">
-                                        <img src="images/Contract_Onboarding.png" alt="Contractors Onboarding" class="capability-img" />
-                                    </div>
-                                    <h5 class="fw-bold text-dark mb-2">Contractors Onboarding</h5>
-                                    <p class="text-muted small mb-3">
-                                        Vendor registration, work order allotment, statutory license validation & documentation.
-                                    </p>
+                        <div class="capability-card mod-blue text-center">
+                            <div>
+                                <span class="capability-step-badge">Phase 01 &bull; Onboarding</span>
+                                <div class="capability-img-wrapper">
+                                    <img src="images/Contract_Onboarding.png" alt="Contractors Onboarding" class="capability-img" />
                                 </div>
-                                <span class="badge bg-primary-subtle text-primary py-2 px-3 rounded-pill fw-semibold small">
-                                    Access Module <i class="bi bi-arrow-right ms-1"></i>
-                                </span>
+                                <h5 class="fw-bold text-dark mb-2">Contractors Onboarding</h5>
+                                <p class="text-muted small mb-3">
+                                    Vendor registration, work order allotment, statutory license validation & digital document vault.
+                                </p>
                             </div>
-                        </a>
+                            <div>
+                                <a href="login/login.aspx" class="capability-badge-pill text-decoration-none text-primary">
+                                    <i class="bi bi-box-arrow-in-right"></i> Launch Module
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- 2. Workers Onboarding -->
                     <div class="col">
-                        <div class="capability-card text-center">
+                        <div class="capability-card mod-indigo text-center">
                             <div>
+                                <span class="capability-step-badge">Phase 02 &bull; Induction</span>
                                 <div class="capability-img-wrapper">
                                     <img src="images/onboarding_contract_labour.png" alt="Workers Onboarding" class="capability-img" />
                                 </div>
                                 <h5 class="fw-bold text-dark mb-2">Workers Onboarding</h5>
                                 <p class="text-muted small mb-3">
-                                    KYC records, police verification, age/domicile proof, and digital gatepass generation.
+                                    Aadhaar KYC, age/domicile verification, police verification, medical fitness & digital gate pass.
                                 </p>
                             </div>
-                            <span class="text-secondary small fw-medium">Safety & Medical Verified</span>
+                            <div>
+                                <span class="capability-badge-pill">
+                                    <i class="bi bi-shield-check text-primary"></i> KYC & Verification
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 3. Attendance Management -->
                     <div class="col">
-                        <div class="capability-card text-center">
+                        <div class="capability-card mod-teal text-center">
                             <div>
+                                <span class="capability-step-badge">Phase 03 &bull; Operations</span>
                                 <div class="capability-img-wrapper">
                                     <img src="images/Attendance_mgmt.png" alt="Attendance Management" class="capability-img" />
                                 </div>
                                 <h5 class="fw-bold text-dark mb-2">Attendance Management</h5>
                                 <p class="text-muted small mb-3">
-                                    Daily attendance logs, shift rosters, overtime controls, and biometric hardware sync.
+                                    Daily attendance logs, shift rosters, overtime controls & real-time biometric hardware synchronization.
                                 </p>
                             </div>
-                            <span class="text-secondary small fw-medium">Real-Time Shift Sync</span>
+                            <div>
+                                <span class="capability-badge-pill">
+                                    <i class="bi bi-fingerprint text-info"></i> Biometric Sync
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 4. Payroll Management -->
                     <div class="col">
-                        <div class="capability-card text-center">
+                        <div class="capability-card mod-emerald text-center">
                             <div>
+                                <span class="capability-step-badge">Phase 04 &bull; Payroll</span>
                                 <div class="capability-img-wrapper">
                                     <img src="images/Payroll_Management.png" alt="Payroll Management" class="capability-img" />
                                 </div>
                                 <h5 class="fw-bold text-dark mb-2">Payroll Management</h5>
                                 <p class="text-muted small mb-3">
-                                    Automated wage calculations, wage register generation (Form 17), and payment proofs.
+                                    Automated wage calculations, wage register generation (Form 17), payment proofs & statutory wage audits.
                                 </p>
                             </div>
-                            <span class="text-secondary small fw-medium">Statutory Wage Audits</span>
+                            <div>
+                                <span class="capability-badge-pill">
+                                    <i class="bi bi-cash-coin text-success"></i> Form 17 Registers
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 5. Compliance Management -->
                     <div class="col">
-                        <div class="capability-card text-center">
+                        <div class="capability-card mod-amber text-center">
                             <div>
+                                <span class="capability-step-badge">Phase 05 &bull; Statutory</span>
                                 <div class="capability-img-wrapper">
                                     <img src="images/statutory_compliance.png" alt="Compliance Management" class="capability-img" />
                                 </div>
                                 <h5 class="fw-bold text-dark mb-2">Compliance Management</h5>
                                 <p class="text-muted small mb-3">
-                                    Provident Fund (PF), ESIC monthly returns, insurance coverage, and labor law filings.
+                                    Provident Fund (PF), ESIC monthly returns, insurance coverage, and labor law filings for 100% audit readiness.
                                 </p>
                             </div>
-                            <span class="text-secondary small fw-medium">100% Audit Readiness</span>
+                            <div>
+                                <span class="capability-badge-pill">
+                                    <i class="bi bi-patch-check-fill text-warning"></i> 100% Audit Ready
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 6. Workers Offboarding -->
                     <div class="col">
-                        <div class="capability-card text-center">
+                        <div class="capability-card mod-rose text-center">
                             <div>
+                                <span class="capability-step-badge">Phase 06 &bull; Clearances</span>
                                 <div class="capability-img-wrapper">
                                     <img src="images/offboarding_contract.png" alt="Workers Offboarding" class="capability-img" />
                                 </div>
                                 <h5 class="fw-bold text-dark mb-2">Workers Offboarding</h5>
                                 <p class="text-muted small mb-3">
-                                    Structured clearance processes, gate pass deactivation, and full & final settlement records.
+                                    Inter-departmental clearance workflows, gate pass deactivation, dues verification & settlement certificates.
                                 </p>
                             </div>
-                            <span class="text-secondary small fw-medium">Controlled Clearances</span>
+                            <div>
+                                <span class="capability-badge-pill">
+                                    <i class="bi bi-door-closed text-danger"></i> Controlled Exit
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- 7. HRIS Analytics -->
                     <div class="col">
-                        <div class="capability-card text-center">
+                        <div class="capability-card mod-purple text-center">
                             <div>
+                                <span class="capability-step-badge">Phase 07 &bull; Intelligence</span>
                                 <div class="capability-img-wrapper">
                                     <img src="images/HR-IS.png" alt="HRIS Analytics" class="capability-img" />
                                 </div>
                                 <h5 class="fw-bold text-dark mb-2">HRIS & Analytics</h5>
                                 <p class="text-muted small mb-3">
-                                    Headcount analytics, contractor performance KPIs, and periodic statutory management reporting.
+                                    Contractor KPIs, active deployment headcounts, attrition metrics, and periodic management reports.
                                 </p>
                             </div>
-                            <span class="text-secondary small fw-medium">Executive Dashboards</span>
+                            <div>
+                                <span class="capability-badge-pill">
+                                    <i class="bi bi-graph-up-arrow text-primary"></i> Live Dashboards
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Central Control & Portal Access -->
+                    <div class="col">
+                        <div class="capability-card mod-portal text-center">
+                            <div>
+                                <span class="capability-step-badge">Gateway &bull; SSO Hub</span>
+                                <div class="capability-img-wrapper">
+                                    <i class="bi bi-shield-lock-fill text-info" style="font-size: 2.3rem;"></i>
+                                </div>
+                                <h5 class="fw-bold mb-2">Central SSO Portal</h5>
+                                <p class="small mb-3">
+                                    Authenticated workspace for System Admin, Contractor Cell, Safety Dept, User Dept & Vendors.
+                                </p>
+                            </div>
+                            <div>
+                                <a href="login/login.aspx" class="btn btn-primary btn-sm rounded-pill w-100 py-2 fw-semibold d-inline-flex align-items-center justify-content-center gap-1 shadow-sm">
+                                    <span>Sign In Portal</span>
+                                    <i class="bi bi-box-arrow-in-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

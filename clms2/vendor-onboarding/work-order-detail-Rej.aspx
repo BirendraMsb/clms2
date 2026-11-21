@@ -369,6 +369,201 @@
                 display: none !important;
             }
         }
+
+        /* Prevent outer table and card blowout */
+        html, body, form#form1, form#form1 > table.table {
+            width: 100% !important;
+            max-width: 100vw !important;
+            table-layout: fixed !important;
+            overflow-x: hidden !important;
+        }
+
+        form#form1 > table.table > tbody > tr > td {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow: hidden !important;
+        }
+
+        /* Ensure rejected work order grid is 100% fully visible without clipping or displacement */
+        .page-wrapper {
+            margin-top: 110px !important;
+        }
+
+        .page-wrapper .card,
+        .page-content-tab .card {
+            overflow: visible !important;
+            border-radius: 8px !important;
+            border: 1px solid #e2e8f0 !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .page-wrapper .card-body {
+            overflow: visible !important;
+            padding: 1.25rem !important;
+            width: 100% !important;
+        }
+
+        .page-wrapper .row,
+        .dataTables_wrapper .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .page-wrapper .row > *,
+        .page-content-tab .row > *,
+        .dataTables_wrapper .row > *,
+        .dataTables_wrapper .row > [class*="col-"] {
+            position: static !important;
+            top: 0 !important;
+            left: 0 !important;
+            overflow: visible !important;
+        }
+
+        .dataTables_wrapper {
+            width: 100% !important;
+            overflow: visible !important;
+        }
+
+        .table-responsive {
+            overflow-x: auto !important;
+            overflow-y: visible !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            display: block !important;
+            padding-bottom: 8px !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+
+        #GvWod,
+        table.dataTable {
+            width: 100% !important;
+            margin-top: 0.5rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        #GvWod th,
+        #GvWod td {
+            white-space: nowrap !important;
+            vertical-align: middle !important;
+        }
+
+        /* Page Navigation Centering at the Center of the GridView */
+        .dataTables_wrapper .row:last-child {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            margin-top: 1rem !important;
+            width: 100% !important;
+        }
+
+        .dataTables_wrapper .row:last-child > [class*="col-"] {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate {
+            float: none !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+            margin: 0.5rem auto !important;
+            width: 100% !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate ul.pagination {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin: 0.5rem auto !important;
+            padding: 0 !important;
+            list-style: none !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button,
+        .dataTables_wrapper .dataTables_paginate .page-item .page-link {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 38px !important;
+            height: 38px !important;
+            padding: 0.35rem 0.85rem !important;
+            margin: 0 4px !important;
+            border-radius: 6px !important;
+            border: 1px solid #cbd5e1 !important;
+            background: #ffffff !important;
+            color: #0f172a !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+        .dataTables_wrapper .dataTables_paginate .page-item.active .page-link {
+            background: #0d6efd !important;
+            color: #ffffff !important;
+            border-color: #0d6efd !important;
+            box-shadow: 0 2px 6px rgba(13, 110, 253, 0.35) !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled),
+        .dataTables_wrapper .dataTables_paginate .page-item:not(.active) .page-link:hover {
+            background: #e2e8f0 !important;
+            color: #0d6efd !important;
+            border-color: #94a3b8 !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+        .dataTables_wrapper .dataTables_paginate .page-item.disabled .page-link {
+            opacity: 0.5 !important;
+            cursor: not-allowed !important;
+            background: #f8fafc !important;
+            color: #94a3b8 !important;
+        }
+
+        .dataTables_wrapper .dataTables_info {
+            text-align: center !important;
+            float: none !important;
+            margin: 0.25rem auto !important;
+            font-size: 0.9rem !important;
+            color: #64748b !important;
+        }
+
+        /* ASP.NET GridView Pager Center Alignment */
+        .GridPager,
+        .GridPager td,
+        tr.GridPager,
+        tr.GridPager td,
+        #GvWod tr.GridPager,
+        #GvWod tr.GridPager td,
+        #GvWod tr:last-child td[colspan] {
+            text-align: center !important;
+            vertical-align: middle !important;
+            padding: 0.85rem 0.5rem !important;
+            background-color: #f8fafc !important;
+        }
+
+        .GridPager table,
+        #GvWod tr.GridPager table,
+        #GvWod td[colspan] > table {
+            margin-left: auto !important;
+            margin-right: auto !important;
+            text-align: center !important;
+            display: inline-table !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -385,7 +580,7 @@
                             <div class="navbar-brand w-40">
                                 <a class="navbar-brand" href="dashboard.aspx">
                                     <span>
-                                        <%--<img src="../public/common/images/ElectroSolHeader3.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />--%>
+                                        <img src="../public/common/images/ElectroSolHeader3.png" class="logo-lg logo-light" alt="Electro Solutions | Breaking Stereotypes Logo" width="188" height="50" />
                                     </span>
                                 </a>
                             </div>
@@ -698,10 +893,6 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-                                <br />
-                                <br />
-                                <br />
-                                
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
                                         <span>Work Order Detail ( Rejected )</span>
@@ -716,7 +907,7 @@
                                             </p>--%>
                                             <asp:GridView ID="GvWod" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999"
                                                 BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id"
+                                                GridLines="Vertical" AllowPaging="false" PageSize="10" DataKeyNames="id"
                                                 Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvWod_PageIndexChanging" OnRowDataBound="GvWod_RowDataBound">
 
                                                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -833,7 +1024,13 @@
         </script>
         <script type="text/jscript">
             $(window).on("load", function () {
-                $('#GvWod').DataTable({ responsive: true });
+                $('#GvWod').DataTable({
+                    responsive: false,
+                    scrollX: true,
+                    autoWidth: false,
+                    pageLength: 10,
+                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+                });
             });
         </script>
 <script type="text/javascript">

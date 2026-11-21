@@ -405,9 +405,10 @@
             width: 100% !important;
             margin-left: 0 !important;
             min-height: auto !important;
-            padding: 0 24px 80px 24px !important;
+            padding: 0 24px 70px 24px !important;
             margin-top: 70px !important;
             padding-top: 50px !important; /* 50px space below the menu bar */
+            padding-bottom: 70px !important; /* Generous space below the form */
         }
 
         /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
@@ -422,6 +423,7 @@
         /* Card Entry Design */
         .card-entry {
             margin-top: 0 !important;
+            margin-bottom: 50px !important; /* 50px space below the form card */
             background: #ffffff;
             border-radius: 1rem !important;
             border: 1px solid #e2e8f0 !important;
@@ -458,6 +460,7 @@
             border: 1px solid #e2e8f0;
             border-radius: 0.5rem;
             background: #ffffff;
+            margin-bottom: 1.5rem !important;
         }
 
         .attendance-grid-container table {
@@ -839,7 +842,7 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-                                <div class="card card-entry mb-4">
+                                <div class="card card-entry mb-5">
                                     <div class="card-entry-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="header-icon-box bg-white bg-opacity-10 text-white rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
@@ -900,7 +903,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="table-responsive attendance-grid-container mt-2">
+                                        <div class="table-responsive attendance-grid-container mt-2 mb-4">
                                             <asp:GridView ID="Gvrecords" runat="server"
                                                 CssClass="table table-bordered table-striped table-hover align-middle mb-0"
                                                 AutoGenerateColumns="False"

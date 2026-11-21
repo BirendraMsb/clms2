@@ -1053,6 +1053,7 @@
 
                                                 <asp:Label ID="lblID" runat="server" Text="" Visible="false"></asp:Label>
                                             </div>
+                                            <div id="gridPagerNav" class="d-flex justify-content-center align-items-center mt-3 mb-2 w-100"></div>
 
                                         </div>
                                     </div>

@@ -519,6 +519,111 @@
             transform: translateY(-2px) !important;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
         }
+
+        /* Prevent outer table and card blowout */
+        html, body, form#form1, form#form1 > table.table {
+            width: 100% !important;
+            max-width: 100vw !important;
+            table-layout: fixed !important;
+            overflow-x: hidden !important;
+        }
+
+        form#form1 > table.table > tbody > tr > td {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow: hidden !important;
+        }
+
+        .page-wrapper,
+        .page-content-tab,
+        .container-fluid {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .page-wrapper .card {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .table-responsive {
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: visible !important;
+            display: block !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+
+        #gridPagerNav {
+            width: 100% !important;
+            text-align: center !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin: 1.25rem auto 0.5rem auto !important;
+        }
+
+        #gridPagerNav table {
+            margin: 0 auto !important;
+            display: inline-table !important;
+            border-collapse: separate !important;
+            border-spacing: 8px 4px !important;
+            border: none !important;
+            background: transparent !important;
+        }
+
+        #gridPagerNav table td {
+            padding: 0 !important;
+            border: none !important;
+            vertical-align: middle !important;
+            background: transparent !important;
+        }
+
+        #gridPagerNav table td a,
+        #gridPagerNav table td span,
+        .GridPager table td a,
+        .GridPager table td span {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 42px !important;
+            height: 42px !important;
+            padding: 0.4rem 0.9rem !important;
+            margin: 0 4px !important;
+            border-radius: 8px !important;
+            border: 1px solid #cbd5e1 !important;
+            background-color: #ffffff !important;
+            color: #0f172a !important;
+            text-decoration: none !important;
+            font-weight: 700 !important;
+            font-size: 1rem !important;
+            transition: all 0.2s ease !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08) !important;
+            cursor: pointer !important;
+        }
+
+        #gridPagerNav table td span,
+        .GridPager table td span {
+            background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%) !important;
+            color: #ffffff !important;
+            border-color: #0d6efd !important;
+            font-weight: 800 !important;
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.35) !important;
+            transform: scale(1.08) !important;
+            cursor: default !important;
+        }
+
+        #gridPagerNav table td a:hover,
+        .GridPager table td a:hover {
+            background-color: #e0f2fe !important;
+            color: #0284c7 !important;
+            border-color: #38bdf8 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12) !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">
@@ -1024,6 +1129,11 @@
         </script>
 <script type="text/javascript">
             $(document).ready(function () {
+                var $pagerTable = $('#GvEmp tr.GridPager').find('table');
+                if ($pagerTable.length) {
+                    $('#gridPagerNav').empty().append($pagerTable);
+                    $('#GvEmp tr.GridPager').hide();
+                }
                 // Ensure mobile navbar is explicitly closed on page load for small screens
                 if ($(window).width() < 992) {
                     $('#navbarColor02').removeClass('show');

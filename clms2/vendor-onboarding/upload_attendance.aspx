@@ -370,41 +370,148 @@
         }
     </style>
     <style type="text/css">
+        html, body {
+            min-height: 100vh !important;
+        }
+
         body {
-            font-family: Arial;
-            font-size: 10pt;
+            background-color: #f8fafc !important;
+            font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+            color: #1e293b;
+            padding-bottom: 100px !important;
+            position: relative !important;
         }
 
-        table {
-            border: 1px solid #ccc;
-            border-collapse: collapse;
-            background-color: #fff;
+        body > form > table.table {
+            width: 100% !important;
+            margin-bottom: 0 !important;
+            border: none !important;
         }
 
-            table th {
-                background-color: #ff7f00;
-                color: #fff;
-                font-weight: bold;
-            }
+        body > form > table.table > tbody > tr > td {
+            border: none !important;
+            padding: 0 !important;
+            background: transparent !important;
+        }
 
-            table th, table td {
-                padding: 5px;
-                border: 1px solid #ccc;
-            }
+        .page-wrapper {
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            min-height: auto !important;
+        }
 
-            table, table table td {
-                border: 0px solid #ccc;
-            }
+        .page-wrapper .page-content-tab {
+            width: 100% !important;
+            margin-left: 0 !important;
+            min-height: auto !important;
+            padding: 20px 24px 80px 24px !important;
+            margin-top: 60px !important;
+        }
 
-        .button {
-            background-color: #0094ff; /* Blue */
-            border: none;
-            color: black;
-            padding: 15px 32px;
+        /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
+        .card-entry .row > *,
+        .card-entry-body .row > *,
+        .row > * {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+        }
+
+        /* Card Entry Design */
+        .card-entry {
+            background: #ffffff;
+            border-radius: 1rem !important;
+            border: 1px solid #e2e8f0 !important;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08) !important;
+            overflow: hidden;
+        }
+
+        .card-entry-header {
+            background: linear-gradient(135deg, #090e1a 0%, #0f172a 45%, #1e293b 100%) !important;
+            color: #ffffff;
+            padding: 1.25rem 2rem;
+        }
+
+        .card-entry-body {
+            padding: 2rem !important;
+        }
+
+        .form-section-header {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: #1e293b;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Attendance Table Container */
+        .attendance-grid-container {
+            max-height: 520px;
+            overflow-x: auto;
+            overflow-y: auto;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            background: #ffffff;
+        }
+
+        .attendance-grid-container table {
+            margin-bottom: 0 !important;
+            font-size: 0.84rem;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+
+        .attendance-grid-container table th {
+            background: #1e293b !important;
+            color: #ffffff !important;
+            font-weight: 600;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            padding: 10px 10px !important;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            white-space: nowrap;
+            border-bottom: 2px solid #0f172a !important;
+            border-right: 1px solid #334155 !important;
             text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
+        }
+
+        .attendance-grid-container table td {
+            padding: 7px 9px !important;
+            white-space: nowrap;
+            vertical-align: middle;
+            border-bottom: 1px solid #f1f5f9 !important;
+            border-right: 1px solid #f1f5f9 !important;
+            text-align: center;
+            color: #334155;
+        }
+
+        .attendance-grid-container table tbody tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        .attendance-grid-container table tbody tr:hover {
+            background-color: #e0f2fe !important;
+        }
+
+        @media (max-width: 991.98px) {
+            .page-wrapper .page-content-tab {
+                padding: 15px 12px 60px 12px !important;
+                margin-top: 70px !important;
+            }
+            .card-entry-header {
+                padding: 1rem 1.25rem !important;
+            }
+            .card-entry-body {
+                padding: 1.25rem !important;
+            }
         }
     </style>
 </head>
@@ -413,7 +520,7 @@
         <%--<div class="loading">
             <div class="loader"></div>
         </div>--%>
-        <table class="table">
+        <table class="table layout-table">
             <tr>
                 <td>
                     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark" style="background-color: #000000 !important; background: #000000 !important;">
@@ -727,226 +834,79 @@
             </tr>
             <tr>
                 <td>
-                    <div>
-                         <br />
-                         <br />
-                         <br />
-                         <br />
-                        <asp:FileUpload ID="FileUpload1" CssClass="button" runat="server" />
-                        <asp:Button ID="btnImport" Cssclass="btn button rounded-pill" runat="server" Text="Upload" OnClick="ImportCSV" />
-                        <hr />
-                        <%-- <asp:GridView ID="GridView1" runat="server">
-                        </asp:GridView>--%>
-                        <%--  <asp:GridView ID="Gvrecords" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                    GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered nowrap" ShowHeaderWhenEmpty="true">
-                                    <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                                      <Columns>
-                                <asp:TemplateField HeaderText="Emp Code">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblemp_code" runat="server" Text='<% #Eval("emp_code")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Vendor Code">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblvendor_code" runat="server" Text='<% #Eval("vendor_code")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Work Order">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblworkorder" runat="server" Text='<% #Eval("workorder")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                    <div class="page-wrapper">
+                        <div class="page-content-tab">
+                            <div class="container-fluid">
+                                <div class="card card-entry my-4">
+                                    <div class="card-entry-header d-flex justify-content-between align-items-center">
+                                        <div class="d-flex align-items-center gap-3">
+                                            <div class="header-icon-box bg-white bg-opacity-10 text-white rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">
+                                                <i class="fa fa-calendar-check fa-lg"></i>
+                                            </div>
+                                            <div>
+                                                <h5 class="mb-0 text-white fw-bold">Upload Monthly Attendance</h5>
+                                                <small class="text-white-50">Upload and preview employee attendance sheets</small>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <asp:Button ID="btnDownload" runat="server" CssClass="btn btn-primary rounded-pill px-3 shadow-sm" Text="Download CSV Template" OnClick="btnDownload_Click" />
+                                        </div>
+                                    </div>
+                                    <div class="card-entry-body">
+                                        <%-- Notification / Status Alerts --%>
+                                        <div class="mb-3">
+                                            <asp:Label ID="lblMessage" runat="server" Font-Bold="True" ForeColor="green" CssClass="d-block mb-1"></asp:Label>
+                                            <asp:Label ID="lblMsgError" runat="server" Font-Bold="True" ForeColor="red" CssClass="d-block mb-1"></asp:Label>
+                                        </div>
 
-                                <asp:TemplateField HeaderText="Emp Name">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblemp_name" runat="server" Text='<% #Eval("emp_name")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Year">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblyear1" runat="server" Text='<% #Eval("year1")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Month">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lblmonth1" runat="server" Text='<% #Eval("month1")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D1">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld1" runat="server" Text='<% #Eval("d1")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D2">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld2" runat="server" Text='<% #Eval("d2")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D3">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld3" runat="server" Text='<% #Eval("d3")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D4">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld4" runat="server" Text='<% #Eval("d4")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D5">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld5" runat="server" Text='<% #Eval("d5")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D6">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld6" runat="server" Text='<% #Eval("d6")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D7">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld7" runat="server" Text='<% #Eval("d7")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D8">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld8" runat="server" Text='<% #Eval("d8")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D9">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld9" runat="server" Text='<% #Eval("d9")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D10">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld10" runat="server" Text='<% #Eval("d10")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D11">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld11" runat="server" Text='<% #Eval("d11")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D12">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld12" runat="server" Text='<% #Eval("d12")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D13">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld13" runat="server" Text='<% #Eval("d13")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D14">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld14" runat="server" Text='<% #Eval("d14")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D15">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld15" runat="server" Text='<% #Eval("d15")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                                        <%-- Section 1: Upload File --%>
+                                        <div class="form-section-header">
+                                            <i class="fa fa-cloud-upload-alt text-primary me-2"></i>Select &amp; Import Attendance CSV
+                                        </div>
+                                        <div class="row align-items-center mb-4">
+                                            <div class="col-lg-8 col-md-10 col-12">
+                                                <label class="form-label fw-semibold text-secondary mb-1">Choose Attendance CSV File:</label>
+                                                <div class="input-group">
+                                                    <asp:FileUpload ID="FileUpload1" CssClass="form-control" runat="server" />
+                                                    <asp:Button ID="btnImport" CssClass="btn btn-primary px-4 fw-semibold" runat="server" Text="Upload & Preview" OnClick="ImportCSV" />
+                                                </div>
+                                                <small class="text-muted d-block mt-1">
+                                                    <i class="fa fa-info-circle text-info me-1"></i>Ensure the file columns match the predefined format (Emp Code, Vendor, Work Order, Year, Month, D1 to D31, Working Hours).
+                                                </small>
+                                            </div>
+                                        </div>
 
-                                <asp:TemplateField HeaderText="D16">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld16" runat="server" Text='<% #Eval("d16")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D17">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld17" runat="server" Text='<% #Eval("d17")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
+                                        <%-- Section 2: Attendance Status Codes & Legend (Vertical) --%>
+                                        <div class="form-section-header">
+                                            <i class="fa fa-info-circle text-primary me-2"></i>Attendance Status Codes &amp; Legend
+                                        </div>
+                                        <div class="p-3 bg-light rounded-3 border mb-4">
+                                            <h5 class="mb-2">P  - Present with wages </h5>
+                                            <h5 class="mb-2">A  - Absent without wages </h5>
+                                            <h5 class="mb-2">WO - Week off without wages </h5>
+                                            <h5 class="mb-2">HL - Holiday with wages </h5>
+                                            <h5 class="mb-0">OT - Over time with double wages </h5>
+                                        </div>
 
-                                <asp:TemplateField HeaderText="D18">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld18" runat="server" Text='<% #Eval("d18")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D19">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld19" runat="server" Text='<% #Eval("d19")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D20">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld20" runat="server" Text='<% #Eval("d20")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D21">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld21" runat="server" Text='<% #Eval("d21")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D22">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld22" runat="server" Text='<% #Eval("d22")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D23">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld23" runat="server" Text='<% #Eval("d23")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D24">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld24" runat="server" Text='<% #Eval("d24")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D25">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld25" runat="server" Text='<% #Eval("d25")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D26">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld26" runat="server" Text='<% #Eval("d26")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D27">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld27" runat="server" Text='<% #Eval("d27")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D28">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld28" runat="server" Text='<% #Eval("d28")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D29">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld29" runat="server" Text='<% #Eval("d29")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D30">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld30" runat="server" Text='<% #Eval("d30")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                                <asp:TemplateField HeaderText="D31">
-                                    <ItemTemplate>
-                                        <asp:Label ID="lbld31" runat="server" Text='<% #Eval("d31")%>'></asp:Label>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                                    <AlternatingRowStyle BackColor="#FFFFFF" />
-                                    <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
-                                    <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                    <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
-                                    <RowStyle BackColor="#B2DFDB" ForeColor="Black" />
-                                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
-                                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                                    <SortedDescendingHeaderStyle BackColor="#000065" />
-                                </asp:GridView>--%>
+                                        <%-- Section 3: Attendance Records Preview & Save --%>
+                                        <div class="d-flex justify-content-between align-items-center mb-2 mt-4 pb-2 border-bottom">
+                                            <div class="form-section-header mb-0 border-bottom-0 pb-0">
+                                                <i class="fa fa-table text-primary me-2"></i>Attendance Records Preview
+                                            </div>
+                                            <div>
+                                                <asp:Button ID="btnAddToDb" runat="server" CssClass="btn btn-success rounded-pill px-4 fw-semibold shadow-sm" Text="Save to Database" OnClick="btnAddToDb_Click" Enabled="False" />
+                                            </div>
+                                        </div>
 
-                        <asp:GridView ID="Gvrecords" runat="server" Height="250px"
-                            CellPadding="4" ForeColor="#333333" GridLines="Both"
-                            AutoGenerateColumns="False">
-                            <RowStyle BackColor="#EFF3FB" />
-                            <Columns>
+                                        <div class="table-responsive attendance-grid-container mt-2">
+                                            <asp:GridView ID="Gvrecords" runat="server"
+                                                CssClass="table table-bordered table-striped table-hover align-middle mb-0"
+                                                AutoGenerateColumns="False"
+                                                GridLines="Both">
+                                                <HeaderStyle CssClass="table-dark text-white text-center align-middle sticky-top" />
+                                                <RowStyle BackColor="#FFFFFF" />
+                                                <AlternatingRowStyle BackColor="#F8FAFC" />
+                                                <Columns>
                                 <asp:TemplateField HeaderText="Emp Code">
                                     <ItemTemplate>
                                         <asp:Label ID="lblemp_code" runat="server" Width="150px" Text='<% #Eval("emp_code")%>'></asp:Label>
@@ -1156,51 +1116,22 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
-                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-                            <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-                            <EditRowStyle BackColor="#2461BF" />
-                            <AlternatingRowStyle BackColor="White" />
                         </asp:GridView>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <td valign="top" align="left" class="style1">
-                    <asp:Button ID="btnAddToDb" runat="server" Height="35px" class="btn btn-info rounded-pill" Text="Save"
-                        Width="138px" OnClick="btnAddToDb_Click" Enabled="False" />&nbsp&nbsp
-                    <asp:Button ID="btnDownload" runat="server" Height="35px" class="btn btn-info rounded-pill" Text="Download File"
-                        Width="138px" OnClick="btnDownload_Click" />
-
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblMessage" runat="server" Font-Bold="True" ForeColor="green"></asp:Label>
-                    <asp:Label ID="lblMsgError" runat="server" Font-Bold="True" ForeColor="red"></asp:Label>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div>
-                        <h5>P  - Present with wages </h5>
-                        <h5>A  - Absent without wages </h5>
-                        <h5>WO - Week off without wages </h5>
-                        <h5>HL - Holiday with wages </h5>
-                        <h5>OT - Over time with double wages </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </td>
             </tr>
 
             <tr>
                 <td>
-                    <footer class="py-10 bg-dark mt-auto navbar-fixed-bottom">
+                    <footer class="py-3 bg-dark text-white text-center mt-auto">
                         <div class="container-fluid">
-                            <div class="text-center small">
-                                <div class="text-light ">&copy; 2022 | Electro Solutions | All Rights Reserved</div>
-
+                            <div class="small text-muted">
+                                &copy; 2026 | Electro Solutions | All Rights Reserved
                             </div>
                         </div>
                     </footer>
@@ -1215,7 +1146,7 @@
         <script type="text/jscript" src="../public/newfront/js/jquery.validate.min.js"></script>
         <script type="text/jscript" src="../public/newfront/assets/js/bootstrap.bundle.min.js?v=3.1"></script>
 
-        <script type="text/jscript" defer>
+        <script type="text/javascript" defer>
             $(window).on("load", function () {
                 $('.loading').fadeOut(1000);
                 tool_tip();

@@ -467,7 +467,7 @@
         }
     </style>
 
-    <script>
+   <%-- <script>
         var checked = true;
         $(function () {
             var MainGridView = $('#GridView2');
@@ -478,7 +478,7 @@
                 }
             );
         });
-    </script>
+    </script>--%>
 
 
 </head>
@@ -861,7 +861,7 @@
 
                                         <div class="row">
                                             <div class="col-12 text-center py-3 d-flex justify-content-center gap-3">
-                                                <asp:Button ID="cmdShow" runat="server" Text="Show Punches" class="btn btn-round-action btn-action-cancel"></asp:Button>
+                                                <asp:Button ID="cmdShow" runat="server" Text="Show Punches" class="btn btn-round-action btn-action-cancel" OnClick="cmdShow_Click"></asp:Button>
                                                 <asp:Button ID="cmdUpdate" runat="server" Text="Update Punches" class="btn btn-round-action btn-action-save" OnClick="cmdUpdate_Click"></asp:Button>
                                             </div>
                                         </div>
@@ -886,9 +886,9 @@
                                                             <asp:CheckBox ID="chkRow" runat="server" CssClass="form-check-input" />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <asp:TemplateField HeaderText="ID" Visible="false">
+                                                    <asp:TemplateField HeaderText="ID" ItemStyle-CssClass="d-none" HeaderStyle-CssClass="d-none">
                                                         <ItemTemplate>
-                                                            <asp:Label ID="id" runat="server" Visible="false" Text='<%# Eval("id") %>'></asp:Label>
+                                                            <asp:Label ID="id" runat="server" Text='<%# Eval("id") %>'></asp:Label>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
                                                     <asp:TemplateField HeaderText="Sl. No" ItemStyle-Width="50px" ItemStyle-HorizontalAlign="Center">

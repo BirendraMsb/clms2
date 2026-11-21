@@ -20,6 +20,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -3305,7 +3307,6 @@
     </Compile>
     <Compile Include="gatepass_section\DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="gatepass_section\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>

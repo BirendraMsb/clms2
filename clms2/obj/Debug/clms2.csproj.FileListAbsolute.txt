@@ -21,3 +21,10 @@ d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\obj\Debug\clms2.cspr
 d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\obj\Debug\clms2.csproj.Up2Date
 d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\obj\Debug\clms2.dll
 d:\Visual_Studio_Code_Projects\antigravity_proj\clms2\clms2\obj\Debug\clms2.pdb
+D:\Visual_Studio_2022_Projects\clms2\clms2\bin\clms2.dll.config
+D:\Visual_Studio_2022_Projects\clms2\clms2\bin\clms2.dll
+D:\Visual_Studio_2022_Projects\clms2\clms2\bin\clms2.pdb
+D:\Visual_Studio_2022_Projects\clms2\clms2\obj\Debug\clms2.csproj.AssemblyReference.cache
+D:\Visual_Studio_2022_Projects\clms2\clms2\obj\Debug\clms2.csproj.CoreCompileInputs.cache
+D:\Visual_Studio_2022_Projects\clms2\clms2\obj\Debug\clms2.dll
+D:\Visual_Studio_2022_Projects\clms2\clms2\obj\Debug\clms2.pdb

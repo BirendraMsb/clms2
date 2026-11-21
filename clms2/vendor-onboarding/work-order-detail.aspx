@@ -429,6 +429,120 @@
             white-space: nowrap !important;
             vertical-align: middle !important;
         }
+
+        /* Page Navigation Centering at the Center of the GridView */
+        .dataTables_wrapper .row:last-child {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+            margin-top: 1rem !important;
+        }
+
+        .dataTables_wrapper .row:last-child > [class*="col-"] {
+            width: 100% !important;
+            max-width: 100% !important;
+            flex: 0 0 100% !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate {
+            float: none !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            text-align: center !important;
+            margin: 0.5rem auto !important;
+            width: 100% !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate ul.pagination {
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            margin: 0.5rem auto !important;
+            padding: 0 !important;
+            list-style: none !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button,
+        .dataTables_wrapper .dataTables_paginate .page-item .page-link {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 38px !important;
+            height: 38px !important;
+            padding: 0.35rem 0.85rem !important;
+            margin: 0 4px !important;
+            border-radius: 6px !important;
+            border: 1px solid #cbd5e1 !important;
+            background: #ffffff !important;
+            color: #0f172a !important;
+            font-weight: 600 !important;
+            text-decoration: none !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+        .dataTables_wrapper .dataTables_paginate .page-item.active .page-link {
+            background: #0d6efd !important;
+            color: #ffffff !important;
+            border-color: #0d6efd !important;
+            box-shadow: 0 2px 6px rgba(13, 110, 253, 0.35) !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled),
+        .dataTables_wrapper .dataTables_paginate .page-item:not(.active) .page-link:hover {
+            background: #e2e8f0 !important;
+            color: #0d6efd !important;
+            border-color: #94a3b8 !important;
+        }
+
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover,
+        .dataTables_wrapper .dataTables_paginate .page-item.disabled .page-link {
+            opacity: 0.5 !important;
+            cursor: not-allowed !important;
+            background: #f8fafc !important;
+            color: #94a3b8 !important;
+        }
+
+        .dataTables_wrapper .dataTables_info {
+            text-align: center !important;
+            float: none !important;
+            margin: 0.25rem auto !important;
+            font-size: 0.9rem !important;
+            color: #64748b !important;
+        }
+
+        /* ASP.NET GridView Pager Center Alignment */
+        .GridPager,
+        .GridPager td,
+        tr.GridPager,
+        tr.GridPager td,
+        #GvWod tr.GridPager,
+        #GvWod tr.GridPager td,
+        #GvWod tr:last-child td[colspan] {
+            text-align: center !important;
+            vertical-align: middle !important;
+            padding: 0.85rem 0.5rem !important;
+            background-color: #f8fafc !important;
+        }
+
+        .GridPager table,
+        #GvWod tr.GridPager table,
+        #GvWod td[colspan] > table {
+            margin-left: auto !important;
+            margin-right: auto !important;
+            text-align: center !important;
+            display: inline-table !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">

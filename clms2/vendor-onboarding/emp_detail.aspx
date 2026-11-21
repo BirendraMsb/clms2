@@ -843,9 +843,6 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-                                <br />
-                                <br />
-                                <br />
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
                                         <span>Employee Detail</span>
@@ -854,11 +851,11 @@
                                     <div class="card-body">
                                         <div>
 
-                                            <div class="table-responsive" style="overflow: scroll; width: 60%">
+                                            <div class="table-responsive w-100" style="overflow-x: auto; width: 100%;">
                                                 <%--========================================================================================--%>
 
                                                 <asp:GridView ID="GvEmp" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3"
-                                                    GridLines="Vertical" AllowPaging="true" PageSize="5" DataKeyNames="id" Class="table table-bordered " ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowDataBound="GvEmp_RowDataBound" OnSelectedIndexChanged="GvEmp_SelectedIndexChanged">
+                                                    GridLines="Vertical" AllowPaging="true" PageSize="10" DataKeyNames="id" Class="table table-bordered " ShowHeaderWhenEmpty="true" OnPageIndexChanging="GvEmp_PageIndexChanging" OnRowDataBound="GvEmp_RowDataBound" OnSelectedIndexChanged="GvEmp_SelectedIndexChanged">
                                                     <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
                                                     <Columns>
                                                         <asp:TemplateField HeaderText="Sl. No">
@@ -934,7 +931,8 @@
                                                     <AlternatingRowStyle BackColor="#FFFFFF" />
                                                     <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
                                                     <HeaderStyle CssClass="myheader" BackColor="#eeeeee" Height="30px" Font-Bold="True" ForeColor="White" />
-                                                    <PagerStyle CssClass="GridPager" BackColor="#999999" ForeColor="#0033CC" HorizontalAlign="Center" BorderColor="#FF9900" Font-Bold="True" Font-Size="X-Large" />
+                                                    <PagerSettings Mode="NumericFirstLast" PageButtonCount="10" FirstPageText="&laquo; First" LastPageText="Last &raquo;" NextPageText="Next &rsaquo;" PreviousPageText="&lsaquo; Prev" Position="Bottom" />
+                                                    <PagerStyle CssClass="GridPager" HorizontalAlign="Center" />
                                                     <RowStyle BackColor="#FFFFFF" ForeColor="Black" />
                                                     <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="Black" />
                                                     <SortedAscendingCellStyle BackColor="#F1F1F1" />
@@ -1005,11 +1003,7 @@
                 });
             });
         </script>
-        <script type="text/jscript">
-            $(window).on("load", function () {
-                $('#GvWod').DataTable({ responsive: true });
-            });
-        </script>
+        
 
         <!--Image zooming jquery fucntion for any html image element -->
         <script type="text/javascript">

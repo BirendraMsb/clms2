@@ -370,6 +370,65 @@
                 display: none !important;
             }
         }
+
+        /* Ensure work order grid is 100% fully visible without clipping or displacement */
+        .page-wrapper {
+            margin-top: 110px !important;
+        }
+
+        .page-wrapper .card,
+        .page-content-tab .card {
+            overflow: visible !important;
+            border-radius: 8px !important;
+            border: 1px solid #e2e8f0 !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+        }
+
+        .page-wrapper .card-body {
+            overflow: visible !important;
+            padding: 1.25rem !important;
+        }
+
+        .page-wrapper .row,
+        .dataTables_wrapper .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .page-wrapper .row > *,
+        .page-content-tab .row > *,
+        .dataTables_wrapper .row > *,
+        .dataTables_wrapper .row > [class*="col-"] {
+            position: static !important;
+            top: 0 !important;
+            left: 0 !important;
+            overflow: visible !important;
+        }
+
+        .dataTables_wrapper {
+            width: 100% !important;
+            overflow: visible !important;
+        }
+
+        .table-responsive {
+            overflow-x: auto !important;
+            overflow-y: visible !important;
+            width: 100% !important;
+            padding-bottom: 8px !important;
+        }
+
+        #GvWod,
+        table.dataTable {
+            width: 100% !important;
+            margin-top: 0.5rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        #GvWod th,
+        #GvWod td {
+            white-space: nowrap !important;
+            vertical-align: middle !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">

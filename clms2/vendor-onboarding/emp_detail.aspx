@@ -371,6 +371,154 @@
                 display: none !important;
             }
         }
+
+        /* Ensure employee grid is 100% fully visible without clipping or blowout */
+        .page-wrapper {
+            margin-top: 110px !important;
+        }
+
+        .page-wrapper .card,
+        .page-content-tab .card {
+            overflow: visible !important;
+            border-radius: 8px !important;
+            border: 1px solid #e2e8f0 !important;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+
+        .page-wrapper .card-body {
+            overflow: visible !important;
+            padding: 1.25rem !important;
+            width: 100% !important;
+        }
+
+        .page-wrapper .row {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
+
+        .page-wrapper .row > *,
+        .page-content-tab .row > * {
+            position: static !important;
+            top: 0 !important;
+            left: 0 !important;
+            overflow: visible !important;
+        }
+
+        .table-responsive {
+            overflow-x: auto !important;
+            overflow-y: visible !important;
+            width: 100% !important;
+            padding-bottom: 8px !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+
+        #GvEmp {
+            width: 100% !important;
+            margin-top: 0.5rem !important;
+            margin-bottom: 0.5rem !important;
+            white-space: nowrap !important;
+        }
+
+        #GvEmp th,
+        #GvEmp td {
+            white-space: nowrap !important;
+            vertical-align: middle !important;
+            padding: 0.6rem 0.75rem !important;
+        }
+
+        #GvEmp th {
+            background-color: #343a40 !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+            font-size: 0.88rem !important;
+            border-color: #454d55 !important;
+        }
+
+        /* Page Navigation Bar inside the GridView (GridPager) */
+        .GridPager,
+        .GridPager td,
+        tr.GridPager,
+        tr.GridPager td,
+        #GvEmp tr.GridPager,
+        #GvEmp tr.GridPager td,
+        #GvEmp tr:last-child td[colspan] {
+            text-align: center !important;
+            vertical-align: middle !important;
+            padding: 1rem 0.5rem !important;
+            background-color: #f8fafc !important;
+            border-top: 2px solid #e2e8f0 !important;
+            border-bottom: none !important;
+            border-left: none !important;
+            border-right: none !important;
+        }
+
+        .GridPager table,
+        #GvEmp tr.GridPager table,
+        #GvEmp td[colspan] > table {
+            position: relative !important;
+            display: inline-table !important;
+            margin: 0 auto !important;
+            border-collapse: separate !important;
+            border-spacing: 6px 2px !important;
+            border: none !important;
+            background: transparent !important;
+            text-align: center !important;
+        }
+
+        .GridPager table td,
+        #GvEmp tr.GridPager table td {
+            padding: 0 3px !important;
+            border: none !important;
+            background: transparent !important;
+            vertical-align: middle !important;
+        }
+
+        /* Page Navigation Buttons: « First, ‹ Prev, 1, 2, ..., Next ›, Last » */
+        .GridPager table td a,
+        .GridPager table td span,
+        #GvEmp tr.GridPager table td a,
+        #GvEmp tr.GridPager table td span {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 38px !important;
+            height: 38px !important;
+            padding: 0.35rem 0.85rem !important;
+            border-radius: 6px !important;
+            border: 1px solid #cbd5e1 !important;
+            background-color: #ffffff !important;
+            color: #0f172a !important;
+            text-decoration: none !important;
+            font-weight: 700 !important;
+            font-size: 0.95rem !important;
+            transition: all 0.2s ease !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06) !important;
+            cursor: pointer !important;
+        }
+
+        /* Active / Current Page Number Pill */
+        .GridPager table td span,
+        #GvEmp tr.GridPager table td span {
+            background: linear-gradient(135deg, #0d6efd 0%, #0284c7 100%) !important;
+            color: #ffffff !important;
+            border-color: #0d6efd !important;
+            font-weight: 800 !important;
+            box-shadow: 0 4px 10px rgba(13, 110, 253, 0.35) !important;
+            transform: scale(1.05) !important;
+            cursor: default !important;
+        }
+
+        /* Inactive Page Numbers on Hover */
+        .GridPager table td a:hover,
+        #GvEmp tr.GridPager table td a:hover {
+            background-color: #e0f2fe !important;
+            color: #0284c7 !important;
+            border-color: #38bdf8 !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+        }
     </style>
 </head>
 <body data-layout="horizontal" class="dark-topbar">

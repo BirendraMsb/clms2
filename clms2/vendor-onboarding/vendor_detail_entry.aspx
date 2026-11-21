@@ -959,11 +959,6 @@
                                                 <span><strong>Note:</strong> UAN/ESI downloads are mandatory for companies not having UAN/ESIC registration.</span>
                                             </div>
                                         </div>
-
-                                        <!-- SECTION 1: WORK ORDER & VENDOR INFORMATION -->
-                                        <div class="form-section-header mt-2">
-                                            <i class="fa fa-file-contract text-primary"></i> Work Order & Vendor Information
-                                        </div>
                                         <div class="row form-two-column-row">
                                             <!-- Work Order -->
                                             <div class="col-md-6 col-12 mb-3">
@@ -1091,11 +1086,6 @@
                                                 <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Pls Enter Valid Date" ControlToValidate="txtValidTo" ValidationExpression="^(?:[012]?[0-9]|3[01])[./-](?:0?[1-9]|1[0-2])[./-](?:[0-9]{2}){1,2}$" ForeColor="#dc3545" Display="Dynamic" CssClass="text-danger small mt-1 d-block"></asp:RegularExpressionValidator>
                                             </div>
                                         </div>
-
-                                        <!-- SECTION 2: WORKER DEPLOYMENT & STRENGTH -->
-                                        <div class="form-section-header mt-4">
-                                            <i class="fa fa-users text-primary"></i> Worker Deployment & Authorization
-                                        </div>
                                         <div class="row form-two-column-row">
                                             <!-- UN-Skilled -->
                                             <div class="col-md-6 col-12 mb-3">
@@ -1171,11 +1161,6 @@
                                                     </ContentTemplate>
                                                 </asp:UpdatePanel>
                                             </div>
-                                        </div>
-
-                                        <!-- SECTION 3: STATUTORY & REGISTRATION DOCUMENTS -->
-                                        <div class="form-section-header mt-4">
-                                            <i class="fa fa-shield-alt text-primary"></i> Statutory Details & Documents
                                         </div>
                                         <div class="row form-two-column-row">
                                             <!-- Vendor Photo -->
@@ -1280,11 +1265,6 @@
                                                 </div>
                                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator15" runat="server" ControlToValidate="txtGSTNo" ErrorMessage="* Pls Enter GST Number" ForeColor="#dc3545" Display="Dynamic" CssClass="text-danger small mt-1 d-block"></asp:RequiredFieldValidator>
                                             </div>
-                                        </div>
-
-                                        <!-- SECTION 4: SUB VENDOR DETAILS -->
-                                        <div class="form-section-header mt-4">
-                                            <i class="fa fa-sitemap text-primary"></i> Sub Vendor Information
                                         </div>
 
                                         <!-- Sub Vendor Applicability -->

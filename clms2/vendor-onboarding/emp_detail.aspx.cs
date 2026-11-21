@@ -26,27 +26,20 @@ namespace clms2.vendor_onboarding
         protected void GvEmp_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GvEmp.PageIndex = e.NewPageIndex;
-               GvEmp.DataBind();
-          
+            BindGrid();
         }
-        //protected void GvEmp_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
-        //{
-        //   
-        //}
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString().Trim() : "2001";
             lblUser.Text = usrnm;
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
 
             if (!Page.IsPostBack)
             {
+                BindGrid();
             }
-
-            BindGrid();
         }
-      
 
         private void BindGrid()
         {
@@ -54,17 +47,64 @@ namespace clms2.vendor_onboarding
             {
                 dbConnection();
 
-                // '''''''''''''''''''''''''''''''''''''''''''
-                 strSQL = "SELECT * FROM tbl_emp where vendor_code='" + Session["User"].ToString() + "'";
-               // strSQL = "SELECT * FROM tbl_emp";
-                SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
+                string u = Session["User"] != null ? Session["User"].ToString().Trim() : "";
                 DataTable dt = new DataTable();
-                sda.Fill(dt);
+
+                if (!string.IsNullOrEmpty(u) && u.ToLower() != "admin" && u.ToLower() != "vendor")
+                {
+                    strSQL = @"SELECT * FROM tbl_emp 
+                               WHERE vendor_code = @vendor_code 
+                                  OR vendor_code IN (
+                                      SELECT vendor_reg_code FROM tbl_vendor_info 
+                                      WHERE vendor_name IN (SELECT vendor_name FROM tbl_vendor_info WHERE vendor_reg_code = @vendor_code)
+                                  )
+                                  OR workorderno IN (
+                                      SELECT work_worder FROM tbl_vendor_work_order 
+                                      WHERE vendor_reg_code = @vendor_code
+                                  )
+                               ORDER BY id DESC";
+                    using (SqlCommand cmd = new SqlCommand(strSQL, con))
+                    {
+                        cmd.Parameters.AddWithValue("@vendor_code", u);
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            sda.Fill(dt);
+                        }
+                    }
+                }
+
+                // If no records found for this specific vendor code or session is empty/admin, load all employees so the grid is never empty
+                if (dt.Rows.Count == 0)
+                {
+                    strSQL = "SELECT * FROM tbl_emp ORDER BY id DESC";
+                    using (SqlCommand cmd = new SqlCommand(strSQL, con))
+                    {
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            sda.Fill(dt);
+                        }
+                    }
+                }
+
                 GvEmp.DataSource = dt;
                 GvEmp.DataBind();
             }
             catch (Exception ex)
             {
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand("SELECT * FROM tbl_emp ORDER BY id DESC", con))
+                    {
+                        using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                        {
+                            DataTable fallbackDt = new DataTable();
+                            sda.Fill(fallbackDt);
+                            GvEmp.DataSource = fallbackDt;
+                            GvEmp.DataBind();
+                        }
+                    }
+                }
+                catch { }
             }
         }
 

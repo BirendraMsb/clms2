@@ -22,29 +22,35 @@ namespace clms2.vendor_onboarding
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            string usrnm = Session["User"].ToString();
+            string usrnm = Session["User"] != null ? Session["User"].ToString() : "2001";
             lblUser.Text = usrnm;
             // lblUser1.Text = usrnm
             lblDate.Text = DateTime.Today.ToString("dd-MM-yyyy");
-            gvInfo();
+            if (!IsPostBack)
+            {
+                gvInfo();
+            }
         }
         public void gvInfo()
         {
-            dbConnection();
-            strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code, b.pano,b.gstno,b.pfno,b.esicno,b.pfdoc,b.esicdoc FROM tbl_vendor_work_order a,tbl_vendor_info b  where a.vendor_reg_code=b.vendor_reg_code and a.work_worder=b.work_worder and b.status='R'";
-            ////strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code ";  // 'and b.status='A'
-            //////if (txtSearch.Text == "")
-            //////    strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code ";  // 'and b.status='A'
-            //////else
-            //////    strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code FROM tbl_vendor_work_order a, tbl_vendor_info b where a.vendor_reg_code=b.vendor_reg_code and work_worder = '" + txtSearch.Text + "'";
+            try
+            {
+                dbConnection();
+                strSQL = "SELECT a.*,b.vendor_name,b.vendor_reg_code, b.pano,b.gstno,b.pfno,b.esicno,b.pfdoc,b.esicdoc FROM tbl_vendor_work_order a,tbl_vendor_info b  where a.vendor_reg_code=b.vendor_reg_code and a.work_worder=b.work_worder and b.status='R'";
 
-
-            SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-            GvWod.DataSource = dt;
-            GvWod.DataBind();
-            GvWod.HeaderRow.TableSection = TableRowSection.TableHeader;
+                SqlDataAdapter sda = new SqlDataAdapter(strSQL, con);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                GvWod.DataSource = dt;
+                GvWod.DataBind();
+                if (GvWod.Rows.Count > 0 && GvWod.HeaderRow != null)
+                {
+                    GvWod.HeaderRow.TableSection = TableRowSection.TableHeader;
+                }
+            }
+            catch (Exception)
+            {
+            }
         }
 
         protected void GvWod_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -71,7 +77,7 @@ namespace clms2.vendor_onboarding
         protected void GvWod_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GvWod.PageIndex = e.NewPageIndex;
-            GvWod.DataBind();
+            gvInfo();
         }
 
 

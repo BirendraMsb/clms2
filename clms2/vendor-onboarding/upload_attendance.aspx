@@ -405,8 +405,9 @@
             width: 100% !important;
             margin-left: 0 !important;
             min-height: auto !important;
-            padding: 20px 24px 80px 24px !important;
-            margin-top: 60px !important;
+            padding: 0 24px 80px 24px !important;
+            margin-top: 70px !important;
+            padding-top: 50px !important; /* 50px space below the menu bar */
         }
 
         /* Strict override for rogue layout shift rules from app.min.css (.row>*{top:130px;left:104px}) */
@@ -420,6 +421,7 @@
 
         /* Card Entry Design */
         .card-entry {
+            margin-top: 0 !important;
             background: #ffffff;
             border-radius: 1rem !important;
             border: 1px solid #e2e8f0 !important;
@@ -503,7 +505,7 @@
 
         @media (max-width: 991.98px) {
             .page-wrapper .page-content-tab {
-                padding: 15px 12px 60px 12px !important;
+                padding: 50px 12px 60px 12px !important;
                 margin-top: 70px !important;
             }
             .card-entry-header {
@@ -837,7 +839,7 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-                                <div class="card card-entry my-4">
+                                <div class="card card-entry mb-4">
                                     <div class="card-entry-header d-flex justify-content-between align-items-center">
                                         <div class="d-flex align-items-center gap-3">
                                             <div class="header-icon-box bg-white bg-opacity-10 text-white rounded-3 p-2 d-flex align-items-center justify-content-center" style="width: 44px; height: 44px;">

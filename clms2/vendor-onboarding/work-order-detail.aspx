@@ -753,10 +753,6 @@
                     <div class="page-wrapper">
                         <div class="page-content-tab">
                             <div class="container-fluid">
-
-                                <br />
-                                <br />
-                                <br />
                                 <div class="card shadow border">
                                     <div class="card-heading bg-dark text-white p-2 d-flex justify-content-between">
                                         <span>Work Order Detail</span>
@@ -864,7 +860,13 @@
         </script>
         <script type="text/jscript">
             $(window).on("load", function () {
-                $('#GvWod').DataTable({ responsive: true });
+                $('#GvWod').DataTable({
+                    responsive: false,
+                    scrollX: true,
+                    autoWidth: false,
+                    pageLength: 10,
+                    lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]]
+                });
             });
         </script>
 <script type="text/javascript">
